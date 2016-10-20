@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Traffic Stats Administration &mdash; Traffic Control 1.5 documentation </title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Traffic Control 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="index.html"/>
+        <link rel="next" title="Traffic Server Administration" href="traffic_server.html"/>
+        <link rel="prev" title="Traffic Router Administration" href="traffic_router.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="/" class="icon icon-home"> Traffic Control
+        
+
+        
+          
+          <img src="../_static/tc_logo.png" class="logo" />
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">CDN Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/content_delivery_networks.html">Content Delivery Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/http_11.html">HTTP 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/caching_proxies.html">Caching Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/cache_revalidation.html">Cache Control Headers and Revalidation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Traffic Control Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_ops.html">Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_router.html">Traffic Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_stats.html">Traffic Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_portal.html">Traffic Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_server.html">Traffic Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_vault.html">Traffic Vault</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Stats Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_vault.html">Traffic Vault Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_howto/index.html">Quick How To Guides</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq/general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq/development.html">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq/administration.html">Running a Traffic Control CDN</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Traffic Control</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Traffic Control 1.5</a> &raquo;</li>
+      
+          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Traffic Stats Administration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/admin/traffic_stats.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+ 		  
+    		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      		  
+        		  <a href="traffic_server.html" class="btn btn-neutral float-right" title="Traffic Server Administration">Next <span class="fa fa-arrow-circle-right"></span></a>
+      		  
+      		  
+        		  <a href="traffic_router.html" class="btn btn-neutral" title="Traffic Router Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      		  
+    		  </div>
+  		  
+          <div role="main" class="document">
+            
+  <div class="section" id="traffic-stats-administration">
+<h1>Traffic Stats Administration<a class="headerlink" href="#traffic-stats-administration" title="Permalink to this headline">¶</a></h1>
+<p>Traffic Stats actually consists of three seperate components:  Traffic Stats, InfluxDB, and Grafana.  See below for information on installing and configuring each component as well as configuring the integration between the three and Traffic Ops.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Installing Traffic Stats:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Download the Traffic Stats RPM from the traffic control <a class="reference external" href="http://traffic-control-cdn.net/downloads/index.html">downloads</a> page.</li>
+<li>Copy the Traffic Stats RPM to your server</li>
+<li>sudo rpm -ivh &lt;traffic_stats rpm&gt;</li>
+</ul>
+</div></blockquote>
+<p><strong>Installing InfluxDB:</strong></p>
+<blockquote>
+<div><p><strong>As of Traffic Stats 1.4.0, InfluxDb 0.9.6 or higher is required.  For InfluxDb versions less than 0.9.6 use Traffic Stats 1.3.0</strong></p>
+<p>In order to store traffic stats data you will need to install InfluxDB.  It is recommended InfluxDB be installed in a 3 server cluster; VMs are acceptable. The documentation for installing InfluxDB can be found on the InfluxDB <a class="reference external" href="https://docs.influxdata.com/influxdb/latest/introduction/installation/">website</a>.</p>
+</div></blockquote>
+<p><strong>Installing Grafana:</strong></p>
+<blockquote>
+<div>Grafana is used to display Traffic Stats/InfluxDB data in Traffic Ops.  Grafana is typically run on the same server as Traffic Stats but this is not a requirement.  Grafana can be installed on any server that can access InfluxDB and be accessed by Traffic Ops.  Documentation on installing Grafana can be found <a class="reference external" href="http://docs.grafana.org/installation/">here</a>.</div></blockquote>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p><strong>Configuring Traffic Stats:</strong></p>
+<blockquote>
+<div><p>Traffic Stats&#8217; configuration file can be found in /opt/traffic_stats/conf/traffic_stats.cfg.
+The following values need to be configured:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>toUser:</em> The user used to connect to Traffic Ops</li>
+<li><em>toPasswd:</em>  The password to use when connecting to Traffic Ops</li>
+<li><em>toUrl:</em>  The URL of the Traffic Ops server used by Traffic Stats</li>
+<li><em>influxUser:</em>  The user to use when connecting to InfluxDB (if configured on InfluxDB, else leave default)</li>
+<li><em>influxPassword:</em>  That password to use when connecting to InfluxDB (if configured, else leave blank)</li>
+<li><em>polling interval:</em>  The interval at which Traffic Monitor is polled and stats are stored in InfluxDB</li>
+<li><em>statusToMon:</em>  The status of Traffic Monitor to poll (poll ONLINE or OFFLINE traffic monitors)</li>
+<li><em>seelogConfig:</em>  The absolute path of the seelong config file</li>
+<li><em>dailySummaryPollingInterval:</em> The interval, in seconds, at which Traffic Stats checks to see if daily stats need to be computed and stored.</li>
+<li><em>cacheRetentionPolicy:</em> The default retention policy for cache stats</li>
+<li><em>dsRetentionPolicy:</em> The default retention policy for deliveryservice stats</li>
+<li><em>dailySummaryRetentionPolicy:</em> The retention policy to be used for the daily stats</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Configuring InfluxDB:</strong></p>
+<blockquote>
+<div><p>It is HIGHLY recommended that InfluxDB be configured for clustering.  Documentation on clustering configuration can be found on the clustering page of the <a class="reference external" href="https://docs.influxdata.com/influxdb/latest/clustering/">InfluxDB Website</a>.</p>
+<p>Once InfluxDB is installed and clustering is configured, Databases and Retention Policies need to be created.  Traffic Stats writes to three different databases: cache_stats, deliveryservice_stats, and daily_stats.  More information about the databases and what data is stored in each can be found on the <a class="reference external" href="../overview/traffic_stats.html">overview</a> page.</p>
+<p>To easily create databases, retention policies, and continuous queries, run create_ts_databases.go from the influxdb_tools directory.  See the <a class="reference external" href="traffic_stats.html#influxdb-tools">InfluxDb Tools</a> section below for more information.</p>
+</div></blockquote>
+<p><strong>Configuring Grafana:</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p>In Traffic Ops the Health -&gt; Graph View tab can be configured to display grafana graphs using influxDb data.  In order for this to work correctly, you will need two things 1) a parameter added to traffic ops with the graph URL (we will discuss later) and 2) the graphs created in grafana.  See below for how to create some simple graphs in grafana.  These instructions assume that InfluxDB has been installed and conifugred and that data has been written to it.  If this is not true, you will not see any graphs.</p>
+<ul>
+<li><p class="first">Login to grafana as an admin user <a class="reference external" href="http://grafana_url:3000/login">http://grafana_url:3000/login</a></p>
+</li>
+<li><p class="first">Choose Data Sources and then Add New</p>
+</li>
+<li><p class="first">Name your data source (we name our data sources to match the database name, cache_stats and delivery_service stats)</p>
+</li>
+<li><p class="first">Change the type to InfluxDB 0.9.x</p>
+</li>
+<li><p class="first">For URL use <a class="reference external" href="https://grafana_url">https://grafana_url</a> (see below on setting up the httpd proxy)</p>
+</li>
+<li><p class="first">For Access choose &#8216;direct&#8217;</p>
+</li>
+<li><p class="first">Under the InfluxDB Details section enter the name of your database and enter a username and password for InfluxDB if you created one. If you did not create a username and password for influxdb just enter anything.</p>
+</li>
+<li><p class="first">Click the &#8216;Add&#8217; button to save the Data Source</p>
+</li>
+<li><p class="first">Click on the &#8216;Home&#8217; dropdown at the top of the screen and choose New at the bottom</p>
+</li>
+<li><p class="first">Click on the green menu bar (with 3 lines) at the top and choose Add Panel -&gt; Graph</p>
+</li>
+<li><p class="first">Where it says &#8216;No Title (click here)&#8217; click and choose edit</p>
+</li>
+<li><p class="first">Choose your data source at the bottom</p>
+</li>
+<li><p class="first">You can have grafana help you create a query, or you can create your own.  Here is a sample query:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">sum(value)*1000</span> <span class="pre">FROM</span> <span class="pre">&quot;monthly&quot;.&quot;bandwidth.cdn.1min&quot;</span> <span class="pre">WHERE</span> <span class="pre">$timeFilter</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">time(60s),</span> <span class="pre">cdn</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first">Once you have the graph the way you want it, click the &#8216;Save Dashboard&#8217; button at the top</p>
+</li>
+<li><p class="first">You should now have a new saved graph</p>
+</li>
+</ul>
+</div></blockquote>
+<p>In order for Traffic Ops users to see Grafana graphs, Grafana will need to allow anonymous access.  Information on how to configure anonymous access can be found on the configuration page of the <a class="reference external" href="http://docs.grafana.org/installation/configuration/#authanonymous">Grafana Website</a>.</p>
+<p>Traffic Ops uses custom dashboards to display information about individual delivery services or cache groups.  In order for the custom graphs to display correctly, the <a class="reference external" href="https://github.com/Comcast/traffic_control/blob/master/traffic_stats/grafana/">traffic_ops_*.js</a> files need to be in the <code class="docutils literal"><span class="pre">/usr/share/grafana/public/dashboards/</span></code> directory on the grafana server.  If your Grafana server is the same as your Traffic Stats server the RPM install process will take care of putting the files in place.  If your grafana server is different from your Traffic Stats server, you will need to manually copy the files to the correct directory.</p>
+<p>More information on custom scripted graphs can be found in the <a class="reference external" href="http://docs.grafana.org/reference/scripting/">scripted dashboards</a> section of the Grafana documentation.</p>
+</div></blockquote>
+<p><strong>Configuring httpd proxying for SSL</strong></p>
+<blockquote>
+<div><p>Currently InfluxDB does not support HTTPS for queries (should be implemented very soon).  Since Traffic Ops is HTTPS, we need to be able to make HTTPS requests to grafana and influxdb.  We can accomplish the need to use HTTPS by installing httpd with the mod_ssl plugin and then configuring proxying of grafana and influxdb HTTPS calls to HTTP. Below are the steps for setting up the HTTPS to HTTP proxy.  This should be performed on the same server that is running grafana. This is also useful if you are running InfluxDB with Private IP addresses.</p>
+<ol class="arabic simple">
+<li>Download and install httpd  <a class="reference external" href="http://httpd.apache.org/download.cgi">from here</a></li>
+<li>Create SSL certs</li>
+<li>Install and configure mod_ssl per <a class="reference external" href="http://dev.antoinesolutions.com/apache-server/mod_ssl">this link</a></li>
+<li>Create a file called grafana_proxy.conf in the /etc/httpd/conf.d directory</li>
+<li>Add the following information to grafana_proxy.conf:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>ProxyPass /dashboard http://localhost:3000/dashboard
+ProxyPass /dashboard-solo http://localhost:3000/dashboard-solo
+ProxyPass /css http://localhost:3000/css
+ProxyPass /app http://localhost:3000/app
+ProxyPass /api http://localhost:3000/api
+ProxyPass /img http://localhost:3000/img
+ProxyPass /fonts http://localhost:3000/fonts
+ProxyPass /public http://localhost:3000/public
+ProxyPass /login http://localhost:3000/login
+ProxyPass /logout http://localhost:3000/logout
+
+# The following ProxyPassReverse doesn&#39;t work for some.
+ProxyPassReverse / http://localhost:3000/
+
+&lt;Proxy balancer://influxDb&gt;
+BalancerMember http://&lt;influxDb1&gt;:8086
+BalancerMember http://&lt;influxDb2&gt;:8086
+BalancerMember http://&lt;influxDb3&gt;:8086
+&lt;/Proxy&gt;
+ProxyPass /query balancer://influxDb/query
+
+# This works better for some
+ProxyPass / http://localhost:3000/
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>Restart httpd <code class="docutils literal"><span class="pre">service</span> <span class="pre">httpd</span> <span class="pre">restart</span></code></li>
+<li>Test grafana works by connect to grafana via https <code class="docutils literal"><span class="pre">https://grafanaUrl</span></code></li>
+</ol>
+</div></blockquote>
+<p><strong>Configuring Traffic Ops for Traffic Stats:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>The influxDb servers need to be added to Traffic Ops with profile = InfluxDB.  Make sure to use port 8086 in the configuration.</li>
+<li>The traffic stats server should be added to Traffic Ops with profile = Traffic Stats.</li>
+<li>Parameters for which stats will be collected are added with the release, but any changes can be made via parameters that are assigned to the Traffic Stats profile.</li>
+</ul>
+</div></blockquote>
+<p><strong>Configuring Traffic Ops to use Grafana Dashboards</strong></p>
+<blockquote>
+<div><p>To configure Traffic Ops to use Grafana Dashboards, you need to enter the following parameters and assign them to the GLOBAL profile.  This assumes you followed the above instructions to install and configure InfluxDB and Grafana.  You will need to place &#8216;cdn-stats&#8217;,&#8217;deliveryservice-stats&#8217;, and &#8216;daily-summary&#8217; with the name of your dashboards.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">parameter name</th>
+<th class="head">parameter value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>all_graph_url</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafana_url&gt;/dashboard/db/deliveryservice-stats</td>
+</tr>
+<tr class="row-odd"><td>cachegroup_graph_url</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafanaHost&gt;/dashboard/script/traffic_ops_cachegroup.js?which=</td>
+</tr>
+<tr class="row-even"><td>deliveryservice_graph_url</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafanaHost&gt;/dashboard/script/traffic_ops_devliveryservice.js?which=</td>
+</tr>
+<tr class="row-odd"><td>server_graph_url</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafanaHost&gt;/dashboard/script/traffic_ops_server.js?which=</td>
+</tr>
+<tr class="row-even"><td>visual_status_panel_1</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafanaHost&gt;/dashboard-solo/db/cdn-stats?panelId=2&amp;fullscreen&amp;from=now-24h&amp;to=now-60s</td>
+</tr>
+<tr class="row-odd"><td>visual_status_panel_2</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafanaHost&gt;/dashboard-solo/db/cdn-stats?panelId=1&amp;fullscreen&amp;from=now-24h&amp;to=now-60s</td>
+</tr>
+<tr class="row-even"><td>daily_bw_url</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafanaHost&gt;/dashboard-solo/db/daily-summary?panelId=1&amp;fullscreen&amp;from=now-3y&amp;to=now</td>
+</tr>
+<tr class="row-odd"><td>daily_served_url</td>
+<td><a class="reference external" href="https:/">https:/</a>/&lt;grafanaHost&gt;/dashboard-solo/db/daily-summary?panelId=2&amp;fullscreen&amp;from=now-3y&amp;to=now</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>InfluxDb Tools<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Under the Traffic Stats source directory there is a directory called influxdb_tools.  These tools are meant to be used as one-off scripts to help a user quickly get new databases and continuous queries setup in influxdb.
+They are specific for traffic stats and are not meant to be generic to influxdb.  Below is an brief description of each script along with how to use it.</p>
+<dl class="docutils">
+<dt><strong>create_ts_databases</strong></dt>
+<dd><p class="first">This script creates all <a class="reference external" href="https://docs.influxdata.com/influxdb/latest/concepts/key_concepts/#database">databases</a>, <a class="reference external" href="https://docs.influxdata.com/influxdb/latest/concepts/key_concepts/#retention-policy">retention policies</a>, and <a class="reference external" href="https://docs.influxdata.com/influxdb/v0.11/query_language/continuous_queries/">continuous queries</a> required by traffic stats.</p>
+<p><strong>How to use create_ts_databases:</strong></p>
+<p>Pre-Requisites:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Go 1.4 or later</li>
+<li>configured $GOPATH (e.g. export GOPATH=~/go)</li>
+</ol>
+</div></blockquote>
+<p>Using create_ts_databases.go</p>
+<blockquote class="last">
+<div><ol class="arabic">
+<li><p class="first">go get github.com/influxdata/influxdb</p>
+</li>
+<li><p class="first">go build create_ts_databases.go</p>
+</li>
+<li><dl class="first docutils">
+<dt>Run it:</dt>
+<dd><ul class="first last">
+<li><p class="first">./create_ts_databases -help</p>
+</li>
+<li><dl class="first docutils">
+<dt>optional flags:</dt>
+<dd><ul class="first last simple">
+<li>influxUrl -  The influxdb url and port</li>
+<li>replication -  The number of nodes in the cluster</li>
+<li>user - The user to use</li>
+<li>password - The password to use</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">example: ./create_ts_databases -influxUrl=localhost:8086 -replication=3 -user=joe -password=mysecret</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</dd>
+<dt><strong>sync_ts_databases</strong></dt>
+<dd><p class="first">This script is used to sync one influxdb environment to another.  Only data from continuous queries is synced as it is downsampled data and much smaller in size than syncing raw data.  Possible use cases are syncing from Production to Development or Syncing a new cluster once brought online.</p>
+<p><strong>How to use sync_ts_databases:</strong></p>
+<p>Pre-Requisites:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Go 1.4 or later</li>
+<li>configured $GOPATH (e.g. export GOPATH=~/go)</li>
+</ol>
+</div></blockquote>
+<p>Using sync_ts_databases.go:</p>
+<blockquote class="last">
+<div><ol class="arabic">
+<li><p class="first">go get github.com/influxdata/influxdb</p>
+</li>
+<li><p class="first">go build sync_ts_databases.go</p>
+</li>
+<li><dl class="first docutils">
+<dt>Run it</dt>
+<dd><ul class="first">
+<li><p class="first">./sync_ts_databases -help</p>
+</li>
+<li><dl class="first docutils">
+<dt>required flags:</dt>
+<dd><ul class="first last simple">
+<li>sourceUrl - The URL of the source database</li>
+<li>targetUrl - The URL of the target database</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="docutils">
+<dt>-optional flags:</dt>
+<dd><ul class="first last simple">
+<li>database - The database to sync (default = sync all databases)</li>
+<li>days - Days in the past to sync (default = sync all data)</li>
+<li>sourceUser - The user of the source database</li>
+<li>sourcePass - The password for the source database</li>
+<li>targetUser - The user of the target database</li>
+<li>targetPass - The password for the target database</li>
+</ul>
+</dd>
+</dl>
+<ul class="last simple">
+<li>example: ./sync_ts_databases -sourceUrl=http://influxdb-production-01.kabletown.net:8086 -targetUrl=http://influxdb-dev-01.kabletown.net:8086 -database=cache_stats -days=7 -sourceUser=joe sourcePass=mysecret</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="traffic_server.html" class="btn btn-neutral float-right" title="Traffic Server Administration">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="traffic_router.html" class="btn btn-neutral" title="Traffic Router Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
