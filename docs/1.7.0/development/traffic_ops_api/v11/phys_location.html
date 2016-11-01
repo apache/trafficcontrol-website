@@ -190,7 +190,7 @@
 <span id="to-api-v11-phys-loc"></span><h1>Physical Location<a class="headerlink" href="#physical-location" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-1-1-phys-locations">
 <span id="to-api-v11-phys-loc-route"></span><h2>/api/1.1/phys_locations<a class="headerlink" href="#api-1-1-phys-locations" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.1/phys_locations.json</strong></p>
+<p><strong>GET /api/1.1/phys_locations</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
@@ -208,31 +208,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">region</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">poc</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">comments</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">phone</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">state</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">address</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
@@ -240,15 +216,39 @@
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">zip</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">comments</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">email</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">address</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">phone</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">poc</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">region</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">regionId</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
@@ -256,40 +256,52 @@
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">state</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">zip</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;Mile High&quot;</span><span class="p">,</span>
-       <span class="s">&quot;poc&quot;</span><span class="p">:</span> <span class="s">&quot;Jane Doe&quot;</span><span class="p">,</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
-       <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;NM&quot;</span><span class="p">,</span>
-       <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
-       <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;87107&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;2&quot;</span><span class="p">,</span>
-       <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
-       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;Chicago&quot;</span><span class="p">,</span>
-       <span class="s">&quot;poc&quot;</span><span class="p">:</span> <span class="s">&quot;John Doe&quot;</span><span class="p">,</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Chicago&quot;</span><span class="p">,</span>
-       <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-       <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;(321) 555-1111&quot;</span><span class="p">,</span>
-       <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;IL&quot;</span><span class="p">,</span>
-       <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;john.doe@email.com&quot;</span><span class="p">,</span>
-       <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Chicago&quot;</span><span class="p">,</span>
-       <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;60636&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;3&quot;</span><span class="p">,</span>
-       <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;123 East 4th Street&quot;</span><span class="p">,</span>
-       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;chicago&quot;</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">}</span>
- <span class="p">],</span>
+ <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -322,19 +334,549 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Ashburn&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ashburn&quot;</span>
     <span class="p">}</span>
- <span class="p">],</span>
+ <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.1/phys_locations/:id</strong></p>
+<blockquote>
+<div><p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="15%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Physical location ID.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="10%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">address</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">city</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">comments</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">phone</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">poc</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">region</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">regionId</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">shortName</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">state</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">zip</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
+    <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt><strong>PUT /api/1.1/phys_locations/:id</strong></dt>
+<dd><p class="first">Update a physical location</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="13%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>Physical location id.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="13%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">address</span></code></td>
+<td>yes</td>
+<td>Physical location address.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">city</span></code></td>
+<td>yes</td>
+<td>Physical location city.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">comments</span></code></td>
+<td>no</td>
+<td>Physical location comments.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<td>no</td>
+<td>Physical location email.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>yes</td>
+<td>Physical location name.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">phone</span></code></td>
+<td>no</td>
+<td>Physical location phone.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">poc</span></code></td>
+<td>no</td>
+<td>Physical location point of contact.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">regionId</span></code></td>
+<td>no</td>
+<td>Physical location region ID.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">shortName</span></code></td>
+<td>yes</td>
+<td>Physical location short name.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">state</span></code></td>
+<td>yes</td>
+<td>Physical location state.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">zip</span></code></td>
+<td>yes</td>
+<td>Physical location zip.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;regionId&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doesssss&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 9rd St&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="10%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">address</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">city</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">comments</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">phone</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">poc</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">region</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">regionId</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">shortName</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">state</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">zip</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Physical location update was successful.&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
+    <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt><strong>POST /api/1.1/regions/:region_name/phys_locations</strong></dt>
+<dd><p class="first">Create physical location.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
+<p>region_name: the name of the region to create physical location into.</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="16%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">region_name</span></code></td>
+<td>yes</td>
+<td>The name of the physical location</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>yes</td>
+<td>The name of the location</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">shortName</span></code></td>
+<td>yes</td>
+<td>The short name of the location</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">address</span></code></td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">city</span></code></td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">state</span></code></td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">zip</span></code></td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">phone</span></code></td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">poc</span></code></td>
+<td>no</td>
+<td>Point of contact</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">comments</span></code></td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;my physical location1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;shortName&quot;</span> <span class="p">:</span> <span class="s2">&quot;myphylocation1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;city&quot;</span> <span class="p">:</span> <span class="s2">&quot;Shanghai&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;SH&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;200000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;this is physical location1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="11%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>The id of the physical location created.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>The name of the location</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">shortName</span></code></td>
+<td>string</td>
+<td>The short name of the location</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">regionName</span></code></td>
+<td>string</td>
+<td>The region name the physical location belongs to.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">regionId</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">address</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">city</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">state</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">zip</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">phone</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">poc</span></code></td>
+<td>string</td>
+<td>Point of contact</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">comments</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="s1">&#39;shortName&#39;</span><span class="p">:</span> <span class="s1">&#39;myphylocati&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;regionName&#39;</span><span class="p">:</span> <span class="s1">&#39;myregion1&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;my physical location1&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;poc&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;phone&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="s1">&#39;this is physical location1&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;SH&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;20000&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;region_id&#39;</span><span class="p">:</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Shanghai&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;200&#39;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 </div>
 

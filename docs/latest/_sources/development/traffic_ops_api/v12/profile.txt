@@ -25,11 +25,19 @@ Profiles
 /api/1.2/profiles
 +++++++++++++++++
 
-**GET /api/1.2/profiles.json**
+**GET /api/1.2/profiles**
 
 	Authentication Required: Yes
 
 	Role(s) Required: None
+
+	**Request Query Parameters**
+
+	+---------------+----------+----------------------------------------------------+
+	|    Name       | Required |                    Description                     |
+	+===============+==========+====================================================+
+	| ``param``     |   no     | Used to filter profiles by parameter.              |
+	+---------------+----------+----------------------------------------------------+
 
 	**Response Properties**
 
@@ -60,7 +68,7 @@ Profiles
 
 |
 
-**GET /api/1.2/profiles/trimmed.json**
+**GET /api/1.2/profiles/trimmed**
 
 	Authentication Required: Yes
 
@@ -85,6 +93,50 @@ Profiles
     }
 
 |
+
+**GET /api/1.2/profiles/:id**
+
+	Authentication Required: Yes
+
+	Role(s) Required: None
+
+	**Request Route Parameters**
+
+	+-----------------+------------+------------------------------------------------+
+	|    Parameter    |  Required  |                    Description                 |
+	+=================+============+================================================+
+	| ``id``          |    yes     | The ID of the profile.                         |
+	+-----------------+------------+------------------------------------------------+
+
+	**Response Properties**
+
+	+-----------------+--------+----------------------------------------------------+
+	|    Parameter    |  Type  |                    Description                     |
+	+=================+========+====================================================+
+	| ``lastUpdated`` | array  | The Time / Date this server entry was last updated |
+	+-----------------+--------+----------------------------------------------------+
+	| ``name``        | string | The name for the profile                           |
+	+-----------------+--------+----------------------------------------------------+
+	| ``id``          | string | Primary key                                        |
+	+-----------------+--------+----------------------------------------------------+
+	| ``description`` | string | The description for the profile                    |
+	+-----------------+--------+----------------------------------------------------+
+
+  **Response Example** ::
+
+    {
+     "response": [
+        {
+            "lastUpdated": "2012-10-08 19:34:45",
+            "name": "CCR_TOP",
+            "id": "8",
+            "description": "Content Router for top.foobar.net"
+        }
+     ]
+    }
+
+|
+
 
 **POST /api/1.2/profiles**
     Create a new empty  profile. 
@@ -187,3 +239,120 @@ Profiles
     }
 
 |
+
+**PUT /api/1.2/profiles/{:id}**
+
+    Allows user to edit a profile.
+
+	Authentication Required: Yes
+
+	Role(s) Required:  admin or oper
+
+	**Request Route Parameters**
+
+	+-----------------+----------+---------------------------------------------------+
+	| Name            | Required | Description                                       |
+	+=================+==========+===================================================+
+	| ``id``          | yes      | profile id.                                       |
+	+-----------------+----------+---------------------------------------------------+
+
+	**Request Properties**
+
+	+-----------------+----------+---------------------------------------------------+
+	| Parameter       | Required | Description                                       |
+	+=================+==========+===================================================+
+	| ``name``        | yes      | The new name for the profile.                     |
+	+-----------------+----------+---------------------------------------------------+
+	| ``description`` | yes      | The new description for the profile.              |
+	+-----------------+----------+---------------------------------------------------+
+
+  **Request Example** ::
+
+    {
+      "name": "CCR_UPDATE",
+      "description": "CCR_UPDATE description"
+    }
+
+ 	**Response Properties**
+
+	+------------------+--------+----------------------------------+
+	|  Parameter       |  Type  |           Description            |
+	+==================+========+==================================+
+	| ``response``     |        | The updated profile info.        |
+	+------------------+--------+----------------------------------+
+	| ``>id``          | string | Profile id.                      |
+	+------------------+--------+----------------------------------+
+	| ``>name``        | string | Profile name.                    |
+	+------------------+--------+----------------------------------+
+	| ``>description`` | string | Profile description.             |
+	+------------------+--------+----------------------------------+
+	| ``alerts``       | array  | A collection of alert messages.  |
+	+------------------+--------+----------------------------------+
+	| ``>level``       | string | success, info, warning or error. |
+	+------------------+--------+----------------------------------+
+	| ``>text``        | string | Alert message.                   |
+	+------------------+--------+----------------------------------+
+	| ``version``      | string |                                  |
+	+------------------+--------+----------------------------------+
+
+  **Response Example** ::
+
+    {
+      "response":{
+        "id": "219",
+        "name": "CCR_UPDATE",
+        "description": "CCR_UPDATE description"
+      }
+      "alerts":[
+        {
+          "level": "success",
+          "text": "Profile was updated: 219"
+        }
+      ]
+    }
+
+|
+
+**DELETE /api/1.2/profiles/{:id}**
+
+  Allows user to delete a profile.
+
+	Authentication Required: Yes
+
+	Role(s) Required:  admin or oper
+
+	**Request Route Parameters**
+
+	+-----------------+----------+----------------------------+
+	| Name            | Required | Description                |
+	+=================+==========+============================+
+	| ``id``          | yes      | profile id.                |
+	+-----------------+----------+----------------------------+
+
+ 	**Response Properties**
+
+	+-------------+--------+----------------------------------+
+	|  Parameter  |  Type  |           Description            |
+	+=============+========+==================================+
+	| ``alerts``  | array  | A collection of alert messages.  |
+	+-------------+--------+----------------------------------+
+	| ``>level``  | string | success, info, warning or error. |
+	+-------------+--------+----------------------------------+
+	| ``>text``   | string | Alert message.                   |
+	+-------------+--------+----------------------------------+
+	| ``version`` | string |                                  |
+	+-------------+--------+----------------------------------+
+
+  **Response Example** ::
+
+    {
+      "alerts": [
+        {
+          "level": "success",
+          "text": "Profile was deleted."
+        }
+      ]
+    }
+
+|
+

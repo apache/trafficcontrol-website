@@ -191,23 +191,23 @@
 <ol class="arabic simple">
 <li>Create &#8220;cachegroups&#8221; for the origin locations, and assign the appropriate parent-child relationship between the mid cg&#8217;s and org cgs (click the image to see full size):</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png"><img alt="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" class="align-center" src="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" /></a>
+<a class="reference internal image-reference" href="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png"><img alt="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" class="align-center" src="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" style="width: 1472.0px; height: 210.0px;" /></a>
 <ol class="arabic simple" start="2">
 <li>Create a profile to assign to each of the origins:</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/19BB6EC1-B6E8-4D22-BFA0-B7D6A9708B42.png"><img alt="../../_images/19BB6EC1-B6E8-4D22-BFA0-B7D6A9708B42.png" class="align-center" src="../../_images/19BB6EC1-B6E8-4D22-BFA0-B7D6A9708B42.png" /></a>
+<a class="reference internal image-reference" href="../../_images/19BB6EC1-B6E8-4D22-BFA0-B7D6A9708B42.png"><img alt="../../_images/19BB6EC1-B6E8-4D22-BFA0-B7D6A9708B42.png" class="align-center" src="../../_images/19BB6EC1-B6E8-4D22-BFA0-B7D6A9708B42.png" style="width: 1470.0px; height: 219.0px;" /></a>
 <ol class="arabic simple" start="3">
 <li>Create server entries for the origination vips:</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/D28614AA-9758-45ED-9EFD-3A284FC4218E.png"><img alt="../../_images/D28614AA-9758-45ED-9EFD-3A284FC4218E.png" class="align-center" src="../../_images/D28614AA-9758-45ED-9EFD-3A284FC4218E.png" /></a>
+<a class="reference internal image-reference" href="../../_images/D28614AA-9758-45ED-9EFD-3A284FC4218E.png"><img alt="../../_images/D28614AA-9758-45ED-9EFD-3A284FC4218E.png" class="align-center" src="../../_images/D28614AA-9758-45ED-9EFD-3A284FC4218E.png" style="width: 1468.0px; height: 166.0px;" /></a>
 <ol class="arabic simple" start="4">
 <li>Check the multi-site check box in the delivery service screen and make sure that Content Routing Type is set to HTTP_LIVE_NATL:</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/mso-enable.png"><img alt="../../_images/mso-enable.png" class="align-center" src="../../_images/mso-enable.png" /></a>
+<a class="reference internal image-reference" href="../../_images/mso-enable.png"><img alt="../../_images/mso-enable.png" class="align-center" src="../../_images/mso-enable.png" style="width: 1695.0px; height: 1079.0px;" /></a>
 <ol class="arabic simple" start="5">
 <li>Assign the org servers to the delivery service that will have the multi site feature:</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png"><img alt="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png" class="align-center" src="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png" /></a>
+<a class="reference internal image-reference" href="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png"><img alt="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png" class="align-center" src="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png" style="width: 580.0px; height: 343.0px;" /></a>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">“Origin Server Base URL” uniqueness: In order to enable MID caches to distinguish delivery services by different MSO algorithms while performing parent failover, it requires that “Origin Server Base URL” (OFQDN) for each MSO enabled delivery service is unique unless the exceptions listed afterwards. This means that the OFQDN of a MSO enabled delivery service should be different with the OFQDNs of any other delivery service, regardless of whether they are MSO enabled or not. The exceptions are:
@@ -234,7 +234,11 @@
 </tr>
 <tr class="row-odd"><td>Primary/back</td>
 <td>Round robin selection does not occur. The first origin server is selected unless it fails.
-If the first fails, the second and other following origin servers will be tried by order.</td>
+If the first fails, the second and other following origin servers will be tried by order.
+Order is defined by 2 factors - if the origin server&#8217;s cachegroup is configured as the
+parent cachegroup for the mid, then this server will be used as the primary. The same rules
+apply for secondary parents, in order.  Within the cachegroups, the rank parameter will sort
+order further. If no parents are defined at the mid, then only rank is considered.</td>
 </tr>
 <tr class="row-even"><td>Strict
 round-robin</td>
@@ -248,16 +252,16 @@ round-robin</td>
 </tbody>
 </table>
 <ol class="arabic simple" start="7">
-<li>Optionally, if &#8220;Primary/backup&#8221; is selected for &#8220;Multi Site Origin Algorithm&#8221;, a new parameter “rank” should be configured for each origin server profile. Origin servers with lower values of rank have higher ranking in the origin server list on MID caches, e.g. OS with rank of &#8220;2&#8221; precedes OS with the rank of &#8220;5&#8221;. For any OS, if rank value is not defined in its profile, its rank value will default to “1”.</li>
+<li>Optionally, there are two configuration options that can set the order of the origins used if &#8220;Primary/backup&#8221; is selected for &#8220;Multi Site Origin Algorithm&#8221;. By creating location-based cachegroups and assigning the origin servers accordingly and defining these cachegroups as parents for specific mids, location-based primary/secondary selection can be made.   If primary/secondary selection should be the same for all mids, then a new parameter “rank” should be configured for each origin server profile. Origin servers with lower values of rank have higher ranking in the origin server list on MID caches, e.g. OS with rank of &#8220;2&#8221; precedes OS with the rank of &#8220;5&#8221;. For any OS, if rank value is not defined in its profile, its rank value will default to “1”.  In the event that both location based cachegroups are used alongside rank, sorting will be by cachegroup first and rank second.  In this way it is possible to have specific backup servers for use at specific locations.</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/mso-rank.png"><img alt="../../_images/mso-rank.png" class="align-center" src="../../_images/mso-rank.png" /></a>
+<a class="reference internal image-reference" href="../../_images/mso-rank.png"><img alt="../../_images/mso-rank.png" class="align-center" src="../../_images/mso-rank.png" style="width: 585.0px; height: 105.6px;" /></a>
 <ol class="arabic simple" start="8">
 <li>Assign the parent.config location parameter to the MID profile:</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png"><img alt="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" class="align-center" src="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" /></a>
+<a class="reference internal image-reference" href="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png"><img alt="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" class="align-center" src="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" style="width: 658.0px; height: 601.0px;" /></a>
 <ol class="arabic" start="9">
 <li><p class="first">Configure the mid hdr_rewrite on the delivery service, example:</p>
-<div class="highlight-python"><div class="highlight"><pre>cond %{REMAP_PSEUDO_HOOK} __RETURN__ set-config proxy.config.http.parent_origin.dead_server_retry_enabled 1 __RETURN__ set-config proxy.config.http.parent_origin.simple_retry_enabled 1 __RETURN__ set-config proxy.config.http.parent_origin.simple_retry_response_codes &quot;400,404,412&quot; __RETURN__ set-config proxy.config.http.parent_origin.dead_server_retry_response_codes &quot;502,503&quot; __RETURN__ set-config proxy.config.http.connect_attempts_timeout 2 __RETURN__ set-config proxy.config.http.connect_attempts_max_retries 2 __RETURN__ set-config proxy.config.http.connect_attempts_max_retries_dead_server 1 __RETURN__ set-config proxy.config.http.transaction_active_timeout_in 5 [L] __RETURN__
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
 </pre></div>
 </div>
 </li>

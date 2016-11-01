@@ -108,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Router Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_vault.html">Traffic Vault Administration</a></li>
@@ -185,9 +185,25 @@
           <div role="main" class="document">
             
   <div class="section" id="traffic-router-administration">
-<h1>Traffic Router Administration<a class="headerlink" href="#traffic-router-administration" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#contents">Traffic Router Administration</a><a class="headerlink" href="#traffic-router-administration" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#traffic-router-administration" id="id4">Traffic Router Administration</a><ul>
+<li><a class="reference internal" href="#installing-traffic-router" id="id5">Installing Traffic Router</a></li>
+<li><a class="reference internal" href="#configuring-traffic-router" id="id6">Configuring Traffic Router</a></li>
+<li><a class="reference internal" href="#dnssec" id="id7">DNSSEC</a></li>
+<li><a class="reference internal" href="#troubleshooting-and-log-files" id="id8">Troubleshooting and log files</a></li>
+<li><a class="reference internal" href="#event-log-file-format" id="id9">Event Log File Format</a></li>
+<li><a class="reference internal" href="#geolimit-failure-redirect-feature" id="id10">GeoLimit Failure Redirect feature</a></li>
+<li><a class="reference internal" href="#steering-feature" id="id11">Steering feature</a></li>
+<li><a class="reference internal" href="#https-for-http-type-delivery-services" id="id12">HTTPS for Http Type Delivery Services</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="installing-traffic-router">
-<h2>Installing Traffic Router<a class="headerlink" href="#installing-traffic-router" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Installing Traffic Router</a><a class="headerlink" href="#installing-traffic-router" title="Permalink to this headline">¶</a></h2>
 <p>The following are requirements to ensure an accurate set up:</p>
 <ul class="simple">
 <li>CentOS 6</li>
@@ -211,7 +227,7 @@
 <li><p class="first">Install a traffic router: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">traffic_router</span></code>.</p>
 </li>
 <li><dl class="first docutils">
-<dt>Edit <code class="docutils literal"><span class="pre">/opt/traffic_router/conf/traffic_monitor.properties</span></code> and specify the correct online Traffic Monitor(s) for your CDN. See <a class="reference internal" href="#rl-tr-config-files"><em>Configuration files</em></a></dt>
+<dt>Edit <code class="docutils literal"><span class="pre">/opt/traffic_router/conf/traffic_monitor.properties</span></code> and specify the correct online Traffic Monitor(s) for your CDN. See <a class="reference internal" href="#rl-tr-config-files"><span class="std std-ref">Configuration files</span></a></dt>
 <dd><p class="first"># traffic_monitor.properties: url that should normally point to this file
 traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.properties</p>
 <p class="last"># Frequency for reloading this file
@@ -221,7 +237,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </li>
 <li><p class="first">Start Tomcat: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">tomcat</span> <span class="pre">start</span></code>, and test lookups with dig and curl against that server.</p>
 </li>
-<li><p class="first">Snapshot CRConfig; See <a class="reference internal" href="traffic_ops_using.html#rl-snapshot-crconfig"><em>Snapshot CRConfig</em></a></p>
+<li><p class="first">Snapshot CRConfig; See <a class="reference internal" href="traffic_ops_using.html#rl-snapshot-crconfig"><span class="std std-ref">Snapshot CRConfig</span></a></p>
 </li>
 </ol>
 <div class="admonition note">
@@ -233,7 +249,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </ol>
 </div>
 <div class="section" id="configuring-traffic-router">
-<h2>Configuring Traffic Router<a class="headerlink" href="#configuring-traffic-router" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Configuring Traffic Router</a><a class="headerlink" href="#configuring-traffic-router" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Starting with Traffic Router 1.5, many of the configuration files under <code class="docutils literal"><span class="pre">/opt/traffic_router/conf</span></code> are only needed to override the default configuration values for Traffic Router. Most of the given default values will work well for any CDN. Critical values that must be changed are hostnames and credentials for communicating with other Traffic Control components such as Traffic Ops and Traffic Monitor.</p>
@@ -242,7 +258,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 <p class="first admonition-title">Note</p>
 <p class="last">Pre-existing installations having configuration files in <code class="docutils literal"><span class="pre">/opt/traffic_router/conf</span></code> will still be used and honored for Traffic Router 1.5 and onward.</p>
 </div>
-<p>For the most part, the configuration files and parameters that follow are used to get Traffic Router online and communicating with various Traffic Control components. Once Traffic Router is successfully communicating with Traffic Control, configuration is mostly performed in Traffic Ops, and is distributed throughout Traffic Control via the CRConfig snapshot process. See <a class="reference internal" href="traffic_ops_using.html#rl-snapshot-crconfig"><em>Snapshot CRConfig</em></a> for more information. Please see the parameter documentation for Traffic Router in the Using Traffic Ops guide documented under <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><em>CCR Profile or Traffic Router Profile</em></a> for parameters that influence the behavior of Traffic Router via the CRConfig.</p>
+<p>For the most part, the configuration files and parameters that follow are used to get Traffic Router online and communicating with various Traffic Control components. Once Traffic Router is successfully communicating with Traffic Control, configuration is mostly performed in Traffic Ops, and is distributed throughout Traffic Control via the CRConfig snapshot process. See <a class="reference internal" href="traffic_ops_using.html#rl-snapshot-crconfig"><span class="std std-ref">Snapshot CRConfig</span></a> for more information. Please see the parameter documentation for Traffic Router in the Using Traffic Ops guide documented under <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> for parameters that influence the behavior of Traffic Router via the CRConfig.</p>
 <div class="section" id="configuration-files">
 <span id="rl-tr-config-files"></span><h3>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
@@ -359,7 +375,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </div>
 </div>
 <div class="section" id="dnssec">
-<span id="rl-tr-dnssec"></span><h2>DNSSEC<a class="headerlink" href="#dnssec" title="Permalink to this headline">¶</a></h2>
+<span id="rl-tr-dnssec"></span><h2><a class="toc-backref" href="#contents">DNSSEC</a><a class="headerlink" href="#dnssec" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
 <p>Domain Name System Security Extensions (DNSSEC) is a set of extensions to DNS that provides a cryptographic mechanism for resolvers to verify the authenticity of responses served by an authoritative DNS server.</p>
@@ -368,7 +384,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </div>
 <div class="section" id="operation">
 <h3>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h3>
-<p>Upon startup or a configuration change, Traffic Router obtains keys from the keystore API in Traffic Ops which returns key signing keys (KSK) and zone signing keys (ZSK) for each delivery service that is a subdomain off the CDN&#8217;s top level domain (TLD), in addition to the keys for the CDN TLD itself. Each key has timing information that allows Traffic Router to determine key validity (expiration, inception, and effective dates) in addition to the appropriate TTL to use for the DNSKEY record(s).  All TTLs are configurable parameters; see the <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><em>CCR Profile or Traffic Router Profile</em></a> documentation for more information.</p>
+<p>Upon startup or a configuration change, Traffic Router obtains keys from the keystore API in Traffic Ops which returns key signing keys (KSK) and zone signing keys (ZSK) for each delivery service that is a subdomain off the CDN&#8217;s top level domain (TLD), in addition to the keys for the CDN TLD itself. Each key has timing information that allows Traffic Router to determine key validity (expiration, inception, and effective dates) in addition to the appropriate TTL to use for the DNSKEY record(s).  All TTLs are configurable parameters; see the <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> documentation for more information.</p>
 <p>Once Traffic Router obtains the key data from the API, it converts each public key into the appropriate record types (DNSKEY, DS) to place in zones and uses the private key to sign zones. DNSKEY records are added to each delivery service&#8217;s zone (e.g.: mydeliveryservice.cdn.kabletown.net) for every valid key that exists, in addition to the CDN TLD&#8217;s zone. A DS record is generated from each zone&#8217;s KSK and is placed in the CDN TLD&#8217;s zone (e.g.: cdn.kabletown.net); the DS record for the CDN TLD must be placed in its parent zone, which is not managed by Traffic Control.</p>
 <p>The DNSKEY to DS record relationship allows resolvers to validate signatures across zone delegation points; with Traffic Control, we control all delegation points below the CDN&#8217;s TLD, <strong>however, the DS record for the CDN TLD must be placed in the parent zone (e.g.: kabletown.net), which is not managed by Traffic Control</strong>. As such, the DS record (available in the Traffic Ops DNSSEC administration UI) must be placed in the parent zone prior to enabling DNSSEC, and prior to generating a new CDN KSK. Based on your deployment&#8217;s DNS configuration, this might be a manual process or it might be automated; either way, extreme care and diligence must be taken and knowledge of the management of the upstream zone is imperative for a successful DNSSEC deployment.</p>
 </div>
@@ -378,11 +394,11 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </div>
 </div>
 <div class="section" id="troubleshooting-and-log-files">
-<h2>Troubleshooting and log files<a class="headerlink" href="#troubleshooting-and-log-files" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Troubleshooting and log files</a><a class="headerlink" href="#troubleshooting-and-log-files" title="Permalink to this headline">¶</a></h2>
 <p>Traffic Router log files are in <code class="docutils literal"><span class="pre">/opt/traffic_router/var/log</span></code>, and Tomcat log files are in <code class="docutils literal"><span class="pre">/opt/tomcat/logs</span></code>. Application related logging is in <code class="docutils literal"><span class="pre">/opt/traffic_router/var/log/traffic_router.log</span></code>, while access logs are written to <code class="docutils literal"><span class="pre">/opt/traffic_router/var/log/access.log</span></code>.</p>
 </div>
 <div class="section" id="event-log-file-format">
-<h2>Event Log File Format<a class="headerlink" href="#event-log-file-format" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Event Log File Format</a><a class="headerlink" href="#event-log-file-format" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="summary">
 <h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
 <p>All access events to Traffic Router are logged to the file <code class="docutils literal"><span class="pre">/opt/traffic_router/var/log/access.log</span></code>
@@ -393,8 +409,8 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <div class="section" id="sample-message">
 <h3>Sample Message<a class="headerlink" href="#sample-message" title="Permalink to this headline">¶</a></h3>
 <p>Items within brackets below are detailed under the HTTP and DNS sections</p>
-<div class="highlight-python"><div class="highlight"><pre>144140678.000 qtype=DNS chi=192.168.10.11 ttms=789 [Fields Specific to the DNS request] rtype=CZ rloc=&quot;40.252611,58.439389&quot; rdtl=- rerr=&quot;-&quot; [Fields Specific to the DNS result]
-144140678.000 qtype=HTTP chi=192.168.10.11 ttms=789 [Fields Specific to the HTTP request] rtype=GEO rloc=&quot;40.252611,58.439389&quot; rdtl=- rerr=&quot;-&quot; [Fields Specific to the HTTP result]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">DNS</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">789</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DNS</span> <span class="n">request</span><span class="p">]</span> <span class="n">rtype</span><span class="o">=</span><span class="n">CZ</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DNS</span> <span class="n">result</span><span class="p">]</span>
+<span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">789</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">HTTP</span> <span class="n">request</span><span class="p">]</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">HTTP</span> <span class="n">result</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -533,7 +549,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <div class="section" id="http-specifics">
 <h3>HTTP Specifics<a class="headerlink" href="#http-specifics" title="Permalink to this headline">¶</a></h3>
 <p>Sample Message</p>
-<div class="highlight-python"><div class="highlight"><pre>1452197640.936 qtype=HTTP chi=69.241.53.218 url=&quot;http://ccr.mm-test.jenkins.cdnlab.comcast.net/some/asset.m3u8&quot; cqhm=GET cqhv=HTTP/1.1 rtype=GEO rloc=&quot;40.252611,58.439389&quot; rdtl=- rerr=&quot;-&quot; pssc=302 ttms=0 rurl=&quot;http://odol-atsec-sim-114.mm-test.jenkins.cdnlab.comcast.net:8090/some/asset.m3u8&quot; rh=&quot;Accept: */*&quot; rh=&quot;myheader: asdasdasdasfasg&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1452197640.936</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">69.241</span><span class="o">.</span><span class="mf">53.218</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://ccr.mm-test.jenkins.cdnlab.comcast.net/some/asset.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">0</span> <span class="n">rurl</span><span class="o">=</span><span class="s2">&quot;http://odol-atsec-sim-114.mm-test.jenkins.cdnlab.comcast.net:8090/some/asset.m3u8&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;Accept: */*&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;myheader: asdasdasdasfasg&quot;</span>
 </pre></div>
 </div>
 <p><strong>Request Fields</strong></p>
@@ -593,7 +609,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <div class="section" id="dns-specifics">
 <h3>DNS Specifics<a class="headerlink" href="#dns-specifics" title="Permalink to this headline">¶</a></h3>
 <p>Sample Message</p>
-<div class="highlight-python"><div class="highlight"><pre>144140678.000 qtype=DNS chi=192.168.10.11 ttms=123 xn=65535 fqdn=www.example.com. type=A class=IN ttl=12345 rcode=NOERROR rtype=CZ rloc=&quot;40.252611,58.439389&quot; rdtl=- rerr=&quot;-&quot; ans=&quot;192.168.1.2 192.168.3.4 0:0:0:0:0:ffff:c0a8:102 0:0:0:0:0:ffff:c0a8:304&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">DNS</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">123</span> <span class="n">xn</span><span class="o">=</span><span class="mi">65535</span> <span class="n">fqdn</span><span class="o">=</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">.</span> <span class="nb">type</span><span class="o">=</span><span class="n">A</span> <span class="n">class</span><span class="o">=</span><span class="n">IN</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">12345</span> <span class="n">rcode</span><span class="o">=</span><span class="n">NOERROR</span> <span class="n">rtype</span><span class="o">=</span><span class="n">CZ</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">ans</span><span class="o">=</span><span class="s2">&quot;192.168.1.2 192.168.3.4 0:0:0:0:0:ffff:c0a8:102 0:0:0:0:0:ffff:c0a8:304&quot;</span>
 </pre></div>
 </div>
 <p><strong>Request Fields</strong></p>
@@ -672,7 +688,7 @@ NXDOMAIN (the domain/name requested does not exist)</td>
 </div>
 </div>
 <div class="section" id="geolimit-failure-redirect-feature">
-<span id="rl-tr-ngb"></span><h2>GeoLimit Failure Redirect feature<a class="headerlink" href="#geolimit-failure-redirect-feature" title="Permalink to this headline">¶</a></h2>
+<span id="rl-tr-ngb"></span><h2><a class="toc-backref" href="#contents">GeoLimit Failure Redirect feature</a><a class="headerlink" href="#geolimit-failure-redirect-feature" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>This feature is also called &#8216;National GeoBlock&#8217; feature which is short for &#8216;NGB&#8217; feature. In this section, the acronym &#8216;NGB&#8217; will be used for this feature.</p>
@@ -693,7 +709,7 @@ NXDOMAIN (the domain/name requested does not exist)</td>
 </div>
 </div>
 <div class="section" id="steering-feature">
-<span id="rl-tr-steering"></span><h2>Steering feature<a class="headerlink" href="#steering-feature" title="Permalink to this headline">¶</a></h2>
+<span id="rl-tr-steering"></span><h2><a class="toc-backref" href="#contents">Steering feature</a><a class="headerlink" href="#steering-feature" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
 <h3>Overview<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>A Steering delivery service is a delivery service that is used to &#8220;steer&#8221; traffic to other delivery services. A Steering delivery service will have target delivery services configured for it with weights assigned to them.  Traffic Router uses the weights to make a consistent hash ring which it then uses to make sure that requests are routed to a target based on the configured weights.  This consistent hash ring is separate from the consistent hash ring used in cache selection.</p>
@@ -723,6 +739,109 @@ NXDOMAIN (the domain/name requested does not exist)</td>
 <li>If desired, the steering user can create filters for the target delivery services.</li>
 </ol>
 <p>For more information see the <a class="reference external" href="quick_howto/steering.html">steering how-to guide</a>.</p>
+</div>
+</div>
+<div class="section" id="https-for-http-type-delivery-services">
+<h2><a class="toc-backref" href="#contents">HTTPS for Http Type Delivery Services</a><a class="headerlink" href="#https-for-http-type-delivery-services" title="Permalink to this headline">¶</a></h2>
+<p>Starting with version 1.7 Traffic Router added the ability to allow https traffic between itself and clients on a per http type delivery service basis.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The establishing of an HTTPS connection is much more computationally demanding than an HTTP connection.
+Since each client will in turn get redirected to ATS, Traffic Router is most always creating a new HTTPS connection for all HTTPS traffic.
+It is likely to mean that an existing Traffic Router will have some decrease in performance depending on the amount of https traffic you want to support
+As noted for DNSSEC, you may need to plan to scale Traffic Router vertically and/or horizontally to handle the new load</p>
+</div>
+<p>The summary for setting up https is to:</p>
+<ol class="arabic simple">
+<li>Select one of &#8216;https&#8217;, &#8216;http and https&#8217;, or &#8216;http to https&#8217; for the delivery service</li>
+<li>Generate private keys for the delivery service using a wildcard domain such as <code class="docutils literal"><span class="pre">*.my-delivery-service.my-cdn.example.com</span></code></li>
+<li>Obtain and import signed certificate chain</li>
+<li>Snapshot CR Config</li>
+</ol>
+<p>Clients may make HTTPS requests delivery services only after Traffic Router receives the certificate chain from Traffic Ops and the new CR Config.</p>
+<div class="section" id="protocol-options">
+<h3>Protocol Options<a class="headerlink" href="#protocol-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><em>https only</em></dt>
+<dd>Traffic Router will only redirect (send a 302) to clients communicating with a secure connection, all other clients will receive a 503</dd>
+<dt><em>http and https</em></dt>
+<dd>Traffic Router will redirect both secure and non-secure clients</dd>
+<dt><em>http to https</em></dt>
+<dd>Traffic Router will redirect non-secure clients with a 302 and a location that is secure (i.e. starting with &#8216;https&#8217; instead of &#8216;http&#8217;), secure clients will remain on https</dd>
+<dt><em>http</em></dt>
+<dd>Any secure client will get an SSL handshake error. Non-secure clients will experience the same behavior as prior to 1.7</dd>
+</dl>
+</div>
+<div class="section" id="certificate-retrieval">
+<h3>Certificate Retrieval<a class="headerlink" href="#certificate-retrieval" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you have https delivery services in your CDN, Traffic Router will not accept <strong>any</strong> connections until it is able to
+fetch certificates from Traffic Ops and load them into memory. Traffic Router does not persist certificates to the java keystore or anywhere else.</p>
+</div>
+<p>Traffic Router fetches certificates into memory:</p>
+<ul class="simple">
+<li>At startup time</li>
+<li>When it receives a new CR Config</li>
+<li>Once an hour from whenever the most recent of the last of the above occurred</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To adjust the frequency when Traffic Router fetches certificates add the parameter &#8216;certificates.polling.interval&#8217; to CR Config and
+setting it to the desired time in milliseconds.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Taking a snapshot of CR Config may be used at times to avoid waiting the entire polling cycle for a new set of certificates.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If a snapshot of CR Config is made that involves a delivery service missing its certificates, Traffic Router will ignore <strong>ALL</strong> changes in that CR-Config
+until one of the following occurs:
+* It receives certificates for that delivery service
+* Another snapshot of CR Config is created and the delivery service without certificates is changed so it&#8217;s HTTP protocol is set to &#8216;http&#8217;</p>
+</div>
+</div>
+<div class="section" id="certificate-chain-ordering">
+<h3>Certificate Chain Ordering<a class="headerlink" href="#certificate-chain-ordering" title="Permalink to this headline">¶</a></h3>
+<p>The ordering of certificates within the certificate bundle matters. It must be:</p>
+<ol class="arabic simple">
+<li>Primary Certificate (e.g. the one created for <code class="docutils literal"><span class="pre">*.my-delivery-service.my-cdn.example.com</span></code>)</li>
+<li>Intermediate Certificate(s)</li>
+<li>Root Certificate from CA (optional)</li>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If something is wrong with the certificate chain (e.g. the order of the certificates is backwards or for the wrong domain) the
+client will get an SSL handshake.  Inspection of /opt/tomcat/logs/catalina.out is likely to yield information to reveal this.</p>
+</div>
+<p>To see the ordering of certificates you may have to manually split up your certificate chain and use openssl on each individual certificate</p>
+</div>
+<div class="section" id="suggested-way-of-setting-up-an-https-delivery-service">
+<h3>Suggested Way of Setting up an HTTPS Delivery Service<a class="headerlink" href="#suggested-way-of-setting-up-an-https-delivery-service" title="Permalink to this headline">¶</a></h3>
+<p>Do the following in Traffic Ops:</p>
+<ol class="arabic simple">
+<li>Select one of &#8216;https&#8217;, &#8216;http and https&#8217;, or &#8216;http to https&#8217; for the protocol field of a delivery service and click &#8216;Save&#8217;.</li>
+<li>Click &#8216;Manage SSL Keys&#8217;.</li>
+<li>Click &#8216;Generate New Keys&#8217;.</li>
+<li>Copy the contents of the Certificate Signing Request field and save it locally.</li>
+<li>Click &#8216;Load Keys&#8217;.</li>
+<li>Select &#8216;http&#8217; for the protocol field of the delivery service and click &#8216;Save&#8217; (to avoid preventing other CR Config updates from being blocked by Traffic Router)</li>
+<li>Follow your standard procedure for obtaining your signed certificate chain from a CA.</li>
+<li>After receiving your certificate chain import it into Traffic Ops.</li>
+<li>Edit the delivery service.</li>
+<li>Restore your original choice for the protocol field and click save.</li>
+<li>Click &#8216;Manage SSL Keys&#8217;.</li>
+<li>Click &#8216;Paste Existing Keys&#8217;.</li>
+<li>Paste the certificate chain into the CRT field.</li>
+<li>Click &#8216;Load Keys&#8217;.</li>
+<li>Take a new snapshot of CR Config.</li>
+</ol>
+<p>Once this is done you should be able to test you are getting correctly redirected by Traffic Router using curl commands to https destinations on your delivery service.</p>
+<p>A new testing tool was created for load testing traffic router, it allows you to generate requests from your local box to multiple delivery services of a single cdn.
+You can control which cdn, delivery services, how many transactions per delivery service, and how many concurrent requests.
+During the test it will provide feedback about request latency and transactions per second.</p>
+<p>While it is running it is suggested that you monitor your Traffic Router nodes for memory and CPU utilization.</p>
 </div>
 </div>
 </div>

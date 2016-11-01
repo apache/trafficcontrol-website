@@ -122,7 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Stats</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server</a></li>
 </ul>
 </li>
@@ -195,10 +195,10 @@
 <p>To work on Traffic Stats you need a *nix (MacOS and Linux are most commonly used) environment that has the following installed:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="https://golang.org/doc/install">Go 1.5.x or above</a></li>
+<li><a class="reference external" href="https://golang.org/doc/install">Go 1.7.x or above</a></li>
 <li>Access to a working instance of Traffic Ops</li>
 <li>Access to a working instance of Traffic Monitor</li>
-<li><a class="reference external" href="https://influxdb.com/download/index.html">InfluxDb version 0.10.0 or greater</a></li>
+<li><a class="reference external" href="https://influxdb.com/download/index.html">InfluxDb version 1.0.0 or greater</a></li>
 </ul>
 </div></blockquote>
 </div>
@@ -208,12 +208,13 @@
 <div><ul class="simple">
 <li><strong>traffic_control/traffic_stats</strong> - contains Go source files and Files used to create the Traffic Stats rpm.</li>
 <li><strong>traffic_control/traffic_stats/grafana/</strong> - contains a javascript file which is installed on the grafana server.  This allows Traffic Ops to create custom dashboards for Delivery Services, Caches, etc.</li>
+<li><strong>traffic_control/traffic_stats/influxdb_tools/</strong> - contains one tool to create the databases and retention policies needed by Traffic Stats as well as continuous queries to downsample data; contains another tool to sync downsampled data between influxdb instances.  This is is helpful if you have multiple instances and they get out of sync with data.</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="go-formatting-conventions">
 <h2>Go Formatting Conventions<a class="headerlink" href="#go-formatting-conventions" title="Permalink to this headline">¶</a></h2>
-<p>In general <a class="reference external" href="https://golang.org/cmd/gofmt/">Go fmt</a> is the standard for formatting go code.</p>
+<p>In general <a class="reference external" href="https://golang.org/cmd/gofmt/">Go fmt</a> is the standard for formatting go code.  It is also recommended to use <a class="reference external" href="https://github.com/golang/lint">Go lint</a>.</p>
 </div>
 <div class="section" id="installing-the-developer-environment">
 <h2>Installing The Developer Environment<a class="headerlink" href="#installing-the-developer-environment" title="Permalink to this headline">¶</a></h2>
@@ -232,8 +233,7 @@
 <div class="section" id="test-cases">
 <h2>Test Cases<a class="headerlink" href="#test-cases" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div>Currently there are not automated tests for Traffic Stats :(.
-We hope to remedy this problem very soon!</div></blockquote>
+<div>Currently there are no automated tests for Traffic Stats :( but pull requests are always welcome to fix this problem!</div></blockquote>
 </div>
 </div>
 

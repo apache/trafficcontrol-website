@@ -190,9 +190,9 @@
 <span id="to-api-v11-status"></span><h1>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-1-1-statuses">
 <span id="to-api-v11-statuses-route"></span><h2>/api/1.1/statuses<a class="headerlink" href="#api-1-1-statuses" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.1/statuses.json</strong></p>
+<p><strong>GET /api/1.1/statuses</strong></p>
 <blockquote>
-<div><p>Retrieves a list of the server status codes available. May be useful when the status is retrieved from other APIs as a number and not a string.</p>
+<div><p>Retrieves a list of the server status codes available.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
 <p><strong>Response Properties</strong></p>
@@ -209,59 +209,130 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
 <td>string</td>
-<td>The Time / Date this server entry was last updated</td>
+<td>The id with which Traffic Ops stores this status, and references it internally</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
 <td>The string equivalent of the status</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
-<td>string</td>
-<td>The id with which Traffic Ops stores this status, and references it internally</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
 <td>string</td>
 <td>A short description of the status</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>The Time / Date this server entry was last updated</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre> {
-  &quot;response&quot;: [
-    {
-      &quot;description&quot;: &quot;Temporary down. Edge: XMPP client will send status OFFLINE to CCR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches&quot;,
-      &quot;id&quot;: &quot;4&quot;,
-      &quot;name&quot;: &quot;ADMIN_DOWN&quot;,
-      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
-    },
-    {
-      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;,
-      &quot;name&quot;: &quot;CCR_IGNORE&quot;,
-      &quot;id&quot;: &quot;5&quot;,
-      &quot;description&quot;: &quot;Edge: 12M will not include caches in this state in CCR config files. Mid: N\/A for now&quot;
-    },
-    {
-      &quot;description&quot;: &quot;Edge: Puts server in CCR config file in this state, but CCR will never route traffic to it. Mid: Server will not be included in parent.config files for its edge caches&quot;,
-      &quot;id&quot;: &quot;1&quot;,
-      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;,
-      &quot;name&quot;: &quot;OFFLINE&quot;
-    },
-    {
-      &quot;id&quot;: &quot;2&quot;,
-      &quot;description&quot;: &quot;Edge: Puts server in CCR config file in this state, and CCR will always route traffic to it. Mid: Server will be included in parent.config files for its edges&quot;,
-      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;,
-      &quot;name&quot;: &quot;ONLINE&quot;
-    },
-    {
-      &quot;id&quot;: &quot;3&quot;,
-      &quot;description&quot;: &quot;Edge: Puts server in CCR config file in this state, and CCR will adhere to the health protocol. Mid: N\/A for now&quot;,
-      &quot;name&quot;: &quot;REPORTED&quot;,
-      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
-    }
-  ],
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ADMIN_DOWN&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Temporary down. Edge: XMPP client will send status OFFLINE to CCR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR_IGNORE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: 12M will not include caches in this state in CCR config files. Mid: N\/A for now&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;OFFLINE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: Puts server in CCR config file in this state, but CCR will never route traffic to it. Mid: Server will not be included in parent.config files for its edge caches&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: Puts server in CCR config file in this state, and CCR will always route traffic to it. Mid: Server will be included in parent.config files for its edges&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;REPORTED&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: Puts server in CCR config file in this state, and CCR will adhere to the health protocol. Mid: N\/A for now&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>GET /api/1.1/statuses/:id</strong></p>
+<blockquote>
+<div><p>Retrieves a server status by ID.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="15%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Status id.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="8%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>The id with which Traffic Ops stores this status, and references it internally</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>The string equivalent of the status</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<td>string</td>
+<td>A short description of the status</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>The Time / Date this server entry was last updated</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ADMIN_DOWN&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Temporary down. Edge: XMPP client will send status OFFLINE to CCR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>

@@ -190,10 +190,30 @@
 <span id="to-api-v12-type"></span><h1>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-1-2-types">
 <span id="to-api-v12-types-route"></span><h2>/api/1.2/types<a class="headerlink" href="#api-1-2-types" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.2/types.json</strong></p>
+<p><strong>GET /api/1.1/types</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
-<p>Role(s) Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Query Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="13%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
+<td>no</td>
+<td>Filter types by the table in which they apply</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -208,19 +228,11 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
@@ -228,19 +240,27 @@
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2013-10-23 15:28:31&quot;</span><span class="p">,</span>
-       <span class="s">&quot;useInTable&quot;</span><span class="p">:</span> <span class="s">&quot;staticdnsentry&quot;</span><span class="p">,</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;AAAA_RECORD&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22&quot;</span><span class="p">,</span>
-       <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;Static DNS AAAA entry&quot;</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Static DNS AAAA entry&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;useInTable&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-23 15:28:31&quot;</span>
     <span class="p">}</span>
- <span class="p">],</span>
+ <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -248,7 +268,7 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.2/types/trimmed.json</strong></p>
+<p><strong>GET /api/1.1/types/trimmed</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
@@ -273,21 +293,96 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;AAAA_RECORD&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;ACTIVE_DIRECTORY&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE_DIRECTORY&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;A_RECORD&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;A_RECORD&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;CCR&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>GET /api/1.1/types/:id</strong></p>
+<blockquote>
+<div><p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="13%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Type ID.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="10%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Static DNS AAAA entry&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;useInTable&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-23 15:28:31&quot;</span>
+    <span class="p">}</span>
+ <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>

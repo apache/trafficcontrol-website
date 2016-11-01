@@ -190,7 +190,7 @@
 <span id="to-api-v12-asn"></span><h1>ASN<a class="headerlink" href="#asn" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-1-2-asns">
 <span id="to-api-v12-asns-route"></span><h2>/api/1.2/asns<a class="headerlink" href="#api-1-2-asns" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.2/asns.json</strong></p>
+<p><strong>GET /api/1.2/asns</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
@@ -208,32 +208,246 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td colspan="3"><code class="docutils literal"><span class="pre">lastUpdated</span></code> | string | The Time / Date this server entry was last updated</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>The Time / Date this server entry was last updated</td>
 </tr>
-<tr class="row-odd"><td colspan="3"><code class="docutils literal"><span class="pre">id</span></code>          | string | Local unique identifier for the ASN</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>Local unique identifier for the ASN</td>
 </tr>
-<tr class="row-even"><td colspan="3"><code class="docutils literal"><span class="pre">asn</span></code>         | string | Autonomous System Numbers per APNIC for identifying a service provider.</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">asn</span></code></td>
+<td>string</td>
+<td>Autonomous System Numbers per APNIC for identifying a service provider.</td>
 </tr>
-<tr class="row-odd"><td colspan="3"><code class="docutils literal"><span class="pre">cachegroup</span></code>  | string | Related cachegroup name</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cachegroup</span></code></td>
+<td>string</td>
+<td>Related cachegroup name</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cachegroupId</span></code></td>
+<td>string</td>
+<td>Related cachegroup id</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
-      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;27&quot;</span><span class="p">,</span>
-      <span class="s">&quot;asn&quot;</span><span class="p">:</span> <span class="s">&quot;7015&quot;</span><span class="p">,</span>
-      <span class="s">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;us-ma-woburn&quot;</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;27&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;asn&quot;</span><span class="p">:</span> <span class="s2">&quot;7015&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-ma-woburn&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;27&quot;</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
-      <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;28&quot;</span><span class="p">,</span>
-      <span class="s">&quot;asn&quot;</span><span class="p">:</span> <span class="s">&quot;7016&quot;</span><span class="p">,</span>
-      <span class="s">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;us-pa-pittsburgh&quot;</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;28&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;asn&quot;</span><span class="p">:</span> <span class="s2">&quot;7016&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-pa-pittsburgh&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span>
     <span class="p">}</span>
   <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/asns/:id</strong></p>
+<blockquote>
+<div><p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="15%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>ASN id.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="8%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>The Time / Date this server entry was last updated</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>Local unique identifier for the ASN</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">asn</span></code></td>
+<td>string</td>
+<td>Autonomous System Numbers per APNIC for identifying a service provider.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cachegroup</span></code></td>
+<td>string</td>
+<td>Related cachegroup name</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cachegroupId</span></code></td>
+<td>string</td>
+<td>Related cachegroup id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;28&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;asn&quot;</span><span class="p">:</span> <span class="s2">&quot;7016&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-pa-pittsburgh&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>PUT /api/1.2/asns/{:id}</strong></p>
+<blockquote>
+<div><p>Allows user to edit an ASN.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required:  admin or oper</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="13%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>ASN id.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="11%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">asn</span></code></td>
+<td>string</td>
+<td>ASN</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cachegroupId</span></code></td>
+<td>string</td>
+<td>The cachegroup the ASN belongs to</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;asn&quot;</span><span class="p">:</span> <span class="s2">&quot;99&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;177&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="10%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">response</span></code></td>
+<td>hash</td>
+<td>The details of the update, if success.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;name</span></code></td>
+<td>string</td>
+<td>CDN name.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;id</span></code></td>
+<td>int</td>
+<td>CDN id.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;dnssecEnabled</span></code></td>
+<td>string</td>
+<td>Whether dnssec is enabled.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">alerts</span></code></td>
+<td>array</td>
+<td>A collection of alert messages.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;level</span></code></td>
+<td>string</td>
+<td>Success, info, warning or error.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;text</span></code></td>
+<td>string</td>
+<td>Alert message.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
+      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;28&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;asn&quot;</span><span class="p">:</span> <span class="s2">&quot;99&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-pa-pittsburgh&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;177&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn was updated.&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>

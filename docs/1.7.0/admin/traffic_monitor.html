@@ -107,7 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Monitor Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
@@ -210,7 +210,7 @@
 <li><p class="first">Take the config from Traffic Ops - run : <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/opt/traffic_monitor/bin/traffic_monitor_config.pl</span></code></p>
 <blockquote>
 <div><p>Sample output:</p>
-<div class="highlight-python"><div class="highlight"><pre>traffic_mon # /opt/traffic_monitor/bin/traffic_monitor_config.pl https://traffic-ops.cdn.kabletown.net admin:password prompt
+<div class="highlight-default"><div class="highlight"><pre><span></span>traffic_mon # /opt/traffic_monitor/bin/traffic_monitor_config.pl https://traffic-ops.cdn.kabletown.net admin:password prompt
 DEBUG: traffic_ops selected: https://traffic-ops.cdn.kabletown.net
 DEBUG: traffic_ops login: admin:kl0tevax
 DEBUG: Config write mode: prompt
@@ -293,13 +293,13 @@ traffic_mon #
 </div></blockquote>
 </li>
 <li><p class="first">Start Tomcat: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">tomcat</span> <span class="pre">start</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre>Using CATALINA_BASE: /opt/tomcat
-Using CATALINA_HOME: /opt/tomcat
-Using CATALINA_TMPDIR: /opt/tomcat/temp
-Using JRE_HOME: /usr
-Using CLASSPATH:/opt/tomcat/bin/bootstrap.jar
-Using CATALINA_PID:/var/run/tomcat/tomcat.pid
-Starting tomcat [ OK ]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">CATALINA_BASE</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span>
+<span class="n">Using</span> <span class="n">CATALINA_HOME</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span>
+<span class="n">Using</span> <span class="n">CATALINA_TMPDIR</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="n">temp</span>
+<span class="n">Using</span> <span class="n">JRE_HOME</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span>
+<span class="n">Using</span> <span class="n">CLASSPATH</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">jar</span>
+<span class="n">Using</span> <span class="n">CATALINA_PID</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="n">tomcat</span><span class="o">.</span><span class="n">pid</span>
+<span class="n">Starting</span> <span class="n">tomcat</span> <span class="p">[</span> <span class="n">OK</span> <span class="p">]</span>
 </pre></div>
 </div>
 </li>
