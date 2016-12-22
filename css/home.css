@@ -12,13 +12,19 @@ body {
     margin: 0 auto;
     padding: 0;
     text-align: center;
-    background-color: #ffffff;
+    background-color: black;
     
     font-style: normal;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     overflow: auto;
 }
+
+.footer{
+	background-color: gray;
+	padding: 10px;
+}
+
 
 .appWrapper {
     position: relative;
@@ -27,7 +33,7 @@ body {
     padding: 0;
     margin: 0 auto 40px auto;
     text-align: left;
-    background-color: #ffffff;
+    background-color: black;
 }
 .bkgdWrapper {
     position: relative;
@@ -37,37 +43,27 @@ body {
     padding: 0;
     margin: 0 auto;
     text-align: left;
-    background-color: #ffffff;
-    background: url(../images/main_bkgd.png) repeat-x;
+    background-color: black;
     background-position: top left;
 }
 .appHeader {
-    height: 478px;
+    height: 400px;
     border: 0px solid black;
-    background: url(../images/header_bkgd.png) no-repeat;
-    background-position: top center;
+    background: url(../images/tc_logo_nw.png) no-repeat;
+	background-size: 988px 248px;
+    background-position: center 30px;
+	background-color: black;
     font-size:20px;
     color: #ffffff;
     position:relative;
-    margin-top:-478px;
+    margin-top:-400px;
 }
 
-.applogo {
-    margin: 0px;
-    padding: 0px;
-    background: url(../images/atc_logo.png) no-repeat;
-    background-size: 455px 455px;
-    width: 455px;
-    height: 455px;
-    position: absolute;
-    top: 8px;
-    left: 12px;
-}
 
 .navWrapper {
 	margin: 0 auto;
 	position: absolute;
-    top: 428px;
+    top: 368px;
     left: 0px;
     width:1200px;
     text-align:right;
@@ -110,6 +106,10 @@ body {
     text-decoration: none;
 }
 
+.selected{
+	font-weight: bold;
+}
+
 
 .trafficoperations_logo {
     margin: 0px;
@@ -135,21 +135,26 @@ body {
     width: 222px;
     height: 132px;
 }
+
 .sectionContainer {
+	color: #ffffff;
 	margin-top:30px;
 	width:1200px;
 	text-align: left;
     font-size: 20px;
-
+	background-color: black;
 }
 
 table.tableMain {
+	color: #ffffff;
     margin-top:40px;
     text-align: left;
     font-size: 20px;
+	background-color: black;
 }
 
 table.dlTable {
+	color: #ffffff;
     margin-top:0px;
     margin-bottom:0px;
     margin-left:30px;
@@ -159,17 +164,23 @@ table.dlTable {
 }
 
 .tableMainCell {
+	color: #ffffff;
     padding:10px;
+	background-color: black;
 }
 
 
 .dlTableCell {
+   color: #ffffff;
    padding:1px;
+	background-color: black;
 }
 
 .sectionText {
+	color: #ffffff;
 	margin:0px;
 	margin-top: 16px;
+	background-color: black;
 }
 
 
