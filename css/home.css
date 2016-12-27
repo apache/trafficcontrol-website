@@ -145,6 +145,24 @@ body {
 	background-color: black;
 }
 
+.relNotesText {
+	margin:0px;
+	margin-top: 16px;
+}
+
+.relNotesContainer {
+	margin-top:30px;
+	text-align: left;
+	background-color: black;
+	font-size: medium;
+	text-align: left;
+	color: #ffffff;
+}
+
+.relNotesContainer td {
+	padding: 0 15px 0 15px;
+}
+
 table.tableMain {
 	color: #ffffff;
     margin-top:40px;
@@ -183,6 +201,14 @@ table.dlTable {
 	background-color: black;
 }
 
+.announce {
+	color: #ffffff;
+	font-size: larger;
+	border-style: solid;
+	padding: 0 10px 0 10px;
+	margin: 2em 20em 0 20em;
+	width: 32em;
+}
 
 
 
