@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cache Group &mdash; Traffic Control 1.7 documentation </title>
+  <title>Cache Group &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Cache Statistics" href="cache_stats.html"/>
         <link rel="prev" title="ASN" href="asn.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -194,6 +194,26 @@
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
+<p><strong>Request Query Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>no</td>
+<td>Filter cache groups by Type ID.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -259,35 +279,35 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-chicago&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;parentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;parentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;secondaryParentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;secondaryParentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;dcchi&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;typeName&quot;</span><span class="p">:</span> <span class="s2">&quot;MID_LOC&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span>
+       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;21&quot;</span><span class="p">,</span>
+       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
+       <span class="s">&quot;latitude&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+       <span class="s">&quot;longitude&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dc-chicago&quot;</span><span class="p">,</span>
+       <span class="s">&quot;parentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;parentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;secondaryParentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;secondaryParentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;dcchi&quot;</span><span class="p">,</span>
+       <span class="s">&quot;typeName&quot;</span><span class="p">:</span> <span class="s">&quot;MID_LOC&quot;</span><span class="p">,</span>
+       <span class="s">&quot;typeId&quot;</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-chicago-1&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;parentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;parentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;secondaryParentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;secondaryParentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;dcchi&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;typeName&quot;</span><span class="p">:</span> <span class="s2">&quot;MID_LOC&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span>
+       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22&quot;</span><span class="p">,</span>
+       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
+       <span class="s">&quot;latitude&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+       <span class="s">&quot;longitude&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dc-chicago-1&quot;</span><span class="p">,</span>
+       <span class="s">&quot;parentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;parentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;secondaryParentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;secondaryParentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;dcchi&quot;</span><span class="p">,</span>
+       <span class="s">&quot;typeName&quot;</span><span class="p">:</span> <span class="s">&quot;MID_LOC&quot;</span><span class="p">,</span>
+       <span class="s">&quot;typeId&quot;</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -322,16 +342,16 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-     <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-chicago&quot;</span>
-     <span class="p">},</span>
-     <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-cmc&quot;</span>
-     <span class="p">}</span>
-  <span class="p">],</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre> {
+  &quot;response&quot;: [
+     {
+        &quot;name&quot;: &quot;dc-chicago&quot;
+     },
+     {
+        &quot;name&quot;: &quot;dc-cmc&quot;
+     }
+  ],
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -407,23 +427,87 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-chicago&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;parentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;parentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;secondaryParentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;secondaryParentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;dcchi&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;typeName&quot;</span><span class="p">:</span> <span class="s2">&quot;MID_LOC&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span>
+       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;21&quot;</span><span class="p">,</span>
+       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-25 20:27:28&quot;</span><span class="p">,</span>
+       <span class="s">&quot;latitude&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+       <span class="s">&quot;longitude&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dc-chicago&quot;</span><span class="p">,</span>
+       <span class="s">&quot;parentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;parentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;secondaryParentCachegroupId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;secondaryParentCachegroupName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;dcchi&quot;</span><span class="p">,</span>
+       <span class="s">&quot;typeName&quot;</span><span class="p">:</span> <span class="s">&quot;MID_LOC&quot;</span><span class="p">,</span>
+       <span class="s">&quot;typeId&quot;</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/cachegroups/:id/parameters</strong></p>
+<blockquote>
+<div><p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="7%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>Local unique identifier for the parameter</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>Name of the parameter</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">value</span></code></td>
+<td>string</td>
+<td>Value of the parameter</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">configFile</span></code></td>
+<td>string</td>
+<td>Config file associated with the parameter</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">secure</span></code></td>
+<td>bool</td>
+<td>Is the parameter value only visible to admin users</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>The Time / Date this entry was last updated</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;1100&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;cgw.originUrl&quot;</span><span class="p">,</span>
+        <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;http://to-short.g.foo.net/data/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;configFile&quot;</span><span class="p">:</span> <span class="s">&quot;foo.config&quot;</span><span class="p">,</span>
+        <span class="s">&quot;secure&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2015-08-27 15:11:49&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+ <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -484,16 +568,16 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;cachegroups&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;cachegroups&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-chicago&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span>
+          <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dc-chicago&quot;</span><span class="p">,</span>
+          <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;21&quot;</span>
        <span class="p">},</span>
        <span class="p">{</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-cmc&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span>
+          <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dc-cmc&quot;</span><span class="p">,</span>
+          <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22&quot;</span>
        <span class="p">}</span>
     <span class="p">]</span>
  <span class="p">},</span>
@@ -541,23 +625,23 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;cachegroupParameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;cachegroupParameters&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
-          <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="s2">&quot;379&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-05 18:49:37&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-ca-sanjose&quot;</span>
+          <span class="s">&quot;parameter&quot;</span><span class="p">:</span> <span class="s">&quot;379&quot;</span><span class="p">,</span>
+          <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2013-08-05 18:49:37&quot;</span><span class="p">,</span>
+          <span class="s">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;us-ca-sanjose&quot;</span>
        <span class="p">},</span>
        <span class="p">{</span>
-          <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="s2">&quot;380&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-05 18:49:37&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-ca-sanjose&quot;</span>
+          <span class="s">&quot;parameter&quot;</span><span class="p">:</span> <span class="s">&quot;380&quot;</span><span class="p">,</span>
+          <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2013-08-05 18:49:37&quot;</span><span class="p">,</span>
+          <span class="s">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;us-ca-sanjose&quot;</span>
        <span class="p">},</span>
        <span class="p">{</span>
-          <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="s2">&quot;379&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-05 18:49:37&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-ma-woburn&quot;</span>
+          <span class="s">&quot;parameter&quot;</span><span class="p">:</span> <span class="s">&quot;379&quot;</span><span class="p">,</span>
+          <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2013-08-05 18:49:37&quot;</span><span class="p">,</span>
+          <span class="s">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;us-ma-woburn&quot;</span>
        <span class="p">}</span>
     <span class="p">]</span>
  <span class="p">},</span>
@@ -617,15 +701,15 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-chicago&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span>
+       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dc-chicago&quot;</span><span class="p">,</span>
+       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;21&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dc-cmc&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span>
+       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dc-cmc&quot;</span><span class="p">,</span>
+       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -685,13 +769,13 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_group_edge&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;cg_edge&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
-    <span class="s2">&quot;parentCachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_group_mid&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;typeName&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_LOC&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;cache_group_edge&quot;</span><span class="p">,</span>
+    <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;cg_edge&quot;</span><span class="p">,</span>
+    <span class="s">&quot;latitude&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="s">&quot;longitude&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+    <span class="s">&quot;parentCachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;cache_group_mid&quot;</span><span class="p">,</span>
+    <span class="s">&quot;typeName&quot;</span><span class="p">:</span> <span class="s">&quot;EDGE_LOC&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -768,25 +852,25 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Cachegroup successfully created: cache_group_edge&quot;</span>
+                      <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Cachegroup successfully created: cache_group_edge&quot;</span>
               <span class="p">}</span>
       <span class="p">],</span>
-    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;longitude&#39;</span> <span class="p">:</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;lastUpdated&#39;</span> <span class="p">:</span> <span class="s1">&#39;2016-01-25 13:55:30&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;shortName&#39;</span> <span class="p">:</span> <span class="s1">&#39;cg_edge&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;cache_group_edge&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;parentCachegroup&#39;</span> <span class="p">:</span> <span class="s1">&#39;cache_group_mid&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;secondaryParentCachegroup&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s1">&#39;latitude&#39;</span> <span class="p">:</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;typeName&#39;</span> <span class="p">:</span> <span class="s1">&#39;EDGE_LOC&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="s1">&#39;104&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;parentCachegroupId&#39;</span> <span class="p">:</span> <span class="s1">&#39;103&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;secondaryParentCachegroupId&#39;</span> <span class="p">:</span> <span class="n">null</span>
+    <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;longitude&#39;</span> <span class="p">:</span> <span class="s">&#39;45&#39;</span><span class="p">,</span>
+        <span class="s">&#39;lastUpdated&#39;</span> <span class="p">:</span> <span class="s">&#39;2016-01-25 13:55:30&#39;</span><span class="p">,</span>
+        <span class="s">&#39;shortName&#39;</span> <span class="p">:</span> <span class="s">&#39;cg_edge&#39;</span><span class="p">,</span>
+        <span class="s">&#39;name&#39;</span> <span class="p">:</span> <span class="s">&#39;cache_group_edge&#39;</span><span class="p">,</span>
+        <span class="s">&#39;parentCachegroup&#39;</span> <span class="p">:</span> <span class="s">&#39;cache_group_mid&#39;</span><span class="p">,</span>
+        <span class="s">&#39;secondaryParentCachegroup&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&#39;latitude&#39;</span> <span class="p">:</span> <span class="s">&#39;12&#39;</span><span class="p">,</span>
+        <span class="s">&#39;typeName&#39;</span> <span class="p">:</span> <span class="s">&#39;EDGE_LOC&#39;</span><span class="p">,</span>
+        <span class="s">&#39;id&#39;</span> <span class="p">:</span> <span class="s">&#39;104&#39;</span><span class="p">,</span>
+        <span class="s">&#39;parentCachegroupId&#39;</span> <span class="p">:</span> <span class="s">&#39;103&#39;</span><span class="p">,</span>
+        <span class="s">&#39;secondaryParentCachegroupId&#39;</span> <span class="p">:</span> <span class="n">null</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -865,13 +949,13 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_group_edge&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;cg_edge&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
-    <span class="s2">&quot;parentCachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_group_mid&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;typeName&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_LOC&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;cache_group_edge&quot;</span><span class="p">,</span>
+    <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;cg_edge&quot;</span><span class="p">,</span>
+    <span class="s">&quot;latitude&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="s">&quot;longitude&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+    <span class="s">&quot;parentCachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;cache_group_mid&quot;</span><span class="p">,</span>
+    <span class="s">&quot;typeName&quot;</span><span class="p">:</span> <span class="s">&quot;EDGE_LOC&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -948,25 +1032,25 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Cachegroup was updated: cache_group_edge&quot;</span>
+                      <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Cachegroup was updated: cache_group_edge&quot;</span>
               <span class="p">}</span>
       <span class="p">],</span>
-    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;longitude&#39;</span> <span class="p">:</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;lastUpdated&#39;</span> <span class="p">:</span> <span class="s1">&#39;2016-01-25 13:55:30&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;shortName&#39;</span> <span class="p">:</span> <span class="s1">&#39;cg_edge&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;cache_group_edge&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;parentCachegroup&#39;</span> <span class="p">:</span> <span class="s1">&#39;cache_group_mid&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;secondaryParentCachegroup&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s1">&#39;latitude&#39;</span> <span class="p">:</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;typeName&#39;</span> <span class="p">:</span> <span class="s1">&#39;EDGE_LOC&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="s1">&#39;104&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;parentCachegroupId&#39;</span> <span class="p">:</span> <span class="s1">&#39;103&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;secondaryParentCachegroupId&#39;</span> <span class="p">:</span> <span class="n">null</span>
+    <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;longitude&#39;</span> <span class="p">:</span> <span class="s">&#39;45&#39;</span><span class="p">,</span>
+        <span class="s">&#39;lastUpdated&#39;</span> <span class="p">:</span> <span class="s">&#39;2016-01-25 13:55:30&#39;</span><span class="p">,</span>
+        <span class="s">&#39;shortName&#39;</span> <span class="p">:</span> <span class="s">&#39;cg_edge&#39;</span><span class="p">,</span>
+        <span class="s">&#39;name&#39;</span> <span class="p">:</span> <span class="s">&#39;cache_group_edge&#39;</span><span class="p">,</span>
+        <span class="s">&#39;parentCachegroup&#39;</span> <span class="p">:</span> <span class="s">&#39;cache_group_mid&#39;</span><span class="p">,</span>
+        <span class="s">&#39;secondaryParentCachegroup&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&#39;latitude&#39;</span> <span class="p">:</span> <span class="s">&#39;12&#39;</span><span class="p">,</span>
+        <span class="s">&#39;typeName&#39;</span> <span class="p">:</span> <span class="s">&#39;EDGE_LOC&#39;</span><span class="p">,</span>
+        <span class="s">&#39;id&#39;</span> <span class="p">:</span> <span class="s">&#39;104&#39;</span><span class="p">,</span>
+        <span class="s">&#39;parentCachegroupId&#39;</span> <span class="p">:</span> <span class="s">&#39;103&#39;</span><span class="p">,</span>
+        <span class="s">&#39;secondaryParentCachegroupId&#39;</span> <span class="p">:</span> <span class="n">null</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1029,11 +1113,11 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-      <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+      <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Cachegroup was deleted: cache_group_edge&quot;</span>
+                        <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Cachegroup was deleted: cache_group_edge&quot;</span>
                 <span class="p">}</span>
         <span class="p">],</span>
 <span class="p">}</span>
@@ -1129,18 +1213,18 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;cachegroupName&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;queue&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;serverNames&quot;</span><span class="p">:</span>   <span class="p">[</span>
-            <span class="s2">&quot;atsec-chi-00&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;atsec-chi-01&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;atsec-chi-02&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;atsec-chi-03&quot;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;cachegroupName&quot;</span><span class="p">:</span> <span class="s">&quot;us-il-chicago&quot;</span><span class="p">,</span>
+        <span class="s">&quot;action&quot;</span><span class="p">:</span> <span class="s">&quot;queue&quot;</span><span class="p">,</span>
+        <span class="s">&quot;serverNames&quot;</span><span class="p">:</span>   <span class="p">[</span>
+            <span class="s">&quot;atsec-chi-00&quot;</span><span class="p">,</span>
+            <span class="s">&quot;atsec-chi-01&quot;</span><span class="p">,</span>
+            <span class="s">&quot;atsec-chi-02&quot;</span><span class="p">,</span>
+            <span class="s">&quot;atsec-chi-03&quot;</span><span class="p">,</span>
         <span class="p">],</span>
-        <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;93&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn_number_1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s">&quot;93&quot;</span><span class="p">,</span>
+        <span class="s">&quot;cdn&quot;</span><span class="p">:</span> <span class="s">&quot;cdn_number_1&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1195,8 +1279,8 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">235</span> <span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">235</span> <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1245,20 +1329,20 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-      <span class="s2">&quot;serverNames&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;atlanta-edge-01&quot;</span><span class="p">,</span> <span class="s2">&quot;atlanta-edge-07&quot;</span> <span class="p">],</span>
-      <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">235</span> <span class="p">]</span>
-  <span class="p">}</span>
-  <span class="s2">&quot;alerts&quot;</span><span class="p">:</span>
-  <span class="p">[</span>
-      <span class="p">{</span>
-          <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Delivery services successfully assigned to all the servers of cache group 3.&quot;</span>
-      <span class="p">}</span>
-  <span class="p">],</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre>{
+  &quot;response&quot;: {
+      &quot;id&quot;: 3,
+      &quot;serverNames&quot;: [ &quot;atlanta-edge-01&quot;, &quot;atlanta-edge-07&quot; ],
+      &quot;deliveryServices&quot;: [ 234, 235 ]
+  }
+  &quot;alerts&quot;:
+  [
+      {
+          &quot;level&quot;: &quot;success&quot;,
+          &quot;text&quot;: &quot;Delivery services successfully assigned to all the servers of cache group 3.&quot;
+      }
+  ],
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -1306,7 +1390,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cache Control Headers and Revalidation &mdash; Traffic Control 1.7 documentation </title>
+  <title>Cache Control Headers and Revalidation &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
         <link rel="up" title="CDN Basics" href="index.html"/>
         <link rel="next" title="Traffic Control Overview" href="../overview/index.html"/>
         <link rel="prev" title="Caching Proxies" href="caching_proxies.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -83,7 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="content_delivery_networks.html">Content Delivery Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="http_11.html">HTTP 1.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="caching_proxies.html">Caching Proxies</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Cache Control Headers and Revalidation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Cache Control Headers and Revalidation</a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="index.html">CDN Basics</a> &raquo;</li>
       
@@ -187,49 +187,49 @@
   <div class="section" id="cache-control-headers-and-revalidation">
 <span id="index-0"></span><h1>Cache Control Headers and Revalidation<a class="headerlink" href="#cache-control-headers-and-revalidation" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference external" href="https://www.ietf.org/rfc/rfc2616.txt">HTTP/1.1 spec</a> allows for origin servers and clients to influence how caches treat their requests and responses. By default, the Traffic Control CDN will honor cache control headers. Most commonly, origin servers will tell the downstream caches how long a response can be cached:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
-<span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
-<span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">15</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span><span class="p">)</span>
-<span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
-<span class="n">ETag</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50a3559482cc0&quot;</span>
-<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">86400</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">45</span>
-<span class="n">Connection</span><span class="p">:</span> <span class="n">close</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<div class="highlight-python"><div class="highlight"><pre>HTTP/1.1 200 OK
+Date: Sun, 14 Dec 2014 23:22:44 GMT
+Server: Apache/2.2.15 (Red Hat)
+Last-Modified: Sun, 14 Dec 2014 23:18:51 GMT
+ETag: &quot;1aa008f-2d-50a3559482cc0&quot;
+Cache-Control: max-age=86400
+Content-Length: 45
+Connection: close
+Content-Type: text/html; charset=UTF-8
 
-<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fun</span> <span class="n">file</span><span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+&lt;html&gt;&lt;body&gt;This is a fun file&lt;/body&gt;&lt;/html&gt;
 </pre></div>
 </div>
 <p>In the above response, the origin server tells downstream caching systems that the maximum time to cache this response for is 86400 seconds. The origin can also add a <code class="docutils literal"><span class="pre">Expires:</span></code> header, explicitly telling the cache the time this response is to be expired. When a response is expired it usually doesn&#8217;t get deleted from the cache, but, when a request comes in that would have hit on this response if it was not expired, the cache <em>revalidates</em> the response. In stead of requesting the object again from the origin server, the cache will send a request to the origin indicating what version of the response it has, and asking if it has changed. If it changed, the server will send a <code class="docutils literal"><span class="pre">200</span> <span class="pre">OK</span></code> response, with the new data. If it has not changed, the origin server will send back a <code class="docutils literal"><span class="pre">304</span> <span class="pre">Not</span> <span class="pre">Modified</span></code> response indicating the response is still valid, and that the cache can reset the timer on the response expiration. To indicate what version the client (cache) has it will add an <code class="docutils literal"><span class="pre">If-Not-Modified-Since:</span></code> header, or an <code class="docutils literal"><span class="pre">If-None-Match:</span></code> header.  For example, in the <code class="docutils literal"><span class="pre">If-None-Match:</span></code> case, the origin will send and <code class="docutils literal"><span class="pre">ETag</span></code> header that uniquely identifies the response. The client can use that in an revalidation request like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
-<span class="n">If</span><span class="o">-</span><span class="kc">None</span><span class="o">-</span><span class="n">Match</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50a3559482cc0&quot;</span>
-<span class="n">Host</span><span class="p">:</span> <span class="n">www</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-python"><div class="highlight"><pre>GET /foo/bar/fun.html HTTP/1.1
+If-None-Match: &quot;1aa008f-2d-50a3559482cc0&quot;
+Host: www.origin.com
 </pre></div>
 </div>
 <p>If the content has changed (meaning, the new response would not have had the same ETag) it will respond with <code class="docutils literal"><span class="pre">200</span> <span class="pre">OK</span></code>, like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
-<span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">18</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">3</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
-<span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">15</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span><span class="p">)</span>
-<span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
-<span class="n">ETag</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50aa00feadd&quot;</span>
-<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">604800</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">49</span>
-<span class="n">Connection</span><span class="p">:</span> <span class="n">close</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<div class="highlight-python"><div class="highlight"><pre>HTTP/1.1 200 OK
+Date: Sun, 18 Dec 2014 3:22:44 GMT
+Server: Apache/2.2.15 (Red Hat)
+Last-Modified: Sun, 14 Dec 2014 23:18:51 GMT
+ETag: &quot;1aa008f-2d-50aa00feadd&quot;
+Cache-Control: max-age=604800
+Content-Length: 49
+Connection: close
+Content-Type: text/html; charset=UTF-8
 
-<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="n">This</span> <span class="ow">is</span> <span class="n">NOT</span> <span class="n">a</span> <span class="n">fun</span> <span class="n">file</span><span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+&lt;html&gt;&lt;body&gt;This is NOT a fun file&lt;/body&gt;&lt;/html&gt;
 </pre></div>
 </div>
 <p>If the Content did not change (meaning, the response would have had the same ETag) it will respond with <code class="docutils literal"><span class="pre">304</span> <span class="pre">Not</span> <span class="pre">Modified</span></code>, like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">304</span> <span class="n">Not</span> <span class="n">Modified</span>
-<span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">18</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">3</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
-<span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">15</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span><span class="p">)</span>
-<span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
-<span class="n">ETag</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50a3559482cc0&quot;</span>
-<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">604800</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">45</span>
-<span class="n">Connection</span><span class="p">:</span> <span class="n">close</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
+<div class="highlight-python"><div class="highlight"><pre>304 Not Modified
+Date: Sun, 18 Dec 2014 3:22:44 GMT
+Server: Apache/2.2.15 (Red Hat)
+Last-Modified: Sun, 14 Dec 2014 23:18:51 GMT
+ETag: &quot;1aa008f-2d-50a3559482cc0&quot;
+Cache-Control: max-age=604800
+Content-Length: 45
+Connection: close
+Content-Type: text/html; charset=UTF-8
 </pre></div>
 </div>
 <p>Note that the 304 response only has headers, not the data.</p>
@@ -273,7 +273,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

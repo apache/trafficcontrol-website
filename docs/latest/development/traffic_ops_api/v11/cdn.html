@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CDN &mdash; Traffic Control 1.7 documentation </title>
+  <title>CDN &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Change Logs" href="changelog.html"/>
         <link rel="prev" title="Cache Group" href="cachegroup.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -227,22 +227,22 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-       <span class="p">{</span>
-          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;over-the-top&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;dnssecEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span>
-       <span class="p">},</span>
-       <span class="p">{</span>
-          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn2&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;dnssecEnabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span>
-       <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre>{
+ &quot;response&quot;: [
+       {
+          &quot;id&quot;: &quot;1&quot;
+          &quot;name&quot;: &quot;over-the-top&quot;,
+          &quot;dnssecEnabled&quot;: false,
+          &quot;lastUpdated&quot;: &quot;2014-10-02 08:22:43&quot;
+       },
+       {
+          &quot;id&quot;: &quot;2&quot;
+          &quot;name&quot;: &quot;cdn2&quot;,
+          &quot;dnssecEnabled&quot;: true,
+          &quot;lastUpdated&quot;: &quot;2014-10-02 08:22:43&quot;
+       }
+    ]
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -306,16 +306,16 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-       <span class="p">{</span>
-          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn2&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;dnssecEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span>
-       <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre>{
+ &quot;response&quot;: [
+       {
+          &quot;id&quot;: &quot;2&quot;
+          &quot;name&quot;: &quot;cdn2&quot;,
+          &quot;dnssecEnabled&quot;: false,
+          &quot;lastUpdated&quot;: &quot;2014-10-02 08:22:43&quot;
+       }
+    ]
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -379,16 +379,16 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-       <span class="p">{</span>
-          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn2&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;dnssecEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span>
-       <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre>{
+ &quot;response&quot;: [
+       {
+          &quot;id&quot;: &quot;2&quot;
+          &quot;name&quot;: &quot;cdn2&quot;,
+          &quot;dnssecEnabled&quot;: false,
+          &quot;lastUpdated&quot;: &quot;2014-10-02 08:22:43&quot;
+       }
+    ]
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -445,20 +445,20 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;totalOnline&quot;</span><span class="p">:</span> <span class="mi">148</span><span class="p">,</span>
-    <span class="s2">&quot;totalOffline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;cachegroups&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;totalOnline&quot;</span><span class="p">:</span> <span class="mi">148</span><span class="p">,</span>
+    <span class="s">&quot;totalOffline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;cachegroups&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
-          <span class="s2">&quot;online&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-          <span class="s2">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;us-co-denver&quot;</span>
+          <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+          <span class="s">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;us-co-denver&quot;</span>
        <span class="p">},</span>
        <span class="p">{</span>
-          <span class="s2">&quot;online&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-          <span class="s2">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;us-de-newcastle&quot;</span>
+          <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+          <span class="s">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;us-de-newcastle&quot;</span>
        <span class="p">}</span>
     <span class="p">]</span>
  <span class="p">},</span>
@@ -538,20 +538,20 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;totalOnline&quot;</span><span class="p">:</span> <span class="mi">148</span><span class="p">,</span>
-    <span class="s2">&quot;totalOffline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;cachegroups&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&quot;totalOnline&quot;</span><span class="p">:</span> <span class="mi">148</span><span class="p">,</span>
+    <span class="s">&quot;totalOffline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;cachegroups&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
-          <span class="s2">&quot;online&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-          <span class="s2">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;us-co-denver&quot;</span>
+          <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+          <span class="s">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;us-co-denver&quot;</span>
        <span class="p">},</span>
        <span class="p">{</span>
-          <span class="s2">&quot;online&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-          <span class="s2">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;us-de-newcastle&quot;</span>
+          <span class="s">&quot;online&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+          <span class="s">&quot;offline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;us-de-newcastle&quot;</span>
        <span class="p">}</span>
     <span class="p">]</span>
  <span class="p">},</span>
@@ -596,11 +596,11 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-     <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;currentGbps&quot;</span><span class="p">:</span> <span class="mf">149.368167</span><span class="p">,</span>
-        <span class="s2">&quot;tps&quot;</span><span class="p">:</span> <span class="mi">36805</span><span class="p">,</span>
-        <span class="s2">&quot;maxGbps&quot;</span><span class="p">:</span> <span class="mi">3961</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+     <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;currentGbps&quot;</span><span class="p">:</span> <span class="mf">149.368167</span><span class="p">,</span>
+        <span class="s">&quot;tps&quot;</span><span class="p">:</span> <span class="mi">36805</span><span class="p">,</span>
+        <span class="s">&quot;maxGbps&quot;</span><span class="p">:</span> <span class="mi">3961</span>
      <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -644,12 +644,12 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-     <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;availablePercent&quot;</span><span class="p">:</span> <span class="mf">89.0939840205533</span><span class="p">,</span>
-        <span class="s2">&quot;unavailablePercent&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;utilizedPercent&quot;</span><span class="p">:</span> <span class="mf">10.9060020300395</span><span class="p">,</span>
-        <span class="s2">&quot;maintenancePercent&quot;</span><span class="p">:</span> <span class="mf">0.0000139494071146245</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+     <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;availablePercent&quot;</span><span class="p">:</span> <span class="mf">89.0939840205533</span><span class="p">,</span>
+        <span class="s">&quot;unavailablePercent&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;utilizedPercent&quot;</span><span class="p">:</span> <span class="mf">10.9060020300395</span><span class="p">,</span>
+        <span class="s">&quot;maintenancePercent&quot;</span><span class="p">:</span> <span class="mf">0.0000139494071146245</span>
      <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -707,14 +707,14 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-      <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;staticRoute&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-         <span class="s2">&quot;miss&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-         <span class="s2">&quot;geo&quot;</span><span class="p">:</span> <span class="mf">37.8855391018869</span><span class="p">,</span>
-         <span class="s2">&quot;err&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-         <span class="s2">&quot;cz&quot;</span><span class="p">:</span> <span class="mf">62.1144608981131</span><span class="p">,</span>
-         <span class="s2">&quot;dsr&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+      <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s">&quot;staticRoute&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s">&quot;miss&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s">&quot;geo&quot;</span><span class="p">:</span> <span class="mf">37.8855391018869</span><span class="p">,</span>
+         <span class="s">&quot;err&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s">&quot;cz&quot;</span><span class="p">:</span> <span class="mf">62.1144608981131</span><span class="p">,</span>
+         <span class="s">&quot;dsr&quot;</span><span class="p">:</span> <span class="mi">0</span>
       <span class="p">}</span>
  <span class="p">}</span>
 </pre></div>
@@ -828,20 +828,20 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s2">&quot;98thPercentile&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
-          <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
-          <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
-          <span class="s2">&quot;5thPercentile&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
-          <span class="s2">&quot;95thPercentile&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
-          <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
-          <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mf">1668.03</span>
+       <span class="s">&quot;stats&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s">&quot;98thPercentile&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
+          <span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
+          <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
+          <span class="s">&quot;5thPercentile&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
+          <span class="s">&quot;95thPercentile&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
+          <span class="s">&quot;mean&quot;</span><span class="p">:</span> <span class="mf">1668.03</span><span class="p">,</span>
+          <span class="s">&quot;sum&quot;</span><span class="p">:</span> <span class="mf">1668.03</span>
        <span class="p">},</span>
-       <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">[</span>
              <span class="mi">1425135900000</span><span class="p">,</span>
              <span class="mf">1668.03</span>
@@ -851,7 +851,7 @@ group.</td>
              <span class="n">null</span>
           <span class="p">]</span>
        <span class="p">],</span>
-       <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Origin TPS&quot;</span>
+       <span class="s">&quot;label&quot;</span><span class="p">:</span> <span class="s">&quot;Origin TPS&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -905,21 +905,21 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;404&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CR_FOO&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;profileDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for foo.domain.net&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo.domain.net&quot;</span>
+       <span class="s">&quot;profileId&quot;</span><span class="p">:</span> <span class="s">&quot;5&quot;</span><span class="p">,</span>
+       <span class="s">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s">&quot;404&quot;</span><span class="p">,</span>
+       <span class="s">&quot;profileName&quot;</span><span class="p">:</span> <span class="s">&quot;CR_FOO&quot;</span><span class="p">,</span>
+       <span class="s">&quot;profileDescription&quot;</span><span class="p">:</span> <span class="s">&quot;Content Router for foo.domain.net&quot;</span><span class="p">,</span>
+       <span class="s">&quot;domainName&quot;</span><span class="p">:</span> <span class="s">&quot;foo.domain.net&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;405&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CR_BAR&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;profileDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for bar.domain.net&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;bar.domain.net&quot;</span>
+       <span class="s">&quot;profileId&quot;</span><span class="p">:</span> <span class="s">&quot;8&quot;</span><span class="p">,</span>
+       <span class="s">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s">&quot;405&quot;</span><span class="p">,</span>
+       <span class="s">&quot;profileName&quot;</span><span class="p">:</span> <span class="s">&quot;CR_BAR&quot;</span><span class="p">,</span>
+       <span class="s">&quot;profileDescription&quot;</span><span class="p">:</span> <span class="s">&quot;Content Router for bar.domain.net&quot;</span><span class="p">,</span>
+       <span class="s">&quot;domainName&quot;</span><span class="p">:</span> <span class="s">&quot;bar.domain.net&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -990,7 +990,7 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">TBD</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TBD</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1252,7 +1252,7 @@ profiles.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">TBD</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TBD</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1754,46 +1754,46 @@ Before returning response to user, make sure dnssec keys for all delivery servic
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;cdn1&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;zsk&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="s2">&quot;60&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;inceptionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1426196750&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;private&quot;</span><span class="p">:</span> <span class="s2">&quot;zsk private key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;public&quot;</span><span class="p">:</span> <span class="s2">&quot;zsk public key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;expirationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1428788750&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;foo.kabletown.com.&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ksk&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;foo.kabletown.com.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;expirationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1457732750&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;public&quot;</span><span class="p">:</span> <span class="s2">&quot;ksk public key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;private&quot;</span><span class="p">:</span> <span class="s2">&quot;ksk private key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;inceptionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1426196750&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="s2">&quot;60&quot;</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;ds-01&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;zsk&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="s2">&quot;60&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;inceptionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1426196750&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;private&quot;</span><span class="p">:</span> <span class="s2">&quot;zsk private key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;public&quot;</span><span class="p">:</span> <span class="s2">&quot;zsk public key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;expirationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1428788750&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01.foo.kabletown.com.&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ksk&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01.foo.kabletown.com.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;expirationDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1457732750&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;public&quot;</span><span class="p">:</span> <span class="s2">&quot;ksk public key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;private&quot;</span><span class="p">:</span> <span class="s2">&quot;ksk private key&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;inceptionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;1426196750&quot;</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="o">...</span> <span class="n">repeated</span> <span class="k">for</span> <span class="n">each</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cdn</span>
-  <span class="p">},</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre>{
+  &quot;response&quot;: {
+    &quot;cdn1&quot;: {
+      &quot;zsk&quot;: {
+        &quot;ttl&quot;: &quot;60&quot;,
+        &quot;inceptionDate&quot;: &quot;1426196750&quot;,
+        &quot;private&quot;: &quot;zsk private key&quot;,
+        &quot;public&quot;: &quot;zsk public key&quot;,
+        &quot;expirationDate&quot;: &quot;1428788750&quot;,
+        &quot;name&quot;: &quot;foo.kabletown.com.&quot;
+      },
+      &quot;ksk&quot;: {
+        &quot;name&quot;: &quot;foo.kabletown.com.&quot;,
+        &quot;expirationDate&quot;: &quot;1457732750&quot;,
+        &quot;public&quot;: &quot;ksk public key&quot;,
+        &quot;private&quot;: &quot;ksk private key&quot;,
+        &quot;inceptionDate&quot;: &quot;1426196750&quot;,
+        &quot;ttl&quot;: &quot;60&quot;
+      }
+    },
+    &quot;ds-01&quot;: {
+      &quot;zsk&quot;: {
+        &quot;ttl&quot;: &quot;60&quot;,
+        &quot;inceptionDate&quot;: &quot;1426196750&quot;,
+        &quot;private&quot;: &quot;zsk private key&quot;,
+        &quot;public&quot;: &quot;zsk public key&quot;,
+        &quot;expirationDate&quot;: &quot;1428788750&quot;,
+        &quot;name&quot;: &quot;ds-01.foo.kabletown.com.&quot;
+      },
+      &quot;ksk&quot;: {
+        &quot;name&quot;: &quot;ds-01.foo.kabletown.com.&quot;,
+        &quot;expirationDate&quot;: &quot;1457732750&quot;,
+        &quot;public&quot;: &quot;ksk public key&quot;,
+        &quot;private&quot;: &quot;ksk private key&quot;,
+        &quot;inceptionDate&quot;: &quot;1426196750&quot;
+      }
+    },
+    ... repeated for each ds in the cdn
+  },
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -1846,8 +1846,8 @@ Before returning response to user, make sure dnssec keys for all delivery servic
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully deleted dnssec keys for &lt;cdn&gt;&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="s">&quot;Successfully deleted dnssec keys for &lt;cdn&gt;&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1897,13 +1897,13 @@ Before returning response to user, make sure dnssec keys for all delivery servic
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span> <span class="s2">&quot;ott.kabletown.com&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="s2">&quot;60&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;kskExpirationDays&quot;</span><span class="p">:</span> <span class="s2">&quot;365&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;zskExpirationDays&quot;</span><span class="p">:</span> <span class="s2">&quot;90&quot;</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre>{
+  &quot;key&quot;: &quot;cdn1&quot;,
+  &quot;name&quot; &quot;ott.kabletown.com&quot;,
+  &quot;ttl&quot;: &quot;60&quot;,
+  &quot;kskExpirationDays&quot;: &quot;365&quot;,
+  &quot;zskExpirationDays&quot;: &quot;90&quot;
+}
 </pre></div>
 </div>
 <p><strong>Response Properties</strong></p>
@@ -1931,8 +1931,8 @@ Before returning response to user, make sure dnssec keys for all delivery servic
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully created dnssec keys for cdn1&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="s">&quot;Successfully created dnssec keys for cdn1&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1978,7 +1978,7 @@ Before returning response to user, make sure dnssec keys for all delivery servic
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

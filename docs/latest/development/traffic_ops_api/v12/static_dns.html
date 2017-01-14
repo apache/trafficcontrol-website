@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Static DNS Entries &mdash; Traffic Control 1.7 documentation </title>
+  <title>Static DNS Entries &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Status" href="status.html"/>
         <link rel="prev" title="Server" href="server.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -235,18 +235,18 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;deliveryservice&quot;</span><span class="p">:</span> <span class="s2">&quot;foo-ds&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CNAME_RECORD&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;bar.foo.baz.tv.&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-co-denver&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;mm&quot;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre> {
+  &quot;response&quot;: [
+    {
+      &quot;deliveryservice&quot;: &quot;foo-ds&quot;,
+      &quot;ttl&quot;: &quot;30&quot;,
+      &quot;type&quot;: &quot;CNAME_RECORD&quot;,
+      &quot;address&quot;: &quot;bar.foo.baz.tv.&quot;,
+      &quot;cachegroup&quot;: &quot;us-co-denver&quot;,
+      &quot;host&quot;: &quot;mm&quot;
+    }
+  ]
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -294,7 +294,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

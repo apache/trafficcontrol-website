@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Status &mdash; Traffic Control 1.7 documentation </title>
+  <title>Status &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="System" href="system.html"/>
         <link rel="prev" title="Static DNS Entries" href="static_dns.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -228,40 +228,40 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ADMIN_DOWN&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Temporary down. Edge: XMPP client will send status OFFLINE to CCR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR_IGNORE&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: 12M will not include caches in this state in CCR config files. Mid: N\/A for now&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;OFFLINE&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: Puts server in CCR config file in this state, but CCR will never route traffic to it. Mid: Server will not be included in parent.config files for its edge caches&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: Puts server in CCR config file in this state, and CCR will always route traffic to it. Mid: Server will be included in parent.config files for its edges&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;REPORTED&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Edge: Puts server in CCR config file in this state, and CCR will adhere to the health protocol. Mid: N\/A for now&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre> {
+  &quot;response&quot;: [
+    {
+      &quot;id&quot;: &quot;4&quot;,
+      &quot;name&quot;: &quot;ADMIN_DOWN&quot;,
+      &quot;description&quot;: &quot;Temporary down. Edge: XMPP client will send status OFFLINE to CCR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches&quot;,
+      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
+    },
+    {
+      &quot;id&quot;: &quot;5&quot;,
+      &quot;name&quot;: &quot;CCR_IGNORE&quot;,
+      &quot;description&quot;: &quot;Edge: 12M will not include caches in this state in CCR config files. Mid: N\/A for now&quot;,
+      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
+    },
+    {
+      &quot;id&quot;: &quot;1&quot;,
+      &quot;name&quot;: &quot;OFFLINE&quot;,
+      &quot;description&quot;: &quot;Edge: Puts server in CCR config file in this state, but CCR will never route traffic to it. Mid: Server will not be included in parent.config files for its edge caches&quot;,
+      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
+    },
+    {
+      &quot;id&quot;: &quot;2&quot;,
+      &quot;name&quot;: &quot;ONLINE&quot;,
+      &quot;description&quot;: &quot;Edge: Puts server in CCR config file in this state, and CCR will always route traffic to it. Mid: Server will be included in parent.config files for its edges&quot;,
+      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
+    },
+    {
+      &quot;id&quot;: &quot;3&quot;,
+      &quot;name&quot;: &quot;REPORTED&quot;,
+      &quot;description&quot;: &quot;Edge: Puts server in CCR config file in this state, and CCR will adhere to the health protocol. Mid: N\/A for now&quot;,
+      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
+    }
+  ]
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -323,16 +323,16 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ADMIN_DOWN&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Temporary down. Edge: XMPP client will send status OFFLINE to CCR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-13 16:34:29&quot;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre> {
+  &quot;response&quot;: [
+    {
+      &quot;id&quot;: &quot;4&quot;,
+      &quot;name&quot;: &quot;ADMIN_DOWN&quot;,
+      &quot;description&quot;: &quot;Temporary down. Edge: XMPP client will send status OFFLINE to CCR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches&quot;,
+      &quot;lastUpdated&quot;: &quot;2013-02-13 16:34:29&quot;
+    }
+  ]
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -377,7 +377,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

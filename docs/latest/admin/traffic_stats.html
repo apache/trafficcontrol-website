@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Stats Administration &mdash; Traffic Control 1.7 documentation </title>
+  <title>Traffic Stats Administration &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Traffic Server Administration" href="traffic_server.html"/>
         <link rel="prev" title="Traffic Router Administration" href="traffic_router.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -109,7 +109,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Stats Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_vault.html">Traffic Vault Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_howto/index.html">Quick How To Guides</a></li>
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -192,7 +192,7 @@
 <p><strong>Installing Traffic Stats:</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li>Download the Traffic Stats RPM from the traffic control <a class="reference external" href="http://traffic-control-cdn.net/downloads/index.html">downloads</a> page.</li>
+<li>Download the Traffic Stats RPM from the traffic control <a class="reference external" href="https://trafficcontrol.apache.org/downloads/index.html">downloads</a> page.</li>
 <li>Copy the Traffic Stats RPM to your server</li>
 <li>sudo rpm -ivh &lt;traffic_stats rpm&gt;</li>
 </ul>
@@ -267,7 +267,7 @@ The following values need to be configured:</p>
 </ul>
 </div></blockquote>
 <p>In order for Traffic Ops users to see Grafana graphs, Grafana will need to allow anonymous access.  Information on how to configure anonymous access can be found on the configuration page of the <a class="reference external" href="http://docs.grafana.org/installation/configuration/#authanonymous">Grafana Website</a>.</p>
-<p>Traffic Ops uses custom dashboards to display information about individual delivery services or cache groups.  In order for the custom graphs to display correctly, the <a class="reference external" href="https://github.com/Comcast/traffic_control/blob/master/traffic_stats/grafana/">traffic_ops_*.js</a> files need to be in the <code class="docutils literal"><span class="pre">/usr/share/grafana/public/dashboards/</span></code> directory on the grafana server.  If your Grafana server is the same as your Traffic Stats server the RPM install process will take care of putting the files in place.  If your grafana server is different from your Traffic Stats server, you will need to manually copy the files to the correct directory.</p>
+<p>Traffic Ops uses custom dashboards to display information about individual delivery services or cache groups.  In order for the custom graphs to display correctly, the <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/blob/master/traffic_stats/grafana/">traffic_ops_*.js</a> files need to be in the <code class="docutils literal"><span class="pre">/usr/share/grafana/public/dashboards/</span></code> directory on the grafana server.  If your Grafana server is the same as your Traffic Stats server the RPM install process will take care of putting the files in place.  If your grafana server is different from your Traffic Stats server, you will need to manually copy the files to the correct directory.</p>
 <p>More information on custom scripted graphs can be found in the <a class="reference external" href="http://docs.grafana.org/reference/scripting/">scripted dashboards</a> section of the Grafana documentation.</p>
 </div></blockquote>
 <p><strong>Configuring Traffic Ops for Traffic Stats:</strong></p>
@@ -320,8 +320,8 @@ The following values need to be configured:</p>
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="id2">
-<h2>InfluxDb Tools<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>InfluxDb Tools<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Under the Traffic Stats source directory there is a directory called influxdb_tools.  These tools are meant to be used as one-off scripts to help a user quickly get new databases and continuous queries setup in influxdb.
 They are specific for traffic stats and are not meant to be generic to influxdb.  Below is an brief description of each script along with how to use it.</p>
 <dl class="docutils">
@@ -350,7 +350,7 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 <li><dl class="first docutils">
 <dt>optional flags:</dt>
 <dd><ul class="first last simple">
-<li>influxUrl -  The influxdb url and port</li>
+<li>url -  The influxdb url and port</li>
 <li>replication -  The number of nodes in the cluster</li>
 <li>user - The user to use</li>
 <li>password - The password to use</li>
@@ -358,7 +358,7 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 </dd>
 </dl>
 </li>
-<li><p class="first">example: ./create_ts_databases -influxUrl=localhost:8086 -replication=3 -user=joe -password=mysecret</p>
+<li><p class="first">example: ./create_ts_databases -url=localhost:8086 -replication=3 -user=joe -password=mysecret</p>
 </li>
 </ul>
 </dd>
@@ -462,7 +462,7 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

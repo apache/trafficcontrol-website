@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Federation &mdash; Traffic Control 1.7 documentation </title>
+  <title>Federation &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Hardware Info" href="hwinfo.html"/>
         <link rel="prev" title="Divisions" href="division.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -224,17 +224,17 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;cname&quot;</span><span class="p">:</span> <span class="s2">&quot;cname-01.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">8865</span><span class="p">,</span>
-      <span class="p">]</span>
-      <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre>{
+ &quot;response&quot;: [
+    {
+      &quot;mappings&quot;: [
+        &quot;cname&quot;: &quot;cname-01.&quot;,
+        &quot;ttl&quot;: 8865,
+      ]
+      &quot;deliveryService&quot;: &quot;ds-01&quot;,
+    }
+  ]
+}
 </pre></div>
 </div>
 </div></blockquote>
@@ -275,16 +275,16 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s2">&quot;255.255.255.255&quot;</span>
+      <span class="s">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
+      <span class="s">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s">&quot;255.255.255.255&quot;</span>
         <span class="p">],</span>
-        <span class="s2">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s2">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
         <span class="p">]</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -339,16 +339,16 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s2">&quot;255.255.255.255&quot;</span>
+      <span class="s">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
+      <span class="s">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s">&quot;255.255.255.255&quot;</span>
         <span class="p">],</span>
-        <span class="s2">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s2">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
+        <span class="s">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
         <span class="p">]</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -401,7 +401,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

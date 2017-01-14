@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuring Traffic Ops &mdash; Traffic Control 1.7 documentation </title>
+  <title>Configuring Traffic Ops &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Using Traffic Ops" href="traffic_ops_using.html"/>
         <link rel="prev" title="Installing Traffic Ops" href="traffic_ops_install.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -103,7 +103,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuring Traffic Ops</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -315,7 +315,7 @@ The Traffic Monitor IP addresses have to be included in this, if they are using 
 </tr>
 <tr class="row-even"><td>purge_allow_ip</td>
 <td>ip_allow.config</td>
-<td>The IP address range that is allowed to execute the PURGE method on the caches (not related to <a class="reference internal" href="traffic_ops_using.html#rl-purge"><span class="std std-ref">Invalidate Content</span></a>)</td>
+<td>The IP address range that is allowed to execute the PURGE method on the caches (not related to <a class="reference internal" href="traffic_ops_using.html#rl-purge"><em>Invalidate Content</em></a>)</td>
 </tr>
 <tr class="row-odd"><td>health.threshold.loadavg</td>
 <td>rascal.properties</td>
@@ -348,12 +348,12 @@ For example: &#8220;&#8221;&gt;1500000&#8221; means stop sending new traffic to 
 <tr class="row-even"><td>astats_over_http</td>
 <td>package</td>
 <td>The package version for the astats_over_http plugin.</td>
-<td><a class="reference external" href="http://traffic-control-cdn.net/downloads/index.html">astats_over_http</a></td>
+<td><a class="reference external" href="http://trafficcontrol.apache.org/downloads/index.html">astats_over_http</a></td>
 </tr>
 <tr class="row-odd"><td>trafficserver</td>
 <td>package</td>
 <td>The package version for the trafficserver plugin.</td>
-<td><a class="reference external" href="http://traffic-control-cdn.net/downloads/index.html">trafficserver</a></td>
+<td><a class="reference external" href="http://trafficcontrol.apache.org/downloads/index.html">trafficserver</a></td>
 </tr>
 <tr class="row-even"><td>regex_revalidate</td>
 <td>plugin.config</td>
@@ -377,7 +377,7 @@ Value is left blank.</td>
 </div>
 <div class="section" id="configuring-content-purge">
 <h2>Configuring Content Purge<a class="headerlink" href="#configuring-content-purge" title="Permalink to this headline">¶</a></h2>
-<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
+<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="traffic_server.html#reference-traffic-ops-ort"><em>Configuring Traffic Server</em></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
 <p>Content Purge is controlled by the following parameters in the profile of the cache:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -424,13 +424,13 @@ For example: &#8211;config regex_revalidate.config</td>
 <li>Start the kickstart installation.</li>
 </ol>
 <p>Create a ks.src file in the root of the selection location. See the example below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">newdir</span>
-<span class="n">cd</span> <span class="n">newdir</span><span class="o">/</span>
-<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">centos65</span><span class="o">/*</span> <span class="o">.</span>
-<span class="n">vim</span> <span class="n">ks</span><span class="o">.</span><span class="n">src</span>
-<span class="n">vim</span> <span class="n">isolinux</span><span class="o">/</span><span class="n">isolinux</span><span class="o">.</span><span class="n">cfg</span>
-<span class="n">cd</span> <span class="n">vim</span> <span class="n">osversions</span><span class="o">.</span><span class="n">cfg</span>
-<span class="n">vim</span> <span class="n">osversions</span><span class="o">.</span><span class="n">cfg</span>
+<div class="highlight-python"><div class="highlight"><pre>mkdir newdir
+cd newdir/
+cp -r ../centos65/* .
+vim ks.src
+vim isolinux/isolinux.cfg
+cd vim osversions.cfg
+vim osversions.cfg
 </pre></div>
 </div>
 <p>This is a standard kickstart formatted file that the generate ISO process uses to create the kickstart (ks.cfg) file for the install. The generate ISO process uses the ks.src, overwriting any information set in the Generate ISO tab in Traffic Ops, creating ks.cfg.</p>
@@ -484,7 +484,7 @@ For example: &#8211;config regex_revalidate.config</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

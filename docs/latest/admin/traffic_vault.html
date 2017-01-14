@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Vault Administration &mdash; Traffic Control 1.7 documentation </title>
+  <title>Traffic Vault Administration &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Quick How To Guides" href="quick_howto/index.html"/>
         <link rel="prev" title="Traffic Server Administration" href="traffic_server.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Vault Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Vault Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_howto/index.html">Quick How To Guides</a></li>
 </ul>
 </li>
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -406,7 +406,7 @@ The installation instructions for Riak can be found <a class="reference external
 <li><dl class="first docutils">
 <dt>Add the search schema to Riak.  This schema is a simple Apache Solr configuration file which will index all records on cdn, hostname, and deliveryservice.</dt>
 <dd><ul class="first last simple">
-<li>Get the schema file by either cloning the project and going to <cite>traffic_ops/app/config/misc/riak_search</cite> or from <a class="reference external" href="https://github.com/Comcast/traffic_control/tree/master/traffic_ops/app/conf/misc/riak_search">github</a>.</li>
+<li>Get the schema file by either cloning the project and going to <cite>traffic_ops/app/config/misc/riak_search</cite> or from <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/tree/master/traffic_ops/app/conf/misc/riak_search">github</a>.</li>
 <li>Use curl to add the schema to riak: <code class="docutils literal"><span class="pre">curl</span> <span class="pre">-kvs</span> <span class="pre">-XPUT</span> <span class="pre">&quot;https://admin:pass&#64;riakserver:8088/search/schema/sslkeys&quot;</span> <span class="pre">-H</span> <span class="pre">'Content-Type:application/xml'</span>&nbsp; <span class="pre">-d</span> <span class="pre">&#64;sslkeys.xml</span></code></li>
 </ul>
 </dd>
@@ -431,7 +431,7 @@ The installation instructions for Riak can be found <a class="reference external
 </ol>
 <p>Riak Search (using Apache Solr) will now index all NEW records that are added to the &#8220;ssl&#8221; bucket.  The cdn, deliveryservice, and hostname fields are indexed and when a search is performed riak will return the indexed fields along with the crt and key values for a ssl record.  In order to add the indexed fields to current records and to get the current records added, a standalone script needs to be run.  The following explains how to run the script.</p>
 <ol class="arabic simple">
-<li>Get script from github either by cloning the project and going to <cite>traffic_ops/app/script</cite> or from <a class="reference external" href="https://github.com/Comcast/traffic_control/blob/master/traffic_ops/app/script/update_riak_for_search.pl">here</a></li>
+<li>Get script from github either by cloning the project and going to <cite>traffic_ops/app/script</cite> or from <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/blob/master/traffic_ops/app/script/update_riak_for_search.pl">here</a></li>
 <li>Run the script by performing the following command <code class="docutils literal"><span class="pre">./update_riak_for_search.pl</span> <span class="pre">-to_url=https://traffic-ops.kabletown.net</span> <span class="pre">-to_un=user</span> <span class="pre">-to_pw=password</span></code></li>
 </ol>
 <p>Validate the search is working by querying against Riak directly:
@@ -480,7 +480,7 @@ The installation instructions for Riak can be found <a class="reference external
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

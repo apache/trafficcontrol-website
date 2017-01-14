@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configure DNSSEC &mdash; Traffic Control 1.7 documentation </title>
+  <title>Configure DNSSEC &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../../index.html"/>
         <link rel="up" title="Quick How To Guides" href="index.html"/>
         <link rel="next" title="Configure Federations" href="federations.html"/>
         <link rel="prev" title="Configure Multi Site Origin" href="multi_site.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../../_static/tc_logo.png" class="logo" />
+          <img src="../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -199,7 +199,7 @@
 <ol class="arabic simple">
 <li>Go to Tools-&gt;Manage DNSSEC Keys choose a CDN and click Manage DNSSEC Keys</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/dnssec01.png"><img alt="../../_images/dnssec01.png" class="align-center" src="../../_images/dnssec01.png" style="width: 1100.0px; height: 280.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/dnssec01.png"><img alt="../../_images/dnssec01.png" class="align-center" src="../../_images/dnssec01.png" /></a>
 <ol class="arabic" start="2">
 <li><p class="first">Generate keys for a CDN by clicking Generate Keys then entering the following information:</p>
 <blockquote>
@@ -213,20 +213,20 @@
 <p>Depending upon the number of Delivery Services in the CDN, generating DNSSEC keys may take serveral seconds.</p>
 </li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/dnssec02.png"><img alt="../../_images/dnssec02.png" class="align-center" src="../../_images/dnssec02.png" style="width: 747.0px; height: 454.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/dnssec02.png"><img alt="../../_images/dnssec02.png" class="align-center" src="../../_images/dnssec02.png" /></a>
 <ol class="arabic" start="3">
 <li><p class="first">In order for DNSSEC to work properly, the DS Record information needs to be added to the parent zone of the CDN&#8217;s domain (e.g. If       the CDN&#8217;s domain is &#8216;cdn.kabletown.net&#8217; the parent zone is &#8216;kabletown.net&#8217;).</p>
 <p>If you control your parent zone you can enter this information yourself, otherwise you will need to work with your DNS team to get the DS Record added to the parent zone.</p>
 </li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/dnssec03.png"><img alt="../../_images/dnssec03.png" class="align-center" src="../../_images/dnssec03.png" style="width: 499.1px; height: 190.4px;" /></a>
+<a class="reference internal image-reference" href="../../_images/dnssec03.png"><img alt="../../_images/dnssec03.png" class="align-center" src="../../_images/dnssec03.png" /></a>
 <ol class="arabic" start="4">
 <li><p class="first">Once DS Record information has been added to the parent zone, DNSSEC needs to be activated for the CDN so that Traffic Router will sign responses.</p>
 <p>Click on Tools -&gt; Manage DNSSEC Keys -&gt; Choose your CDN -&gt; On the Manage DNSSEC Keys page click the activate DNSSEC Keys button.</p>
 <p>This will add a &#8216;dnssec.enabled = &#8220;true&#8221;&#8217; entry to CRConfig for the chosen CDN.</p>
 </li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/dnssec04.png"><img alt="../../_images/dnssec04.png" class="align-center" src="../../_images/dnssec04.png" style="width: 554.4px; height: 422.8px;" /></a>
+<a class="reference internal image-reference" href="../../_images/dnssec04.png"><img alt="../../_images/dnssec04.png" class="align-center" src="../../_images/dnssec04.png" /></a>
 <ol class="arabic" start="5">
 <li><p class="first">DNSSEC should now be active on your CDN and Traffic Router should be signing responses.</p>
 <blockquote>
@@ -278,7 +278,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

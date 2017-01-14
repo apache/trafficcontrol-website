@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Router &mdash; Traffic Control 1.7 documentation </title>
+  <title>Traffic Router &mdash; Traffic Control master documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control 1.7 documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
         <link rel="up" title="Developer’s Guide" href="index.html"/>
         <link rel="next" title="Traffic Router API" href="traffic_router/traffic_router_api.html"/>
         <link rel="prev" title="Traffic Portal" href="traffic_portal.html"/> 
@@ -58,7 +58,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -120,7 +120,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Router</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server</a></li>
@@ -159,7 +159,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.7</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
       
           <li><a href="index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -295,16 +295,27 @@
 <div class="section" id="installing-the-developer-environment">
 <h2>Installing The Developer Environment<a class="headerlink" href="#installing-the-developer-environment" title="Permalink to this headline">¶</a></h2>
 <p>To install the Traffic Router Developer environment:</p>
-<ol class="arabic simple">
-<li>Clone the traffic_control repository using Git.</li>
-<li>Change directories into <code class="docutils literal"><span class="pre">traffic_control/traffic_router</span></code>.</li>
-<li>Set the environment variable TRAFFIC_MONITOR_HOSTS to be a semicolon delimited list of Traffic Monitors that can be accessed during integration tests</li>
-<li>core/src/test/resources no longer exists</li>
-<li>core/src/test/conf contains a properties file for accessing Traffic Ops</li>
-<li>Default configuration values now reside in core/src/main/webapp/WEB-INF/applicationContext.xml</li>
-<li>The above values may be overridden by creating and/or modifying the property files listed in core/src/main/resources/applicationProperties.xml</li>
-<li>Pre-existing properties files are still honored by Traffic Router</li>
-</ol>
+<ol class="arabic">
+<li><p class="first">Clone the traffic_control repository using Git.</p>
+</li>
+<li><p class="first">Change directories into <code class="docutils literal"><span class="pre">traffic_control/traffic_router</span></code>.</p>
+</li>
+<li><p class="first">Follow the instructions in &#8220;README.DNSSEC&#8221; for DNSSEC support.</p>
+</li>
+<li><p class="first">Set the environment variable TRAFFIC_MONITOR_HOSTS to be a semicolon delimited list of Traffic Monitors that can be accessed during integration tests</p>
+</li>
+<li><dl class="first docutils">
+<dt>Additional configuration is set using the below files:</dt>
+<dd><ul class="first last">
+<li><p class="first">core/src/test/resources no longer exists</p>
+</li>
+<li><p class="first">core/src/test/conf/traffic_ops.properties file holds the credentials for accessing Traffic Ops.</p>
+</li>
+<li><p class="first">Default configuration values now reside in core/src/main/webapp/WEB-INF/applicationContext.xml</p>
+</li>
+<li><p class="first">The above values may be overridden by creating and/or modifying the property files listed in core/src/main/resources/applicationProperties.xml</p>
+</li>
+<li><p class="first">Pre-existing properties files are still honored by Traffic Router. For example traffic_monitor.properties:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -321,7 +332,11 @@
 </tr>
 </tbody>
 </table>
-<ol class="arabic" start="4">
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p class="first">Import the existing git repo into Eclipse:</p>
 <blockquote>
 <div><ol class="loweralpha simple">
@@ -357,7 +372,7 @@
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">Traffic Router Core should now be running; the HTTP routing interface is available on <a class="reference external" href="http://localhost:8081">http://localhost:8081</a>, while the DNS server and routing interface is available on localhost:1053 via TCP and UDP.</p>
+<li><p class="first">Traffic Router Core should now be running; the HTTP routing interface is available on <a class="reference external" href="http://localhost:8081">http://localhost:8081</a>, while HTTPS is available on <a class="reference external" href="http://localhost:8443">http://localhost:8443</a>. The DNS server and routing interface is available on localhost:1053 via TCP and UDP.</p>
 </li>
 </ol>
 </div>
@@ -374,7 +389,7 @@
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="traffic_router/traffic_router_api.html#reference-tr-api"><span class="std std-ref">Traffic Router API</span></a></p>
+<p><a class="reference internal" href="traffic_router/traffic_router_api.html#reference-tr-api"><em>Traffic Router API</em></a></p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -418,7 +433,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.7',
+            VERSION:'master',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

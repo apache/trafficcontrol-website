@@ -1,5 +1,4 @@
 .. 
-.. Copyright 2015 Comcast Cable Communications Management, LLC
 .. 
 .. Licensed under the Apache License, Version 2.0 (the "License");
 .. you may not use this file except in compliance with the License.
@@ -25,13 +24,24 @@ Delivery Service
 /api/1.2/deliveryservices
 +++++++++++++++++++++++++
 
-**GET /api/1.2/deliveryservices.json**
+**GET /api/1.2/deliveryservices**
 
-  Retrieves all delivery services. See also `Using Traffic Ops - Delivery Service <http://traffic-control-cdn.net/docs/latest/admin/traffic_ops_using.html#delivery-service>`_.
+  Retrieves all delivery services. See also `Using Traffic Ops - Delivery Service <http://trafficcontrol.apache.org/docs/latest/admin/traffic_ops_using.html#delivery-service>`_.
 
   Authentication Required: Yes
 
   Role(s) Required: None
+
+  **Request Query Parameters**
+
+  +-----------------+----------+---------------------------------------------------+
+  | Name            | Required | Description                                       |
+  +=================+==========+===================================================+
+  | ``cdn``         | no       | Filter delivery services by CDN ID.               |
+  +-----------------+----------+---------------------------------------------------+
+  | ``type``        | no       | Filter delivery services by Type ID.              |
+  +-----------------+----------+---------------------------------------------------+
+
 
   **Response Properties**
 
@@ -63,8 +73,6 @@ Delivery Service
   | ``dscp``                 | string | The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE ->  customer) traffic.                             |
   +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
   | ``edgeHeaderRewrite``    | string | The EDGE header rewrite actions to perform.                                                                                          |
-  +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
-  | ``exampleURLs``          |  array | Entry points into the CDN for this deliveryservice.                                                                                  |
   +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
   | ``geoLimitRedirectUrl``  | string |                                                                                                                                      |
   +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -106,8 +114,6 @@ Delivery Service
   | ``longDesc1``            | string | Description field 2.                                                                                                                 |
   +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
   | ``longDesc2``            | string | Description field 2.                                                                                                                 |
-  +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
-  | ``matchList``            | array  | Array of matchList hashes.                                                                                                           |
   +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
   | ``>>type``               | string | The type of MatchList (one of :ref:to-api-v11-types use_in_table='regex').                                                           |
   +--------------------------+--------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -254,11 +260,19 @@ Delivery Service
 
 **GET /api/1.2/deliveryservices/:id**
 
-  Retrieves a specific delivery service. See also `Using Traffic Ops - Delivery Service <http://traffic-control-cdn.net/docs/latest/admin/traffic_ops_using.html#delivery-service>`_.
+  Retrieves a specific delivery service. See also `Using Traffic Ops - Delivery Service <http://trafficcontrol.apache.org/docs/latest/admin/traffic_ops_using.html#delivery-service>`_.
 
   Authentication Required: Yes
 
   Role(s) Required: None
+
+  **Request Route Parameters**
+
+  +-----------------+----------+---------------------------------------------------+
+  | Name            | Required | Description                                       |
+  +=================+==========+===================================================+
+  | ``id``          | yes      | Delivery service ID.                              |
+  +-----------------+----------+---------------------------------------------------+
 
   **Response Properties**
 
@@ -476,13 +490,169 @@ Delivery Service
 
 |
 
+**GET /api/1.2/deliveryservices/:id/servers**
+
+  Retrieves properties of CDN Edge servers assigned to a delivery service.
+
+  Authentication Required: Yes
+
+  Role(s) Required: None
+
+  **Request Route Parameters**
+
+  +-----------------+----------+---------------------------------------------------+
+  | Name            | Required | Description                                       |
+  +=================+==========+===================================================+
+  | ``id``          | yes      | Delivery service ID.                              |
+  +-----------------+----------+---------------------------------------------------+
+
+  **Response Properties**
+
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  |     Parameter      |  Type  |                                                Description                                                 |
+  +====================+========+============================================================================================================+
+  | ``cachegroup``     | string | The cache group name (see :ref:`to-api-v11-cachegroup`).                                                   |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``cachegroupId``   | string | The cache group id.                                                                                        |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``cdnId``          | string | Id of the CDN to which the server belongs to.                                                              |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``cdnName``        | string | Name of the CDN to which the server belongs to.                                                            |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``domainName``     | string | The domain name part of the FQDN of the cache.                                                             |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``guid``           | string | An identifier used to uniquely identify the server.                                                        |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``hostName``       | string | The host name part of the cache.                                                                           |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``httpsPort``      | string | The HTTPS port on which the main application listens (443 in most cases).                                  |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``id``             | string | The server id (database row number).                                                                       |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``iloIpAddress``   | string | The IPv4 address of the lights-out-management port.                                                        |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``iloIpGateway``   | string | The IPv4 gateway address of the lights-out-management port.                                                |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``iloIpNetmask``   | string | The IPv4 netmask of the lights-out-management port.                                                        |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``iloPassword``    | string | The password of the of the lights-out-management user (displays as ****** unless you are an 'admin' user). |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``iloUsername``    | string | The user name for lights-out-management.                                                                   |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``interfaceMtu``   | string | The Maximum Transmission Unit (MTU) to configure for ``interfaceName``.                                    |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``interfaceName``  | string | The network interface name used for serving traffic.                                                       |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``ip6Address``     | string | The IPv6 address/netmask for ``interfaceName``.                                                            |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``ip6Gateway``     | string | The IPv6 gateway for ``interfaceName``.                                                                    |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``ipAddress``      | string | The IPv4 address for ``interfaceName``.                                                                    |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``ipGateway``      | string | The IPv4 gateway for ``interfaceName``.                                                                    |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``ipNetmask``      | string | The IPv4 netmask for ``interfaceName``.                                                                    |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``lastUpdated``    | string | The Time and Date for the last update for this server.                                                     |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``mgmtIpAddress``  | string | The IPv4 address of the management port (optional).                                                        |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``mgmtIpGateway``  | string | The IPv4 gateway of the management port (optional).                                                        |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``mgmtIpNetmask``  | string | The IPv4 netmask of the management port (optional).                                                        |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``offlineReason``  | string | A user-entered reason why the server is in ADMIN_DOWN or OFFLINE status.                                   |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``physLocation``   | string | The physical location name (see :ref:`to-api-v11-phys-loc`).                                               |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``physLocationId`` | string | The physical location id (see :ref:`to-api-v11-phys-loc`).                                                 |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``profile``        | string | The assigned profile name (see :ref:`to-api-v11-profile`).                                                 |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``profileDesc``    | string | The assigned profile description (see :ref:`to-api-v11-profile`).                                          |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``profileId``      | string | The assigned profile Id (see :ref:`to-api-v11-profile`).                                                   |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``rack``           | string | A string indicating rack location.                                                                         |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``routerHostName`` | string | The human readable name of the router.                                                                     |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``routerPortName`` | string | The human readable name of the router port.                                                                |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``status``         | string | The Status string (See :ref:`to-api-v11-status`).                                                          |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``statusId``       | string | The Status id (See :ref:`to-api-v11-status`).                                                              |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``tcpPort``        | string | The default TCP port on which the main application listens (80 for a cache in most cases).                 |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``type``           | string | The name of the type of this server (see :ref:`to-api-v11-type`).                                          |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``typeId``         | string | The id of the type of this server (see :ref:`to-api-v11-type`).                                            |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+  | ``updPending``     |  bool  |                                                                                                            |
+  +--------------------+--------+------------------------------------------------------------------------------------------------------------+
+
+  **Response Example** ::
+
+   {
+      "response": [
+          {
+              "cachegroup": "us-il-chicago",
+              "cachegroupId": "3",
+              "cdnId": "3",
+              "cdnName": "CDN-1",
+              "domainName": "chi.kabletown.net",
+              "guid": null,
+              "hostName": "atsec-chi-00",
+              "id": "19",
+              "iloIpAddress": "172.16.2.6",
+              "iloIpGateway": "172.16.2.1",
+              "iloIpNetmask": "255.255.255.0",
+              "iloPassword": "********",
+              "iloUsername": "",
+              "interfaceMtu": "9000",
+              "interfaceName": "bond0",
+              "ip6Address": "2033:D0D0:3300::2:2/64",
+              "ip6Gateway": "2033:D0D0:3300::2:1",
+              "ipAddress": "10.10.2.2",
+              "ipGateway": "10.10.2.1",
+              "ipNetmask": "255.255.255.0",
+              "lastUpdated": "2015-03-08 15:57:32",
+              "mgmtIpAddress": "",
+              "mgmtIpGateway": "",
+              "mgmtIpNetmask": "",
+              "offlineReason": "N/A",
+              "physLocation": "plocation-chi-1",
+              "physLocationId": "9",
+              "profile": "EDGE1_CDN1_421_SSL",
+              "profileDesc": "EDGE1_CDN1_421_SSL profile",
+              "profileId": "12",
+              "rack": "RR 119.02",
+              "routerHostName": "rtr-chi.kabletown.net",
+              "routerPortName": "2",
+              "status": "ONLINE",
+              "statusId": "6",
+              "tcpPort": "80",
+              "httpsPort": "443",
+              "type": "EDGE",
+              "typeId": "3",
+              "updPending": false
+          },
+          {
+          ... more server data
+          }
+        ]
+    }
+
+|
+
 
 .. _to-api-v12-ds-health:
 
 Health
 ++++++
 
-**GET /api/1.2/deliveryservices/:id/state.json**
+**GET /api/1.2/deliveryservices/:id/state**
 
   Retrieves the failover state for a delivery service.
 
@@ -531,7 +701,7 @@ Health
 
 |
 
-**GET /api/1.2/deliveryservices/:id/health.json**
+**GET /api/1.2/deliveryservices/:id/health**
 
   Retrieves the health of all locations (cache groups) for a delivery service.
 
@@ -581,7 +751,7 @@ Health
 
 |
 
-**GET /api/1.2/deliveryservices/:id/capacity.json**
+**GET /api/1.2/deliveryservices/:id/capacity**
 
   Retrieves the capacity percentages of a delivery service.
 
@@ -629,7 +799,7 @@ Health
 
 |
 
-**GET /api/1.2/deliveryservices/:id/routing.json**
+**GET /api/1.2/deliveryservices/:id/routing**
 
   Retrieves the routing method percentages of a delivery service.
 
@@ -693,7 +863,7 @@ Health
 Server
 ++++++
 
-**GET /api/1.2/deliveryserviceserver.json**
+**GET /api/1.2/deliveryserviceserver**
 
   Authentication Required: Yes
 
@@ -749,7 +919,7 @@ Server
 SSL Keys
 +++++++++
 
-**GET /api/1.2/deliveryservices/xmlId/:xmlid/sslkeys.json**
+**GET /api/1.2/deliveryservices/xmlId/:xmlid/sslkeys**
 
   Authentication Required: Yes
 
@@ -774,29 +944,34 @@ SSL Keys
 
   **Response Properties**
 
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  |    Parameter     |  Type  |                                                               Description                                                               |
-  +==================+========+=========================================================================================================================================+
-  | ``crt``          | string | base64 encoded crt file for delivery service                                                                                            |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``csr``          | string | base64 encoded csr file for delivery service                                                                                            |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``key``          | string | base64 encoded private key file for delivery service                                                                                    |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``businessUnit`` | string | The business unit entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``city``         | string | The city entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response          |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``organization`` | string | The organization entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response  |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``hostname``     | string | The hostname entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response      |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``country``      | string | The country entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response       |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``state``        | string | The state entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response         |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``version``      | string | The version of the certificate record in Riak                                                                                           |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  |    Parameter        |  Type  |                                                               Description                                                               |
+  +=====================+========+=========================================================================================================================================+
+  | ``crt``             | string | base64 encoded crt file for delivery service                                                                                            |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``csr``             | string | base64 encoded csr file for delivery service                                                                                            |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``key``             | string | base64 encoded private key file for delivery service                                                                                    |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``cdn``             | string | The CDN of the delivery service for which the certs were generated.                                                                     |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``deliveryservice`` | string | The XML ID of the delivery service for which the cert was generated.                                                                    |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``businessUnit``    | string | The business unit entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``city``            | string | The city entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response          |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``organization``    | string | The organization entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response  |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``hostname``        | string | The hostname generated by Traffic Ops that is used as the common name when generating the certificate.                                  |
+  |                     |        | This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delivery services.                                            |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``country``         | string | The country entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response       |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``state``           | string | The state entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response         |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``version``         | string | The version of the certificate record in Riak                                                                                           |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
   **Response Example** ::
 
@@ -807,6 +982,8 @@ SSL Keys
           "key": "key",
           "csr": "csr"
         },
+        "deliveryservice": "my-ds",
+        "cdn": "qa",
         "businessUnit": "CDN_Eng",
         "city": "Denver",
         "organization": "KableTown",
@@ -819,7 +996,7 @@ SSL Keys
 
 |
 
-**GET /api/1.2/deliveryservices/hostname/:hostname/sslkeys.json**
+**GET /api/1.2/deliveryservices/hostname/:hostname/sslkeys**
 
   Authentication Required: Yes
 
@@ -844,29 +1021,34 @@ SSL Keys
 
   **Response Properties**
 
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  |    Parameter     |  Type  |                                                               Description                                                               |
-  +==================+========+=========================================================================================================================================+
-  | ``crt``          | string | base64 encoded crt file for delivery service                                                                                            |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``csr``          | string | base64 encoded csr file for delivery service                                                                                            |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``key``          | string | base64 encoded private key file for delivery service                                                                                    |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``businessUnit`` | string | The business unit entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``city``         | string | The city entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response          |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``organization`` | string | The organization entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response  |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``hostname``     | string | The hostname entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response      |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``country``      | string | The country entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response       |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``state``        | string | The state entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response         |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
-  | ``version``      | string | The version of the certificate record in Riak                                                                                           |
-  +------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  |    Parameter        |  Type  |                                                               Description                                                               |
+  +=====================+========+=========================================================================================================================================+
+  | ``crt``             | string | base64 encoded crt file for delivery service                                                                                            |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``csr``             | string | base64 encoded csr file for delivery service                                                                                            |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``key``             | string | base64 encoded private key file for delivery service                                                                                    |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``cdn``             | string | The CDN of the delivery service for which the certs were generated.                                                                     |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``deliveryservice`` | string | The XML ID of the delivery service for which the cert was generated.                                                                    |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``businessUnit``    | string | The business unit entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``city``            | string | The city entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response          |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``organization``    | string | The organization entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response  |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``hostname``        | string | The hostname generated by Traffic Ops that is used as the common name when generating the certificate.                                  |
+  |                     |        | This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delivery services.                                            |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``country``         | string | The country entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response       |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``state``           | string | The state entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response         |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
+  | ``version``         | string | The version of the certificate record in Riak                                                                                           |
+  +---------------------+--------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
   **Response Example** ::
 
@@ -877,6 +1059,8 @@ SSL Keys
           "key": "key",
           "csr": "csr"
         },
+        "deliveryservice": "my-ds",
+        "cdn": "qa",
         "businessUnit": "CDN_Eng",
         "city": "Denver",
         "organization": "KableTown",
@@ -889,7 +1073,7 @@ SSL Keys
 
 |
 
-**GET /api/1.2/deliveryservices/xmlId/:xmlid/sslkeys/delete.json**
+**GET /api/1.2/deliveryservices/xmlId/:xmlid/sslkeys/delete**
 
   Authentication Required: Yes
 
