@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Types &mdash; Traffic Control master documentation </title>
+  <title>Tenants &mdash; Traffic Control master documentation </title>
   
 
   
@@ -35,8 +35,8 @@
   
     <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
-        <link rel="next" title="Users" href="user.html"/>
-        <link rel="prev" title="TO Extensions" href="to_extension.html"/> 
+        <link rel="next" title="TO Extensions" href="to_extension.html"/>
+        <link rel="prev" title="System" href="system.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -165,10 +165,10 @@
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
-    <li>Types</li>
+    <li>Tenants</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../../_sources/development/traffic_ops_api/v11/type.txt" rel="nofollow"> View page source</a>
+          <a href="../../../_sources/development/traffic_ops_api/v12/tenant.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -177,43 +177,24 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="user.html" class="btn btn-neutral float-right" title="Users">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="to_extension.html" class="btn btn-neutral float-right" title="TO Extensions">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="to_extension.html" class="btn btn-neutral" title="TO Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="system.html" class="btn btn-neutral" title="System"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
           <div role="main" class="document">
             
-  <div class="section" id="types">
-<span id="to-api-v11-type"></span><h1>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="api-1-1-types">
-<span id="to-api-v11-types-route"></span><h2>/api/1.1/types<a class="headerlink" href="#api-1-1-types" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.1/types</strong></p>
+  <div class="section" id="tenants">
+<span id="to-api-v12-tenant"></span><h1>Tenants<a class="headerlink" href="#tenants" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-1-2-tenants">
+<span id="to-api-v12-tenant-route"></span><h2>/api/1.2/tenants<a class="headerlink" href="#api-1-2-tenants" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /api/1.2/tenants</strong></p>
 <blockquote>
-<div><p>Authentication Required: Yes</p>
+<div><p>Get all tenants.</p>
+<p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
-<p><strong>Request Query Parameters</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="21%" />
-<col width="13%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Required</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
-<td>no</td>
-<td>Filter types by the table in which they apply</td>
-</tr>
-</tbody>
-</table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -229,24 +210,20 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
+<td>int</td>
+<td>Tenant id</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
-<td>&nbsp;</td>
+<td>Tenant name</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>bool</td>
+<td>Active or inactive</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
+<td>int</td>
+<td>Parent tenant</td>
 </tr>
 </tbody>
 </table>
@@ -254,11 +231,16 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Static DNS AAAA entry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;useInTable&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-23 15:28:31&quot;</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+       <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tenant-a&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+       <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">1</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -268,9 +250,10 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.1/types/trimmed</strong></p>
+<p><strong>GET /api/1.2/tenants/:id</strong></p>
 <blockquote>
-<div><p>Authentication Required: Yes</p>
+<div><p>Get a tenant by ID.</p>
+<p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
@@ -286,9 +269,21 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>Tenant id</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
-<td>&nbsp;</td>
+<td>Tenant name</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>bool</td>
+<td>Active or inactive</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
+<td>int</td>
+<td>Parent tenant</td>
 </tr>
 </tbody>
 </table>
@@ -296,47 +291,86 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE_DIRECTORY&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;A_RECORD&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR&quot;</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tenant-a&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+       <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="p">}</span>
- <span class="p">],</span>
+ <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p><strong>GET /api/1.1/types/:id</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>PUT /api/1.2/tenants/:id</strong></p>
 <blockquote>
-<div><p>Authentication Required: Yes</p>
-<p>Role(s) Required: None</p>
+<div><p>Update a tenant.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
 <p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
+<col width="25%" />
 <col width="13%" />
-<col width="67%" />
+<col width="62%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>Tenant id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="18%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
 <th class="head">Required</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>yes</td>
-<td>Type ID.</td>
+<td>The name of the tenant</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>yes</td>
+<td>True or false</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
+<td>yes</td>
+<td>Parent tenant</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Response Properties</strong></p>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-tenant&quot;</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="28%" />
@@ -351,38 +385,137 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
+<td>int</td>
+<td>Tenant id</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
-<td>&nbsp;</td>
+<td>Tenant name</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>bool</td>
+<td>Active or inactive</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
-<td>string</td>
-<td>&nbsp;</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
+<td>int</td>
+<td>Parent tenant</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Static DNS AAAA entry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;useInTable&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-23 15:28:31&quot;</span>
-    <span class="p">}</span>
- <span class="p">]</span>
+        <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-tenant&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-03-18 08:57:39&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Tenant update was successful.&quot;</span>
+                <span class="p">}</span>
+        <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.2/tenants</strong></p>
+<blockquote>
+<div><p>Create a tenant.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
+<p><strong>Request Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="18%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>yes</td>
+<td>The name of the tenant</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>no</td>
+<td>Defaults to false</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
+<td>yes</td>
+<td>Parent tenant</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;your-tenant&quot;</span>
+    <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="10%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>Tenant id</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>Tenant name</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>bool</td>
+<td>Active or inactive</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
+<td>int</td>
+<td>Parent tenant</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;your-tenant&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-03-18 08:57:39&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Tenant create was successful.&quot;</span>
+                <span class="p">}</span>
+        <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -399,10 +532,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="user.html" class="btn btn-neutral float-right" title="Users">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="to_extension.html" class="btn btn-neutral float-right" title="TO Extensions">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="to_extension.html" class="btn btn-neutral" title="TO Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="system.html" class="btn btn-neutral" title="System"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -36,7 +36,7 @@
     <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Types" href="type.html"/>
-        <link rel="prev" title="System" href="system.html"/> 
+        <link rel="prev" title="Tenants" href="tenant.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -180,7 +180,7 @@
         		  <a href="type.html" class="btn btn-neutral float-right" title="Types">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="system.html" class="btn btn-neutral" title="System"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="tenant.html" class="btn btn-neutral" title="Tenants"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -251,34 +251,34 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-       &quot;response&quot;: [
-              {
-                      script_file: &quot;ping&quot;,
-                      version: &quot;1.0.0&quot;,
-                      name: &quot;ILO_PING&quot;,
-                      description: null,
-                      info_url: &quot;http://foo.com/bar.html&quot;,
-                      additional_config_json: &quot;{ &quot;path&quot;: &quot;/api/1.2/servers.json&quot;, &quot;match&quot;: { &quot;type&quot;: &quot;EDGE&quot;}, &quot;select&quot;: &quot;ilo_ip_address&quot;, &quot;cron&quot;: &quot;9 * * * *&quot; }&quot;,
-                      isactive: &quot;1&quot;,
-                      id: &quot;1&quot;,
-                      type: &quot;CHECK_EXTENSION_BOOL&quot;,
-                      servercheck_short_name: &quot;ILO&quot;
-              },
-              {
-                      script_file: &quot;ping&quot;,
-                      version: &quot;1.0.0&quot;,
-                      name: &quot;10G_PING&quot;,
-                      description: null,
-                      info_url: &quot;http://foo.com/bar.html&quot;,
-                      additional_config_json: &quot;{ &quot;path&quot;: &quot;/api/1.2/servers.json&quot;, &quot;match&quot;: { &quot;type&quot;: &quot;EDGE&quot;}, &quot;select&quot;: &quot;ip_address&quot;, &quot;cron&quot;: &quot;18 * * * *&quot; }&quot;,
-                      isactive: &quot;1&quot;,
-                      id: &quot;2&quot;,
-                      type: &quot;CHECK_EXTENSION_BOOL&quot;,
-                      servercheck_short_name: &quot;10G&quot;
-              }
-       ],
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+       <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="n">script_file</span><span class="p">:</span> <span class="s2">&quot;ping&quot;</span><span class="p">,</span>
+                      <span class="n">version</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+                      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;ILO_PING&quot;</span><span class="p">,</span>
+                      <span class="n">description</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                      <span class="n">info_url</span><span class="p">:</span> <span class="s2">&quot;http://foo.com/bar.html&quot;</span><span class="p">,</span>
+                      <span class="n">additional_config_json</span><span class="p">:</span> <span class="s2">&quot;{ &quot;</span><span class="n">path</span><span class="s2">&quot;: &quot;</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="mf">1.2</span><span class="o">/</span><span class="n">servers</span><span class="o">.</span><span class="n">json</span><span class="s2">&quot;, &quot;</span><span class="n">match</span><span class="s2">&quot;: { &quot;</span><span class="nb">type</span><span class="s2">&quot;: &quot;</span><span class="n">EDGE</span><span class="s2">&quot;}, &quot;</span><span class="n">select</span><span class="s2">&quot;: &quot;</span><span class="n">ilo_ip_address</span><span class="s2">&quot;, &quot;</span><span class="n">cron</span><span class="s2">&quot;: &quot;</span><span class="mi">9</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span><span class="s2">&quot; }&quot;</span><span class="p">,</span>
+                      <span class="n">isactive</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                      <span class="nb">id</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;CHECK_EXTENSION_BOOL&quot;</span><span class="p">,</span>
+                      <span class="n">servercheck_short_name</span><span class="p">:</span> <span class="s2">&quot;ILO&quot;</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                      <span class="n">script_file</span><span class="p">:</span> <span class="s2">&quot;ping&quot;</span><span class="p">,</span>
+                      <span class="n">version</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+                      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;10G_PING&quot;</span><span class="p">,</span>
+                      <span class="n">description</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                      <span class="n">info_url</span><span class="p">:</span> <span class="s2">&quot;http://foo.com/bar.html&quot;</span><span class="p">,</span>
+                      <span class="n">additional_config_json</span><span class="p">:</span> <span class="s2">&quot;{ &quot;</span><span class="n">path</span><span class="s2">&quot;: &quot;</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="mf">1.2</span><span class="o">/</span><span class="n">servers</span><span class="o">.</span><span class="n">json</span><span class="s2">&quot;, &quot;</span><span class="n">match</span><span class="s2">&quot;: { &quot;</span><span class="nb">type</span><span class="s2">&quot;: &quot;</span><span class="n">EDGE</span><span class="s2">&quot;}, &quot;</span><span class="n">select</span><span class="s2">&quot;: &quot;</span><span class="n">ip_address</span><span class="s2">&quot;, &quot;</span><span class="n">cron</span><span class="s2">&quot;: &quot;</span><span class="mi">18</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span><span class="s2">&quot; }&quot;</span><span class="p">,</span>
+                      <span class="n">isactive</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                      <span class="nb">id</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;CHECK_EXTENSION_BOOL&quot;</span><span class="p">,</span>
+                      <span class="n">servercheck_short_name</span><span class="p">:</span> <span class="s2">&quot;10G&quot;</span>
+              <span class="p">}</span>
+       <span class="p">],</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -342,17 +342,17 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-      &quot;name&quot;: &quot;ILO_PING&quot;,
-      &quot;version&quot;: &quot;1.0.0&quot;,
-      &quot;info_url&quot;: &quot;http://foo.com/bar.html&quot;,
-      &quot;script_file&quot;: &quot;ping&quot;,
-      &quot;isactive&quot;: &quot;1&quot;,
-      &quot;additional_config_json&quot;: &quot;{ &quot;path&quot;: &quot;/api/1.2/servers.json&quot;, &quot;match&quot;: { &quot;type&quot;: &quot;EDGE&quot;}&quot;,
-      &quot;description&quot;: null,
-      &quot;servercheck_short_name&quot;: &quot;ILO&quot;
-      &quot;type&quot;: &quot;CHECK_EXTENSION_BOOL&quot;,
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ILO_PING&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://foo.com/bar.html&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;script_file&quot;</span><span class="p">:</span> <span class="s2">&quot;ping&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;isactive&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;additional_config_json&quot;</span><span class="p">:</span> <span class="s2">&quot;{ &quot;</span><span class="n">path</span><span class="s2">&quot;: &quot;</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="mf">1.2</span><span class="o">/</span><span class="n">servers</span><span class="o">.</span><span class="n">json</span><span class="s2">&quot;, &quot;</span><span class="n">match</span><span class="s2">&quot;: { &quot;</span><span class="nb">type</span><span class="s2">&quot;: &quot;</span><span class="n">EDGE</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">&quot;servercheck_short_name&quot;</span><span class="p">:</span> <span class="s2">&quot;ILO&quot;</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CHECK_EXTENSION_BOOL&quot;</span><span class="p">,</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -389,11 +389,11 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-       <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Check Extension loaded.&quot;</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Check Extension loaded.&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -457,11 +457,11 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-       <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Extension deleted.&quot;</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extension deleted.&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -483,7 +483,7 @@
         <a href="type.html" class="btn btn-neutral float-right" title="Types">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="system.html" class="btn btn-neutral" title="System"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tenant.html" class="btn btn-neutral" title="Tenants"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

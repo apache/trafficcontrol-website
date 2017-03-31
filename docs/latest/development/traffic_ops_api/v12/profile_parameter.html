@@ -254,7 +254,7 @@ This accept two formats: single profile-parameter, profile-parameter array.</p>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>Single profile-parameter format:
+<div class="highlight-default"><div class="highlight"><pre><span></span>Single profile-parameter format:
 
 {
   &quot;profileId&quot;: 2,
@@ -300,28 +300,28 @@ Profile-parameter array format:
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-  &quot;response&quot;:[
-    {
-      &quot;profileId&quot;: &quot;2&quot;,
-      &quot;parameterId&quot;: &quot;6&quot;
-    },
-    {
-      &quot;profileId&quot;: &quot;2&quot;,
-      &quot;parameterId&quot;: &quot;7&quot;
-    },
-    {
-      &quot;profileId&quot;: &quot;3&quot;,
-      &quot;parameterId&quot;: &quot;6&quot;
-    }
-  ]
-  &quot;alerts&quot;:[
-    {
-      &quot;level&quot;: &quot;success&quot;,
-      &quot;text&quot;: &quot;Profile parameter associations were created.&quot;
-    }
-  ]
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Profile parameter associations were created.&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -394,11 +394,11 @@ Profile-parameter array format:
 </div></blockquote>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;alerts&quot;</span><span class="p">:[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
     <span class="p">{</span>
-      <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-      <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Profile parameter association was deleted.&quot;</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Profile parameter association was deleted.&quot;</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>
@@ -522,33 +522,33 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </table>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>1. single parameter format exampe:
-{
-    &quot;name&quot;:&quot;param1&quot;,
-    &quot;configFile&quot;:&quot;configFile1&quot;,
-    &quot;value&quot;:&quot;value1&quot;,
-    &quot;secure&quot;:0,
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
 
-2. array format example:
-[
-  {
-      &quot;name&quot;:&quot;param1&quot;,
-      &quot;configFile&quot;:&quot;configFile1&quot;,
-      &quot;value&quot;:&quot;value1&quot;,
-      &quot;secure&quot;:0,
-  },
-  {
-      &quot;name&quot;:&quot;param2&quot;,
-      &quot;configFile&quot;:&quot;configFile2&quot;,
-      &quot;value&quot;:&quot;value2&quot;,
-      &quot;secure&quot;:1,
-  }
-]
+<span class="mf">2.</span> <span class="n">array</span> <span class="nb">format</span> <span class="n">example</span><span class="p">:</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <p><strong>Response Properties</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
+<div class="highlight-default"><div class="highlight"><pre><span></span>+------------------+---------+--------------------------------------------------------------------------------------+
 | Name             | Type    | Description                                                                          |
 +==================+=========+======================================================================================+
 | ``response``     |         | Parameters associated with the profile.                                              |
@@ -580,32 +580,32 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-  &quot;response&quot;:{
-    &quot;profileName&quot;: &quot;CCR1&quot;,
-    &quot;profileId&quot; : &quot;12&quot;,
-    &quot;parameters&quot;:[
-        {
-            &quot;name&quot;:&quot;param1&quot;,
-            &quot;configFile&quot;:&quot;configFile1&quot;
-            &quot;value&quot;:&quot;value1&quot;,
-            &quot;secure&quot;:&quot;0&quot;,
-        },
-        {
-            &quot;name&quot;:&quot;param2&quot;,
-            &quot;configFile&quot;:&quot;configFile2&quot;
-            &quot;value&quot;:&quot;value2&quot;,
-            &quot;secure&quot;:&quot;1&quot;,
-        }
-    ]
-  }
-  &quot;alerts&quot;:[
-    {
-      &quot;level&quot;: &quot;success&quot;,
-      &quot;text&quot;: &quot;&quot;Assign parameters successfully to profile CCR1&quot;
-    }
-  ]
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;profileId&quot;</span> <span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parameters&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile2&quot;</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="n">Assign</span> <span class="n">parameters</span> <span class="n">successfully</span> <span class="n">to</span> <span class="n">profile</span> <span class="n">CCR1</span><span class="s2">&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -726,33 +726,33 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </table>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>1. single parameter format exampe:
-{
-    &quot;name&quot;:&quot;param1&quot;,
-    &quot;configFile&quot;:&quot;configFile1&quot;,
-    &quot;value&quot;:&quot;value1&quot;,
-    &quot;secure&quot;:0,
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
 
-2. array format example:
-[
-  {
-      &quot;name&quot;:&quot;param1&quot;,
-      &quot;configFile&quot;:&quot;configFile1&quot;,
-      &quot;value&quot;:&quot;value1&quot;,
-      &quot;secure&quot;:0,
-  },
-  {
-      &quot;name&quot;:&quot;param2&quot;,
-      &quot;configFile&quot;:&quot;configFile2&quot;,
-      &quot;value&quot;:&quot;value2&quot;,
-      &quot;secure&quot;:1,
-  }
-]
+<span class="mf">2.</span> <span class="n">array</span> <span class="nb">format</span> <span class="n">example</span><span class="p">:</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <p><strong>Response Properties</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
+<div class="highlight-default"><div class="highlight"><pre><span></span>+------------------+---------+--------------------------------------------------------------------------------------+
 | Name             | Type    | Description                                                                          |
 +==================+=========+======================================================================================+
 | ``response``     |         | Parameters associated with the profile.                                              |
@@ -784,32 +784,32 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-  &quot;response&quot;:{
-    &quot;profileName&quot;: &quot;CCR1&quot;,
-    &quot;profileId&quot; : &quot;12&quot;,
-    &quot;parameters&quot;:[
-        {
-            &quot;name&quot;:&quot;param1&quot;,
-            &quot;configFile&quot;:&quot;configFile1&quot;
-            &quot;value&quot;:&quot;value1&quot;,
-            &quot;secure&quot;:&quot;0&quot;,
-        },
-        {
-            &quot;name&quot;:&quot;param2&quot;,
-            &quot;configFile&quot;:&quot;configFile2&quot;
-            &quot;value&quot;:&quot;value2&quot;,
-            &quot;secure&quot;:&quot;1&quot;,
-        }
-    ]
-  }
-  &quot;alerts&quot;:[
-    {
-      &quot;level&quot;: &quot;success&quot;,
-      &quot;text&quot;: &quot;&quot;Assign parameters successfully to profile CCR1&quot;
-    }
-  ]
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;profileId&quot;</span> <span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parameters&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile2&quot;</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="n">Assign</span> <span class="n">parameters</span> <span class="n">successfully</span> <span class="n">to</span> <span class="n">profile</span> <span class="n">CCR1</span><span class="s2">&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>

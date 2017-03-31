@@ -211,7 +211,11 @@
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">param</span></code></td>
 <td>no</td>
-<td>Used to filter profiles by parameter.</td>
+<td>Used to filter profiles by parameter ID.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>no</td>
+<td>Used to filter profiles by CDN ID.</td>
 </tr>
 </tbody>
 </table>
@@ -229,33 +233,48 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
-<td>array</td>
-<td>The Time / Date this server entry was last updated</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>Primary key</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
 <td>The name for the profile</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
-<td>string</td>
-<td>Primary key</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
 <td>string</td>
 <td>The description for the profile</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>int</td>
+<td>The CDN ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdnName</span></code></td>
+<td>string</td>
+<td>The CDN name</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>Profile type</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>array</td>
+<td>The Time / Date this server entry was last updated</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
-        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_TOP&quot;</span><span class="p">,</span>
-        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;8&quot;</span><span class="p">,</span>
-        <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;Content Router for top.foobar.net&quot;</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_27_PROFILE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A profile with all the Foo parameters&quot;</span>
+        <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn1&quot;</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ATS_PROFILE&quot;</span>
+        <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -292,10 +311,10 @@
 </table>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_TOP&quot;</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_27_PROFILE&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -344,33 +363,48 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
-<td>array</td>
-<td>The Time / Date this server entry was last updated</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>Primary key</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
 <td>The name for the profile</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
-<td>string</td>
-<td>Primary key</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
 <td>string</td>
 <td>The description for the profile</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>int</td>
+<td>The CDN ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdnName</span></code></td>
+<td>string</td>
+<td>The CDN name</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>Profile type</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>array</td>
+<td>The Time / Date this server entry was last updated</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
-        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_TOP&quot;</span><span class="p">,</span>
-        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;8&quot;</span><span class="p">,</span>
-        <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;Content Router for top.foobar.net&quot;</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_27_PROFILE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A profile with all the Foo parameters&quot;</span>
+        <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn1&quot;</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ATS_PROFILE&quot;</span>
+        <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -383,7 +417,7 @@
 <dl class="docutils">
 <dt><strong>POST /api/1.2/profiles</strong></dt>
 <dd><blockquote class="first">
-<div><p>Create a new empty  profile.</p>
+<div><p>Create a new empty profile.</p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: admin or oper</p>
@@ -392,31 +426,47 @@
 <colgroup>
 <col width="28%" />
 <col width="10%" />
-<col width="63%" />
+<col width="12%" />
+<col width="50%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
 <th class="head">Type</th>
+<th class="head">Required</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
-<td>The name of the new profile</td>
+<td>yes</td>
+<td>Profile name</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">description</span></code></td>
 <td>string</td>
-<td>new profile description</td>
+<td>yes</td>
+<td>Profile description</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>int</td>
+<td>no</td>
+<td>CDN ID</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>yes</td>
+<td>Profile type</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_COPY&quot;</span><span class="p">,</span>
-  <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_COPY description&quot;</span><span class="p">,</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_28_PROFILE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_28_PROFILE description&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ATS_PROFILE&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -443,26 +493,36 @@
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
 <td>string</td>
-<td>Id of the new profile</td>
+<td>Profile ID</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
 <td>string</td>
-<td>The name of the new profile</td>
+<td>Profile name</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
 <td>string</td>
-<td>new profile description</td>
+<td>Profile description</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>int</td>
+<td>CDN ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>Profile type</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;66&quot;</span><span class="p">,</span>
-        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_COPY&quot;</span><span class="p">,</span>
-        <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_COPY description&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;66&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_28_PROFILE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_28_PROFILE description&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ATS_PROFILE&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -542,14 +602,14 @@
 </div></blockquote>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;66&quot;</span><span class="p">,</span>
-        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_COPY&quot;</span><span class="p">,</span>
-        <span class="s">&quot;profileCopyFrom&quot;</span><span class="p">:</span> <span class="s">&quot;CCR1&quot;</span><span class="p">,</span>
-        <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;CCR_COPY description&quot;</span><span class="p">,</span>
-        <span class="s">&quot;idCopyFrom&quot;</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;66&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR_COPY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;profileCopyFrom&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR_COPY description&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;idCopyFrom&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -590,72 +650,84 @@
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="22%" />
-<col width="13%" />
-<col width="65%" />
+<col width="28%" />
+<col width="10%" />
+<col width="12%" />
+<col width="50%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
 <th class="head">Required</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
 <td>yes</td>
-<td>The new name for the profile.</td>
+<td>Profile name</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<td>string</td>
 <td>yes</td>
-<td>The new description for the profile.</td>
+<td>Profile description</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>int</td>
+<td>no</td>
+<td>CDN ID</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>yes</td>
+<td>Profile type</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-  &quot;name&quot;: &quot;CCR_UPDATE&quot;,
-  &quot;description&quot;: &quot;CCR_UPDATE description&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;EDGE_28_PROFILE&quot;,
+  &quot;description&quot;: &quot;EDGE_28_PROFILE description&quot;,
+  &quot;cdn&quot;: 1,
+  &quot;type&quot;: &quot;ATS_PROFILE&quot;
 }
 
     **Response Properties**
 
-    +------------------+--------+----------------------------------+
-    |  Parameter       |  Type  |           Description            |
-    +==================+========+==================================+
-    | ``response``     |        | The updated profile info.        |
-    +------------------+--------+----------------------------------+
-    | ``&gt;id``          | string | Profile id.                      |
-    +------------------+--------+----------------------------------+
-    | ``&gt;name``        | string | Profile name.                    |
-    +------------------+--------+----------------------------------+
-    | ``&gt;description`` | string | Profile description.             |
-    +------------------+--------+----------------------------------+
-    | ``alerts``       | array  | A collection of alert messages.  |
-    +------------------+--------+----------------------------------+
-    | ``&gt;level``       | string | success, info, warning or error. |
-    +------------------+--------+----------------------------------+
-    | ``&gt;text``        | string | Alert message.                   |
-    +------------------+--------+----------------------------------+
-    | ``version``      | string |                                  |
-    +------------------+--------+----------------------------------+
+    +-----------------------+--------+----------------------------------------------------+
+    |    Parameter          |  Type  |                    Description                     |
+    +=======================+========+====================================================+
+    | ``id``                | string | Profile ID                                         |
+    +-----------------------+--------+----------------------------------------------------+
+    | ``name``              | string | Profile name                                       |
+    +-----------------------+--------+----------------------------------------------------+
+    | ``description``       | string | Profile description                                |
+    +-----------------------+--------+----------------------------------------------------+
+    | ``cdn``               |  int   | CDN ID                                             |
+    +-----------------------+--------+----------------------------------------------------+
+    | ``type``              | string | Profile type                                       |
+    +-----------------------+--------+----------------------------------------------------+
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-  &quot;response&quot;:{
-    &quot;id&quot;: &quot;219&quot;,
-    &quot;name&quot;: &quot;CCR_UPDATE&quot;,
-    &quot;description&quot;: &quot;CCR_UPDATE description&quot;
-  }
-  &quot;alerts&quot;:[
-    {
-      &quot;level&quot;: &quot;success&quot;,
-      &quot;text&quot;: &quot;Profile was updated: 219&quot;
-    }
-  ]
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;219&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_28_PROFILE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE_28_PROFILE description&quot;</span>
+    <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ATS_PROFILE&quot;</span>
+  <span class="p">}</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Profile was updated: 219&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -722,11 +794,11 @@
 </table>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-      <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Profile was deleted.&quot;</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Profile was deleted.&quot;</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>

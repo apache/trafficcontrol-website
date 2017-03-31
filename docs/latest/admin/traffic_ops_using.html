@@ -104,7 +104,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Using Traffic Ops</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
@@ -208,16 +208,16 @@
 <td>A real time view into the main performance indicators of the CDNs managed by Traffic Control.
 This view is sourced directly by the Traffic Monitor data and is updated every 10 seconds.
 This is the default screen of Traffic Ops.
-See <a class="reference internal" href="#rl-health-table"><em>The Health Table</em></a> for details.</td>
+See <a class="reference internal" href="#rl-health-table"><span class="std std-ref">The Health Table</span></a> for details.</td>
 </tr>
 <tr class="row-odd"><td>Graph View</td>
 <td>A real graphical time view into the main performance indicators of the CDNs managed by Traffic Control.
 This view is sourced by the Traffic Monitor data and is updated every 10 seconds.
 On loading, this screen will show a history of 24 hours of data from Traffic Stats
-See <a class="reference internal" href="#rl-health-graph"><em>Graph View</em></a> for details.</td>
+See <a class="reference internal" href="#rl-health-graph"><span class="std std-ref">Graph View</span></a> for details.</td>
 </tr>
 <tr class="row-even"><td>Server Checks</td>
-<td>A table showing the results of the periodic check extension scripts that are run. See <a class="reference internal" href="#rl-server-checks"><em>Server Checks</em></a></td>
+<td>A table showing the results of the periodic check extension scripts that are run. See <a class="reference internal" href="#rl-server-checks"><span class="std std-ref">Server Checks</span></a></td>
 </tr>
 <tr class="row-odd"><td>Daily Summary</td>
 <td>A graph displaying the daily peaks of bandwidth, overall bytes served per day, and overall bytes served since initial installation
@@ -259,7 +259,7 @@ per CDN.</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Upload Server CSV</td>
-<td>Bulk add of servers from a csv file. See <a class="reference internal" href="#rl-bulkserver"><em>Bulk Upload Server</em></a></td>
+<td>Bulk add of servers from a csv file. See <a class="reference internal" href="#rl-bulkserver"><span class="std std-ref">Bulk Upload Server</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -278,7 +278,7 @@ per CDN.</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Global Profile</td>
-<td>The table of global parameters. See <a class="reference internal" href="traffic_ops_config.html#rl-param-prof"><em>Profile Parameters</em></a>. This is where you Create/Read/Update/Delete parameters in the Global profile</td>
+<td>The table of global parameters. See <a class="reference internal" href="traffic_ops_config.html#rl-param-prof"><span class="std std-ref">Profile Parameters</span></a>. This is where you Create/Read/Update/Delete parameters in the Global profile</td>
 </tr>
 <tr class="row-odd"><td>All Cache Groups</td>
 <td>The table of all parameters <em>that are assgined to a cachegroup</em> - this may be slow to pull up, as there can be thousands of parameters.</td>
@@ -309,19 +309,19 @@ per CDN.</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Generate ISO</td>
-<td>Generate a bootable image for any of the servers in the Servers table (or any server for that matter). See <a class="reference internal" href="#rl-generate-iso"><em>Generate ISO</em></a></td>
+<td>Generate a bootable image for any of the servers in the Servers table (or any server for that matter). See <a class="reference internal" href="#rl-generate-iso"><span class="std std-ref">Generate ISO</span></a></td>
 </tr>
 <tr class="row-odd"><td>Queue Updates</td>
-<td>Send Updates to the caches. See <a class="reference internal" href="#rl-queue-updates"><em>Queue Updates and Snapshot CRConfig</em></a></td>
+<td>Send Updates to the caches. See <a class="reference internal" href="#rl-queue-updates"><span class="std std-ref">Queue Updates and Snapshot CRConfig</span></a></td>
 </tr>
 <tr class="row-even"><td>DB Dump</td>
 <td>Backup the Database to a .sql file.</td>
 </tr>
 <tr class="row-odd"><td>Snapshot CRConfig</td>
-<td>Send updates to the Traffic Monitor / Traffic Router servers.  See <a class="reference internal" href="#rl-queue-updates"><em>Queue Updates and Snapshot CRConfig</em></a></td>
+<td>Send updates to the Traffic Monitor / Traffic Router servers.  See <a class="reference internal" href="#rl-queue-updates"><span class="std std-ref">Queue Updates and Snapshot CRConfig</span></a></td>
 </tr>
 <tr class="row-even"><td>Invalidate Content</td>
-<td>Invalidate or purge content from all caches in the CDN. See <a class="reference internal" href="#rl-purge"><em>Invalidate Content</em></a></td>
+<td>Invalidate or purge content from all caches in the CDN. See <a class="reference internal" href="#rl-purge"><span class="std std-ref">Invalidate Content</span></a></td>
 </tr>
 <tr class="row-odd"><td>Manage DNSSEC keys</td>
 <td>Manage DNSSEC Keys for a chosen CDN.</td>
@@ -342,31 +342,34 @@ per CDN.</td>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Cache Groups</td>
+<tr class="row-even"><td>CDNs</td>
+<td>Create/Read/Update/Delete CDNs</td>
+</tr>
+<tr class="row-odd"><td>Cache Groups</td>
 <td>Create/Read/Update/Delete cache groups</td>
 </tr>
-<tr class="row-odd"><td>Users</td>
+<tr class="row-even"><td>Users</td>
 <td>Create/Read/Update/Delete users</td>
 </tr>
-<tr class="row-even"><td>Profiles</td>
-<td>Create/Read/Update/Delete profiles. See <a class="reference internal" href="#rl-working-with-profiles"><em>Parameters and Profiles</em></a></td>
+<tr class="row-odd"><td>Profiles</td>
+<td>Create/Read/Update/Delete profiles. See <a class="reference internal" href="#rl-working-with-profiles"><span class="std std-ref">Parameters and Profiles</span></a></td>
 </tr>
-<tr class="row-odd"><td>Networks(ASNs)</td>
-<td>Create/Read/Update/Delete Autonomous System Numbers See <a class="reference internal" href="#rl-asn-czf"><em>The Coverage Zone File and ASN Table</em></a></td>
+<tr class="row-even"><td>Networks(ASNs)</td>
+<td>Create/Read/Update/Delete Autonomous System Numbers See <a class="reference internal" href="#rl-asn-czf"><span class="std std-ref">The Coverage Zone File and ASN Table</span></a></td>
 </tr>
-<tr class="row-even"><td>Hardware</td>
+<tr class="row-odd"><td>Hardware</td>
 <td>Get detailed hardware information (note: this should be moved to a Traffic Ops Extension)</td>
 </tr>
-<tr class="row-odd"><td>Data Types</td>
+<tr class="row-even"><td>Data Types</td>
 <td>Create/Read/Update/Delete data types</td>
 </tr>
-<tr class="row-even"><td>Divisions</td>
+<tr class="row-odd"><td>Divisions</td>
 <td>Create/Read/Update/Delete divisions</td>
 </tr>
-<tr class="row-odd"><td>Regions</td>
+<tr class="row-even"><td>Regions</td>
 <td>Create/Read/Update/Delete regions</td>
 </tr>
-<tr class="row-even"><td>Physical Locations</td>
+<tr class="row-odd"><td>Physical Locations</td>
 <td>Create/Read/Update/Delete locations</td>
 </tr>
 </tbody>
@@ -509,7 +512,7 @@ must have an ssh key on the edge servers.</td>
 <td>Origin</td>
 </tr>
 <tr class="row-odd"><td>CCR</td>
-<td>Comcast Content Router</td>
+<td>Traffic Router</td>
 </tr>
 <tr class="row-even"><td>RASCAL</td>
 <td>Rascal health polling &amp; reporting</td>
@@ -534,6 +537,7 @@ must have an ssh key on the edge servers.</td>
 </div>
 <div class="section" id="bulk-upload-server">
 <span id="rl-bulkserver"></span><span id="index-3"></span><h3>Bulk Upload Server<a class="headerlink" href="#bulk-upload-server" title="Permalink to this headline">¶</a></h3>
+<p>TBD</p>
 </div>
 </div>
 <div class="section" id="delivery-service">
@@ -554,7 +558,7 @@ must have an ssh key on the edge servers.</td>
 <td>A unique string that identifies this delivery service.</td>
 </tr>
 <tr class="row-odd"><td>Content Routing Type</td>
-<td>The type of content routing this delivery service will use. See <a class="reference internal" href="#rl-ds-types"><em>Delivery Service Types</em></a>.</td>
+<td>The type of content routing this delivery service will use. See <a class="reference internal" href="#rl-ds-types"><span class="std std-ref">Delivery Service Types</span></a>.</td>
 </tr>
 <tr class="row-even"><td>Protocol</td>
 <td><p class="first">The protocol to serve this delivery service to the clients with:</p>
@@ -569,15 +573,16 @@ must have an ssh key on the edge servers.</td>
 <td>The DSCP value to mark IP packets to the client with.</td>
 </tr>
 <tr class="row-even"><td>Signed URLs</td>
-<td>Use Signed URLs? See <a class="reference internal" href="#rl-signed-urls"><em>Token Based Authentication</em></a>.</td>
+<td>Use Signed URLs? See <a class="reference internal" href="#rl-signed-urls"><span class="std std-ref">Token Based Authentication</span></a>.</td>
 </tr>
 <tr class="row-odd"><td>Query String Handling</td>
 <td><p class="first">How to treat query strings:</p>
-<ul class="last simple">
+<ul class="simple">
 <li>0 use in cache key and hand up to origin -this means each unique query string Is treated as a unique URL.</li>
 <li>1 Do not use in cache key, but pass up to origin - this means a 2 URLs that are the same except for the query string will match, and cache HIT, while the origin still sees original query string in the request.</li>
 <li>2 Drop at edge - this means a 2 URLs that are the same except for  the query string will match, and cache HIT, while the origin will not see original query string in the request.</li>
 </ul>
+<p class="last"><strong>Note:</strong> Choosing to drop query strings at the edge will preclude the use of a Regex Remap Expression. See <a class="reference internal" href="#rl-regex-remap"><span class="std std-ref">Regex Remap Expression</span></a>.</p>
 </td>
 </tr>
 <tr class="row-even"><td>Geo Limit?</td>
@@ -590,7 +595,7 @@ must have an ssh key on the edge servers.</td>
 </td>
 </tr>
 <tr class="row-odd"><td>Geo Limit Redirect URL</td>
-<td>(for HTTP routed delivery services only) This is the URL Traffic Router will redirect to when Geo Limit Failure. See <a class="reference internal" href="traffic_router.html#rl-tr-ngb"><em>GeoLimit Failure Redirect feature</em></a></td>
+<td>(for HTTP routed delivery services only) This is the URL Traffic Router will redirect to when Geo Limit Failure. See <a class="reference internal" href="traffic_router.html#rl-tr-ngb"><span class="std std-ref">GeoLimit Failure Redirect feature</span></a></td>
 </tr>
 <tr class="row-even"><td>Bypass FQDN</td>
 <td>(for HTTP routed delivery services only) This is the FQDN Traffic Router will redirect to (with the same path) when the max Bps or Max Tps for this deliveryservice are exceeded.</td>
@@ -621,84 +626,77 @@ AAAA records of the edge name (<code class="docutils literal"><span class="pre">
 <td>The Origin Server&#8217;s base URL. This includes the protocol (http or https). Example: <code class="docutils literal"><span class="pre">http://movies.origin.com</span></code></td>
 </tr>
 <tr class="row-odd"><td>Use Multi Site Origin Feature</td>
-<td>Enable the Multi Site Origin feature for this delivery service. See <a class="reference internal" href="#rl-multi-site-origin"><em>Multi Site Origin</em></a></td>
+<td>Enable the Multi Site Origin feature for this delivery service. See <a class="reference internal" href="#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
-<tr class="row-even"><td>Multi Site Origin Algorithm</td>
-<td><ul class="first last simple">
-<li>1 Consistent Hash spreads requests across multiple parents simultaneously based on hash of content URL.</li>
-<li>2 Strict Round Robin spreads requests across multiple parents simultaneously based on order of requests.</li>
-<li>3 IP Based Round Robin spreads requests across multiple parents simultaneously based on order of requests, but ensures that requests from the same IP always go to the same parent if available.</li>
-<li>4 Latched uses only a single parent at any given time and switches to a new parent only if the current parent fails.</li>
-</ul>
-</td>
+<tr class="row-even"><td>Profile</td>
+<td>The profile for this delivery service.</td>
 </tr>
-<tr class="row-odd"><td>CCR profile</td>
-<td>The Traffic Router  profile for this delivery service. See <a class="reference internal" href="#rl-ccr-profile"><em>CCR Profile or Traffic Router Profile</em></a>.</td>
-</tr>
-<tr class="row-even"><td>Maximum Bits per Second allowed globally</td>
+<tr class="row-odd"><td>Maximum Bits per Second allowed globally</td>
 <td>The maximum bits per second this delivery service can serve across all EDGE caches before traffic will be diverted to the bypass destination. For a DNS delivery service, the Bypass Ipv4 or Ipv6  will be used
 (depending on whether this was a A or AAAA request), and for HTTP delivery services the Bypass FQDN will be used.</td>
 </tr>
-<tr class="row-odd"><td>Maximum Transactions per Second allowed globally</td>
+<tr class="row-even"><td>Maximum Transactions per Second allowed globally</td>
 <td>The maximum transactions per se this delivery service can serve across all EDGE caches before traffic will be diverted to the bypass destination. For a DNS delivery service, the Bypass Ipv4 or Ipv6  will be used
 (depending on whether this was a A or AAAA request), and for HTTP delivery services the Bypass FQDN will be used.</td>
 </tr>
-<tr class="row-even"><td>Geo Miss Default Latitude</td>
+<tr class="row-odd"><td>Geo Miss Default Latitude</td>
 <td>Default Latitude for this delivery service. When client localization fails for both Coverage Zone and Geo Lookup, this the client will be routed as if it was at this lat.</td>
 </tr>
-<tr class="row-odd"><td>Geo Miss Default Longitude</td>
+<tr class="row-even"><td>Geo Miss Default Longitude</td>
 <td>Default Longitude for this delivery service. When client localization fails for bot Coverage Zone and Geo Lookup, this the client will be routed as if it was at this long.</td>
 </tr>
-<tr class="row-even"><td>Edge Header Rewrite Rules</td>
-<td>Header Rewrite rules to apply for this delivery service at the EDGE tier. See <a class="reference internal" href="#rl-header-rewrite"><em>Header Rewrite Options and DSCP</em></a>. <a class="footnote-reference" href="#id6" id="id1">[1]</a></td>
+<tr class="row-odd"><td>Edge Header Rewrite Rules</td>
+<td>Header Rewrite rules to apply for this delivery service at the EDGE tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id6" id="id1">[1]</a></td>
 </tr>
-<tr class="row-odd"><td>Mid Header Rewrite Rules</td>
-<td>Header Rewrite rules to apply for this delivery service at the MID tier. See <a class="reference internal" href="#rl-header-rewrite"><em>Header Rewrite Options and DSCP</em></a>. <a class="footnote-reference" href="#id6" id="id2">[1]</a></td>
+<tr class="row-even"><td>Mid Header Rewrite Rules</td>
+<td>Header Rewrite rules to apply for this delivery service at the MID tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id6" id="id2">[1]</a></td>
 </tr>
-<tr class="row-even"><td>Regex Remap Expression</td>
-<td>Regex Remap rule to apply to this delivery service at the Edge tier. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_remap.en.html">ATS documentation on regex_remap</a>. <a class="footnote-reference" href="#id6" id="id3">[1]</a></td>
+<tr class="row-odd"><td>Regex Remap Expression</td>
+<td><p class="first">Regex Remap rule to apply to this delivery service at the Edge tier. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_remap.en.html">ATS documentation on regex_remap</a>. <a class="footnote-reference" href="#id6" id="id3">[1]</a></p>
+<p class="last"><strong>Note:</strong> you will not be able to save a Regex Remap Expression if you have Query String Handling set to drop query strings at the edge. See <a class="reference internal" href="#rl-regex-remap"><span class="std std-ref">Regex Remap Expression</span></a>.</p>
+</td>
 </tr>
-<tr class="row-odd"><td>Cache URL expression</td>
+<tr class="row-even"><td>Cache URL expression</td>
 <td>Cache URL rule to apply to this delivery service. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/cacheurl.en.html">ATS documentation on cacheurl</a>. <a class="footnote-reference" href="#id6" id="id4">[1]</a></td>
 </tr>
-<tr class="row-even"><td>Raw remap text</td>
+<tr class="row-odd"><td>Raw remap text</td>
 <td>For HTTP and DNS deliveryservices, this will get added to the end of the remap line on the cache verbatim. For ANY_MAP deliveryservices this is the remap line. <a class="footnote-reference" href="#id6" id="id5">[1]</a></td>
 </tr>
-<tr class="row-odd"><td>Long Description</td>
+<tr class="row-even"><td>Long Description</td>
 <td>Long description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
 </tr>
-<tr class="row-even"><td>Customer</td>
+<tr class="row-odd"><td>Customer</td>
 <td>Customer description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
 </tr>
-<tr class="row-odd"><td>Service</td>
+<tr class="row-even"><td>Service</td>
 <td>Service description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
 </tr>
-<tr class="row-even"><td>Info URL</td>
+<tr class="row-odd"><td>Info URL</td>
 <td>Info URL  for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
 </tr>
-<tr class="row-odd"><td>Check Path</td>
+<tr class="row-even"><td>Check Path</td>
 <td>A path (ex: /crossdomain.xml) to verify the connection to the origin server with. This can be used by Check Extension scripts to do periodic health checks against the delivery service.</td>
 </tr>
-<tr class="row-even"><td>Origin Shield (Pipe Delimited String)</td>
+<tr class="row-odd"><td>Origin Shield (Pipe Delimited String)</td>
 <td>Experimental. Origin Shield string.</td>
 </tr>
-<tr class="row-odd"><td>Active</td>
+<tr class="row-even"><td>Active</td>
 <td>When this is set to no Traffic Router will not serve DNS or HTTP responses for this delivery service.</td>
 </tr>
-<tr class="row-even"><td>Last Updated</td>
+<tr class="row-odd"><td>Last Updated</td>
 <td>(Read Only) The last time this delivery service was updated.</td>
 </tr>
-<tr class="row-odd"><td>Number of edges assigned</td>
-<td>(Read Only - change by clicking the <strong>Server Assignments</strong> button at the bottom) The number of EDGE caches assigned to this delivery service. See <a class="reference internal" href="#rl-assign-edges"><em>Server Assignments</em></a>.</td>
+<tr class="row-even"><td>Number of edges assigned</td>
+<td>(Read Only - change by clicking the <strong>Server Assignments</strong> button at the bottom) The number of EDGE caches assigned to this delivery service. See <a class="reference internal" href="#rl-assign-edges"><span class="std std-ref">Server Assignments</span></a>.</td>
 </tr>
-<tr class="row-even"><td>Number of static DNS entries</td>
-<td>(Read Only - change by clicking the <strong>Static DNS</strong> button at the bottom) The number of static DNS entries for this delivery service. See <a class="reference internal" href="#rl-static-dns"><em>Static DNS Entries</em></a>.</td>
+<tr class="row-odd"><td>Number of static DNS entries</td>
+<td>(Read Only - change by clicking the <strong>Static DNS</strong> button at the bottom) The number of static DNS entries for this delivery service. See <a class="reference internal" href="#rl-static-dns"><span class="std std-ref">Static DNS Entries</span></a>.</td>
 </tr>
-<tr class="row-odd"><td>Example delivery URL</td>
+<tr class="row-even"><td>Example delivery URL</td>
 <td>(Read Only) An example of how the delivery URL may start. This could be multiple rows if multiple HOST_REGEXP entries have been entered.</td>
 </tr>
-<tr class="row-even"><td>Regular expressions for this delivery service</td>
-<td>A subtable of the regular expressions to use when routing traffic for this delivery service. See <a class="reference internal" href="#rl-ds-regexp"><em>Delivery Service Regexp</em></a>.</td>
+<tr class="row-odd"><td>Regular expressions for this delivery service</td>
+<td>A subtable of the regular expressions to use when routing traffic for this delivery service. See <a class="reference internal" href="#rl-ds-regexp"><span class="std std-ref">Delivery Service Regexp</span></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1003,11 +1001,11 @@ http.parent_proxy.connect_attempts_timeout</td>
 <span id="rl-multi-site-origin"></span><h3>Multi Site Origin<a class="headerlink" href="#multi-site-origin" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The Multi Site Origin feature is based upon a feature n ATS that has yet to be submitted to Traffic Server upstream, until it is, set this to 0, or use the ATS rpm supplied on the trafficcontrol.apache.org website.</p>
+<p class="last">The configuration of this feature changed significantly between ATS version 5 and &gt;= 6. Some configuration in Traffic Control is different as well. This documentation assumes ATS 6 or higher. See <a class="reference internal" href="quick_howto/multi_site_ats5.html#rl-multi-site-origin-qht-ats5"><span class="std std-ref">Configure Multi Site Origin (5.x)</span></a> for the ATS version 5.x configuration details.</p>
 </div>
-<p>Normally, the mid servers are not aware of any redundancy at the origin layer. With Multi Site Origin enabled this changes - Traffic Server (and Traffic Ops) are now made aware of the fact there are multiple origins, and can be configured to do more advanced failover and loadbalancing actions.</p>
-<p>With This feature enabled, origin servers (or origin server VIP names for a site) are going to be entered as servers in to the Traiffic Ops UI. Server type is &#8220;&#8221;</p>
-<p>Parameters in the Origin profile that influence this feature:</p>
+<p>Normally, the mid servers are not aware of any redundancy at the origin layer. With Multi Site Origin enabled this changes - Traffic Server (and Traffic Ops) are now made aware of the fact there are multiple origins, and can be configured to do more advanced failover and loadbalancing actions. A prerequisite for MSO to work is that the multiple origin sites serve identical content with identical paths, and both are configured to serve the same origin hostname as is configured in the deliveryservice <cite>Origin Server Base URL</cite> field. See the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/files/parent.config.en.html">Apache Traffic Server docs</a> for more information on that cache&#8217;s implementation.</p>
+<p>With This feature enabled, origin servers (or origin server VIP names for a site) are going to be entered as servers in to the Traiffic Ops UI. Server type is &#8220;ORG&#8221;.</p>
+<p>Parameters in the mid profile that influence this feature:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="37%" />
@@ -1033,47 +1031,68 @@ http.parent_proxy.connect_attempts_timeout</td>
 <td>INT 1</td>
 <td>required for parent selection.</td>
 </tr>
-<tr class="row-even"><td>CONFIG proxy.config. http.parent_proxy.per_parent_connect_attempts</td>
-<td>records.config</td>
-<td>INT 5</td>
-<td>maximum of 5 connection attempts per parent (parent.config list) within a transaction.</td>
+</tbody>
+</table>
+<p>Parameters in the deliveryservice profile that influence this feature:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="8%" />
+<col width="8%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Filename</th>
+<th class="head">Default</th>
+<th class="head">Description</th>
 </tr>
-<tr class="row-odd"><td>CONFIG proxy.config. http.parent_proxy.total_connect_attempts</td>
-<td>records.config</td>
-<td>INT 10</td>
-<td>maximum of 10 total connection attempts within a transaction.</td>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mso.parent_retry</td>
+<td>parent.config</td>
+<td>-</td>
+<td>Either <code class="docutils literal"><span class="pre">simple_retry</span></code>, <code class="docutils literal"><span class="pre">dead_server_retry</span></code> or <code class="docutils literal"><span class="pre">both</span></code>.</td>
 </tr>
-<tr class="row-even"><td>CONFIG proxy.config. http.parent_origin.simple_retry_enabled</td>
-<td>records.config</td>
-<td>INT 1</td>
-<td>enables simple retry.</td>
+<tr class="row-odd"><td>mso.algorithm</td>
+<td>parent.config</td>
+<td>consistent_hash</td>
+<td><p class="first">The algorithm to use. <code class="docutils literal"><span class="pre">consisten_hash</span></code>, <code class="docutils literal"><span class="pre">strict</span></code>, <code class="docutils literal"><span class="pre">true</span></code>, <code class="docutils literal"><span class="pre">false</span></code>, or <code class="docutils literal"><span class="pre">latched</span></code>.</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">consisten_hash</span></code> - spreads requests across multiple parents simultaneously based on hash of content URL.</li>
+<li><code class="docutils literal"><span class="pre">strict</span></code> - strict Round Robin spreads requests across multiple parents simultaneously based on order of requests.</li>
+<li><code class="docutils literal"><span class="pre">true</span></code> - same as strict, but ensures that requests from the same IP always go to the same parent if available.</li>
+<li><code class="docutils literal"><span class="pre">false</span></code> - uses only a single parent at any given time and switches to a new parent only if the current parent fails.</li>
+<li><code class="docutils literal"><span class="pre">latched</span></code> - same as false, but now, a failed parent will not be retried.</li>
+</ul>
+</td>
 </tr>
-<tr class="row-odd"><td>CONFIG proxy.config. http.parent_origin.simple_retry_response_codes</td>
-<td>records.config</td>
-<td>STRING 404</td>
-<td>the response code that invokes simple retry.  May be a comman separated list of response codes.</td>
+<tr class="row-even"><td>mso.unavailable_server_retry_response_codes</td>
+<td>parent.config</td>
+<td>&#8220;503&#8221;</td>
+<td>Quoted, comma separated list of HTTP status codes that count as a unavailable_server_retry_response_code.</td>
 </tr>
-<tr class="row-even"><td>CONFIG proxy.config. http.parent_origin.dead_server_retry_response_codes</td>
-<td>records.config</td>
-<td>STRING 503</td>
-<td>the response code that invokes dead server retry.  May be a comma separated list of response codes</td>
+<tr class="row-odd"><td>mso.max_unavailable_server_retries</td>
+<td>parent.config</td>
+<td>1</td>
+<td>How many times an unavailable server will be retried.</td>
 </tr>
-<tr class="row-odd"><td>CONFIG proxy.config. http.parent_origin.dead_server_retry_enabled</td>
-<td>records.config</td>
-<td>INT 1</td>
-<td>enables dead server retry.</td>
+<tr class="row-even"><td>mso.simple_retry_response_codes</td>
+<td>parent.config</td>
+<td>&#8220;404&#8221;</td>
+<td>Quoted, comma separated list of HTTP status codes that count as a simple retry response code.</td>
 </tr>
-<tr class="row-even"><td>CONFIG proxy.config. diags.debug.enabled</td>
-<td>records.config</td>
-<td>INT 1</td>
-<td>enable debugging for testing only</td>
+<tr class="row-odd"><td>mso.max_simple_retries</td>
+<td>parent.config</td>
+<td>1</td>
+<td>How many times a simple retry will be done.</td>
 </tr>
 </tbody>
 </table>
-<p>see <a class="reference internal" href="quick_howto/multi_site.html#rl-multi-site-origin-qht"><em>Configure Multi Site Origin</em></a> for a <em>quick how to</em> on this feature.</p>
+<p>see <a class="reference internal" href="quick_howto/multi_site.html#rl-multi-site-origin-qht"><span class="std std-ref">Configure Multi Site Origin</span></a> for a <em>quick how to</em> on this feature.</p>
 </div>
-<div class="section" id="ccr-profile-or-traffic-router-profile">
-<span id="rl-ccr-profile"></span><h3>CCR Profile or Traffic Router Profile<a class="headerlink" href="#ccr-profile-or-traffic-router-profile" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="traffic-router-profile">
+<span id="rl-ccr-profile"></span><h3>Traffic Router Profile<a class="headerlink" href="#traffic-router-profile" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="15%" />
@@ -1127,135 +1146,145 @@ http.parent_proxy.connect_attempts_timeout</td>
 <td>CRConfig.json</td>
 <td>The location (URL) to retrieve the coverage zone map file in XML format from.</td>
 </tr>
-<tr class="row-even"><td>domain_name</td>
-<td>CRConfig.json</td>
-<td>The top level domain of this Traffic Router instance.</td>
-</tr>
-<tr class="row-odd"><td>tld.soa.expire</td>
+<tr class="row-even"><td>tld.soa.expire</td>
 <td>CRConfig.json</td>
 <td>The value for the expire field the Traffic Router DNS Server will respond with on Start of Authority (SOA) records.</td>
 </tr>
-<tr class="row-even"><td>tld.soa.minimum</td>
+<tr class="row-odd"><td>tld.soa.minimum</td>
 <td>CRConfig.json</td>
 <td>The value for the minimum field the Traffic Router DNS Server will respond with on SOA records.</td>
 </tr>
-<tr class="row-odd"><td>tld.soa.admin</td>
+<tr class="row-even"><td>tld.soa.admin</td>
 <td>CRConfig.json</td>
 <td>The DNS Start of Authority admin.  Should be a valid support email address for support if DNS is not working correctly.</td>
 </tr>
-<tr class="row-even"><td>tld.soa.retry</td>
+<tr class="row-odd"><td>tld.soa.retry</td>
 <td>CRConfig.json</td>
 <td>The value for the retry field the Traffic Router DNS Server will respond with on SOA records.</td>
 </tr>
-<tr class="row-odd"><td>tld.soa.refresh</td>
+<tr class="row-even"><td>tld.soa.refresh</td>
 <td>CRConfig.json</td>
 <td>The TTL the Traffic Router DNS Server will respond with on A records.</td>
 </tr>
-<tr class="row-even"><td>tld.ttls.NS</td>
+<tr class="row-odd"><td>tld.ttls.NS</td>
 <td>CRConfig.json</td>
 <td>The TTL the Traffic Router DNS Server will respond with on NS records.</td>
 </tr>
-<tr class="row-odd"><td>tld.ttls.SOA</td>
+<tr class="row-even"><td>tld.ttls.SOA</td>
 <td>CRConfig.json</td>
 <td>The TTL the Traffic Router DNS Server will respond with on SOA records.</td>
 </tr>
-<tr class="row-even"><td>tld.ttls.AAAA</td>
+<tr class="row-odd"><td>tld.ttls.AAAA</td>
 <td>CRConfig.json</td>
 <td>The Time To Live (TTL) the Traffic Router DNS Server will respond with on AAAA records.</td>
 </tr>
-<tr class="row-odd"><td>tld.ttls.A</td>
+<tr class="row-even"><td>tld.ttls.A</td>
 <td>CRConfig.json</td>
 <td>The TTL the Traffic Router DNS Server will respond with on A records.</td>
 </tr>
-<tr class="row-even"><td>tld.ttls.DNSKEY</td>
+<tr class="row-odd"><td>tld.ttls.DNSKEY</td>
 <td>CRConfig.json</td>
 <td>The TTL the Traffic Router DNS Server will respond with on DNSKEY records.</td>
 </tr>
-<tr class="row-odd"><td>tld.ttls.DS</td>
+<tr class="row-even"><td>tld.ttls.DS</td>
 <td>CRConfig.json</td>
 <td>The TTL the Traffic Router DNS Server will respond with on DS records.</td>
 </tr>
-<tr class="row-even"><td>api.port</td>
+<tr class="row-odd"><td>api.port</td>
 <td>server.xml</td>
 <td>The TCP port Traffic Router listens on for API (REST) access.</td>
 </tr>
-<tr class="row-odd"><td>api.cache-control.max-age</td>
+<tr class="row-even"><td>api.cache-control.max-age</td>
 <td>CRConfig.json</td>
 <td>The value of the <code class="docutils literal"><span class="pre">Cache-Control:</span> <span class="pre">max-age=</span></code> header in the API responses of Traffic Router.</td>
 </tr>
-<tr class="row-even"><td>api.auth.url</td>
+<tr class="row-odd"><td>api.auth.url</td>
 <td>CRConfig.json</td>
 <td>The API authentication URL (<a class="reference external" href="https:/">https:/</a>/${tmHostname}/api/1.1/user/login); ${tmHostname} is a search and replace token used by Traffic Router to construct the correct URL)</td>
 </tr>
-<tr class="row-odd"><td>consistent.dns.routing</td>
+<tr class="row-even"><td>consistent.dns.routing</td>
 <td>CRConfig.json</td>
 <td>Control whether DNS Delivery Services use consistent hashing on the edge FQDN to select caches for answers. May improve performance if set to true; defaults to false</td>
 </tr>
-<tr class="row-even"><td>dnssec.enabled</td>
+<tr class="row-odd"><td>dnssec.enabled</td>
 <td>CRConfig.json</td>
 <td>Whether DNSSEC is enabled; this parameter is updated via the DNSSEC administration user interface.</td>
 </tr>
-<tr class="row-odd"><td>dnssec.allow.expired.keys</td>
+<tr class="row-even"><td>dnssec.allow.expired.keys</td>
 <td>CRConfig.json</td>
 <td>Allow Traffic Router to use expired DNSSEC keys to sign zones; default is true. This helps prevent DNSSEC related outages due to failed Traffic Control components or connectivity issues.</td>
 </tr>
-<tr class="row-even"><td>dynamic.cache.primer.enabled</td>
+<tr class="row-odd"><td>dynamic.cache.primer.enabled</td>
 <td>CRConfig.json</td>
 <td>Allow Traffic Router to attempt to prime the dynamic zone cache; defaults to true</td>
 </tr>
-<tr class="row-odd"><td>dynamic.cache.primer.limit</td>
+<tr class="row-even"><td>dynamic.cache.primer.limit</td>
 <td>CRConfig.json</td>
 <td>Limit the number of permutations to prime when dynamic zone cache priming is enabled; defaults to 500</td>
 </tr>
-<tr class="row-even"><td>keystore.maintenance.interval</td>
+<tr class="row-odd"><td>keystore.maintenance.interval</td>
 <td>CRConfig.json</td>
 <td>The interval in seconds which Traffic Router will check the keystore API for new DNSSEC keys</td>
 </tr>
-<tr class="row-odd"><td>keystore.api.url</td>
+<tr class="row-even"><td>keystore.api.url</td>
 <td>CRConfig.json</td>
 <td>The keystore API URL (<a class="reference external" href="https:/">https:/</a>/${tmHostname}/api/1.1/cdns/name/${cdnName}/dnsseckeys.json; ${tmHostname} and ${cdnName} are search and replace tokens used by Traffic Router to construct the correct URL)</td>
 </tr>
-<tr class="row-even"><td>keystore.fetch.timeout</td>
+<tr class="row-odd"><td>keystore.fetch.timeout</td>
 <td>CRConfig.json</td>
 <td>The timeout in milliseconds for requests to the keystore API</td>
 </tr>
-<tr class="row-odd"><td>keystore.fetch.retries</td>
+<tr class="row-even"><td>keystore.fetch.retries</td>
 <td>CRConfig.json</td>
 <td>The number of times Traffic Router will attempt to load keys before giving up; defaults to 5</td>
 </tr>
-<tr class="row-even"><td>keystore.fetch.wait</td>
+<tr class="row-odd"><td>keystore.fetch.wait</td>
 <td>CRConfig.json</td>
 <td>The number of milliseconds Traffic Router will wait before a retry</td>
 </tr>
-<tr class="row-odd"><td>signaturemanager.expiration.multiplier</td>
+<tr class="row-even"><td>signaturemanager.expiration.multiplier</td>
 <td>CRConfig.json</td>
 <td>Multiplier used in conjunction with a zone&#8217;s maximum TTL to calculate DNSSEC signature durations; defaults to 5</td>
 </tr>
-<tr class="row-even"><td>zonemanager.threadpool.scale</td>
+<tr class="row-odd"><td>zonemanager.threadpool.scale</td>
 <td>CRConfig.json</td>
 <td>Multiplier used to determine the number of cores to use for zone signing operations; defaults to 0.75</td>
 </tr>
-<tr class="row-odd"><td>zonemanager.cache.maintenance.interval</td>
+<tr class="row-even"><td>zonemanager.cache.maintenance.interval</td>
 <td>CRConfig.json</td>
 <td>The interval in seconds which Traffic Router will check for zones that need to be resigned or if dynamic zones need to be expired from cache</td>
 </tr>
-<tr class="row-even"><td>zonemanager.dynamic.response.expiration</td>
+<tr class="row-odd"><td>zonemanager.dynamic.response.expiration</td>
 <td>CRConfig.json</td>
 <td>A string (e.g.: 300s) that defines how long a dynamic zone</td>
 </tr>
-<tr class="row-odd"><td>DNSKEY.generation.multiplier</td>
+<tr class="row-even"><td>DNSKEY.generation.multiplier</td>
 <td>CRConfig.json</td>
 <td>Used to deteremine when new keys need to be regenerated. Keys are regenerated if expiration is less than the generation multiplier * the TTL.  If the parameter does not exist, the default is 10.</td>
 </tr>
-<tr class="row-even"><td>DNSKEY.effective.multiplier</td>
+<tr class="row-odd"><td>DNSKEY.effective.multiplier</td>
 <td>CRConfig.json</td>
 <td>Used when creating an effective date for a new key set.  New keys are generated with an effective date of old key expiration - (effective multiplier * TTL).  Default is 2.</td>
 </tr>
 </tbody>
 </table>
 </div>
+<div class="section" id="regex-remap-expression">
+<span id="rl-regex-remap"></span><span id="index-7"></span><h3>Regex Remap Expression<a class="headerlink" href="#regex-remap-expression" title="Permalink to this headline">¶</a></h3>
+<p>The regex remap expression allows to to use a regex and resulting match group(s) in order to modify the request URIs that are sent to origin. For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>^/original/(.*) http://origin.example.com/remapped/$1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If <strong>Query String Handling</strong> is set to <code class="docutils literal"><span class="pre">2</span> <span class="pre">Drop</span> <span class="pre">at</span> <span class="pre">edge</span></code>, then you will not be allowed to save a regex remap expression, as dropping query strings actually relies on a regex remap of its own. However, if there is a need to both drop query strings <strong>and</strong> remap request URIs, this can be accomplished by setting <strong>Query String Handling</strong> to <code class="docutils literal"><span class="pre">1</span> <span class="pre">Do</span> <span class="pre">not</span> <span class="pre">use</span> <span class="pre">in</span> <span class="pre">cache</span> <span class="pre">key,</span> <span class="pre">but</span> <span class="pre">pass</span> <span class="pre">up</span> <span class="pre">to</span> <span class="pre">origin</span></code>, and then using a custom regex remap expression to do the necessary remapping, while simultaneously dropping query strings. The following example will capture the original request URI up to, but not including, the query string and then forward to a remapped URI:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span>^/([^?]*).* http://origin.example.com/remapped/$1
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="delivery-service-regexp">
-<span id="rl-ds-regexp"></span><span id="index-7"></span><h3>Delivery Service Regexp<a class="headerlink" href="#delivery-service-regexp" title="Permalink to this headline">¶</a></h3>
+<span id="rl-ds-regexp"></span><span id="index-8"></span><h3>Delivery Service Regexp<a class="headerlink" href="#delivery-service-regexp" title="Permalink to this headline">¶</a></h3>
 <p>This table defines how requests are matched to the delivery service. There are 3 type of entries possible here:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1300,40 +1329,40 @@ http.parent_proxy.connect_attempts_timeout</td>
 </div>
 </div>
 <div class="section" id="static-dns-entries">
-<span id="rl-static-dns"></span><span id="index-8"></span><h3>Static DNS Entries<a class="headerlink" href="#static-dns-entries" title="Permalink to this headline">¶</a></h3>
+<span id="rl-static-dns"></span><span id="index-9"></span><h3>Static DNS Entries<a class="headerlink" href="#static-dns-entries" title="Permalink to this headline">¶</a></h3>
 <p>Static DNS entries allow you to create other names <em>under</em> the delivery service domain. You can enter any valid hostname, and create a CNAME, A or AAAA record for it by clicking the <strong>Static DNS</strong> button at the bottom of the delivery service details screen.</p>
 </div>
 <div class="section" id="server-assignments">
-<span id="rl-assign-edges"></span><span id="index-9"></span><h3>Server Assignments<a class="headerlink" href="#server-assignments" title="Permalink to this headline">¶</a></h3>
+<span id="rl-assign-edges"></span><span id="index-10"></span><h3>Server Assignments<a class="headerlink" href="#server-assignments" title="Permalink to this headline">¶</a></h3>
 <p>Click the <strong>Server Assignments</strong> button at the bottom of the screen to assign servers to this delivery service.  Servers can be selected by drilling down in a tree, starting at the profile, then the cache group, and then the individual servers. Traffic Router will only route traffic for this delivery service to servers that are assigned to it.</p>
 </div>
 <div class="section" id="the-coverage-zone-file-and-asn-table">
 <span id="rl-asn-czf"></span><h3>The Coverage Zone File and ASN Table<a class="headerlink" href="#the-coverage-zone-file-and-asn-table" title="Permalink to this headline">¶</a></h3>
 <p>The Coverage Zone File (CZF) should contain a cachegroup name to network prefix mapping in the form:</p>
-<div class="highlight-python"><div class="highlight"><pre>{
-  &quot;coverageZones&quot;: {
-    &quot;cache-group-01&quot;: {
-      &quot;network6&quot;: [
-        &quot;1234:5678::\/64&quot;,
-        &quot;1234:5679::\/64&quot;
-      ],
-      &quot;network&quot;: [
-        &quot;192.168.8.0\/24&quot;,
-        &quot;192.168.9.0\/24&quot;
-      ]
-    }
-    &quot;cache-group-02&quot;: {
-      &quot;network6&quot;: [
-        &quot;1234:567a::\/64&quot;,
-        &quot;1234:567b::\/64&quot;
-      ],
-      &quot;network&quot;: [
-        &quot;192.168.4.0\/24&quot;,
-        &quot;192.168.5.0\/24&quot;
-      ]
-    }
-  }
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;coverageZones&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;cache-group-01&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;network6&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;1234:5678::\/64&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1234:5679::\/64&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;192.168.8.0\/24&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;192.168.9.0\/24&quot;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="s2">&quot;cache-group-02&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;network6&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;1234:567a::\/64&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1234:567b::\/64&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;192.168.4.0\/24&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;192.168.5.0\/24&quot;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The CZF is an input to the Traffic Control CDN, and as such does not get generated by Traffic Ops, but rather, it gets consumed by Traffic Router. Some popular IP management systems output a very similar file to the CZF but in stead of a cachegroup an ASN will be listed. Traffic Ops has the &#8220;Networks (ASNs)&#8221; view to aid with the conversion of files like that to a Traffic Control CZF file; this table is not used anywhere in Traffic Ops, but can be used to script the conversion using the API.</p>
@@ -1345,13 +1374,13 @@ http.parent_proxy.connect_attempts_timeout</td>
 <p>Parameters are shared between profiles if the set of <code class="docutils literal"><span class="pre">{</span> <span class="pre">name,</span> <span class="pre">config_file,</span> <span class="pre">value</span> <span class="pre">}</span></code> is the same. To change a value in one profile but not in others, the parameter has to be removed from the profile you want to change it in, and a new parameter entry has to be created (<strong>Add Parameter</strong> button at the bottom of the Parameters view), and assigned to that profile. It is easy to create new profiles from the <strong>Misc &gt; Profiles</strong> view - just use the <strong>Add/Copy Profile</strong> button at the bottom of the profile view to copy an existing profile to a new one. Profiles can be exported from one system and imported to another using the profile view as well. It makes no sense for a parameter to not be assigned to a single profile - in that case it really has no function. To find parameters like that use the <strong>Parameters &gt; Orphaned Parameters</strong> view. It is easy to create orphaned parameters by removing all profiles, or not assigning a profile directly after creating the parameter.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="traffic_ops_config.html#rl-param-prof"><em>Profile Parameters</em></a> in the <em>Configuring Traffic Ops</em> section.</p>
+<p class="last"><a class="reference internal" href="traffic_ops_config.html#rl-param-prof"><span class="std std-ref">Profile Parameters</span></a> in the <em>Configuring Traffic Ops</em> section.</p>
 </div>
 </div>
 <div class="section" id="tools">
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="generate-iso">
-<span id="rl-generate-iso"></span><span id="index-10"></span><h3>Generate ISO<a class="headerlink" href="#generate-iso" title="Permalink to this headline">¶</a></h3>
+<span id="rl-generate-iso"></span><span id="index-11"></span><h3>Generate ISO<a class="headerlink" href="#generate-iso" title="Permalink to this headline">¶</a></h3>
 <p>Generate ISO is a tool for building custom ISOs for building caches on remote hosts. Currently it only supports Centos 6, but if you&#8217;re brave and pure of heart you MIGHT be able to get it to work with other unix-like OS&#8217;s.</p>
 <p>The interface is <em>mostly</em> self explainatory as it&#8217;s got hints.</p>
 <table border="1" class="docutils">
@@ -1421,30 +1450,30 @@ http.parent_proxy.connect_attempts_timeout</td>
 <p>What we currently do is have 2 scripts, one to do hard drive configuration and one to do network configuration. Both are relatively specific to the environment they were created in, and both are <em>probably</em> wrong for other organizations, however they are currently living in the &#8220;misc&#8221; directory as examples of how to do things.</p>
 <p>We trigger those in a %pre section in ks.cfg and they will write config files to /tmp. We will then include those files in the appropriate places using  %pre.</p>
 <p>For example this is a section of our ks.cfg file:</p>
-<div class="highlight-python"><div class="highlight"><pre>%include /mnt/stage2/ks_scripts/packages.txt
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">packages</span><span class="o">.</span><span class="n">txt</span>
 
-%pre
-  python /mnt/stage2/ks_scripts/create_network_line.py
-  bash /mnt/stage2/ks_scripts/drive_config.sh
-%end
+<span class="o">%</span><span class="n">pre</span>
+  <span class="n">python</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">create_network_line</span><span class="o">.</span><span class="n">py</span>
+  <span class="n">bash</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">drive_config</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">%</span><span class="n">end</span>
 </pre></div>
 </div>
 <p>These two scripts will then run _before_ anaconda sets up it&#8217;s internal structures, then a bit further up in the ks.cfg file (outside of the %pre %end block) we do an</p>
-<div class="highlight-python"><div class="highlight"><pre>%include /mnt/stage2/ks_scripts/password.cfg
-...
-%include /tmp/network_line
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">password</span><span class="o">.</span><span class="n">cfg</span>
+<span class="o">...</span>
+<span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">network_line</span>
 
-%include /tmp/drive_config
-...
+<span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">drive_config</span>
+<span class="o">...</span>
 </pre></div>
 </div>
 <p>This snarfs up the contents and inlines them.</p>
 <p>If you only have one kind of hardware on your CDN it is probably best to just put the drive config right in the ks.cfg.</p>
 <p>If you have simple networking needs (we use bonded interfaces in most, but not all locations and we have several types of hardware meaning different ethernet interface names at the OS level etc.) then something like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>#!/bin/bash
-source /mnt/stage2/ks_scripts/network.cfg
-echo &quot;network --bootproto=static --activate --ipv6=$IPV6ADDR --ip=$IPADDR --netmask=$NETMASK --gateway=$GATEWAY --ipv6gateway=$GATEWAY --nameserver=$NAMESERVER --mtu=$MTU --hostname=$HOSTNAME&quot; &gt;&gt; /tmp/network.cfg
-# Note that this is an example and may not work at all.
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="n">source</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">network</span><span class="o">.</span><span class="n">cfg</span>
+<span class="n">echo</span> <span class="s2">&quot;network --bootproto=static --activate --ipv6=$IPV6ADDR --ip=$IPADDR --netmask=$NETMASK --gateway=$GATEWAY --ipv6gateway=$GATEWAY --nameserver=$NAMESERVER --mtu=$MTU --hostname=$HOSTNAME&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">network</span><span class="o">.</span><span class="n">cfg</span>
+<span class="c1"># Note that this is an example and may not work at all.</span>
 </pre></div>
 </div>
 <p>You could also put this in the %pre section. Lots of ways to solve it.</p>
@@ -1459,7 +1488,7 @@ echo &quot;network --bootproto=static --activate --ipv6=$IPV6ADDR --ip=$IPADDR -
 <span id="rl-queue-updates"></span><h3>Queue Updates and Snapshot CRConfig<a class="headerlink" href="#queue-updates-and-snapshot-crconfig" title="Permalink to this headline">¶</a></h3>
 <p>When changing delivery services special care has to be taken so that Traffic Router will not send traffic to caches for delivery services that the cache doesn&#8217;t know about yet. In general, when adding delivery services, or adding servers to a delivery service, it is best to update the caches before updating Traffic Router and Traffic Monitor. When deleting delivery services, or deleting server assignments to delivery services, it is best to update Traffic Router and Traffic Monitor first and then the caches. Updating the cache configuration is done through the <em>Queue Updates</em> menu, and updating Traffic Monitor and  Traffic Router config is done through the <em>Snapshot CRConfig</em> menu.</p>
 <div class="section" id="queue-updates">
-<span id="index-11"></span><h4>Queue Updates<a class="headerlink" href="#queue-updates" title="Permalink to this headline">¶</a></h4>
+<span id="index-12"></span><h4>Queue Updates<a class="headerlink" href="#queue-updates" title="Permalink to this headline">¶</a></h4>
 <p>Every 15 minutes the caches will run a <em>syncds</em> to get all changes needed from Traffic Ops. The files that will be updated by the syncds job are:</p>
 <ul class="simple">
 <li>records.config</li>
@@ -1485,8 +1514,8 @@ echo &quot;network --bootproto=static --activate --ipv6=$IPV6ADDR --ip=$IPADDR -
 <p>To schedule updates for just one cache, use the &#8220;Server Checks&#8221; page, and click the <img alt="checkmark" src="../_images/good.png" /> in the <em>UPD</em> column. The UPD column of Server Checks page will change show a <img alt="clock" src="../_images/clock-black.png" /> when updates are pending for that cache.</p>
 </div>
 <div class="section" id="snapshot-crconfig">
-<span id="rl-snapshot-crconfig"></span><span id="index-12"></span><h4>Snapshot CRConfig<a class="headerlink" href="#snapshot-crconfig" title="Permalink to this headline">¶</a></h4>
-<p>Every 60 seconds Traffic Monitor will check with Traffic Ops to see if a new CRConfig snapshot exists; Traffic Monitor polls Traffic Ops for a new CRConfig, and Traffic Router polls Traffic Monitor for the same file. This is necessary to ensure that Traffic Monitor sees configuration changes first, which helps to ensure that the health and state of caches and delivery services propagates properly to Traffic Router. See <a class="reference internal" href="#rl-ccr-profile"><em>CCR Profile or Traffic Router Profile</em></a> for more information on the CRConfig file.</p>
+<span id="rl-snapshot-crconfig"></span><span id="index-13"></span><h4>Snapshot CRConfig<a class="headerlink" href="#snapshot-crconfig" title="Permalink to this headline">¶</a></h4>
+<p>Every 60 seconds Traffic Monitor will check with Traffic Ops to see if a new CRConfig snapshot exists; Traffic Monitor polls Traffic Ops for a new CRConfig, and Traffic Router polls Traffic Monitor for the same file. This is necessary to ensure that Traffic Monitor sees configuration changes first, which helps to ensure that the health and state of caches and delivery services propagates properly to Traffic Router. See <a class="reference internal" href="#rl-ccr-profile"><span class="std std-ref">Traffic Router Profile</span></a> for more information on the CRConfig file.</p>
 <p>To create a new snapshot, use the <em>Tools &gt; Snapshot CRConfig</em> menu:</p>
 <blockquote>
 <div><ol class="arabic">
@@ -1512,7 +1541,7 @@ between the active CRConfig and the CRConfig about to be written.</p>
 </div>
 </div>
 <div class="section" id="invalidate-content">
-<span id="rl-purge"></span><span id="index-13"></span><h2>Invalidate Content<a class="headerlink" href="#invalidate-content" title="Permalink to this headline">¶</a></h2>
+<span id="rl-purge"></span><span id="index-14"></span><h2>Invalidate Content<a class="headerlink" href="#invalidate-content" title="Permalink to this headline">¶</a></h2>
 <p>Invalidating content on the CDN is sometimes necessary when the origin was mis-configured and something is cached in the CDN  that needs to be removed. Given the size of a typical Traffic Control CDN and the amount of content that can be cached in it, removing the content from all the caches may take a long time. To speed up content invalidation, Traffic Ops will not try to remove the content from the caches, but it makes the content inaccessible using the <em>regex_revalidate</em> ATS plugin. This forces a <em>revalidation</em> of the content, rather than a new get.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>

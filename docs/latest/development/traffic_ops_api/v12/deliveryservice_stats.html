@@ -36,7 +36,7 @@
     <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Divisions" href="division.html"/>
-        <link rel="prev" title="Delivery Service" href="deliveryservice.html"/> 
+        <link rel="prev" title="Delivery Service Regexes" href="deliveryservice_regex.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -180,7 +180,7 @@
         		  <a href="division.html" class="btn btn-neutral float-right" title="Divisions">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="deliveryservice.html" class="btn btn-neutral" title="Delivery Service"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="deliveryservice_regex.html" class="btn btn-neutral" title="Delivery Service Regexes"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -316,61 +316,61 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;source&quot;</span><span class="p">:</span> <span class="s">&quot;TrafficStats&quot;</span><span class="p">,</span>
-        <span class="s">&quot;summary&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s">&quot;average&quot;</span><span class="p">:</span> <span class="mf">1081172.785</span><span class="p">,</span>
-            <span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
-            <span class="s">&quot;fifthPercentile&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
-            <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="mf">1326680.31</span><span class="p">,</span>
-            <span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
-            <span class="s">&quot;ninetyEighthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
-            <span class="s">&quot;ninetyFifthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
-            <span class="s">&quot;totalBytes&quot;</span><span class="p">:</span> <span class="mf">37841047.475</span><span class="p">,</span>
-            <span class="s">&quot;totalTransactions&quot;</span><span class="p">:</span> <span class="mi">1020202030101</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStats&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;average&quot;</span><span class="p">:</span> <span class="mf">1081172.785</span><span class="p">,</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+            <span class="s2">&quot;fifthPercentile&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
+            <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mf">1326680.31</span><span class="p">,</span>
+            <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
+            <span class="s2">&quot;ninetyEighthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
+            <span class="s2">&quot;ninetyFifthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
+            <span class="s2">&quot;totalBytes&quot;</span><span class="p">:</span> <span class="mf">37841047.475</span><span class="p">,</span>
+            <span class="s2">&quot;totalTransactions&quot;</span><span class="p">:</span> <span class="mi">1020202030101</span>
         <span class="p">},</span>
-        <span class="s">&quot;series&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s">&quot;&quot;</span>
+        <span class="s2">&quot;series&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;&quot;</span>
             <span class="p">],</span>
-            <span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;kbps&quot;</span><span class="p">,</span>
-            <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;total&quot;</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;kbps&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;total&quot;</span>
             <span class="p">},</span>
-            <span class="s">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:36:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:36:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">888827.26</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:37:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:37:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">980336.563333333</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:38:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:38:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">952111.975</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:39:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:39:00Z&quot;</span><span class="p">,</span>
                     <span class="n">null</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:43:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:43:00Z&quot;</span><span class="p">,</span>
                     <span class="n">null</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:44:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:44:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">934682.943333333</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:45:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:45:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">1251121.28</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:46:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:46:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">1111012.99</span>
                 <span class="p">]</span>
             <span class="p">]</span>
@@ -395,7 +395,7 @@
         <a href="division.html" class="btn btn-neutral float-right" title="Divisions">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="deliveryservice.html" class="btn btn-neutral" title="Delivery Service"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="deliveryservice_regex.html" class="btn btn-neutral" title="Delivery Service Regexes"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
