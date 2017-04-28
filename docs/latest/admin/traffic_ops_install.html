@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing Traffic Ops &mdash; Traffic Control master documentation </title>
+  <title>Installing Traffic Ops &mdash; Traffic Control 1.8-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Configuring Traffic Ops" href="traffic_ops_config.html"/>
         <link rel="prev" title="Administrator’s Guide" href="index.html"/> 
@@ -108,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
@@ -122,6 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +161,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -570,6 +572,112 @@ use this user to login for the first time and create other users</td>
 </ol>
 </div>
 </div>
+<div class="section" id="manually-generating-and-installing-the-ssl-certificate">
+<h2>Manually Generating and Installing the SSL Certificate<a class="headerlink" href="#manually-generating-and-installing-the-ssl-certificate" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This section is valid for traffic-control 2.0.0 and later.</p>
+</div>
+<div class="section" id="self-signed-certificate-development">
+<h3>Self-signed Certificate (Development)<a class="headerlink" href="#self-signed-certificate-development" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Example Procedure:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ openssl genrsa -des3 -passout pass:x -out localhost.pass.key 2048
+Generating RSA private key, 2048 bit long modulus
+...
+$ openssl rsa -passin pass:x -in localhost.pass.key -out localhost.key
+writing RSA key
+$ rm localhost.pass.key
+
+$ openssl req -new -key localhost.key -out localhost.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter &#39;.&#39;, the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:US&lt;enter&gt;
+State or Province Name (full name) []:CO&lt;enter&gt;
+Locality Name (eg, city) [Default City]:Denver&lt;enter&gt;
+Organization Name (eg, company) [Default Company Ltd]: &lt;enter&gt;
+Organizational Unit Name (eg, section) []: &lt;enter&gt;
+Common Name (eg, your name or your server&#39;s hostname) []: &lt;enter&gt;
+Email Address []: &lt;enter&gt;
+
+Please enter the following &#39;extra&#39; attributes
+to be sent with your certificate request
+A challenge password []: pass&lt;enter&gt;
+An optional company name []: &lt;enter&gt;
+$ openssl x509 -req -sha256 -days 365 -in localhost.csr -signkey localhost.key -out localhost.crt
+Signature ok
+subject=/C=US/ST=CO/L=Denver/O=Default Company Ltd
+Getting Private key
+$ sudo cp localhost.crt /etc/pki/tls/certs
+$ sudo cp localhost.key /etc/pki/tls/private
+$ sudo chown trafops:trafops /etc/pki/tls/certs/localhost.crt
+$ sudo chown trafops:trafops /etc/pki/tls/private/localhost.key
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="certificate-from-certificate-authority-production">
+<h3>Certificate from Certificate Authority (Production)<a class="headerlink" href="#certificate-from-certificate-authority-production" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You will need to know the appropriate answers when generating the certificate request file <cite>trafficopss.csr</cite> below.</p>
+<p>Example Procedure:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span>$ openssl genrsa -des3 -passout pass:x -out trafficops.pass.key 2048
+Generating RSA private key, 2048 bit long modulus
+...
+$ openssl rsa -passin pass:x -in trafficops.pass.key -out trafficops.key
+writing RSA key
+$ rm localhost.pass.key
+
+Generate the Certificate Signing Request (CSR) file needed for Certificate Authority (CA) request.
+
+$ openssl req -new -key trafficops.key -out trafficops.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter &#39;.&#39;, the field will be left blank.
+-----
+Country Name (2 letter code) [XX]: &lt;enter country code&gt;
+State or Province Name (full name) []: &lt;enter state or province&gt;
+Locality Name (eg, city) [Default City]: &lt;enter locality name&gt;
+Organization Name (eg, company) [Default Company Ltd]: &lt;enter organization name&gt;
+Organizational Unit Name (eg, section) []: &lt;enter organizational unit name&gt;
+Common Name (eg, your name or your server&#39;s hostname) []: &lt;enter server&#39;s hostname name&gt;
+Email Address []: &lt;enter e-mail address&gt;
+
+Please enter the following &#39;extra&#39; attributes
+to be sent with your certificate request
+A challenge password []: &lt;enter challenge password&gt;
+An optional company name []: &lt;enter&gt;
+$ sudo cp trafficops.key /etc/pki/tls/private
+$ sudo chown trafops:trafops /etc/pki/tls/private/trafficops.key
+
+You must then take the output file trafficops.csr and submit a request to your Certificate Authority (CA).
+Once you get approved and receive your trafficops.crt file:
+
+$ sudo cp trafficops.crt /etc/pki/tls/certs
+$ sudo chown trafops:trafops /etc/pki/tls/certs/trafficops.crt
+
+If necessary, install the CA certificates .pem and .crt in /etc/pki/tls/certs.
+
+You will need to update the file /opt/traffic_ops/app/conf/cdn.conf with the following changes:
+      ...
+      e.g. given trafficops.crt and trafficops.key
+      &#39;hypnotoad&#39; =&gt; ...
+          &#39;listen&#39; =&gt; &#39;https://[::]:443?cert=/etc/pki/tls/certs/trafficops.crt&amp;key=/etc/pki/tls/private/trafficops.key&amp;ca=/etc/pki/tls/certs/localhost.ca&amp;verify=0x00&amp;ciphers=AES128-GCM-SHA256:HIGH:!RC4:!MD5:!aNULL:!EDH:!ED&#39;
+       ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -610,7 +718,7 @@ use this user to login for the first time and create other users</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'master',
+            VERSION:'1.8-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

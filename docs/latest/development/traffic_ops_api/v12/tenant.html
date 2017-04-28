@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tenants &mdash; Traffic Control master documentation </title>
+  <title>Tenants &mdash; Traffic Control 1.8-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="TO Extensions" href="to_extension.html"/>
         <link rel="prev" title="System" href="system.html"/> 
@@ -108,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -122,6 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +161,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -223,7 +225,11 @@
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
 <td>int</td>
-<td>Parent tenant</td>
+<td>Parent tenant ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">parentName</span></code></td>
+<td>string</td>
+<td>Parent tenant name</td>
 </tr>
 </tbody>
 </table>
@@ -235,12 +241,14 @@
        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
        <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s2">&quot;parentName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="p">{</span>
        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span>
        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tenant-a&quot;</span><span class="p">,</span>
        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
        <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">1</span>
+       <span class="s2">&quot;parentName&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -283,7 +291,11 @@
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
 <td>int</td>
-<td>Parent tenant</td>
+<td>Parent tenant ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">parentName</span></code></td>
+<td>string</td>
+<td>Parent tenant name</td>
 </tr>
 </tbody>
 </table>
@@ -295,6 +307,7 @@
        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tenant-a&quot;</span><span class="p">,</span>
        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
        <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="s2">&quot;parentName&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -398,7 +411,11 @@
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
 <td>int</td>
-<td>Parent tenant</td>
+<td>Parent tenant ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">parentName</span></code></td>
+<td>string</td>
+<td>Parent tenant name</td>
 </tr>
 </tbody>
 </table>
@@ -409,6 +426,7 @@
                 <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-tenant&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
                 <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;parentName&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-03-18 08:57:39&quot;</span>
         <span class="p">},</span>
         <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -497,7 +515,11 @@
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">parentId</span></code></td>
 <td>int</td>
-<td>Parent tenant</td>
+<td>Parent tenant ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">parentName</span></code></td>
+<td>string</td>
+<td>Parent tenant name</td>
 </tr>
 </tbody>
 </table>
@@ -508,6 +530,7 @@
                 <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;your-tenant&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
                 <span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;parentName&quot;</span><span class="p">:</span> <span class="s2">&quot;my-tenant&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-03-18 08:57:39&quot;</span>
         <span class="p">},</span>
         <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -564,7 +587,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'master',
+            VERSION:'1.8-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

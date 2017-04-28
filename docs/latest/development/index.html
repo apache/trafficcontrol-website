@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Developer’s Guide &mdash; Traffic Control master documentation </title>
+  <title>Developer’s Guide &mdash; Traffic Control 1.8-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
         <link rel="next" title="Traffic Ops" href="traffic_ops.html"/>
         <link rel="prev" title="Configure Delivery Service Steering" href="../admin/quick_howto/steering.html"/> 
 
@@ -107,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -121,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -158,7 +160,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
     <li>Developer&#8217;s Guide</li>
       <li class="wy-breadcrumbs-aside">
@@ -227,6 +229,17 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html#api">API</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Golang</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#project-tree-overview">Project Tree Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#formatting-conventions">Formatting Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#installing-the-developer-environment">Installing The Developer Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#test-cases">Test Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#api">API</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="traffic_stats.html">Traffic Stats</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html#software-requirements">Software Requirements</a></li>
@@ -279,7 +292,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'master',
+            VERSION:'1.8-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

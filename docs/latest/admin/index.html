@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Administrator’s Guide &mdash; Traffic Control master documentation </title>
+  <title>Administrator’s Guide &mdash; Traffic Control 1.8-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
         <link rel="next" title="Installing Traffic Ops" href="traffic_ops_install.html"/>
         <link rel="prev" title="Traffic Vault" href="../overview/traffic_vault.html"/> 
 
@@ -107,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
@@ -121,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -158,7 +160,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
     <li>Administrator&#8217;s Guide</li>
       <li class="wy-breadcrumbs-aside">
@@ -188,9 +190,9 @@
 <ol class="arabic simple">
 <li>Traffic Ops</li>
 <li>Traffic Vault (Riak)</li>
+<li>Traffic Monitor</li>
 <li>Apache Traffic Server Mid-Tier Caches</li>
 <li>Apache Traffic Server Edge Caches</li>
-<li>Traffic Monitor</li>
 <li>Traffic Router</li>
 <li>Traffic Stats</li>
 <li>Traffic Portal</li>
@@ -202,6 +204,11 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html#system-requirements">System Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html#navigating-the-install">Navigating the Install</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="traffic_ops_install.html#upgrading-traffic-ops">Upgrading Traffic Ops</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html#manually-generating-and-installing-the-ssl-certificate">Manually Generating and Installing the SSL Certificate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_ops_install.html#self-signed-certificate-development">Self-signed Certificate (Development)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_ops_install.html#certificate-from-certificate-authority-production">Certificate from Certificate Authority (Production)</a></li>
 </ul>
 </li>
 </ul>
@@ -270,6 +277,15 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html#troubleshooting-and-log-files">Troubleshooting and log files</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#installing-traffic-monitor">Installing Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#configuring-traffic-monitor">Configuring Traffic Monitor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_monitor_golang.html#configuration-overview">Configuration Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#troubleshooting-and-log-files">Troubleshooting and log files</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html#installing-traffic-router">Installing Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html#configuring-traffic-router">Configuring Traffic Router</a><ul>
@@ -319,7 +335,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html#installing-traffic-server">Installing Traffic Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_server.html#configuring-traffic-server">Configuring Traffic Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_server.html#configuring-traffic-server">Configuring Traffic Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic_server.html#installing-the-ort-script">Installing the ORT script</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="traffic_vault.html">Traffic Vault Administration</a><ul>
@@ -387,7 +406,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'master',
+            VERSION:'1.8-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
