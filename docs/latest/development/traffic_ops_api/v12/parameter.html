@@ -36,7 +36,7 @@
     <link rel="top" title="Traffic Control 1.8-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Physical Location" href="phys_location.html"/>
-        <link rel="prev" title="Hardware Info" href="hwinfo.html"/> 
+        <link rel="prev" title="Jobs" href="job.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -108,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -122,6 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -180,7 +182,7 @@
         		  <a href="phys_location.html" class="btn btn-neutral float-right" title="Physical Location">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="hwinfo.html" class="btn btn-neutral" title="Hardware Info"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="job.html" class="btn btn-neutral" title="Jobs"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -399,9 +401,181 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.2/profiles/:id/parameters</strong></p>
+<p><strong>GET /api/1.2/parameters/:id/unassigned_profiles</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p>Retrieves all profiles NOT assigned to the parameter.</p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Parameter ID.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="10%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>array</td>
+<td>The Time / Date this server entry was last updated</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>The name for the profile</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>Primary key</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<td>string</td>
+<td>The description for the profile</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR_TOP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for top.foobar.net&quot;</span>
+    <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/profiles/:id/parameters</strong></p>
+<blockquote>
+<div><p>Retrieves all parameters assigned to the profile.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="20%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Profile id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="8%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">last_updated</span></code></td>
+<td>string</td>
+<td>The Time / Date this server entry was last updated</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">secure</span></code></td>
+<td>boolean</td>
+<td>When true, the parameter is accessible only by admin users. Defaults to false.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">value</span></code></td>
+<td>string</td>
+<td>The parameter value, only visible to admin if secure is true</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>The parameter name</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">config_file</span></code></td>
+<td>string</td>
+<td>The parameter config_file</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+       <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;foo.bar.net&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domain_name&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;FooConfig.xml&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+       <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;0,1,2,3,4,5,6&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Drive_Letters&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;storage.config&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+       <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;STRING __HOSTNAME__&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CONFIG proxy.config.proxy_name&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;records.config&quot;</span>
+    <span class="p">}</span>
+ <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/profiles/:id/unassigned_parameters</strong></p>
+<blockquote>
+<div><p>Retrieves all parameters NOT assigned to the profile.</p>
+<p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
 <p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
@@ -1074,7 +1248,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
         <a href="phys_location.html" class="btn btn-neutral float-right" title="Physical Location">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hwinfo.html" class="btn btn-neutral" title="Hardware Info"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="job.html" class="btn btn-neutral" title="Jobs"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

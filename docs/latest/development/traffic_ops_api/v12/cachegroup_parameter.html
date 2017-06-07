@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Snapshot CRConfig &mdash; Traffic Control 1.8-dev documentation </title>
+  <title>Cache Group parameters &mdash; Traffic Control 1.8-dev documentation </title>
   
 
   
@@ -35,8 +35,8 @@
   
     <link rel="top" title="Traffic Control 1.8-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
-        <link rel="next" title="Traffic Portal" href="../../traffic_portal.html"/>
-        <link rel="prev" title="Users" href="user.html"/> 
+        <link rel="next" title="Cache Statistics" href="cache_stats.html"/>
+        <link rel="prev" title="Cache Group" href="cachegroup.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -167,10 +167,10 @@
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
-    <li>Snapshot CRConfig</li>
+    <li>Cache Group parameters</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../../_sources/development/traffic_ops_api/v12/topology.txt" rel="nofollow"> View page source</a>
+          <a href="../../../_sources/development/traffic_ops_api/v12/cachegroup_parameter.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -179,94 +179,148 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="../../traffic_portal.html" class="btn btn-neutral float-right" title="Traffic Portal">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="cache_stats.html" class="btn btn-neutral float-right" title="Cache Statistics">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="user.html" class="btn btn-neutral" title="Users"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="cachegroup.html" class="btn btn-neutral" title="Cache Group"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
           <div role="main" class="document">
             
-  <div class="section" id="snapshot-crconfig">
-<span id="to-api-v12-topology"></span><h1>Snapshot CRConfig<a class="headerlink" href="#snapshot-crconfig" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="api-1-2-snapshot-cdn-name">
-<span id="to-api-v12-topology-route"></span><h2>/api/1.2/snapshot/{:cdn_name}<a class="headerlink" href="#api-1-2-snapshot-cdn-name" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.2/cdns/{:cdn_name}/snapshot</strong></p>
+  <div class="section" id="cache-group-parameters">
+<span id="to-api-v12-profileparameters"></span><h1>Cache Group parameters<a class="headerlink" href="#cache-group-parameters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-1-2-cachegroupparameters">
+<span id="to-api-v12-cachegroupparameters-route"></span><h2>/api/1.2/cachegroupparameters<a class="headerlink" href="#api-1-2-cachegroupparameters" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /api/1.2/cachegroupparameters</strong></p>
 <blockquote>
-<div><p>Retrieves the CURRENT snapshot for a CDN which doesn&#8217;t necessarily represent the current state of the CDN. The contents of this snapshot are currently used by Traffic Monitor and Traffic Router.</p>
+<div><blockquote>
+<div><p>Assign parameter(s) to cache group(s).</p>
 <p>Authentication Required: Yes</p>
-<p>Role(s) Required: Admin or Operations</p>
-<p><strong>Request Route Parameters</strong></p>
+<p>Role(s) Required:  Admin or Operations</p>
+<p><strong>Request Properties</strong></p>
+<p>Two formats are acceptable.</p>
+<p>Single cachegroup-parameter format:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
-<col width="14%" />
-<col width="63%" />
+<col width="13%" />
+<col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Parameter</th>
 <th class="head">Required</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn_name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cacheGroupId</span></code></td>
 <td>yes</td>
-<td>CDN name.</td>
+<td>cache group id.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parameterId</span></code></td>
+<td>yes</td>
+<td>parameter id.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Response Properties</strong></p>
+<p>Profile-parameter array format:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
-<col width="7%" />
-<col width="72%" />
+<col width="27%" />
+<col width="12%" />
+<col width="61%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Type</th>
+<th class="head">Required</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">config</span></code></td>
-<td>hash</td>
-<td>General CDN configuration settings.</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>yes</td>
+<td>cachegroup-parameter array.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">contentRouters</span></code></td>
-<td>hash</td>
-<td>A list of Traffic Routers.</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;cacheGroupId</span></code></td>
+<td>yes</td>
+<td>cache group id.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">contentServers</span></code></td>
-<td>hash</td>
-<td>A list of Traffic Servers and the delivery services associated with each.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryServices</span></code></td>
-<td>hash</td>
-<td>A list of delivery services.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">edgeLocations</span></code></td>
-<td>hash</td>
-<td>A list of cache groups.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">stats</span></code></td>
-<td>hash</td>
-<td>Snapshot properties.</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;parameterId</span></code></td>
+<td>yes</td>
+<td>parameter id.</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Single cachegroup-parameter format:
+
+{
+  &quot;cacheGroupId&quot;: 2,
+  &quot;parameterId&quot;: 6
+}
+
+Cachegroup-parameter array format:
+
+[
+    {
+      &quot;cacheGroupId&quot;: 2,
+      &quot;parameterId&quot;: 6
+    },
+    {
+      &quot;cacheGroupId&quot;: 2,
+      &quot;parameterId&quot;: 7
+    },
+    {
+      &quot;cacheGroupId&quot;: 3,
+      &quot;parameterId&quot;: 6
+    }
+]
+
+    **Response Properties**
+
+    +-------------------+---------+-----------------------------------------------------+
+    |  Parameter        |  Type   |           Description                               |
+    +===================+=========+=====================================================+
+    | ``response``      | array   | Cache group-parameter associations.                 |
+    +-------------------+---------+-----------------------------------------------------+
+    | ``&gt;cacheGroupId`` | string  | Cache Group id.                                     |
+    +-------------------+---------+-----------------------------------------------------+
+    | ``&gt;parameterId``  | string  | Parameter id.                                       |
+    +-------------------+---------+-----------------------------------------------------+
+    | ``alerts``        | array   | A collection of alert messages.                     |
+    +-------------------+---------+-----------------------------------------------------+
+    | ``&gt;level``        | string  | success, info, warning or error.                    |
+    +-------------------+---------+-----------------------------------------------------+
+    | ``&gt;text``         | string  | Alert message.                                      |
+    +-------------------+---------+-----------------------------------------------------+
+    | ``version``       | string  |                                                     |
+    +-------------------+---------+-----------------------------------------------------+
+</pre></div>
+</div>
 <p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;contentRouters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;contentServers&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;edgeLocations&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-            <span class="p">},</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;cacheGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;cacheGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;cacheGroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;parameterId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Cache group parameter associations were created.&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -274,98 +328,19 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.2/cdns/{:cdn_name}/snapshot/new</strong></p>
+<p><strong>DELETE /api/1.2/cachegroupparameters/{:cachegroup_id}/{:parameter_id}</strong></p>
 <blockquote>
-<div><p>Retrieves a PENDING snapshot for a CDN which represents the current state of the CDN. The contents of this snapshot are NOT currently used by Traffic Monitor and Traffic Router. Once a snapshot is performed, this snapshot will become the CURRENT snapshot and will be used by Traffic Monitor and Traffic Router.</p>
-<p>Authentication Required: Yes</p>
-<p>Role(s) Required: Admin or Operations</p>
-<p><strong>Request Route Parameters</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="23%" />
-<col width="14%" />
-<col width="63%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Required</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn_name</span></code></td>
-<td>yes</td>
-<td>CDN name.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response Properties</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="21%" />
-<col width="7%" />
-<col width="72%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">config</span></code></td>
-<td>hash</td>
-<td>General CDN configuration settings.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">contentRouters</span></code></td>
-<td>hash</td>
-<td>A list of Traffic Routers.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">contentServers</span></code></td>
-<td>hash</td>
-<td>A list of Traffic Servers and the delivery services associated with each.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryServices</span></code></td>
-<td>hash</td>
-<td>A list of delivery services.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">edgeLocations</span></code></td>
-<td>hash</td>
-<td>A list of cache groups.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">stats</span></code></td>
-<td>hash</td>
-<td>Snapshot properties.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;contentRouters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;contentServers&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;edgeLocations&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-                    <span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
-            <span class="p">},</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><strong>PUT /api/1.2/snapshot/{:cdn_name}</strong></p>
+<div><blockquote>
+<div><p>Delete a cache group parameter association.</p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
-<p>Role(s) Required: Admin or Operations</p>
+<p>Role(s) Required:  Admin or Operations</p>
 <p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="68%" />
+<col width="23%" />
+<col width="13%" />
+<col width="65%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -374,18 +349,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>cdn_name</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cachegroup_id</span></code></td>
 <td>yes</td>
-<td>The name of the cdn to snapshot configure</td>
+<td>cache group id.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parameter_id</span></code></td>
+<td>yes</td>
+<td>parameter id.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="28%" />
+<col width="24%" />
 <col width="10%" />
-<col width="62%" />
+<col width="66%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -394,15 +373,34 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>response</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">alerts</span></code></td>
+<td>array</td>
+<td>A collection of alert messages.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;level</span></code></td>
 <td>string</td>
-<td>&#8220;SUCCESS&#8221;</td>
+<td>success, info, warning or error.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;text</span></code></td>
+<td>string</td>
+<td>Alert message.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
+</div></blockquote>
 <p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Cache group parameter association was deleted.&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -419,10 +417,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../traffic_portal.html" class="btn btn-neutral float-right" title="Traffic Portal">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cache_stats.html" class="btn btn-neutral float-right" title="Cache Statistics">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="user.html" class="btn btn-neutral" title="Users"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cachegroup.html" class="btn btn-neutral" title="Cache Group"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

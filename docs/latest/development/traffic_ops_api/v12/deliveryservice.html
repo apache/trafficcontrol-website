@@ -951,9 +951,266 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </div>
 <p><strong>GET /api/1.2/deliveryservices/:id/servers</strong></p>
 <blockquote>
-<div><p>Retrieves properties of CDN Edge servers assigned to a delivery service. Delivery service must be assigned to user if user is not admin or operations.</p>
+<div><p>Retrieves properties of CDN EDGE or ORG servers assigned to a delivery service.</p>
 <p>Authentication Required: Yes</p>
-<p>Role(s) Required: None</p>
+<p>Role(s) Required: Admin or Operations or delivery service must be assigned to user.</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Delivery service ID.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="6%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cachegroup</span></code></td>
+<td>string</td>
+<td>The cache group name (see <a class="reference internal" href="../v11/cachegroup.html#to-api-v11-cachegroup"><span class="std std-ref">Cache Group</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cachegroupId</span></code></td>
+<td>string</td>
+<td>The cache group id.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdnId</span></code></td>
+<td>string</td>
+<td>Id of the CDN to which the server belongs to.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdnName</span></code></td>
+<td>string</td>
+<td>Name of the CDN to which the server belongs to.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">domainName</span></code></td>
+<td>string</td>
+<td>The domain name part of the FQDN of the cache.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">guid</span></code></td>
+<td>string</td>
+<td>An identifier used to uniquely identify the server.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">hostName</span></code></td>
+<td>string</td>
+<td>The host name part of the cache.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">httpsPort</span></code></td>
+<td>string</td>
+<td>The HTTPS port on which the main application listens (443 in most cases).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>The server id (database row number).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloIpAddress</span></code></td>
+<td>string</td>
+<td>The IPv4 address of the lights-out-management port.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">iloIpGateway</span></code></td>
+<td>string</td>
+<td>The IPv4 gateway address of the lights-out-management port.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloIpNetmask</span></code></td>
+<td>string</td>
+<td>The IPv4 netmask of the lights-out-management port.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">iloPassword</span></code></td>
+<td>string</td>
+<td>The password of the of the lights-out-management user (displays as <strong>**</strong> unless you are an &#8216;admin&#8217; user).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloUsername</span></code></td>
+<td>string</td>
+<td>The user name for lights-out-management.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">interfaceMtu</span></code></td>
+<td>string</td>
+<td>The Maximum Transmission Unit (MTU) to configure for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">interfaceName</span></code></td>
+<td>string</td>
+<td>The network interface name used for serving traffic.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ip6Address</span></code></td>
+<td>string</td>
+<td>The IPv6 address/netmask for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ip6Gateway</span></code></td>
+<td>string</td>
+<td>The IPv6 gateway for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ipAddress</span></code></td>
+<td>string</td>
+<td>The IPv4 address for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ipGateway</span></code></td>
+<td>string</td>
+<td>The IPv4 gateway for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ipNetmask</span></code></td>
+<td>string</td>
+<td>The IPv4 netmask for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>The Time and Date for the last update for this server.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">mgmtIpAddress</span></code></td>
+<td>string</td>
+<td>The IPv4 address of the management port (optional).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">mgmtIpGateway</span></code></td>
+<td>string</td>
+<td>The IPv4 gateway of the management port (optional).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">mgmtIpNetmask</span></code></td>
+<td>string</td>
+<td>The IPv4 netmask of the management port (optional).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">offlineReason</span></code></td>
+<td>string</td>
+<td>A user-entered reason why the server is in ADMIN_DOWN or OFFLINE status.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">physLocation</span></code></td>
+<td>string</td>
+<td>The physical location name (see <a class="reference internal" href="../v11/phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">physLocationId</span></code></td>
+<td>string</td>
+<td>The physical location id (see <a class="reference internal" href="../v11/phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profile</span></code></td>
+<td>string</td>
+<td>The assigned profile name (see <a class="reference internal" href="../v11/profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileDesc</span></code></td>
+<td>string</td>
+<td>The assigned profile description (see <a class="reference internal" href="../v11/profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<td>string</td>
+<td>The assigned profile Id (see <a class="reference internal" href="../v11/profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">rack</span></code></td>
+<td>string</td>
+<td>A string indicating rack location.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routerHostName</span></code></td>
+<td>string</td>
+<td>The human readable name of the router.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">routerPortName</span></code></td>
+<td>string</td>
+<td>The human readable name of the router port.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">status</span></code></td>
+<td>string</td>
+<td>The Status string (See <a class="reference internal" href="../v11/status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">statusId</span></code></td>
+<td>string</td>
+<td>The Status id (See <a class="reference internal" href="../v11/status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tcpPort</span></code></td>
+<td>string</td>
+<td>The default TCP port on which the main application listens (80 for a cache in most cases).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>The name of the type of this server (see <a class="reference internal" href="../v11/type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<td>string</td>
+<td>The id of the type of this server (see <a class="reference internal" href="../v11/type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">updPending</span></code></td>
+<td>bool</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;guid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+           <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;atsec-chi-00&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;********&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloUsername&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceMtu&quot;</span><span class="p">:</span> <span class="s2">&quot;9000&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceName&quot;</span><span class="p">:</span> <span class="s2">&quot;bond0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Address&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:2/64&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-03-08 15:57:32&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;offlineReason&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocation&quot;</span><span class="p">:</span> <span class="s2">&quot;plocation-chi-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocationId&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileDesc&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL profile&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;rack&quot;</span><span class="p">:</span> <span class="s2">&quot;RR 119.02&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerHostName&quot;</span><span class="p">:</span> <span class="s2">&quot;rtr-chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerPortName&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;statusId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;tcpPort&quot;</span><span class="p">:</span> <span class="s2">&quot;80&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;httpsPort&quot;</span><span class="p">:</span> <span class="s2">&quot;443&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;updPending&quot;</span><span class="p">:</span> <span class="n">false</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+       <span class="o">...</span> <span class="n">more</span> <span class="n">server</span> <span class="n">data</span>
+       <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/deliveryservices/:id/unassigned_servers</strong></p>
+<blockquote>
+<div><p>Retrieves properties of CDN EDGE or ORG servers not assigned to a delivery service.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations or delivery service must be assigned to user</p>
 <p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1527,8 +1784,8 @@ regional geoblocking URL.</td>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="server">
-<span id="to-api-v12-ds-server"></span><h2>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="delivery-service-server">
+<span id="to-api-v12-ds-server"></span><h2>Delivery Service Server<a class="headerlink" href="#delivery-service-server" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /api/1.2/deliveryserviceserver</strong></p>
 <blockquote>
 <div><p>Retrieves delivery service / server assignments.</p>
@@ -1607,6 +1864,85 @@ regional geoblocking URL.</td>
 </pre></div>
 </div>
 </div></blockquote>
+<p><strong>POST /api/1.2/deliveryserviceserver</strong></p>
+<blockquote>
+<div><p>Create one or more delivery service / server assignments.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations or the delivery service is assigned to the user.</p>
+<p><strong>Request Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="9%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dsId</span></code></td>
+<td>yes</td>
+<td>The ID of the delivery service.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">servers</span></code></td>
+<td>yes</td>
+<td>An array of server IDs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;dsId&quot;</span><span class="p">:</span> <span class="mi">246</span><span class="p">,</span>
+    <span class="s2">&quot;servers&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="7%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dsId</span></code></td>
+<td>int</td>
+<td>The ID of the delivery service.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">servers</span></code></td>
+<td>array</td>
+<td>An array of server IDs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Server assignments complete.&quot;</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;dsId&quot;</span> <span class="p">:</span> <span class="mi">246</span><span class="p">,</span>
+        <span class="s2">&quot;servers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><strong>DELETE /api/1.2/deliveryservice_server/:dsId/:serverId</strong></p>
 <blockquote>
 <div><p>Removes a server (cache) from a delivery service.</p>
@@ -1643,6 +1979,134 @@ regional geoblocking URL.</td>
                  <span class="p">{</span>
                          <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
                          <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Server unlinked from delivery service.&quot;</span>
+                 <span class="p">}</span>
+         <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="delivery-service-user">
+<span id="to-api-v12-ds-user"></span><h2>Delivery Service User<a class="headerlink" href="#delivery-service-user" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /api/1.2/deliveryservice_user</strong></p>
+<blockquote>
+<div><p>Create one or more user / delivery service assignments.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations</p>
+<p><strong>Request Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="9%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">userId</span></code></td>
+<td>yes</td>
+<td>The ID of the user.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryServices</span></code></td>
+<td>yes</td>
+<td>An array of delivery service IDs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">67</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="7%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dsId</span></code></td>
+<td>int</td>
+<td>The ID of the delivery service.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">servers</span></code></td>
+<td>array</td>
+<td>An array of server IDs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Delivery service assignments complete.&quot;</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;userId&quot;</span> <span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">67</span> <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>DELETE /api/1.2/deliveryservice_user/:dsId/:userId</strong></p>
+<blockquote>
+<div><p>Removes a delivery service from a user.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dsId</span></code></td>
+<td>yes</td>
+<td>Delivery service ID.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">userId</span></code></td>
+<td>yes</td>
+<td>User ID.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+       <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="p">{</span>
+                         <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;User and delivery service were unlinked.&quot;</span>
                  <span class="p">}</span>
          <span class="p">],</span>
 <span class="p">}</span>
@@ -2625,9 +3089,10 @@ available).</td>
 <td>1 if enabled, 0 if disabled.</td>
 </tr>
 <tr class="row-odd"><td>orgServerFqdn</td>
-<td>yes</td>
+<td>yes|no</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
-protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
+protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server. This field is
+NOT required if type is ANY_MAP, STEERING OR CLIENT_STEERING.</td>
 </tr>
 <tr class="row-even"><td>originShield</td>
 <td>no</td>
