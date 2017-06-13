@@ -1,19 +1,9 @@
 {
     "parameters": [
         {
-            "config_file": "parent.config",
-            "name": "algorithm",
-            "value": "consistent_hash"
-        },
-        {
             "config_file": "package",
             "name": "astats_over_http",
-            "value": "1.3.0-9.2f10390.el7.centos.x86_64"
-        },
-        {
-            "config_file": "package",
-            "name": "astats_over_http-debuginfo",
-            "value": "1.3.0-9.2f10390.el7.centos.x86_64"
+            "value": "1.2-8.el6.x86_64"
         },
         {
             "config_file": "plugin.config",
@@ -43,7 +33,7 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.accept_threads",
-            "value": "INT 5"
+            "value": "INT 1"
         },
         {
             "config_file": "records.config",
@@ -87,17 +77,7 @@
         },
         {
             "config_file": "records.config",
-            "name": "CONFIG proxy.config.allocator.dontdump_iobuffers",
-            "value": "INT 0"
-        },
-        {
-            "config_file": "records.config",
             "name": "CONFIG proxy.config.allocator.enable_reclaim",
-            "value": "INT 0"
-        },
-        {
-            "config_file": "records.config",
-            "name": "CONFIG proxy.config.allocator.hugepages",
             "value": "INT 0"
         },
         {
@@ -142,11 +122,6 @@
         },
         {
             "config_file": "records.config",
-            "name": "CONFIG proxy.config.cache.hostdb.sync_frequency",
-            "value": "INT 0"
-        },
-        {
-            "config_file": "records.config",
             "name": "CONFIG proxy.config.cache.hosting_filename",
             "value": "STRING hosting.config"
         },
@@ -154,6 +129,11 @@
             "config_file": "records.config",
             "name": "CONFIG proxy.config.cache.http.compatibility.4-2-0-fixup",
             "value": "INT 0"
+        },
+        {
+            "config_file": "records.config",
+            "name": "CONFIG proxy.config.cache.ip_allow.filename",
+            "value": "STRING ip_allow.config"
         },
         {
             "config_file": "records.config",
@@ -282,6 +262,11 @@
         },
         {
             "config_file": "records.config",
+            "name": "CONFIG proxy.config.dns.lookup_timeout",
+            "value": "INT 2"
+        },
+        {
+            "config_file": "records.config",
             "name": "CONFIG proxy.config.dns.max_dns_in_flight",
             "value": "INT 2048"
         },
@@ -363,12 +348,12 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.hostdb.size",
-            "value": "INT 2048000"
+            "value": "INT 120000"
         },
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.hostdb.storage_size",
-            "value": "INT 774152192"
+            "value": "INT 33554432"
         },
         {
             "config_file": "records.config",
@@ -503,7 +488,7 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.http.cache.ignore_client_cc_max_age",
-            "value": "INT 0"
+            "value": "INT 1"
         },
         {
             "config_file": "records.config",
@@ -688,22 +673,17 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.http.parent_proxy.connect_attempts_timeout",
-            "value": "INT 3"
+            "value": "INT 1"
         },
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.http.parent_proxy.fail_threshold",
-            "value": "INT 10"
+            "value": "INT 1"
         },
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.http.parent_proxy.file",
             "value": "STRING parent.config"
-        },
-        {
-            "config_file": "records.config",
-            "name": "CONFIG proxy.config.http.parent_proxy.mark_down_hostdb",
-            "value": "INT 0"
         },
         {
             "config_file": "records.config",
@@ -723,7 +703,7 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.http.parent_proxy.total_connect_attempts",
-            "value": "INT 10"
+            "value": "INT 3"
         },
         {
             "config_file": "records.config",
@@ -763,7 +743,7 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.http.server_ports",
-            "value": "STRING 80 80:ipv6 443:ssl 443:ipv6:ssl 8080 8080:ipv6"
+            "value": "STRING 80 80:ipv6"
         },
         {
             "config_file": "records.config",
@@ -778,7 +758,7 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.http.transaction_active_timeout_in",
-            "value": "INT 900"
+            "value": "INT 0"
         },
         {
             "config_file": "records.config",
@@ -1273,7 +1253,7 @@
         {
             "config_file": "records.config",
             "name": "CONFIG proxy.config.url_remap.remap_required",
-            "value": "INT 1"
+            "value": "INT 0"
         },
         {
             "config_file": "storage.config",
@@ -1289,11 +1269,6 @@
             "config_file": "storage.config",
             "name": "Drive_Prefix",
             "value": "/dev/sd"
-        },
-        {
-            "config_file": "plugin.config",
-            "name": "header_rewrite.so",
-            "value": "/opt/trafficserver/etc/trafficserver/8080_fwd.config"
         },
         {
             "config_file": "rascal.properties",
@@ -1326,21 +1301,6 @@
             "value": "30"
         },
         {
-            "config_file": "8080_fwd.config",
-            "name": "line1",
-            "value": "cond %{READ_REQUEST_HDR_HOOK}"
-        },
-        {
-            "config_file": "8080_fwd.config",
-            "name": "line2",
-            "value": "cond %{INCOMING-PORT} =8080"
-        },
-        {
-            "config_file": "8080_fwd.config",
-            "name": "line3",
-            "value": "skip-remap true"
-        },
-        {
             "config_file": "records.config",
             "name": "LOCAL proxy.config.cache.interim.storage",
             "value": "STRING NULL"
@@ -1356,69 +1316,9 @@
             "value": "INT 0"
         },
         {
-            "config_file": "set_dscp_30.config",
+            "config_file": "remap.config",
             "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_34.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_36.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_38.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_8.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "12M_facts",
-            "name": "location",
-            "value": "/opt/ort"
-        },
-        {
-            "config_file": "set_dscp_16.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_24.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_32.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_40.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_26.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "astats.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "drop_qstring.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
+            "value": "/opt/trafficserver/etc/trafficserver/"
         },
         {
             "config_file": "regex_revalidate.config",
@@ -1426,72 +1326,17 @@
             "value": "/opt/trafficserver/etc/trafficserver"
         },
         {
-            "config_file": "set_dscp_0.config",
+            "config_file": "astats.config",
             "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
+            "value": "/opt/trafficserver/etc/trafficserver"
         },
         {
-            "config_file": "set_dscp_10.config",
+            "config_file": "12M_facts",
             "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_12.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_14.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_18.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_20.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_22.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_28.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "set_dscp_48.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
+            "value": "/opt/ort"
         },
         {
             "config_file": "logs_xml.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "set_dscp_56.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
-        },
-        {
-            "config_file": "8080_fwd.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "ssl_multicert.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "bg_fetch.config",
             "name": "location",
             "value": "/opt/trafficserver/etc/trafficserver"
         },
@@ -1501,9 +1346,34 @@
             "value": "/opt/trafficserver/etc/trafficserver"
         },
         {
-            "config_file": "set_dscp_37.config",
+            "config_file": "cacheurl_cedexis-perf-tune.config",
             "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/dscp"
+            "value": "/opt/trafficserver/etc/trafficserver"
+        },
+        {
+            "config_file": "cacheurl_cedexis-perf-ext.config",
+            "name": "location",
+            "value": "/opt/trafficserver/etc/trafficserver"
+        },
+        {
+            "config_file": "cacheurl_cim-sfv.config",
+            "name": "location",
+            "value": "/opt/trafficserver/etc/trafficserver"
+        },
+        {
+            "config_file": "cacheurl_steam-dns-ext.config",
+            "name": "location",
+            "value": "/opt/trafficserver/etc/trafficserver"
+        },
+        {
+            "config_file": "cacheurl_steam-dns.config",
+            "name": "location",
+            "value": "/opt/trafficserver/etc/trafficserver"
+        },
+        {
+            "config_file": "cacheurl_yahoo-nfl-dns.config",
+            "name": "location",
+            "value": "/opt/trafficserver/etc/trafficserver"
         },
         {
             "config_file": "ip_allow.config",
@@ -1522,11 +1392,6 @@
         },
         {
             "config_file": "storage.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver/"
-        },
-        {
-            "config_file": "remap.config",
             "name": "location",
             "value": "/opt/trafficserver/etc/trafficserver/"
         },
@@ -1596,19 +1461,9 @@
             "value": "1024"
         },
         {
-            "config_file": "regex_revalidate.config",
-            "name": "maxRevalDurationDays",
-            "value": "90"
-        },
-        {
             "config_file": "astats.config",
             "name": "path",
             "value": "_astats"
-        },
-        {
-            "config_file": "parent.config",
-            "name": "qstring",
-            "value": "ignore"
         },
         {
             "config_file": "storage.config",
@@ -1636,29 +1491,19 @@
             "value": "--config regex_revalidate.config"
         },
         {
-            "config_file": "plugin.config",
-            "name": "remap_stats.so",
-            "value": ""
-        },
-        {
-            "config_file": "plugin.config",
-            "name": "stale_while_revalidate.so",
-            "value": "--log-stale-if-error --log-filename stale.log"
-        },
-        {
-            "config_file": "package",
-            "name": "trafficserver",
-            "value": "6.2.1-45.109c42b.el7.centos.x86_64"
-        },
-        {
             "config_file": "chkconfig",
             "name": "trafficserver",
             "value": "0:off\t1:off\t2:on\t3:on\t4:on\t5:on\t6:off"
         },
         {
             "config_file": "package",
-            "name": "trafficserver-debuginfo",
-            "value": "6.2.1-45.109c42b.el7.centos.x86_64"
+            "name": "trafficserver",
+            "value": "5.3.2-762.23d37d0.el7.centos.x86_64"
+        },
+        {
+            "config_file": "parent.config",
+            "name": "weight",
+            "value": "0.1"
         },
         {
             "config_file": "CRConfig.json",
@@ -1667,8 +1512,8 @@
         }
     ],
     "profile": {
-        "description": "Edge Cache - Apache Traffic Server v6.2.1-45.109c42b.el7.centos.x86_64",
-        "name": "EDGE_ATS_621",
+        "description": "Mid Cache - Apache Traffic Server v5.3.2-762.23d37d0.el7.centos.x86_64",
+        "name": "MID_ATS_532_CENTOS_721",
         "type": "ATS_PROFILE"
     }
 }
