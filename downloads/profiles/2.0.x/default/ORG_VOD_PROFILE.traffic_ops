@@ -1,0 +1,29 @@
+{
+    "parameters": [
+        {
+            "config_file": "CRConfig.json",
+            "name": "domain_name",
+            "value": "kabletown.com"
+        },
+        {
+            "config_file": "CRConfig.json",
+            "name": "GeolocationURL",
+            "value": "http://127.0.0.1/GeoIP2-Lite_20160101.mmdb.gz"
+        },
+        {
+            "config_file": "parent.config",
+            "name": "weight",
+            "value": "1.0"
+        },
+        {
+            "config_file": "parent.config",
+            "name": "rank",
+            "value": "1.0"
+        }
+    ],
+    "profile": {
+        "description": "VOD Origin Server profile",
+        "name": "ORG_VOD",
+        "type": "ORG_PROFILE"
+    }
+}
