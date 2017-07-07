@@ -61,7 +61,7 @@
 
         
           
-          <img src="../../_static/tc_logo.png" class="logo" />
+          <img src="../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
           <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
       
@@ -199,7 +199,7 @@
 <li>Prepare RGB configuration file</li>
 </ol>
 <p>RGB uses a configuration file in JSON format to define regional geo-blocking rules for delivery services. The file needs to be put on an HTTP server accessible to Traffic Router. An example of the JSON is as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
 <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span>
     <span class="p">[</span>
         <span class="p">{</span>
@@ -220,7 +220,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>The value of “deliveryServiceId” shall be equal to the “XML ID” field of the intended delivery service defined on Traffic Ops.</li>
+<li>The value of &#8220;deliveryServiceId&#8221; shall be equal to the “XML ID” field of the intended delivery service defined on Traffic Ops.</li>
 <li>“urlRegex” is to match request URLs. The URLs matching the regex are applicable to the rule.</li>
 <li>“geoLocation” currently supports “includePostalCode” and “excludePostalCode” attribute. When “includePostalCode” attribute is used, only the clients whose FSAs are in the “includePostalCode” list are able to view the content represented by “urlRegex”. When “excludePostalCode” is used, any client whose FSA are not in the “excludePostalCode” list are allowed to view the content. “includePostalCode” and “excludePostalCode” are mutually exclusive in one rule. (FSA: Forward Sortation Area, first three postal characters of Canadian postal codes)</li>
 <li>“redirectUrl” is the URL that will be responded to the blocked clients. Without a domain name in the URL, the URL will still be served in the same delivery service. Thus Traffic Router will redirect the client to a chosen cache server assigned to the delivery service. If the URL includes a domain name, Traffic Router simply redirects the client to the defined URL. In the later case, the redirect URL must not match the “urlRegex” part to avoid HTTP 302 loop on Traffic Router.</li>
@@ -231,8 +231,8 @@
 </ol>
 <p>The two new parameters in following table are required to be added into CRConfig.json:</p>
 <ul class="simple">
-<li>“regional_geoblocking.polling.url”: the HTTP URL of RGB configuration file. Traffic Router will fetch the file from this URL.</li>
-<li>“regional_geoblocking.polling.interval”: the interval that Traffic Router polls the RGB configuration file.</li>
+<li>&#8220;regional_geoblocking.polling.url&#8221;: the HTTP URL of RGB configuration file. Traffic Router will fetch the file from this URL.</li>
+<li>&#8220;regional_geoblocking.polling.interval&#8221;: the interval that Traffic Router polls the RGB configuration file.</li>
 </ul>
 <a class="reference internal image-reference" href="../../_images/regionalgeo01.png"><img alt="../../_images/regionalgeo01.png" class="align-center" src="../../_images/regionalgeo01.png" style="width: 1234.0px; height: 430.0px;" /></a>
 <ol class="arabic simple" start="3">
@@ -242,15 +242,15 @@
 <ol class="arabic simple" start="4">
 <li>Make configuration effective</li>
 </ol>
-<p>Go to Tools-&gt;Snapshot CRConfig, perform “Diff CRConfig” and click “Write CRConfig”.</p>
+<p>Go to Tools-&gt;Snapshot CRConfig, perform “Diff CRConfig” and click &#8220;Write CRConfig&#8221;.</p>
 <a class="reference internal image-reference" href="../../_images/regionalgeo03.png"><img alt="../../_images/regionalgeo03.png" class="align-center" src="../../_images/regionalgeo03.png" style="width: 464.8px; height: 128.8px;" /></a>
 <ol class="arabic simple" start="5">
 <li>Traffic Router access log with RGB</li>
 </ol>
-<p>RGB extends the field of “rtype” and adds a new field “rgb” in Traffic Router access.log to help to monitor the working of this feature.</p>
-<p>For “rtype”, RGALT indicates that a request is redirected to an alternate URL by RGB; RGDENY indicates that a request is denied by RGB because there is no matching rule in JSON for this request.</p>
-<p>For “rgb”, when RGB is enabled, it will be non-empty with following format:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">FSA</span><span class="p">}:{</span><span class="n">allowed</span><span class="o">/</span><span class="n">disallowed</span><span class="p">}:{</span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span> <span class="n">postal</span><span class="p">}:{</span><span class="n">fallback</span> <span class="n">config</span><span class="o">/</span><span class="n">current</span> <span class="n">config</span><span class="p">}:{</span><span class="n">allowed</span> <span class="n">by</span> <span class="n">whitelist</span><span class="o">/</span><span class="n">otherwise</span><span class="p">}</span>
+<p>RGB extends the field of &#8220;rtype&#8221; and adds a new field &#8220;rgb&#8221; in Traffic Router access.log to help to monitor the working of this feature.</p>
+<p>For &#8220;rtype&#8221;, RGALT indicates that a request is redirected to an alternate URL by RGB; RGDENY indicates that a request is denied by RGB because there is no matching rule in JSON for this request.</p>
+<p>For &#8220;rgb&#8221;, when RGB is enabled, it will be non-empty with following format:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span><span class="n">FSA</span><span class="p">}:{</span><span class="n">allowed</span><span class="o">/</span><span class="n">disallowed</span><span class="p">}:{</span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span> <span class="n">postal</span><span class="p">}:{</span><span class="n">fallback</span> <span class="n">config</span><span class="o">/</span><span class="n">current</span> <span class="n">config</span><span class="p">}:{</span><span class="n">allowed</span> <span class="n">by</span> <span class="n">whitelist</span><span class="o">/</span><span class="n">otherwise</span><span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -261,7 +261,7 @@
 <li>{allowed by whitelist/otherwise}: If a request is allowed by whitelist, this flag is set to 1; for all other cases, it is 0.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1446442214.685</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">129.100</span><span class="o">.</span><span class="mf">254.79</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://ccr.geo2.cdn.com/live5.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">rgb</span><span class="o">=</span><span class="s2">&quot;N6G:1:X:0:0&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">3</span> <span class="n">rurl</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">cent6</span><span class="o">-</span><span class="mf">44.</span><span class="n">geo2</span><span class="o">.</span><span class="n">cdn</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">live5</span><span class="o">.</span><span class="n">m3u8</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;-&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="mf">1446442214.685</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">129.100</span><span class="o">.</span><span class="mf">254.79</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://ccr.geo2.cdn.com/live5.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">rgb</span><span class="o">=</span><span class="s2">&quot;N6G:1:X:0:0&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">3</span> <span class="n">rurl</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">cent6</span><span class="o">-</span><span class="mf">44.</span><span class="n">geo2</span><span class="o">.</span><span class="n">cdn</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">live5</span><span class="o">.</span><span class="n">m3u8</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;-&quot;</span>
 
 <span class="mf">1446442219.181</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">184.68</span><span class="o">.</span><span class="mf">71.9</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://ccr.geo2.cdn.com/live5.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">RGALT</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">rgb</span><span class="o">=</span><span class="s2">&quot;-:0:X:0:0&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">3</span> <span class="n">rurl</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">cent6</span><span class="o">-</span><span class="mf">44.</span><span class="n">geo2</span><span class="o">.</span><span class="n">cdn</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">low_bitrate</span><span class="o">.</span><span class="n">m3u8</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;-&quot;</span>
 

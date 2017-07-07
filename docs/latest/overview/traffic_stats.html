@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -189,7 +189,7 @@
             
   <span class="target" id="reference-label-tc-ts"></span><div class="section" id="traffic-stats">
 <h1>Traffic Stats<a class="headerlink" href="#traffic-stats" title="Permalink to this headline">¶</a></h1>
-<p>Traffic Stats is a program written in <a class="reference external" href="http://golang.org">Golang</a> that is used to acquire and store statistics about CDNs controlled by Traffic Control.  Traffic Stats mines metrics from Traffic Monitor’s JSON APIs and stores the data in <a class="reference external" href="http://influxdb.com">InfluxDb</a>.  Data is typically stored in InfluxDb on a short-term basis (30 days or less).  The data from InfluxDb is then used to drive graphs created by <a class="reference external" href="http://grafana.org">Grafana</a> - which are linked to from Traffic Ops - as well as provide data exposed through the Traffic Ops API.  Traffic Stats performs two functions:  first it gathers stat data for Edge Caches and Delivery Services at a configurable interval (10 second default) from the Traffic Monitor API’s and stores the data in InfluxDb; second it summarizes all of the stats once a day (around midnight UTC) and creates a daily rollup containing the Max Gbps served and the Total Bytes served.</p>
+<p>Traffic Stats is a program written in <a class="reference external" href="http://golang.org">Golang</a> that is used to acquire and store statistics about CDNs controlled by Traffic Control.  Traffic Stats mines metrics from Traffic Monitor&#8217;s JSON APIs and stores the data in <a class="reference external" href="http://influxdb.com">InfluxDb</a>.  Data is typically stored in InfluxDb on a short-term basis (30 days or less).  The data from InfluxDb is then used to drive graphs created by <a class="reference external" href="http://grafana.org">Grafana</a> - which are linked to from Traffic Ops - as well as provide data exposed through the Traffic Ops API.  Traffic Stats performs two functions:  first it gathers stat data for Edge Caches and Delivery Services at a configurable interval (10 second default) from the Traffic Monitor API&#8217;s and stores the data in InfluxDb; second it summarizes all of the stats once a day (around midnight UTC) and creates a daily rollup containing the Max Gbps served and the Total Bytes served.</p>
 <p>Stat data is stored in three different databases:</p>
 <blockquote>
 <div><ul class="simple">

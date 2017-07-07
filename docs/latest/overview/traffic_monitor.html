@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -217,10 +217,10 @@
 <span id="rl-health-proto"></span><h2><img alt="arrow" src="../_images/fwda1.png" /> Health Protocol<a class="headerlink" href="#arrow-health-protocol" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Redundant Traffic Monitor servers operate independently from each other but take the state of other Traffic Monitors into account when asked for health state information. In the above overview of cache monitoring, the behavior of Traffic Monitor pertains only to how an individual instance detects and handles failures. The Health Protocol adds another dimension to the health state of the CDN by merging the states of all Traffic Monitors into one, and then taking the <em>optimistic</em> approach when dealing with a cache or Delivery Service that might have been marked as unavailable by this particular instance or a peer instance of Traffic Monitor.</p>
-<p>Upon startup or configuration change in Traffic Ops, in addition to caches, Traffic Monitor begins polling its peer Traffic Monitors whose state is set to <code class="docutils literal"><span class="pre">ONLINE</span></code>. Each <code class="docutils literal"><span class="pre">ONLINE</span></code> Traffic Monitor polls all of its peers at a configurable interval and saves the peer’s state for later use. When polling its peers, Traffic Monitor asks for the raw health state from each respective peer, which is strictly that instance’s view of the CDN’s health. When any <code class="docutils literal"><span class="pre">ONLINE</span></code> Traffic Monitor is asked for CDN health by an upstream component, such as Traffic Router, the component gets the health protocol influenced version of CDN health (non-raw view).</p>
-<p>In operation of the health protocol, Traffic Monitor takes all health states from all peers, including the locally known health state, and serves an optimistic outlook to the requesting client. This means that, for example, if three of the four Traffic Monitors see a given cache or Delivery Service as exceeding its thresholds and unavailable, it is still considered available.  Only if all Traffic Monitors agree that the given object is unavailable is that state propagated to upstream components. This optimistic approach to the Health Protocol is counter to the “fail fast” philosophy, but serves well for large networks with complicated geography and or routing. The optimistic Health Protocol allows network failures or latency to occur without affecting overall traffic routing, as Traffic Monitors can and do have a different view of the network when deployed in geographically diverse locations. Short polling intervals of both the caches and Traffic Monitor peers help to reduce customer impact of outages.</p>
+<p>Upon startup or configuration change in Traffic Ops, in addition to caches, Traffic Monitor begins polling its peer Traffic Monitors whose state is set to <code class="docutils literal"><span class="pre">ONLINE</span></code>. Each <code class="docutils literal"><span class="pre">ONLINE</span></code> Traffic Monitor polls all of its peers at a configurable interval and saves the peer&#8217;s state for later use. When polling its peers, Traffic Monitor asks for the raw health state from each respective peer, which is strictly that instance&#8217;s view of the CDN&#8217;s health. When any <code class="docutils literal"><span class="pre">ONLINE</span></code> Traffic Monitor is asked for CDN health by an upstream component, such as Traffic Router, the component gets the health protocol influenced version of CDN health (non-raw view).</p>
+<p>In operation of the health protocol, Traffic Monitor takes all health states from all peers, including the locally known health state, and serves an optimistic outlook to the requesting client. This means that, for example, if three of the four Traffic Monitors see a given cache or Delivery Service as exceeding its thresholds and unavailable, it is still considered available.  Only if all Traffic Monitors agree that the given object is unavailable is that state propagated to upstream components. This optimistic approach to the Health Protocol is counter to the &#8220;fail fast&#8221; philosophy, but serves well for large networks with complicated geography and or routing. The optimistic Health Protocol allows network failures or latency to occur without affecting overall traffic routing, as Traffic Monitors can and do have a different view of the network when deployed in geographically diverse locations. Short polling intervals of both the caches and Traffic Monitor peers help to reduce customer impact of outages.</p>
 </div></blockquote>
-<p>It is not uncommon for a cache to be marked unavailable by Traffic Monitor - in fact, it is business as usual for many CDNs. A hot video asset may cause a single cache (say cache-03) to get close to it’s interface capacity, the health protocol “kicks in”, and Traffic Monitor marks cache-03 as unavailable. New clients want to see the same asset, and now, Traffic Router will send these customers to another cache (say cache-01) in the same cachegroup. The load is now shared between cache-01 and cache-03. As clients finish watching the asset on cache-03, it will drop below the threshold and gets marked available again, and new clients will now go back to cache-03 again.</p>
+<p>It is not uncommon for a cache to be marked unavailable by Traffic Monitor - in fact, it is business as usual for many CDNs. A hot video asset may cause a single cache (say cache-03) to get close to it&#8217;s interface capacity, the health protocol &#8220;kicks in&#8221;, and Traffic Monitor marks cache-03 as unavailable. New clients want to see the same asset, and now, Traffic Router will send these customers to another cache (say cache-01) in the same cachegroup. The load is now shared between cache-01 and cache-03. As clients finish watching the asset on cache-03, it will drop below the threshold and gets marked available again, and new clients will now go back to cache-03 again.</p>
 <p>It is less common for a delivery service to be marked unavailable by Traffic Monitor, the delivery service thresholds are usually used for overflow situations at extreme peaks to protect other delivery services in the CDN from getting impacted.</p>
 </div>
 </div>

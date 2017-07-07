@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -202,7 +202,7 @@ types of proxies in use on the Internet today which are described below.</p>
 All EDGE caches in a Traffic Control CDN are reverse proxies.
 To the end user a Traffic Control based CDN appears as a reverse proxy since
 it retrieves content from the origin server, acting on behalf of that origin server. The client requests a URL that has
-a hostname which resolves to the reverse proxy’s IP address and, in compliance
+a hostname which resolves to the reverse proxy&#8217;s IP address and, in compliance
 with the HTTP 1.1 specification, the client sends a <code class="docutils literal"><span class="pre">Host:</span></code> header to the reverse
 proxy that matches the hostname in the URL.
 The proxy looks up this hostname in a
@@ -225,7 +225,7 @@ cache is: <code class="docutils literal"><span class="pre">http://www-origin-cac
 <p class="first admonition-title">Note</p>
 <p class="last">In the previous example minimal headers were shown on both the request and response. In the examples that follow, the origin server response is more realistic.</p>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
 <span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">15</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span><span class="p">)</span>
 <span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
@@ -244,7 +244,7 @@ cache is: <code class="docutils literal"><span class="pre">http://www-origin-cac
 <li><p class="first">Similar to the previous case, the LDNS server resolves the name <code class="docutils literal"><span class="pre">www-origin-cache.cdn.com</span></code> to an IPv4 address, in this example, this address is 55.44.33.22.</p>
 </li>
 <li><p class="first">The client opens a TCP connection from a random port locally, to port 80 (the HTTP default) on 55.44.33.22, and sends the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">www</span><span class="o">-</span><span class="n">origin</span><span class="o">-</span><span class="n">cache</span><span class="o">.</span><span class="n">cdn</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
@@ -258,13 +258,13 @@ cache is: <code class="docutils literal"><span class="pre">http://www-origin-cac
 <blockquote>
 <div><ol class="arabic">
 <li><p class="first">The proxy uses DNS to get the IPv4 address for <code class="docutils literal"><span class="pre">www.origin.com</span></code>, connect to it on port 80, and sends:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">www</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">The origin server responds with the headers and content as shown:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
 <span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">15</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span><span class="p">)</span>
 <span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
@@ -278,7 +278,7 @@ cache is: <code class="docutils literal"><span class="pre">http://www-origin-cac
 </div>
 </li>
 <li><p class="first">The proxy sends the origin response on to the client adding a <code class="docutils literal"><span class="pre">Via:</span></code> header (and maybe others):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
 <span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
 <span class="n">ETag</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50a3559482cc0&quot;</span>
@@ -298,7 +298,7 @@ cache is: <code class="docutils literal"><span class="pre">http://www-origin-cac
 <p>6b. If it <em>is</em> in the cache:</p>
 <blockquote>
 <div><p>The proxy responds to the client with the previously retrieved result:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
 <span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
 <span class="n">ETag</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50a3559482cc0&quot;</span>
@@ -321,7 +321,7 @@ cache is: <code class="docutils literal"><span class="pre">http://www-origin-cac
 unaware of the proxy, the client requests the proxy to retrieve content from a
 particular origin server. All MID caches in a Traffic Control based CDN are
 forward proxies. In a forward proxy scenario, the client is explicitely configured  to use the
-the proxy’s IP address and port as a forward proxy. The client always connects to the forward
+the proxy&#8217;s IP address and port as a forward proxy. The client always connects to the forward
 proxy for content. The content provider does not have to change the URL the
 client obtains, and is unaware of the proxy in the middle.</div></blockquote>
 <div class="admonition seealso">
@@ -334,7 +334,7 @@ client obtains, and is unaware of the proxy in the middle.</div></blockquote>
 <li>To retrieve <code class="docutils literal"><span class="pre">http://www.origin.com/foo/bar/fun.html</span></code> URL, the client connects to 99.88.77.66 on port 8080 and sends:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<div><div class="highlight-default"><div class="highlight"><pre><span class="n">GET</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -349,13 +349,13 @@ client obtains, and is unaware of the proxy in the middle.</div></blockquote>
 <blockquote>
 <div><ol class="arabic">
 <li><p class="first">The proxy uses DNS to obtain the IPv4 address for <code class="docutils literal"><span class="pre">www.origin.com</span></code>, connects to it on port 80, and sends:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">www</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">The origin server responds with the headers and content as shown below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
 <span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">15</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span><span class="p">)</span>
 <span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
@@ -369,7 +369,7 @@ client obtains, and is unaware of the proxy in the middle.</div></blockquote>
 </div>
 </li>
 <li><p class="first">The proxy sends this on to the client adding a <code class="docutils literal"><span class="pre">Via:</span></code> header (and maybe others):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
 <span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
 <span class="n">ETag</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50a3559482cc0&quot;</span>
@@ -389,7 +389,7 @@ client obtains, and is unaware of the proxy in the middle.</div></blockquote>
 <p>4b. If it <em>is</em> in the cache:</p>
 <blockquote>
 <div><p>The proxy responds to the client with the previously retrieved result:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Date</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">44</span> <span class="n">GMT</span>
 <span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Dec</span> <span class="mi">2014</span> <span class="mi">23</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">51</span> <span class="n">GMT</span>
 <span class="n">ETag</span><span class="p">:</span> <span class="s2">&quot;1aa008f-2d-50a3559482cc0&quot;</span>

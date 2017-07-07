@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -190,7 +190,7 @@
   <div class="section" id="http-1-1">
 <span id="index-0"></span><h1>HTTP 1.1<a class="headerlink" href="#http-1-1" title="Permalink to this headline">¶</a></h1>
 <p>For a comprehensive look at Traffic Control, it is important to understand basic HTTP 1.1 protocol operations and how caches function. The example below illustrates the fulfillment of an HTTP 1.1 request in a situation without CDN or proxy, followed by viewing the changes after inserting different types of (caching) proxies. Several of the examples below are simplified for clarification of the essentials.</p>
-<p>For complete details on HTTP 1.1 see <a class="reference external" href="https://www.ietf.org/rfc/rfc2616.txt">RFC 2616 - Hypertext Transfer Protocol – HTTP/1.1</a>.</p>
+<p>For complete details on HTTP 1.1 see <a class="reference external" href="https://www.ietf.org/rfc/rfc2616.txt">RFC 2616 - Hypertext Transfer Protocol &#8211; HTTP/1.1</a>.</p>
 <p>Below are the steps of a client retrieving the URL <code class="docutils literal"><span class="pre">http://www.origin.com/foo/bar/fun.html</span></code> using HTTP/1.1 without proxies:</p>
 <ol class="arabic simple">
 <li>The client sends a request to the Local DNS (LDNS) server to resolve the name <code class="docutils literal"><span class="pre">www.origin.com</span></code> to an IPv4 address.</li>
@@ -204,13 +204,13 @@
 </div></blockquote>
 <ol class="arabic" start="3">
 <li><p class="first">The client opens a TCP connection from a random port locally to port 80 (the HTTP default) on 44.33.22.11, and sends this (showing the minimum HTTP 1.1 request, typically there are additional headers):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">www</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">The server at <code class="docutils literal"><span class="pre">www.origin.com</span></code> looks up the Host: header to match that to a configuration section, usually referred to as a virtual host section. If the Host: header and configuration section match, the search continues for the content of the path <code class="docutils literal"><span class="pre">/foo/bar/fun.html</span></code>, in the example, this is a file that contains <code class="docutils literal"><span class="pre">&lt;html&gt;&lt;body&gt;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">fun</span> <span class="pre">file&lt;/body&gt;&lt;/html&gt;</span></code>, so the server responds with the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">45</span>
 

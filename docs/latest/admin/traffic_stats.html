@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Traffic Stats Administration</li>
       <li class="wy-breadcrumbs-aside">
@@ -213,7 +213,7 @@
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p><strong>Configuring Traffic Stats:</strong></p>
 <blockquote>
-<div><p>Traffic Stats’ configuration file can be found in /opt/traffic_stats/conf/traffic_stats.cfg.
+<div><p>Traffic Stats&#8217; configuration file can be found in /opt/traffic_stats/conf/traffic_stats.cfg.
 The following values need to be configured:</p>
 <blockquote>
 <div><ul class="simple">
@@ -250,11 +250,11 @@ The following values need to be configured:</p>
 </li>
 <li><p class="first">Enter the necessary information to configure your data source</p>
 </li>
-<li><p class="first">Click on the ‘Home’ dropdown at the top of the screen and choose New at the bottom</p>
+<li><p class="first">Click on the &#8216;Home&#8217; dropdown at the top of the screen and choose New at the bottom</p>
 </li>
 <li><p class="first">Click on the green menu bar (with 3 lines) at the top and choose Add Panel -&gt; Graph</p>
 </li>
-<li><p class="first">Where it says ‘No Title (click here)’ click and choose edit</p>
+<li><p class="first">Where it says &#8216;No Title (click here)&#8217; click and choose edit</p>
 </li>
 <li><p class="first">Choose your data source at the bottom</p>
 </li>
@@ -263,7 +263,7 @@ The following values need to be configured:</p>
 <div><p><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">sum(value)*1000</span> <span class="pre">FROM</span> <span class="pre">&quot;monthly&quot;.&quot;bandwidth.cdn.1min&quot;</span> <span class="pre">WHERE</span> <span class="pre">$timeFilter</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">time(60s),</span> <span class="pre">cdn</span></code></p>
 </div></blockquote>
 </li>
-<li><p class="first">Once you have the graph the way you want it, click the ‘Save Dashboard’ button at the top</p>
+<li><p class="first">Once you have the graph the way you want it, click the &#8216;Save Dashboard&#8217; button at the top</p>
 </li>
 <li><p class="first">You should now have a new saved graph</p>
 </li>
@@ -283,7 +283,7 @@ The following values need to be configured:</p>
 </div></blockquote>
 <p><strong>Configuring Traffic Ops to use Grafana Dashboards</strong></p>
 <blockquote>
-<div><p>To configure Traffic Ops to use Grafana Dashboards, you need to enter the following parameters and assign them to the GLOBAL profile.  This assumes you followed the above instructions to install and configure InfluxDB and Grafana.  You will need to place ‘cdn-stats’,’deliveryservice-stats’, and ‘daily-summary’ with the name of your dashboards.</p>
+<div><p>To configure Traffic Ops to use Grafana Dashboards, you need to enter the following parameters and assign them to the GLOBAL profile.  This assumes you followed the above instructions to install and configure InfluxDB and Grafana.  You will need to place &#8216;cdn-stats&#8217;,&#8217;deliveryservice-stats&#8217;, and &#8216;daily-summary&#8217; with the name of your dashboards.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -323,8 +323,8 @@ The following values need to be configured:</p>
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="id2">
-<h2>InfluxDb Tools<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>InfluxDb Tools<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Under the Traffic Stats source directory there is a directory called influxdb_tools.  These tools are meant to be used as one-off scripts to help a user quickly get new databases and continuous queries setup in influxdb.
 They are specific for traffic stats and are not meant to be generic to influxdb.  Below is an brief description of each script along with how to use it.</p>
 <dl class="docutils">
@@ -350,7 +350,7 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 <li><dl class="first docutils">
 <dt>optional flags:</dt>
 <dd><ul class="first last">
-<li>influxUrl -  The influxdb url and port</li>
+<li>url -  The influxdb url and port</li>
 <li>replication -  The number of nodes in the cluster</li>
 <li>user - The user to use</li>
 <li>password - The password to use</li>
@@ -358,7 +358,7 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 </dd>
 </dl>
 </li>
-<li>example: ./create_ts_databases -influxUrl=localhost:8086 -replication=3 -user=joe -password=mysecret</li>
+<li>example: ./create_ts_databases -url=localhost:8086 -replication=3 -user=joe -password=mysecret</li>
 </ul>
 </dd>
 </dl>

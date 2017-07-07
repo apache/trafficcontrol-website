@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Traffic Vault Administration</li>
       <li class="wy-breadcrumbs-aside">
@@ -430,7 +430,7 @@ The installation instructions for Riak can be found <a class="reference external
 </dl>
 </li>
 </ol>
-<p>Riak Search (using Apache Solr) will now index all NEW records that are added to the “ssl” bucket.  The cdn, deliveryservice, and hostname fields are indexed and when a search is performed riak will return the indexed fields along with the crt and key values for a ssl record.  In order to add the indexed fields to current records and to get the current records added, a standalone script needs to be run.  The following explains how to run the script.</p>
+<p>Riak Search (using Apache Solr) will now index all NEW records that are added to the &#8220;ssl&#8221; bucket.  The cdn, deliveryservice, and hostname fields are indexed and when a search is performed riak will return the indexed fields along with the crt and key values for a ssl record.  In order to add the indexed fields to current records and to get the current records added, a standalone script needs to be run.  The following explains how to run the script.</p>
 <ol class="arabic simple">
 <li>Get script from github either by cloning the project and going to <cite>traffic_ops/app/script</cite> or from <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/blob/master/traffic_ops/app/script/update_riak_for_search.pl">here</a></li>
 <li>Run the script by performing the following command <code class="docutils literal"><span class="pre">./update_riak_for_search.pl</span> <span class="pre">-to_url=https://traffic-ops.kabletown.net</span> <span class="pre">-to_un=user</span> <span class="pre">-to_pw=password</span></code></li>

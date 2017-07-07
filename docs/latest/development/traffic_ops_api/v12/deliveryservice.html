@@ -38,7 +38,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Traffic Control 1.8-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
-        <link rel="next" title="Delivery Service Statistics" href="deliveryservice_stats.html"/>
+        <link rel="next" title="Delivery Service Regexes" href="deliveryservice_regex.html"/>
         <link rel="prev" title="Change Logs" href="changelog.html"/> 
 
   
@@ -61,7 +61,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="../../index.html">Developer’s Guide</a> &raquo;</li>
+          <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
@@ -180,7 +180,7 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="deliveryservice_stats.html" class="btn btn-neutral float-right" title="Delivery Service Statistics">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="deliveryservice_regex.html" class="btn btn-neutral float-right" title="Delivery Service Regexes">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
         		  <a href="changelog.html" class="btn btn-neutral" title="Change Logs"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -198,6 +198,30 @@
 <div><p>Retrieves all delivery services. See also <a class="reference external" href="http://trafficcontrol.apache.org/docs/latest/admin/traffic_ops_using.html#delivery-service">Using Traffic Ops - Delivery Service</a>.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
+<p><strong>Request Query Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>no</td>
+<td>Filter delivery services by CDN ID.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>no</td>
+<td>Filter delivery services by Type ID.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -339,7 +363,7 @@ globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;&gt;type</span></code></td>
 <td>string</td>
-<td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=’regex’).</td>
+<td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=&#8217;regex&#8217;).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;&gt;setNumber</span></code></td>
 <td>string</td>
@@ -457,11 +481,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
 <td>string</td>
-<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>string</td>
-<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
@@ -470,7 +494,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
@@ -486,9 +510,6 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;dnsBypassTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
         <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
         <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
-        <span class="p">],</span>
         <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitRedirectURL&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -552,6 +573,26 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <div><p>Retrieves a specific delivery service. See also <a class="reference external" href="http://trafficcontrol.apache.org/docs/latest/admin/traffic_ops_using.html#delivery-service">Using Traffic Ops - Delivery Service</a>.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Delivery service ID.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -701,7 +742,7 @@ globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;&gt;type</span></code></td>
 <td>string</td>
-<td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=’regex’).</td>
+<td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=&#8217;regex&#8217;).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;&gt;setNumber</span></code></td>
 <td>string</td>
@@ -819,11 +860,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
 <td>string</td>
-<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>string</td>
-<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
@@ -832,7 +873,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
@@ -907,6 +948,263 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<p><strong>GET /api/1.2/deliveryservices/:id/servers</strong></p>
+<blockquote>
+<div><p>Retrieves properties of CDN Edge servers assigned to a delivery service.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Delivery service ID.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="6%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cachegroup</span></code></td>
+<td>string</td>
+<td>The cache group name (see <a class="reference internal" href="../v11/cachegroup.html#to-api-v11-cachegroup"><span class="std std-ref">Cache Group</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cachegroupId</span></code></td>
+<td>string</td>
+<td>The cache group id.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdnId</span></code></td>
+<td>string</td>
+<td>Id of the CDN to which the server belongs to.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdnName</span></code></td>
+<td>string</td>
+<td>Name of the CDN to which the server belongs to.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">domainName</span></code></td>
+<td>string</td>
+<td>The domain name part of the FQDN of the cache.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">guid</span></code></td>
+<td>string</td>
+<td>An identifier used to uniquely identify the server.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">hostName</span></code></td>
+<td>string</td>
+<td>The host name part of the cache.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">httpsPort</span></code></td>
+<td>string</td>
+<td>The HTTPS port on which the main application listens (443 in most cases).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>The server id (database row number).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloIpAddress</span></code></td>
+<td>string</td>
+<td>The IPv4 address of the lights-out-management port.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">iloIpGateway</span></code></td>
+<td>string</td>
+<td>The IPv4 gateway address of the lights-out-management port.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloIpNetmask</span></code></td>
+<td>string</td>
+<td>The IPv4 netmask of the lights-out-management port.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">iloPassword</span></code></td>
+<td>string</td>
+<td>The password of the of the lights-out-management user (displays as <strong>**</strong> unless you are an &#8216;admin&#8217; user).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloUsername</span></code></td>
+<td>string</td>
+<td>The user name for lights-out-management.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">interfaceMtu</span></code></td>
+<td>string</td>
+<td>The Maximum Transmission Unit (MTU) to configure for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">interfaceName</span></code></td>
+<td>string</td>
+<td>The network interface name used for serving traffic.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ip6Address</span></code></td>
+<td>string</td>
+<td>The IPv6 address/netmask for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ip6Gateway</span></code></td>
+<td>string</td>
+<td>The IPv6 gateway for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ipAddress</span></code></td>
+<td>string</td>
+<td>The IPv4 address for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ipGateway</span></code></td>
+<td>string</td>
+<td>The IPv4 gateway for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ipNetmask</span></code></td>
+<td>string</td>
+<td>The IPv4 netmask for <code class="docutils literal"><span class="pre">interfaceName</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>The Time and Date for the last update for this server.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">mgmtIpAddress</span></code></td>
+<td>string</td>
+<td>The IPv4 address of the management port (optional).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">mgmtIpGateway</span></code></td>
+<td>string</td>
+<td>The IPv4 gateway of the management port (optional).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">mgmtIpNetmask</span></code></td>
+<td>string</td>
+<td>The IPv4 netmask of the management port (optional).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">offlineReason</span></code></td>
+<td>string</td>
+<td>A user-entered reason why the server is in ADMIN_DOWN or OFFLINE status.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">physLocation</span></code></td>
+<td>string</td>
+<td>The physical location name (see <a class="reference internal" href="../v11/phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">physLocationId</span></code></td>
+<td>string</td>
+<td>The physical location id (see <a class="reference internal" href="../v11/phys_location.html#to-api-v11-phys-loc"><span class="std std-ref">Physical Location</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profile</span></code></td>
+<td>string</td>
+<td>The assigned profile name (see <a class="reference internal" href="../v11/profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileDesc</span></code></td>
+<td>string</td>
+<td>The assigned profile description (see <a class="reference internal" href="../v11/profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<td>string</td>
+<td>The assigned profile Id (see <a class="reference internal" href="../v11/profile.html#to-api-v11-profile"><span class="std std-ref">Profiles</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">rack</span></code></td>
+<td>string</td>
+<td>A string indicating rack location.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routerHostName</span></code></td>
+<td>string</td>
+<td>The human readable name of the router.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">routerPortName</span></code></td>
+<td>string</td>
+<td>The human readable name of the router port.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">status</span></code></td>
+<td>string</td>
+<td>The Status string (See <a class="reference internal" href="../v11/status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">statusId</span></code></td>
+<td>string</td>
+<td>The Status id (See <a class="reference internal" href="../v11/status.html#to-api-v11-status"><span class="std std-ref">Status</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tcpPort</span></code></td>
+<td>string</td>
+<td>The default TCP port on which the main application listens (80 for a cache in most cases).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>The name of the type of this server (see <a class="reference internal" href="../v11/type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<td>string</td>
+<td>The id of the type of this server (see <a class="reference internal" href="../v11/type.html#to-api-v11-type"><span class="std std-ref">Types</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">updPending</span></code></td>
+<td>bool</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;guid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+           <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;atsec-chi-00&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;********&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;iloUsername&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceMtu&quot;</span><span class="p">:</span> <span class="s2">&quot;9000&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;interfaceName&quot;</span><span class="p">:</span> <span class="s2">&quot;bond0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Address&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:2/64&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ip6Gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;2033:D0D0:3300::2:1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;10.10.2.1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ipNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-03-08 15:57:32&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mgmtIpNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;offlineReason&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocation&quot;</span><span class="p">:</span> <span class="s2">&quot;plocation-chi-1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;physLocationId&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileDesc&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421_SSL profile&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;rack&quot;</span><span class="p">:</span> <span class="s2">&quot;RR 119.02&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerHostName&quot;</span><span class="p">:</span> <span class="s2">&quot;rtr-chi.kabletown.net&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;routerPortName&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;statusId&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;tcpPort&quot;</span><span class="p">:</span> <span class="s2">&quot;80&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;httpsPort&quot;</span><span class="p">:</span> <span class="s2">&quot;443&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;updPending&quot;</span><span class="p">:</span> <span class="n">false</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+       <span class="o">...</span> <span class="n">more</span> <span class="n">server</span> <span class="n">data</span>
+       <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="health">
 <span id="to-api-v12-ds-health"></span><h2>Health<a class="headerlink" href="#health" title="Permalink to this headline">¶</a></h2>
@@ -964,7 +1262,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;failover&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;locations&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
@@ -1031,7 +1329,7 @@ group.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;totalOnline&quot;</span><span class="p">:</span> <span class="mi">148</span><span class="p">,</span>
     <span class="s2">&quot;totalOffline&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1117,7 +1415,7 @@ delivery service that is down for maintenance.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;availablePercent&quot;</span><span class="p">:</span> <span class="mf">89.0939840205533</span><span class="p">,</span>
     <span class="s2">&quot;unavailablePercent&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1211,7 +1509,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;staticRoute&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;miss&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1287,7 +1585,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
  <span class="s2">&quot;orderby&quot;</span><span class="p">:</span> <span class="s2">&quot;deliveryservice&quot;</span><span class="p">,</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -1357,9 +1655,9 @@ regional geoblocking URL.</td>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
+<col width="13%" />
 <col width="5%" />
-<col width="84%" />
+<col width="83%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -1380,6 +1678,14 @@ regional geoblocking URL.</td>
 <td>string</td>
 <td>base64 encoded private key file for delivery service</td>
 </tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>string</td>
+<td>The CDN of the delivery service for which the certs were generated.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryservice</span></code></td>
+<td>string</td>
+<td>The XML ID of the delivery service for which the cert was generated.</td>
+</tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">businessUnit</span></code></td>
 <td>string</td>
 <td>The business unit entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response</td>
@@ -1394,7 +1700,8 @@ regional geoblocking URL.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">hostname</span></code></td>
 <td>string</td>
-<td>The hostname entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response</td>
+<td>The hostname generated by Traffic Ops that is used as the common name when generating the certificate.
+This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delivery services.</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">country</span></code></td>
 <td>string</td>
@@ -1411,13 +1718,15 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;crt&quot;</span><span class="p">:</span> <span class="s2">&quot;crt&quot;</span><span class="p">,</span>
       <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span>
       <span class="s2">&quot;csr&quot;</span><span class="p">:</span> <span class="s2">&quot;csr&quot;</span>
     <span class="p">},</span>
+    <span class="s2">&quot;deliveryservice&quot;</span><span class="p">:</span> <span class="s2">&quot;my-ds&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="s2">&quot;qa&quot;</span><span class="p">,</span>
     <span class="s2">&quot;businessUnit&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN_Eng&quot;</span><span class="p">,</span>
     <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Denver&quot;</span><span class="p">,</span>
     <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;KableTown&quot;</span><span class="p">,</span>
@@ -1480,9 +1789,9 @@ regional geoblocking URL.</td>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
+<col width="13%" />
 <col width="5%" />
-<col width="84%" />
+<col width="83%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -1503,6 +1812,14 @@ regional geoblocking URL.</td>
 <td>string</td>
 <td>base64 encoded private key file for delivery service</td>
 </tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>string</td>
+<td>The CDN of the delivery service for which the certs were generated.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryservice</span></code></td>
+<td>string</td>
+<td>The XML ID of the delivery service for which the cert was generated.</td>
+</tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">businessUnit</span></code></td>
 <td>string</td>
 <td>The business unit entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response</td>
@@ -1517,7 +1834,8 @@ regional geoblocking URL.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">hostname</span></code></td>
 <td>string</td>
-<td>The hostname entered by the user when generating certs.  Field is optional and if not provided by the user will not be in response</td>
+<td>The hostname generated by Traffic Ops that is used as the common name when generating the certificate.
+This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delivery services.</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">country</span></code></td>
 <td>string</td>
@@ -1534,13 +1852,15 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;crt&quot;</span><span class="p">:</span> <span class="s2">&quot;crt&quot;</span><span class="p">,</span>
       <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span>
       <span class="s2">&quot;csr&quot;</span><span class="p">:</span> <span class="s2">&quot;csr&quot;</span>
     <span class="p">},</span>
+    <span class="s2">&quot;deliveryservice&quot;</span><span class="p">:</span> <span class="s2">&quot;my-ds&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="s2">&quot;qa&quot;</span><span class="p">,</span>
     <span class="s2">&quot;businessUnit&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN_Eng&quot;</span><span class="p">,</span>
     <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Denver&quot;</span><span class="p">,</span>
     <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;KableTown&quot;</span><span class="p">,</span>
@@ -1621,7 +1941,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully deleted ssl keys for &lt;xml_id&gt;&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -1684,7 +2004,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01&quot;</span><span class="p">,</span>
   <span class="s2">&quot;businessUnit&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN Engineering&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
@@ -1731,7 +2051,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully created ssl keys for ds-01&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -1782,7 +2102,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
   <span class="s2">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1823,7 +2143,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully added ssl keys for ds-01&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -1993,7 +2313,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
    <span class="s2">&quot;emailTo&quot;</span><span class="p">:</span> <span class="s2">&quot;foo@bar.com&quot;</span><span class="p">,</span>
    <span class="s2">&quot;details&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;customer&quot;</span><span class="p">:</span> <span class="s2">&quot;XYZ Corporation&quot;</span><span class="p">,</span>
@@ -2068,7 +2388,7 @@ regional geoblocking URL.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -2221,7 +2541,7 @@ than the globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
 <tr class="row-even"><td>&gt;type</td>
 <td>yes</td>
-<td>The type of MatchList (one of :ref:to-api-v12-types use_in_table=’regex’).</td>
+<td>The type of MatchList (one of :ref:to-api-v12-types use_in_table=&#8217;regex&#8217;).</td>
 </tr>
 <tr class="row-odd"><td>&gt;setNumber</td>
 <td>yes</td>
@@ -2259,7 +2579,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tr>
 <tr class="row-odd"><td>profileName</td>
 <td>yes</td>
-<td>Traffic router profile name, for example “CCR_CDN”</td>
+<td>Traffic router profile name, for example &#8220;CCR_CDN&#8221;</td>
 </tr>
 <tr class="row-even"><td>qstringIgnore</td>
 <td>no</td>
@@ -2299,7 +2619,7 @@ be a HIT)</li>
 </tr>
 <tr class="row-odd"><td>type</td>
 <td>yes</td>
-<td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=’deliveryservice’).</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
 <tr class="row-even"><td>displayName</td>
 <td>yes</td>
@@ -2348,7 +2668,7 @@ be a HIT)</li>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s2">&quot;my_ds_1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;my_ds_displayname_1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
@@ -2374,7 +2694,7 @@ be a HIT)</li>
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
         <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span><span class="s2">&quot;my_ds_1&quot;</span><span class="p">,</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
@@ -2607,7 +2927,7 @@ than the globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
 <tr class="row-even"><td>&gt;type</td>
 <td>yes</td>
-<td>The type of MatchList (one of :ref:to-api-v12-types use_in_table=’regex’).</td>
+<td>The type of MatchList (one of :ref:to-api-v12-types use_in_table=&#8217;regex&#8217;).</td>
 </tr>
 <tr class="row-odd"><td>&gt;setNumber</td>
 <td>yes</td>
@@ -2645,7 +2965,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tr>
 <tr class="row-odd"><td>profileName</td>
 <td>yes</td>
-<td>Traffic router profile name, for example “CCR_CDN”</td>
+<td>Traffic router profile name, for example &#8220;CCR_CDN&#8221;</td>
 </tr>
 <tr class="row-even"><td>qstringIgnore</td>
 <td>no</td>
@@ -2685,7 +3005,7 @@ be a HIT)</li>
 </tr>
 <tr class="row-odd"><td>type</td>
 <td>yes</td>
-<td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=’deliveryservice’).</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
 <tr class="row-even"><td>displayName</td>
 <td>yes</td>
@@ -2734,7 +3054,7 @@ be a HIT)</li>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s2">&quot;my_ds_2&quot;</span><span class="p">,</span>
     <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;my_ds_displayname_2&quot;</span><span class="p">,</span>
     <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
@@ -2760,7 +3080,7 @@ be a HIT)</li>
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
         <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span><span class="s2">&quot;my_ds_2&quot;</span><span class="p">,</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
@@ -2861,7 +3181,7 @@ be a HIT)</li>
 </table>
 <blockquote>
 <div><p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
        <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
                  <span class="p">{</span>
                          <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -2917,12 +3237,12 @@ be a HIT)</li>
 <tbody valign="top">
 <tr class="row-even"><td>serverNames</td>
 <td>yes</td>
-<td>array of hostname of cache servers to assign to this deliveryservice, for example: [ “server1”, “server2” ]</td>
+<td>array of hostname of cache servers to assign to this deliveryservice, for example: [ &#8220;server1&#8221;, &#8220;server2&#8221; ]</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;serverNames&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;tc1_ats1&quot;</span>
     <span class="p">]</span>
@@ -2949,13 +3269,13 @@ be a HIT)</li>
 </tr>
 <tr class="row-odd"><td>serverNames</td>
 <td>string</td>
-<td>array of hostname of cache servers to assign to this deliveryservice, for example: [ “server1”, “server2” ]</td>
+<td>array of hostname of cache servers to assign to this deliveryservice, for example: [ &#8220;server1&#8221;, &#8220;server2&#8221; ]</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
 <div><p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
         <span class="s2">&quot;serverNames&quot;</span><span class="p">:[</span>
             <span class="s2">&quot;tc1_ats1&quot;</span>
@@ -2979,7 +3299,7 @@ be a HIT)</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="deliveryservice_stats.html" class="btn btn-neutral float-right" title="Delivery Service Statistics">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="deliveryservice_regex.html" class="btn btn-neutral float-right" title="Delivery Service Regexes">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="changelog.html" class="btn btn-neutral" title="Change Logs"><span class="fa fa-arrow-circle-left"></span> Previous</a>

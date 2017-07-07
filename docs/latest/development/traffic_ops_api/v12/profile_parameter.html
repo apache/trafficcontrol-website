@@ -61,7 +61,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="../../index.html">Developer’s Guide</a> &raquo;</li>
+          <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
@@ -257,7 +257,7 @@ This accept two formats: single profile-parameter, profile-parameter array.</p>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Single profile-parameter format:
+<div class="highlight-default"><div class="highlight"><pre>Single profile-parameter format:
 
 {
   &quot;profileId&quot;: 2,
@@ -303,7 +303,7 @@ Profile-parameter array format:
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
@@ -397,7 +397,7 @@ Profile-parameter array format:
 </div></blockquote>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -417,7 +417,7 @@ Profile-parameter array format:
 <div><p>Associate parameters to a profile. If the parameter does not exist, create it and associate to the profile. If the parameter already exists, associate it to the profile. If the parameter already associate the profile, keep the association.
 If the profile does not exist, the API returns fail.</p>
 <p>Authentication Required: Yes</p>
-<p>Role(s) Required:  admin or oper. If there is parameter’s secure equals 1 in the request properties, need admin role.</p>
+<p>Role(s) Required:  admin or oper. If there is parameter&#8217;s secure equals 1 in the request properties, need admin role.</p>
 <blockquote>
 <div><p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
@@ -525,7 +525,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </table>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
 <span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
@@ -551,7 +551,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Properties</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>+------------------+---------+--------------------------------------------------------------------------------------+
+<div class="highlight-default"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
 | Name             | Type    | Description                                                                          |
 +==================+=========+======================================================================================+
 | ``response``     |         | Parameters associated with the profile.                                              |
@@ -583,7 +583,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
     <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;profileId&quot;</span> <span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
@@ -621,7 +621,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 <div><p>Associate parameters to a profile. If the parameter does not exist, create it and associate to the profile. If the parameter already exists, associate it to the profile. If the parameter already associate the profile, keep the association.
 If the profile does not exist, the API returns fail.</p>
 <p>Authentication Required: Yes</p>
-<p>Role(s) Required:  admin or oper. If there is parameter’s secure equals 1 in the request properties, need admin role.</p>
+<p>Role(s) Required:  admin or oper. If there is parameter&#8217;s secure equals 1 in the request properties, need admin role.</p>
 <blockquote>
 <div><p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
@@ -729,7 +729,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </table>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
 <span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
@@ -755,7 +755,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Properties</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>+------------------+---------+--------------------------------------------------------------------------------------+
+<div class="highlight-default"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
 | Name             | Type    | Description                                                                          |
 +==================+=========+======================================================================================+
 | ``response``     |         | Parameters associated with the profile.                                              |
@@ -787,7 +787,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
     <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;profileId&quot;</span> <span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>

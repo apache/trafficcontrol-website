@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -189,7 +189,7 @@
             
   <span class="target" id="reference-label-tc-tr"></span><div class="section" id="traffic-router">
 <span id="index-0"></span><h1>Traffic Router<a class="headerlink" href="#traffic-router" title="Permalink to this headline">¶</a></h1>
-<p>Traffic Router’s function is to send clients to the most optimal cache. Optimal in this case is based on a number of factors:</p>
+<p>Traffic Router&#8217;s function is to send clients to the most optimal cache. Optimal in this case is based on a number of factors:</p>
 <ul class="simple">
 <li>Distance between the cache and the client (not necessarily measured in meters, but quite often in layer 3 network hops). Less network distance between the client and cache yields better performance, and lower network load. Traffic Router helps clients connect to the best performing cache for their location at the lowest network cost.</li>
 <li>Availability of caches and health / load on the caches. A common issue in Internet and television distribution scenarios is having many clients attempting to retrieve the same content at the same time. Traffic Router helps clients route around overloaded or down caches.</li>
@@ -220,7 +220,7 @@
 <div class="section" id="arrow-localization">
 <span id="rl-localization"></span><h2><img alt="arrow" src="../_images/fwda1.png" /> Localization<a class="headerlink" href="#arrow-localization" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div>Traffic Router uses a JSON input file called the <em>coverage zone map</em> to determine what <em>cachegroup</em> is closest to the client. If the client IP address is not in this coverage zone map, it falls back to <em>geo</em>, using the maxmind database to find the client’s location, and the geo coordinates from Traffic Ops for the cachegroup.</div></blockquote>
+<div>Traffic Router uses a JSON input file called the <em>coverage zone map</em> to determine what <em>cachegroup</em> is closest to the client. If the client IP address is not in this coverage zone map, it falls back to <em>geo</em>, using the maxmind database to find the client&#8217;s location, and the geo coordinates from Traffic Ops for the cachegroup.</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -240,13 +240,13 @@
 <div class="section" id="arrow-http-content-routing">
 <span id="rl-http-cr"></span><h2><img alt="arrow" src="../_images/fwda1.png" /> HTTP Content Routing<a class="headerlink" href="#arrow-http-content-routing" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>For an HTTP delivery service the client receives a URL with a hostname beginning with <code class="docutils literal"><span class="pre">tr.</span></code> (e.g. <a class="reference external" href="http://tr.dsname.cdn.com/foo/bar/fun.html">http://tr.dsname.cdn.com/foo/bar/fun.html</a>), the LDNS server resolves this <code class="docutils literal"><span class="pre">tr.dsname.cdn.com</span></code> to an IP address, but in this case Traffic Router returns its own IP address. The client opens a connection to port 80 on the Traffic Router’s IP address, and sends:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<div><p>For an HTTP delivery service the client receives a URL with a hostname beginning with <code class="docutils literal"><span class="pre">tr.</span></code> (e.g. <a class="reference external" href="http://tr.dsname.cdn.com/foo/bar/fun.html">http://tr.dsname.cdn.com/foo/bar/fun.html</a>), the LDNS server resolves this <code class="docutils literal"><span class="pre">tr.dsname.cdn.com</span></code> to an IP address, but in this case Traffic Router returns its own IP address. The client opens a connection to port 80 on the Traffic Router&#8217;s IP address, and sends:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">tr</span><span class="o">.</span><span class="n">dsname</span><span class="o">.</span><span class="n">cdn</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 <p>Traffic Router uses an HTTP 302 to redirect the client to the best cache. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">302</span> <span class="n">Moved</span> <span class="n">Temporarily</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">302</span> <span class="n">Moved</span> <span class="n">Temporarily</span>
 <span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">-</span><span class="n">Coyote</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Location</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">atsec</span><span class="o">-</span><span class="n">nyc</span><span class="o">-</span><span class="mf">02.</span><span class="n">dsname</span><span class="o">.</span><span class="n">cdn</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span><span class="n">fun</span><span class="o">.</span><span class="n">html</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">0</span>
@@ -255,11 +255,11 @@
 </div>
 <p>The information Traffic Router can consider when selecting a cache in this case is much better:</p>
 <ul class="simple">
-<li>The client’s IP address (the other side of the socket).</li>
+<li>The client&#8217;s IP address (the other side of the socket).</li>
 <li>The URL path the client is requesting, excluding query string.</li>
 <li>All HTTP 1.1 headers.</li>
 </ul>
-<p>The client follows the redirect and performs a DNS request for the IP address for <code class="docutils literal"><span class="pre">atsec-nyc-02.dsname.cdn.com</span></code>, and normal HTTP steps follow, except the sending of the Host: header when connected to the cache is <code class="docutils literal"><span class="pre">Host:</span> <span class="pre">atsec-nyc-02.dsname.cdn</span></code>, and the configuration of the cache includes the remap rule (e.g.“http://atsec-nyc-02.dsname.cdn  <a class="reference external" href="http://origin.dsname">http://origin.dsname</a>.com“).</p>
+<p>The client follows the redirect and performs a DNS request for the IP address for <code class="docutils literal"><span class="pre">atsec-nyc-02.dsname.cdn.com</span></code>, and normal HTTP steps follow, except the sending of the Host: header when connected to the cache is <code class="docutils literal"><span class="pre">Host:</span> <span class="pre">atsec-nyc-02.dsname.cdn</span></code>, and the configuration of the cache includes the remap rule (e.g.``http://atsec-nyc-02.dsname.cdn  <a class="reference external" href="http://origin.dsname">http://origin.dsname</a>.com``).</p>
 <p>Traffic Router sends all requests for the same path in a delivery service to the same cache in a cache group using consistent hashing, in this case all caches in a cache group are not carrying the same content, and there is a much larger combined cache in the cache group.</p>
 </div></blockquote>
 <p>In many cases DNS content routing is the best possible option, especially in cases where the client is receiving small objects from the CDN like images and web pages.</p>

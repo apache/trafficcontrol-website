@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Developer’s Guide</a> &raquo;</li>
+          <li><a href="index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
     <li>Traffic Router</li>
       <li class="wy-breadcrumbs-aside">
@@ -191,11 +191,11 @@
 <h1>Traffic Router<a class="headerlink" href="#traffic-router" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Traffic Router is a Java Tomcat application that routes clients to the closest available cache on the CDN using both HTTP and DNS.  Cache availability is determined by Traffic Monitor; consequently Traffic Router polls Traffic Monitor for its configuration and cache health state information, and uses this data to make routing decisions.  HTTP routing is performed by localizing the client based on the request’s source IP address (IPv4 or IPv6), and issues an HTTP 302 redirect to the nearest cache.  HTTP routing utilizes consistent hashing on request URLs to optimize cache performance and request distribution.  DNS routing is performed by localizing clients, resolvers in most cases, requesting <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">AAAA</span></code> records for a configurable name such as <code class="docutils literal"><span class="pre">edge.deliveryservice.somecdn.net</span></code>. Traffic Router is comprised of four separate Maven modules:</p>
+<p>Traffic Router is a Java Tomcat application that routes clients to the closest available cache on the CDN using both HTTP and DNS.  Cache availability is determined by Traffic Monitor; consequently Traffic Router polls Traffic Monitor for its configuration and cache health state information, and uses this data to make routing decisions.  HTTP routing is performed by localizing the client based on the request&#8217;s source IP address (IPv4 or IPv6), and issues an HTTP 302 redirect to the nearest cache.  HTTP routing utilizes consistent hashing on request URLs to optimize cache performance and request distribution.  DNS routing is performed by localizing clients, resolvers in most cases, requesting <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">AAAA</span></code> records for a configurable name such as <code class="docutils literal"><span class="pre">edge.deliveryservice.somecdn.net</span></code>. Traffic Router is comprised of four separate Maven modules:</p>
 <blockquote>
 <div><ul class="simple">
 <li>api - Provides a simple JSON interface into certain aspects of core and is deployed as a WAR to a Service (read: connector/listen port) within Tomcat which is separate from core</li>
-<li>connector - A JAR that overrides Tomcat’s standard Http11Protocol Connector class and allows Traffic Router to delay opening listen sockets until it is in a state suitable for routing traffic</li>
+<li>connector - A JAR that overrides Tomcat&#8217;s standard Http11Protocol Connector class and allows Traffic Router to delay opening listen sockets until it is in a state suitable for routing traffic</li>
 <li>geolocation - Submodule for defining geolocation services</li>
 <li>testServer - A convenience server for easier manual testing of the API portion of Traffic Router on a development machine</li>
 <li>core - Services DNS and HTTP requests, performs localization on routing requests, and is deployed as a WAR to a Service (read: connector/listen port) within Tomcat which is separate from api</li>
@@ -298,16 +298,27 @@
 <div class="section" id="installing-the-developer-environment">
 <h2>Installing The Developer Environment<a class="headerlink" href="#installing-the-developer-environment" title="Permalink to this headline">¶</a></h2>
 <p>To install the Traffic Router Developer environment:</p>
-<ol class="arabic simple">
-<li>Clone the traffic_control repository using Git.</li>
-<li>Change directories into <code class="docutils literal"><span class="pre">traffic_control/traffic_router</span></code>.</li>
-<li>Set the environment variable TRAFFIC_MONITOR_HOSTS to be a semicolon delimited list of Traffic Monitors that can be accessed during integration tests</li>
-<li>core/src/test/resources no longer exists</li>
-<li>core/src/test/conf contains a properties file for accessing Traffic Ops</li>
-<li>Default configuration values now reside in core/src/main/webapp/WEB-INF/applicationContext.xml</li>
-<li>The above values may be overridden by creating and/or modifying the property files listed in core/src/main/resources/applicationProperties.xml</li>
-<li>Pre-existing properties files are still honored by Traffic Router</li>
-</ol>
+<ol class="arabic">
+<li><p class="first">Clone the traffic_control repository using Git.</p>
+</li>
+<li><p class="first">Change directories into <code class="docutils literal"><span class="pre">traffic_control/traffic_router</span></code>.</p>
+</li>
+<li><p class="first">Follow the instructions in &#8220;README.DNSSEC&#8221; for DNSSEC support.</p>
+</li>
+<li><p class="first">Set the environment variable TRAFFIC_MONITOR_HOSTS to be a semicolon delimited list of Traffic Monitors that can be accessed during integration tests</p>
+</li>
+<li><dl class="first docutils">
+<dt>Additional configuration is set using the below files:</dt>
+<dd><ul class="first last">
+<li><p class="first">core/src/test/resources no longer exists</p>
+</li>
+<li><p class="first">core/src/test/conf/traffic_ops.properties file holds the credentials for accessing Traffic Ops.</p>
+</li>
+<li><p class="first">Default configuration values now reside in core/src/main/webapp/WEB-INF/applicationContext.xml</p>
+</li>
+<li><p class="first">The above values may be overridden by creating and/or modifying the property files listed in core/src/main/resources/applicationProperties.xml</p>
+</li>
+<li><p class="first">Pre-existing properties files are still honored by Traffic Router. For example traffic_monitor.properties:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -324,7 +335,11 @@
 </tr>
 </tbody>
 </table>
-<ol class="arabic" start="4">
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p class="first">Import the existing git repo into Eclipse:</p>
 <blockquote>
 <div><ol class="loweralpha simple">
@@ -332,7 +347,7 @@
 <li>Existing local repository; Next</li>
 <li>Add -&gt; browse to find <code class="docutils literal"><span class="pre">traffic_control</span></code>; Open</li>
 <li>Select <code class="docutils literal"><span class="pre">traffic_control</span></code>; Next</li>
-<li>Ensure “Import existing projects” is selected, expand <code class="docutils literal"><span class="pre">traffic_control</span></code>, select <code class="docutils literal"><span class="pre">traffic_router</span></code>; Next</li>
+<li>Ensure &#8220;Import existing projects&#8221; is selected, expand <code class="docutils literal"><span class="pre">traffic_control</span></code>, select <code class="docutils literal"><span class="pre">traffic_router</span></code>; Next</li>
 <li>Ensure <code class="docutils literal"><span class="pre">traffic_router_api</span></code>, <code class="docutils literal"><span class="pre">traffic_router_connector</span></code>, and <code class="docutils literal"><span class="pre">traffic_router_core</span></code> are checked; Finish (this step can take several minutes to complete)</li>
 <li>Ensure <code class="docutils literal"><span class="pre">traffic_router_api</span></code>, <code class="docutils literal"><span class="pre">traffic_router_connector</span></code>, and <code class="docutils literal"><span class="pre">traffic_router_core</span></code> have been opened by Eclipse after importing</li>
 </ol>
@@ -360,7 +375,7 @@
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">Traffic Router Core should now be running; the HTTP routing interface is available on <a class="reference external" href="http://localhost:8081">http://localhost:8081</a>, while the DNS server and routing interface is available on localhost:1053 via TCP and UDP.</p>
+<li><p class="first">Traffic Router Core should now be running; the HTTP routing interface is available on <a class="reference external" href="http://localhost:8081">http://localhost:8081</a>, while HTTPS is available on <a class="reference external" href="http://localhost:8443">http://localhost:8443</a>. The DNS server and routing interface is available on localhost:1053 via TCP and UDP.</p>
 </li>
 </ol>
 </div>

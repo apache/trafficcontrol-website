@@ -61,7 +61,7 @@
 
         
           
-          <img src="../../_static/tc_logo.png" class="logo" />
+          <img src="../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
           <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
       
@@ -192,7 +192,7 @@
   <div class="section" id="configure-multi-site-origin">
 <span id="rl-multi-site-origin-qht"></span><h1>Configure Multi Site Origin<a class="headerlink" href="#configure-multi-site-origin" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li>Create “cachegroups” for the origin locations, and assign the appropriate parent-child relationship between the mid cg’s and org cgs (click the image to see full size):</li>
+<li>Create &#8220;cachegroups&#8221; for the origin locations, and assign the appropriate parent-child relationship between the mid cg&#8217;s and org cgs (click the image to see full size):</li>
 </ol>
 <a class="reference internal image-reference" href="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png"><img alt="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" class="align-center" src="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" style="width: 1472.0px; height: 210.0px;" /></a>
 <ol class="arabic simple" start="2">
@@ -219,7 +219,7 @@
 3) If delivery services are assigned with different MID cache groups respectively, they can share the same OFQDN.</p>
 </div>
 <ol class="arabic simple" start="6">
-<li>Select an option from the “Multi Site Origin Algorithm” drop-down list. Four MSO algorithms are supported:</li>
+<li>Select an option from the &#8220;Multi Site Origin Algorithm&#8221; drop-down list. Four MSO algorithms are supported:</li>
 </ol>
 <table border="1" class="docutils">
 <colgroup>
@@ -238,7 +238,7 @@
 <tr class="row-odd"><td>Primary/back</td>
 <td>Round robin selection does not occur. The first origin server is selected unless it fails.
 If the first fails, the second and other following origin servers will be tried by order.
-Order is defined by 2 factors - if the origin server’s cachegroup is configured as the
+Order is defined by 2 factors - if the origin server&#8217;s cachegroup is configured as the
 parent cachegroup for the mid, then this server will be used as the primary. The same rules
 apply for secondary parents, in order.  Within the cachegroups, the rank parameter will sort
 order further. If no parents are defined at the mid, then only rank is considered.</td>
@@ -255,7 +255,7 @@ round-robin</td>
 </tbody>
 </table>
 <ol class="arabic simple" start="7">
-<li>Optionally, there are two configuration options that can set the order of the origins used if “Primary/backup” is selected for “Multi Site Origin Algorithm”. By creating location-based cachegroups and assigning the origin servers accordingly and defining these cachegroups as parents for specific mids, location-based primary/secondary selection can be made.   If primary/secondary selection should be the same for all mids, then a new parameter “rank” should be configured for each origin server profile. Origin servers with lower values of rank have higher ranking in the origin server list on MID caches, e.g. OS with rank of “2” precedes OS with the rank of “5”. For any OS, if rank value is not defined in its profile, its rank value will default to “1”.  In the event that both location based cachegroups are used alongside rank, sorting will be by cachegroup first and rank second.  In this way it is possible to have specific backup servers for use at specific locations.</li>
+<li>Optionally, there are two configuration options that can set the order of the origins used if &#8220;Primary/backup&#8221; is selected for &#8220;Multi Site Origin Algorithm&#8221;. By creating location-based cachegroups and assigning the origin servers accordingly and defining these cachegroups as parents for specific mids, location-based primary/secondary selection can be made.   If primary/secondary selection should be the same for all mids, then a new parameter “rank” should be configured for each origin server profile. Origin servers with lower values of rank have higher ranking in the origin server list on MID caches, e.g. OS with rank of &#8220;2&#8221; precedes OS with the rank of &#8220;5&#8221;. For any OS, if rank value is not defined in its profile, its rank value will default to “1”.  In the event that both location based cachegroups are used alongside rank, sorting will be by cachegroup first and rank second.  In this way it is possible to have specific backup servers for use at specific locations.</li>
 </ol>
 <a class="reference internal image-reference" href="../../_images/mso-rank.png"><img alt="../../_images/mso-rank.png" class="align-center" src="../../_images/mso-rank.png" style="width: 585.0px; height: 105.6px;" /></a>
 <ol class="arabic simple" start="8">
@@ -264,7 +264,7 @@ round-robin</td>
 <a class="reference internal image-reference" href="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png"><img alt="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" class="align-center" src="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" style="width: 658.0px; height: 601.0px;" /></a>
 <ol class="arabic" start="9">
 <li><p class="first">Configure the mid hdr_rewrite on the delivery service, example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
 </pre></div>
 </div>
 </li>

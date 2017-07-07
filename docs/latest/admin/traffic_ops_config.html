@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Configuring Traffic Ops</li>
       <li class="wy-breadcrumbs-aside">
@@ -199,7 +199,7 @@
 </div>
 <div class="section" id="profile-parameters">
 <span id="rl-param-prof"></span><h2>Profile Parameters<a class="headerlink" href="#profile-parameters" title="Permalink to this headline">¶</a></h2>
-<p>Many of the settings for the different servers in a Traffic Control CDN are controlled by parameters in the parameter view of Traffic Ops. Parameters are grouped in profiles and profiles are assigned to a server. For a typical cache there are hundreds of configuration settings to apply. The Traffic Ops parameter view contains the defined settings. To make life easier, Traffic Ops allows for duplication, comparison, import and export of Profiles. Traffic Ops also has a “Global profile” - the parameters in this profile are going to be applied to all servers in the Traffic Ops instance, or apply to Traffic Ops themselves. These parameters are:</p>
+<p>Many of the settings for the different servers in a Traffic Control CDN are controlled by parameters in the parameter view of Traffic Ops. Parameters are grouped in profiles and profiles are assigned to a server. For a typical cache there are hundreds of configuration settings to apply. The Traffic Ops parameter view contains the defined settings. To make life easier, Traffic Ops allows for duplication, comparison, import and export of Profiles. Traffic Ops also has a &#8220;Global profile&#8221; - the parameters in this profile are going to be applied to all servers in the Traffic Ops instance, or apply to Traffic Ops themselves. These parameters are:</p>
 <table border="1" class="docutils" id="index-0">
 <colgroup>
 <col width="15%" />
@@ -219,11 +219,11 @@
 </tr>
 <tr class="row-odd"><td>tm.toolname</td>
 <td>global</td>
-<td>The name of the Traffic Ops tool. Usually “Traffic Ops”. Used in the About screen and in the comments headers of the files generated.</td>
+<td>The name of the Traffic Ops tool. Usually &#8220;Traffic Ops&#8221;. Used in the About screen and in the comments headers of the files generated.</td>
 </tr>
 <tr class="row-even"><td>tm.infourl</td>
 <td>global</td>
-<td>This is the “for more information go here” URL, which is visible in the About page.</td>
+<td>This is the &#8220;for more information go here&#8221; URL, which is visible in the About page.</td>
 </tr>
 <tr class="row-odd"><td>tm.logourl</td>
 <td>global</td>
@@ -282,7 +282,7 @@ set this parameter on a production system.</td>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The Traffic Server profiles contain some information that is specific to the hardware being used (most notably the disk configuration), so some parameters will have to be changed to reflect your configuration. Future releases of Traffic Control will separate the hardware and software profiles so it is easier to “mix-and-match” different hardware configurations.</p>
+<p class="last">The Traffic Server profiles contain some information that is specific to the hardware being used (most notably the disk configuration), so some parameters will have to be changed to reflect your configuration. Future releases of Traffic Control will separate the hardware and software profiles so it is easier to &#8220;mix-and-match&#8221; different hardware configurations.</p>
 </div>
 <p>Below is a list of cache parameters that are likely to need changes from the default profiles shipped with Traffic Ops:</p>
 <table border="1" class="docutils">
@@ -320,6 +320,22 @@ The Traffic Monitor IP addresses have to be included in this, if they are using 
 <td>ip_allow.config</td>
 <td>The IP address range that is allowed to execute the PURGE method on the caches (not related to <a class="reference internal" href="traffic_ops_using.html#rl-purge"><span class="std std-ref">Invalidate Content</span></a>)</td>
 </tr>
+<tr class="row-odd"><td>coalesce_masklen_v4</td>
+<td>ip_allow.config</td>
+<td>The masklen to use when coalescing v4 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
+</tr>
+<tr class="row-even"><td>coalesce_number_v4</td>
+<td>ip_allow.config</td>
+<td>The number to use when coalescing v4 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
+</tr>
+<tr class="row-odd"><td>coalesce_masklen_v6</td>
+<td>ip_allow.config</td>
+<td>The masklen to use when coalescing v6 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
+</tr>
+<tr class="row-even"><td>coalesce_masklen_v6</td>
+<td>ip_allow.config</td>
+<td>The masklen to use when coalescing v6 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
+</tr>
 <tr class="row-odd"><td>health.threshold.loadavg</td>
 <td>rascal.properties</td>
 <td>The Unix load average at which Traffic Router will stop sending traffic to this cache</td>
@@ -328,20 +344,59 @@ The Traffic Monitor IP addresses have to be included in this, if they are using 
 availableBandwidthInKbps</td>
 <td>rascal.properties</td>
 <td>The amount of bandwidth that Traffic Router will try to keep available on the cache.
-For example: “”&gt;1500000” means stop sending new traffic to this cache when traffic is at 8.5Gbps on a 10Gbps interface.</td>
+For example: &#8220;&#8221;&gt;1500000&#8221; means stop sending new traffic to this cache when traffic is at 8.5Gbps on a 10Gbps interface.</td>
 </tr>
 </tbody>
 </table>
 <p>Below is a list of Traffic Server plugins that need to be configured in the parameter table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="8%" />
+<col width="28%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Config file</th>
+<th class="head">Description</th>
+<th class="head">Details</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>astats_over_http</td>
+<td>package</td>
+<td>The package version for the astats_over_http plugin.</td>
+<td><a class="reference external" href="http://trafficcontrol.apache.org/downloads/index.html">astats_over_http</a></td>
+</tr>
+<tr class="row-odd"><td>trafficserver</td>
+<td>package</td>
+<td>The package version for the trafficserver plugin.</td>
+<td><a class="reference external" href="http://trafficcontrol.apache.org/downloads/index.html">trafficserver</a></td>
+</tr>
+<tr class="row-even"><td>regex_revalidate</td>
+<td>plugin.config</td>
+<td>The config to be used for regex_revalidate.
+For example: &#8211;config regex_revalidate.config</td>
+<td><a class="reference external" href="https://docs.trafficserver.apache.org/en/5.3.x/reference/plugins/regex_remap.en.html">regex_revalidate</a></td>
+</tr>
+<tr class="row-odd"><td>remap_stats</td>
+<td>plugin.config</td>
+<td>The config to be used for remap_stats.
+Value is left blank.</td>
+<td><a class="reference external" href="https://github.com/apache/trafficserver/tree/master/plugins/experimental/remap_stats">remap_stats</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="regions-locations-and-cache-groups">
 <h2>Regions, Locations and Cache Groups<a class="headerlink" href="#regions-locations-and-cache-groups" title="Permalink to this headline">¶</a></h2>
 <p>All servers have to have a <cite>location</cite>, which is their physical location. Each location is part of a <cite>region</cite>, and each region is part of a <cite>division</cite>. For Example, <code class="docutils literal"><span class="pre">Denver</span></code> could be a location in the <code class="docutils literal"><span class="pre">Mile</span> <span class="pre">High</span></code> region and that region could be part of the <code class="docutils literal"><span class="pre">West</span></code> division. Enter your divisions first in  <cite>Misc-&gt;Divisions</cite>, then enter the regions in <cite>Misc-&gt;Regions</cite>, referencing the divisions entered, and finally, enter the physical locations in <cite>Misc-&gt;Locations</cite>, referencing the regions entered.</p>
-<p>All servers also have to be part of a <cite>cache group</cite>. A cache group is a logical grouping of caches, that don’t have to be in the same physical location (in fact, usually a cache group is spread across minimally 2 physical Locations for redundancy purposes), but share geo coordinates for content routing purposes. JvD to add more.</p>
+<p>All servers also have to be part of a <cite>cache group</cite>. A cache group is a logical grouping of caches, that don&#8217;t have to be in the same physical location (in fact, usually a cache group is spread across minimally 2 physical Locations for redundancy purposes), but share geo coordinates for content routing purposes. JvD to add more.</p>
 </div>
 <div class="section" id="configuring-content-purge">
 <h2>Configuring Content Purge<a class="headerlink" href="#configuring-content-purge" title="Permalink to this headline">¶</a></h2>
-<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don’t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it’s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
+<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
 <p>Content Purge is controlled by the following parameters in the profile of the cache:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -371,7 +426,7 @@ For example: “”&gt;1500000” means stop sending new traffic to this cache w
 <tr class="row-even"><td>regex_revalidate</td>
 <td>plugin.config</td>
 <td>The config to be used for regex_revalidate.
-For example: –config regex_revalidate.config</td>
+For example: &#8211;config regex_revalidate.config</td>
 <td><a class="reference external" href="https://docs.trafficserver.apache.org/en/5.3.x/reference/plugins/regex_remap.en.html">regex_revalidate</a></td>
 </tr>
 </tbody>
@@ -388,7 +443,7 @@ For example: –config regex_revalidate.config</td>
 <li>Start the kickstart installation.</li>
 </ol>
 <p>Create a ks.src file in the root of the selection location. See the example below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">newdir</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="n">newdir</span>
 <span class="n">cd</span> <span class="n">newdir</span><span class="o">/</span>
 <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">centos65</span><span class="o">/*</span> <span class="o">.</span>
 <span class="n">vim</span> <span class="n">ks</span><span class="o">.</span><span class="n">src</span>

@@ -31,13 +31,41 @@
       <hr/>
 
       <div class="announce">
-       <p class="relNotesText">Apache Traffic Control-1.8.1-incubating has been released!
+       <p class="relNotesText">Apache Traffic Control-2.0.0-incubating has been released!
        The artifacts and release notes are below ...</p>
       </div>
 
 
    <div class="relNotesContainer">
-   <h1>Apache Traffic Control 1.8.1-incubating Release Notes</h1>
+   <h1>Apache Traffic Control 2.0.0-incubating</h1>
+  The source code for Traffic Control 2.0.0 is available here:
+  <table><tbody padding="0 15px 0 15px">
+  <tr>
+     <td><a href="https://dist.apache.org/repos/dist/release/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz">apache-trafficcontrol-2.0.0-incubating.tar.gz</a></td>
+     <td padding="10px"><a href="https://dist.apache.org/repos/dist/release/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5sum">MD5</a></td>
+     <td padding="10px"><a href="https://dist.apache.org/repos/dist/release/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.shasum">SHA512</a></td>
+     <td padding="10px"><a href="https://dist.apache.org/repos/dist/release/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.asc">PGP</a></td>
+  </tr>
+  </tbody></table>
+   </div>
+   <div class="relNotesContainer">
+  <h2>Release Notes</h2>
+
+  <h3>Traffic Ops DB</h3>
+  <p class="relNotesText">Starting in Traffic Control 2.0.0, Postgres replaces MySQL as the Traffic Ops
+    Database. The change in database server now provides a more friendly open source license for Traffic
+    Control users.
+  </p>
+
+  <p class="relNotesText">To begin using Postgres, see traffic_ops_db/pg-migration/README.md for the
+    MANDATORY migration steps. This upgrade must be performed using a Traffic Control 1.8.x database. If
+    currently using a version of Traffic Control prior to 1.8.0, you must upgrade to 1.8.1 first before
+    upgrading to 2.0.0.
+  </p>
+  </div>
+   
+   <div class="relNotesContainer">
+   <h1>Apache Traffic Control 1.8.1-incubating</h1>
   The source code for Traffic Control 1.8.1 is available here:
   <table><tbody padding="0 15px 0 15px">
   <tr>
@@ -50,7 +78,7 @@
    </div>
 
    <div class="relNotesContainer">
-  <h2>We're Incubating!</h2>
+  <h2>Release Notes - We're Incubating!</h2>
   <p class="relNotesText">The Traffic Control project has been accepted into the Apache Incubator, and is
   thus now Apache Traffic Control (incubating). Beyond simply moving the website,
   this necessitated a number of changes, including changing the license header on each file.

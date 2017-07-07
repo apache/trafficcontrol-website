@@ -61,7 +61,7 @@
 
         
           
-          <img src="../../../_static/tc_logo.png" class="logo" />
+          <img src="../../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="../../index.html">Developer’s Guide</a> &raquo;</li>
+          <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
@@ -226,7 +226,19 @@
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
 <td>no</td>
-<td>Used to filter servers by profile.</td>
+<td>Used to filter servers by profile ID.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>no</td>
+<td>Used to filter servers by CDN ID.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cachegroup</span></code></td>
+<td>no</td>
+<td>Used to filter servers by cache group ID.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">physLocation</span></code></td>
+<td>no</td>
+<td>Used to filter servers by phys location ID.</td>
 </tr>
 </tbody>
 </table>
@@ -294,7 +306,7 @@
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">iloPassword</span></code></td>
 <td>string</td>
-<td>The password of the of the lights-out-management user (displays as <strong>**</strong> unless you are an ‘admin’ user).</td>
+<td>The password of the of the lights-out-management user (displays as <strong>**</strong> unless you are an &#8216;admin&#8217; user).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloUsername</span></code></td>
 <td>string</td>
@@ -407,7 +419,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
            <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
@@ -551,7 +563,7 @@
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">iloPassword</span></code></td>
 <td>string</td>
-<td>The password of the of the lights-out-management user (displays as <strong>**</strong> unless you are an ‘admin’ user).</td>
+<td>The password of the of the lights-out-management user (displays as <strong>**</strong> unless you are an &#8216;admin&#8217; user).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloUsername</span></code></td>
 <td>string</td>
@@ -664,7 +676,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
            <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
@@ -716,6 +728,380 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<p><strong>GET /api/1.2/servers/:id/deliveryservices</strong></p>
+<blockquote>
+<div><p>Retrieves all delivery services assigned to the server. See also <a class="reference external" href="http://trafficcontrol.apache.org/docs/latest/admin/traffic_ops_using.html#delivery-service">Using Traffic Ops - Delivery Service</a>.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Server ID.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="5%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>bool</td>
+<td>true if active, false if inactive.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cacheurl</span></code></td>
+<td>string</td>
+<td>Cache URL rule to apply to this delivery service.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ccrDnsTtl</span></code></td>
+<td>string</td>
+<td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr. host.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdnId</span></code></td>
+<td>string</td>
+<td>Id of the CDN to which the delivery service belongs to.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdnName</span></code></td>
+<td>string</td>
+<td>Name of the CDN to which the delivery service belongs to.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">checkPath</span></code></td>
+<td>string</td>
+<td>The path portion of the URL to check this deliveryservice for health.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">displayName</span></code></td>
+<td>string</td>
+<td>The display name of the delivery service.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">dnsBypassIp</span></code></td>
+<td>string</td>
+<td>The IPv4 IP to use for bypass on a DNS deliveryservice  - bypass starts when serving more than the
+globalMaxMbps traffic on this deliveryservice.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dnsBypassIp6</span></code></td>
+<td>string</td>
+<td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
+globalMaxMbps traffic on this deliveryservice.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">dnsBypassTtl</span></code></td>
+<td>string</td>
+<td>The TTL of the DNS bypass response.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dscp</span></code></td>
+<td>string</td>
+<td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt;  customer) traffic.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">edgeHeaderRewrite</span></code></td>
+<td>string</td>
+<td>The EDGE header rewrite actions to perform.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">geoLimitRedirectUrl</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">geoLimit</span></code></td>
+<td>string</td>
+<td><ul class="first simple">
+<li>0: None - no limitations</li>
+<li>1: Only route on CZF file hit</li>
+<li>2: Only route on CZF hit or when from USA</li>
+</ul>
+<p class="last">Note that this does not prevent access to content or makes content secure; it just prevents
+routing to the content by Traffic Router.</p>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">geoLimitCountries</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">geoProvider</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">globalMaxMbps</span></code></td>
+<td>string</td>
+<td>The maximum global bandwidth allowed on this deliveryservice. If exceeded, the traffic routes to the
+dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliveryservices.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">globalMaxTps</span></code></td>
+<td>string</td>
+<td>The maximum global transactions per second allowed on this deliveryservice. When this is exceeded
+traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
+HTTP deliveryservices</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">httpBypassFqdn</span></code></td>
+<td>string</td>
+<td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more than the
+globalMaxMbps traffic on this deliveryservice.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>The deliveryservice id (database row number).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">infoUrl</span></code></td>
+<td>string</td>
+<td>Use this to add a URL that points to more information about that deliveryservice.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">initialDispersion</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ipv6RoutingEnabled</span></code></td>
+<td>bool</td>
+<td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">logsEnabled</span></code></td>
+<td>bool</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">longDesc</span></code></td>
+<td>string</td>
+<td>Description field 1.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">longDesc1</span></code></td>
+<td>string</td>
+<td>Description field 2.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">longDesc2</span></code></td>
+<td>string</td>
+<td>Description field 2.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;&gt;type</span></code></td>
+<td>string</td>
+<td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=&#8217;regex&#8217;).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;&gt;setNumber</span></code></td>
+<td>string</td>
+<td>The set Number of the matchList.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;&gt;pattern</span></code></td>
+<td>string</td>
+<td>The regexp for the matchList.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">maxDnsAnswers</span></code></td>
+<td>string</td>
+<td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
+available).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">midHeaderRewrite</span></code></td>
+<td>string</td>
+<td>The MID header rewrite actions to perform.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">missLat</span></code></td>
+<td>string</td>
+<td>The latitude to use when the client cannot be found in the CZF or the Geo lookup.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">missLong</span></code></td>
+<td>string</td>
+<td>The longitude to use when the client cannot be found in the CZF or the Geo lookup.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">multiSiteOrigin</span></code></td>
+<td>bool</td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">multiSiteOriginAlgor</span></code></td>
+<td>bool</td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">orgServerFqdn</span></code></td>
+<td>string</td>
+<td>The origin server base URL (FQDN when used in this instance, includes the
+protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">originShield</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileDescription</span></code></td>
+<td>string</td>
+<td>The description of the Traffic Router Profile with which this deliveryservice is associated.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<td>string</td>
+<td>The id of the Traffic Router Profile with which this deliveryservice is associated.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileName</span></code></td>
+<td>string</td>
+<td>The name of the Traffic Router Profile with which this deliveryservice is associated.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">protocol</span></code></td>
+<td>string</td>
+<td><ul class="first last simple">
+<li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
+<li>1: serve with <a class="reference external" href="https://">https://</a> at EDGE</li>
+<li>2: serve with both <a class="reference external" href="http://">http://</a> and <a class="reference external" href="https://">https://</a> at EDGE</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">qstringIgnore</span></code></td>
+<td>string</td>
+<td><ul class="first last simple">
+<li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
+<li>1: ignore query string in cache-key, but pass it up to parent and or origin.</li>
+<li>2: drop query string at edge, and do not use it in the cache-key.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">rangeRequestHandling</span></code></td>
+<td>string</td>
+<td><p class="first">How to treat range requests:</p>
+<ul class="last simple">
+<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
+<li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
+<li>2 Use the cache_range_requests plugin.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">regexRemap</span></code></td>
+<td>string</td>
+<td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">regionalGeoBlocking</span></code></td>
+<td>bool</td>
+<td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">remapText</span></code></td>
+<td>string</td>
+<td>Additional raw remap line text.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<td>bool</td>
+<td><ul class="first last simple">
+<li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
+<li>true: token based auth is enabled for this deliveryservice.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<td>string</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<td>string</td>
+<td>Unique string that describes this deliveryservice.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;cacheurl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;ccrDnsTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;over-the-top&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;checkPath&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;My Cool Delivery Service&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassCname&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassIp&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassIp6&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;geoLimitRedirectURL&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;geoProvider&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;globalMaxMbps&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;globalMaxTps&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;httpBypassFqdn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;442&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;infoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;initialDispersion&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ipv6RoutingEnabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-26 08:49:35&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;logsEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;longDesc&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;longDesc1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;longDesc2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;matchList&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;.*</span><span class="se">\\</span><span class="s2">.foo-ds</span><span class="se">\\</span><span class="s2">..*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;setNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;HOST_REGEXP&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;maxDnsAnswers&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;midHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;missLat&quot;</span><span class="p">:</span> <span class="s2">&quot;41.881944&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;missLong&quot;</span><span class="p">:</span> <span class="s2">&quot;-87.627778&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;multiSiteOrigin&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;multiSiteOriginAlgorithm&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;orgServerFqdn&quot;</span><span class="p">:</span> <span class="s2">&quot;http://baz.boo.net&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;originShield&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;profileDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for over-the-top&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;ROUTER_TOP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qstringIgnore&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rangeRequestHandling&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;trRequestHeaders&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;trResponseHeaders&quot;</span><span class="p">:</span> <span class="s2">&quot;Access-Control-Allow-Origin: *&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s2">&quot;foo-ds&quot;</span>
+    <span class="p">}</span>
+    <span class="p">{</span> <span class="o">..</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="o">..</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><strong>GET /api/1.2/servers/summary</strong></p>
 <blockquote>
 <div><p>Retrieves a count of CDN servers by type.</p>
@@ -746,7 +1132,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
@@ -852,7 +1238,7 @@
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">iloPassword</span></code></td>
 <td>string</td>
-<td>The password of the of the lights-out-management user  (displays as <strong>**</strong> unless you are an ‘admin’ user).</td>
+<td>The password of the of the lights-out-management user  (displays as <strong>**</strong> unless you are an &#8216;admin&#8217; user).</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">iloUsername</span></code></td>
 <td>string</td>
@@ -949,7 +1335,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;us-il-chicago&quot;</span><span class="p">,</span>
     <span class="s2">&quot;deliveryservices&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -1083,7 +1469,7 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
  <span class="s2">&quot;host_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
  <span class="s2">&quot;servercheck_short_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1129,7 +1515,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Response</span> <span class="n">Example</span><span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Response</span> <span class="n">Example</span><span class="p">:</span>
 
 <span class="p">{</span>
   <span class="s2">&quot;alerts&quot;</span><span class="p">:</span>
@@ -1183,7 +1569,7 @@
 </tr>
 <tr class="row-even"><td>ipAddress</td>
 <td>yes</td>
-<td>&#160;</td>
+<td>Must be unique per server profile.</td>
 </tr>
 <tr class="row-odd"><td>ipNetmask</td>
 <td>yes</td>
@@ -1231,7 +1617,7 @@
 </tr>
 <tr class="row-even"><td>ip6Address</td>
 <td>no</td>
-<td>&#160;</td>
+<td>Must be unique per server profile.</td>
 </tr>
 <tr class="row-odd"><td>ip6Gateway</td>
 <td>no</td>
@@ -1284,7 +1670,7 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;tc1_ats1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;my.test.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_group_edge&quot;</span><span class="p">,</span>
@@ -1442,7 +1828,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s1">&#39;response&#39;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;xmppPasswd&#39;</span> <span class="p">:</span> <span class="s1">&#39;**********&#39;</span><span class="p">,</span>
         <span class="s1">&#39;profile&#39;</span> <span class="p">:</span> <span class="s1">&#39;EDGE1_CDN1_421&#39;</span><span class="p">,</span>
@@ -1541,7 +1927,7 @@
 </tr>
 <tr class="row-even"><td>ipAddress</td>
 <td>yes</td>
-<td>&#160;</td>
+<td>Must be unique per server profile.</td>
 </tr>
 <tr class="row-odd"><td>ipNetmask</td>
 <td>yes</td>
@@ -1589,7 +1975,7 @@
 </tr>
 <tr class="row-even"><td>ip6Address</td>
 <td>no</td>
-<td>&#160;</td>
+<td>Must be unique per server profile.</td>
 </tr>
 <tr class="row-odd"><td>ip6Gateway</td>
 <td>no</td>
@@ -1642,7 +2028,7 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;tc1_ats2&quot;</span><span class="p">,</span>
     <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;my.test.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_group_edge&quot;</span><span class="p">,</span>
@@ -1800,7 +2186,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s1">&#39;response&#39;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;xmppPasswd&#39;</span> <span class="p">:</span> <span class="s1">&#39;**********&#39;</span><span class="p">,</span>
         <span class="s1">&#39;profile&#39;</span> <span class="p">:</span> <span class="s1">&#39;EDGE1_CDN1_421&#39;</span><span class="p">,</span>
@@ -1900,7 +2286,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
       <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                         <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -1984,7 +2370,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;serverId&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
       <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;queue&quot;</span>

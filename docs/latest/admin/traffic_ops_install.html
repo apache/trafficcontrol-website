@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Installing Traffic Ops</li>
       <li class="wy-breadcrumbs-aside">
@@ -257,7 +257,7 @@
 </ol>
 <blockquote>
 <div><p>Example output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">trafficops</span><span class="o">-</span><span class="n">vm</span> <span class="c1"># /opt/traffic_ops/install/bin/postinstall</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">trafficops</span><span class="o">-</span><span class="n">vm</span> <span class="c1"># /opt/traffic_ops/install/bin/postinstall</span>
 
 <span class="n">This</span> <span class="n">script</span> <span class="n">will</span> <span class="n">build</span> <span class="ow">and</span> <span class="n">package</span> <span class="n">the</span> <span class="n">required</span> <span class="n">Traffic</span> <span class="n">Ops</span> <span class="n">perl</span> <span class="n">modules</span><span class="o">.</span>
 <span class="n">In</span> <span class="n">order</span> <span class="n">to</span> <span class="n">complete</span> <span class="n">this</span> <span class="n">operation</span><span class="p">,</span> <span class="n">Development</span> <span class="n">tools</span> <span class="n">such</span> <span class="k">as</span> <span class="n">the</span> <span class="n">gcc</span>
@@ -274,7 +274,7 @@
 </div>
 <p>If there are any prompts in this phase, please just answer with the defaults (some CPAN installs can prompt for install questions).</p>
 <p>When this phase is complete, you will see:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>...
+<div class="highlight-default"><div class="highlight"><pre>...
 Successfully installed Test-Differences-0.63
 Successfully installed DBIx-Class-Schema-Loader-0.07042
 Successfully installed Time-HiRes-1.9726 (upgraded from 1.9719)
@@ -303,7 +303,7 @@ Database type [mysql]:
 <p class="last">CentOS files note.</p>
 </div>
 <p>Example output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Database type [mysql]:
+<div class="highlight-default"><div class="highlight"><pre>Database type [mysql]:
 Database name [traffic_ops_db]:
 Database server hostname IP or FQDN [localhost]:
 Database port number [3306]:
@@ -444,7 +444,7 @@ use this user to login for the first time and create other users</td>
 <p>The postinstall script will now seed the database with some inital configuration settings for the CDN and the servers in the CDN.</p>
 <p>The next phase is the download of the geo location database and configuration of information needed for SSL certificates.</p>
 <p>Example output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="n">MaxMind</span> <span class="n">data</span><span class="o">.</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Downloading</span> <span class="n">MaxMind</span> <span class="n">data</span><span class="o">.</span>
 <span class="o">--</span><span class="mi">2015</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">14</span> <span class="mi">02</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">32</span><span class="o">--</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">geolite</span><span class="o">.</span><span class="n">maxmind</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">geoip</span><span class="o">/</span><span class="n">database</span><span class="o">/</span><span class="n">GeoLite2</span><span class="o">-</span><span class="n">City</span><span class="o">.</span><span class="n">mmdb</span><span class="o">.</span><span class="n">gz</span>
 <span class="n">Resolving</span> <span class="n">geolite</span><span class="o">.</span><span class="n">maxmind</span><span class="o">.</span><span class="n">com</span><span class="o">...</span> <span class="mf">141.101</span><span class="o">.</span><span class="mf">115.190</span><span class="p">,</span> <span class="mf">141.101</span><span class="o">.</span><span class="mf">114.190</span><span class="p">,</span> <span class="mi">2400</span><span class="p">:</span><span class="n">cb00</span><span class="p">:</span><span class="mi">2048</span><span class="p">:</span><span class="mi">1</span><span class="p">::</span><span class="mi">8</span><span class="n">d65</span><span class="p">:</span><span class="mi">73</span><span class="n">be</span><span class="p">,</span> <span class="o">...</span>
 <span class="n">Connecting</span> <span class="n">to</span> <span class="n">geolite</span><span class="o">.</span><span class="n">maxmind</span><span class="o">.</span><span class="n">com</span><span class="o">|</span><span class="mf">141.101</span><span class="o">.</span><span class="mf">115.190</span><span class="o">|</span><span class="p">:</span><span class="mf">80.</span><span class="o">..</span> <span class="n">connected</span><span class="o">.</span>

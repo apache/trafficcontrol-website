@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Traffic Router Administration</li>
       <li class="wy-breadcrumbs-aside">
@@ -201,6 +201,7 @@
 <li><a class="reference internal" href="#geolimit-failure-redirect-feature" id="id10">GeoLimit Failure Redirect feature</a></li>
 <li><a class="reference internal" href="#steering-feature" id="id11">Steering feature</a></li>
 <li><a class="reference internal" href="#https-for-http-type-delivery-services" id="id12">HTTPS for Http Type Delivery Services</a></li>
+<li><a class="reference internal" href="#tuning-recommendations" id="id13">Tuning Recommendations</a></li>
 </ul>
 </li>
 </ul>
@@ -225,7 +226,7 @@
 </li>
 <li><p class="first">Enter the Traffic Router server into Traffic Ops, assign it to a Traffic Router profile, and ensure that its status is set to <code class="docutils literal"><span class="pre">ONLINE</span></code>.</p>
 </li>
-<li><p class="first">Ensure the FQDN of the Traffic Monitor is resolvable in DNS. This FQDN must be resolvable by the clients expected to use this CDN.</p>
+<li><p class="first">Ensure the FQDN of the Traffic Router is resolvable in DNS. This FQDN must be resolvable by the clients expected to use this CDN.</p>
 </li>
 <li><p class="first">Install a traffic router: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">traffic_router</span></code>.</p>
 </li>
@@ -248,7 +249,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 <p class="last">Once the CRConfig is snapshotted, live traffic will be sent to the new Traffic Routers provided that their status is set to <code class="docutils literal"><span class="pre">ONLINE</span></code>.</p>
 </div>
 <ol class="arabic simple" start="8">
-<li>Ensure that the parent domain (e.g.: kabletown.net) for the CDN’s top level domain (e.g.: cdn.kabletown.net) contains a delegation (NS records) for the new Traffic Router, and that the value specified matches the FQDN used in step 3.</li>
+<li>Ensure that the parent domain (e.g.: kabletown.net) for the CDN&#8217;s top level domain (e.g.: cdn.kabletown.net) contains a delegation (NS records) for the new Traffic Router, and that the value specified matches the FQDN used in step 3.</li>
 </ol>
 </div>
 <div class="section" id="configuring-traffic-router">
@@ -387,9 +388,9 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </div>
 <div class="section" id="operation">
 <h3>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h3>
-<p>Upon startup or a configuration change, Traffic Router obtains keys from the keystore API in Traffic Ops which returns key signing keys (KSK) and zone signing keys (ZSK) for each delivery service that is a subdomain off the CDN’s top level domain (TLD), in addition to the keys for the CDN TLD itself. Each key has timing information that allows Traffic Router to determine key validity (expiration, inception, and effective dates) in addition to the appropriate TTL to use for the DNSKEY record(s).  All TTLs are configurable parameters; see the <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> documentation for more information.</p>
-<p>Once Traffic Router obtains the key data from the API, it converts each public key into the appropriate record types (DNSKEY, DS) to place in zones and uses the private key to sign zones. DNSKEY records are added to each delivery service’s zone (e.g.: mydeliveryservice.cdn.kabletown.net) for every valid key that exists, in addition to the CDN TLD’s zone. A DS record is generated from each zone’s KSK and is placed in the CDN TLD’s zone (e.g.: cdn.kabletown.net); the DS record for the CDN TLD must be placed in its parent zone, which is not managed by Traffic Control.</p>
-<p>The DNSKEY to DS record relationship allows resolvers to validate signatures across zone delegation points; with Traffic Control, we control all delegation points below the CDN’s TLD, <strong>however, the DS record for the CDN TLD must be placed in the parent zone (e.g.: kabletown.net), which is not managed by Traffic Control</strong>. As such, the DS record (available in the Traffic Ops DNSSEC administration UI) must be placed in the parent zone prior to enabling DNSSEC, and prior to generating a new CDN KSK. Based on your deployment’s DNS configuration, this might be a manual process or it might be automated; either way, extreme care and diligence must be taken and knowledge of the management of the upstream zone is imperative for a successful DNSSEC deployment.</p>
+<p>Upon startup or a configuration change, Traffic Router obtains keys from the keystore API in Traffic Ops which returns key signing keys (KSK) and zone signing keys (ZSK) for each delivery service that is a subdomain off the CDN&#8217;s top level domain (TLD), in addition to the keys for the CDN TLD itself. Each key has timing information that allows Traffic Router to determine key validity (expiration, inception, and effective dates) in addition to the appropriate TTL to use for the DNSKEY record(s).  All TTLs are configurable parameters; see the <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> documentation for more information.</p>
+<p>Once Traffic Router obtains the key data from the API, it converts each public key into the appropriate record types (DNSKEY, DS) to place in zones and uses the private key to sign zones. DNSKEY records are added to each delivery service&#8217;s zone (e.g.: mydeliveryservice.cdn.kabletown.net) for every valid key that exists, in addition to the CDN TLD&#8217;s zone. A DS record is generated from each zone&#8217;s KSK and is placed in the CDN TLD&#8217;s zone (e.g.: cdn.kabletown.net); the DS record for the CDN TLD must be placed in its parent zone, which is not managed by Traffic Control.</p>
+<p>The DNSKEY to DS record relationship allows resolvers to validate signatures across zone delegation points; with Traffic Control, we control all delegation points below the CDN&#8217;s TLD, <strong>however, the DS record for the CDN TLD must be placed in the parent zone (e.g.: kabletown.net), which is not managed by Traffic Control</strong>. As such, the DS record (available in the Traffic Ops DNSSEC administration UI) must be placed in the parent zone prior to enabling DNSSEC, and prior to generating a new CDN KSK. Based on your deployment&#8217;s DNS configuration, this might be a manual process or it might be automated; either way, extreme care and diligence must be taken and knowledge of the management of the upstream zone is imperative for a successful DNSSEC deployment.</p>
 </div>
 <div class="section" id="rolling-zone-signing-keys">
 <h3>Rolling Zone Signing Keys<a class="headerlink" href="#rolling-zone-signing-keys" title="Permalink to this headline">¶</a></h3>
@@ -412,7 +413,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <div class="section" id="sample-message">
 <h3>Sample Message<a class="headerlink" href="#sample-message" title="Permalink to this headline">¶</a></h3>
 <p>Items within brackets below are detailed under the HTTP and DNS sections</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">DNS</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">789</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DNS</span> <span class="n">request</span><span class="p">]</span> <span class="n">rtype</span><span class="o">=</span><span class="n">CZ</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DNS</span> <span class="n">result</span><span class="p">]</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">DNS</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">789</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DNS</span> <span class="n">request</span><span class="p">]</span> <span class="n">rtype</span><span class="o">=</span><span class="n">CZ</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DNS</span> <span class="n">result</span><span class="p">]</span>
 <span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">789</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">HTTP</span> <span class="n">request</span><span class="p">]</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="p">[</span><span class="n">Fields</span> <span class="n">Specific</span> <span class="n">to</span> <span class="n">the</span> <span class="n">HTTP</span> <span class="n">result</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -505,7 +506,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <td>_*DNS Only*_ No DNS Delivery Service supports the hostname portion of the requested url</td>
 </tr>
 <tr class="row-odd"><td>DS_MISS</td>
-<td>_*HTTP Only*_ No HTTP Delivery Service supports either this request’s URL path or headers</td>
+<td>_*HTTP Only*_ No HTTP Delivery Service supports either this request&#8217;s URL path or headers</td>
 </tr>
 <tr class="row-even"><td>DS_REDIRECT</td>
 <td>The result is using the Bypass Destination configured for the matched Delivery Service when that Delivery Service is unavailable or does not have the requested resource</td>
@@ -543,7 +544,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <td>Traffic Router did not find a resource supported by coverage zone data and was unable to determine the geolocation of the requesting client</td>
 </tr>
 <tr class="row-odd"><td>GEO_NO_CACHE_FOUND</td>
-<td>Traffic Router could not find a resource via geolocation data based on the requesting client’s geolocation</td>
+<td>Traffic Router could not find a resource via geolocation data based on the requesting client&#8217;s geolocation</td>
 </tr>
 </tbody>
 </table>
@@ -552,7 +553,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <div class="section" id="http-specifics">
 <h3>HTTP Specifics<a class="headerlink" href="#http-specifics" title="Permalink to this headline">¶</a></h3>
 <p>Sample Message</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1452197640.936</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">69.241</span><span class="o">.</span><span class="mf">53.218</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://ccr.mm-test.jenkins.cdnlab.comcast.net/some/asset.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">0</span> <span class="n">rurl</span><span class="o">=</span><span class="s2">&quot;http://odol-atsec-sim-114.mm-test.jenkins.cdnlab.comcast.net:8090/some/asset.m3u8&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;Accept: */*&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;myheader: asdasdasdasfasg&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="mf">1452197640.936</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">69.241</span><span class="o">.</span><span class="mf">53.218</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://ccr.mm-test.jenkins.cdnlab.comcast.net/some/asset.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">0</span> <span class="n">rurl</span><span class="o">=</span><span class="s2">&quot;http://odol-atsec-sim-114.mm-test.jenkins.cdnlab.comcast.net:8090/some/asset.m3u8&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;Accept: */*&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;myheader: asdasdasdasfasg&quot;</span>
 </pre></div>
 </div>
 <p><strong>Request Fields</strong></p>
@@ -583,7 +584,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 </tr>
 <tr class="row-odd"><td>rh</td>
 <td>One or more of these key value pairs may exist in a logged event and are controlled by the configuration of the matched Delivery Service</td>
-<td>Key value pair of the format “name: value”</td>
+<td>Key value pair of the format &#8220;name: value&#8221;</td>
 </tr>
 </tbody>
 </table>
@@ -612,7 +613,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <div class="section" id="dns-specifics">
 <h3>DNS Specifics<a class="headerlink" href="#dns-specifics" title="Permalink to this headline">¶</a></h3>
 <p>Sample Message</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">DNS</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">123</span> <span class="n">xn</span><span class="o">=</span><span class="mi">65535</span> <span class="n">fqdn</span><span class="o">=</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">.</span> <span class="nb">type</span><span class="o">=</span><span class="n">A</span> <span class="n">class</span><span class="o">=</span><span class="n">IN</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">12345</span> <span class="n">rcode</span><span class="o">=</span><span class="n">NOERROR</span> <span class="n">rtype</span><span class="o">=</span><span class="n">CZ</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">ans</span><span class="o">=</span><span class="s2">&quot;192.168.1.2 192.168.3.4 0:0:0:0:0:ffff:c0a8:102 0:0:0:0:0:ffff:c0a8:304&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="mf">144140678.000</span> <span class="n">qtype</span><span class="o">=</span><span class="n">DNS</span> <span class="n">chi</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.11</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">123</span> <span class="n">xn</span><span class="o">=</span><span class="mi">65535</span> <span class="n">fqdn</span><span class="o">=</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">.</span> <span class="nb">type</span><span class="o">=</span><span class="n">A</span> <span class="n">class</span><span class="o">=</span><span class="n">IN</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">12345</span> <span class="n">rcode</span><span class="o">=</span><span class="n">NOERROR</span> <span class="n">rtype</span><span class="o">=</span><span class="n">CZ</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">ans</span><span class="o">=</span><span class="s2">&quot;192.168.1.2 192.168.3.4 0:0:0:0:0:ffff:c0a8:102 0:0:0:0:0:ffff:c0a8:304&quot;</span>
 </pre></div>
 </div>
 <p><strong>Request Fields</strong></p>
@@ -636,12 +637,12 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <tr class="row-odd"><td>fqdn</td>
 <td>The qname field from the client DNS request message (i.e. The
 fully qualified domain name the client is requesting be resolved)</td>
-<td>A series of DNS labels/domains separated by ‘.’
-characters and ending with a ‘.’ character (see <a class="reference external" href="http://www.zytrax.com/books/dns/ch15/#qname">qname</a>)</td>
+<td>A series of DNS labels/domains separated by &#8216;.&#8217;
+characters and ending with a &#8216;.&#8217; character (see <a class="reference external" href="http://www.zytrax.com/books/dns/ch15/#qname">qname</a>)</td>
 </tr>
 <tr class="row-even"><td>type</td>
 <td>The qtype field from the client DNS request message (i.e.
-the type of resolution that’s requested such as IPv4, IPv6)</td>
+the type of resolution that&#8217;s requested such as IPv4, IPv6)</td>
 <td><dl class="first last docutils">
 <dt>Examples are A (IpV4), AAAA (IpV6), NS (Name Service),</dt>
 <dd>SOA (Start of Authority), and CNAME, (see <a class="reference external" href="http://www.zytrax.com/books/dns/ch15/#qtype">qtype</a>)</dd>
@@ -674,7 +675,7 @@ class of resource being requested)</td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>ttl</td>
-<td>The ‘time to live’ in seconds for the answer provided by Traffic
+<td>The &#8216;time to live&#8217; in seconds for the answer provided by Traffic
 Router (clients can reliably use this answer for this long without
 re-querying traffic router)</td>
 <td>A number from 0 to 4294967295</td>
@@ -694,20 +695,20 @@ NXDOMAIN (the domain/name requested does not exist)</td>
 <span id="rl-tr-ngb"></span><h2><a class="toc-backref" href="#contents">GeoLimit Failure Redirect feature</a><a class="headerlink" href="#geolimit-failure-redirect-feature" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>This feature is also called ‘National GeoBlock’ feature which is short for ‘NGB’ feature. In this section, the acronym ‘NGB’ will be used for this feature.</p>
-<p>In the past, if the Geolimit check fails (for example, the client ip is not in the ‘US’ region but the geolimit is set to ‘CZF + US’), the router will return 503 response; but with this feature, when the check fails, it will return 302 if the redirect url is set in the delivery service.</p>
+<p>This feature is also called &#8216;National GeoBlock&#8217; feature which is short for &#8216;NGB&#8217; feature. In this section, the acronym &#8216;NGB&#8217; will be used for this feature.</p>
+<p>In the past, if the Geolimit check fails (for example, the client ip is not in the &#8216;US&#8217; region but the geolimit is set to &#8216;CZF + US&#8217;), the router will return 503 response; but with this feature, when the check fails, it will return 302 if the redirect url is set in the delivery service.</p>
 <p>The Geolimit check failure has such scenarios:
-1) When the GeoLimit is set to ‘CZF + only’, if the client ip is not in the the CZ file, the check fails
-2) When the GeoLimit is set to any region, like ‘CZF + US’, if the client ip is not in such region, and the client ip is not in the CZ file, the check fails</p>
+1) When the GeoLimit is set to &#8216;CZF + only&#8217;, if the client ip is not in the the CZ file, the check fails
+2) When the GeoLimit is set to any region, like &#8216;CZF + US&#8217;, if the client ip is not in such region, and the client ip is not in the CZ file, the check fails</p>
 </div>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
-<p>To enable the NGB feature, the DS must be configured with the proper redirect url. And the setting lays at ‘Delivery Services’-&gt;Edit-&gt;’GeoLimit Redirect URL’. If no url is put in this field, the feature is disabled.</p>
+<p>To enable the NGB feature, the DS must be configured with the proper redirect url. And the setting lays at &#8216;Delivery Services&#8217;-&gt;Edit-&gt;&#8217;GeoLimit Redirect URL&#8217;. If no url is put in this field, the feature is disabled.</p>
 <p>The URL has 3 kinds of formats, which have different meanings:</p>
 <ol class="arabic simple">
-<li>URL with no domain. If no domain is in the URL (like ‘vod/dance.mp4’), the router will try to find a proper cache server within the delivery service and return the redirect url with the format like ‘<a class="reference external" href="http:/">http:/</a>/&lt;cache server name&gt;.&lt;delivery service’s FQDN&gt;/&lt;configured relative path&gt;’</li>
+<li>URL with no domain. If no domain is in the URL (like &#8216;vod/dance.mp4&#8217;), the router will try to find a proper cache server within the delivery service and return the redirect url with the format like &#8216;<a class="reference external" href="http:/">http:/</a>/&lt;cache server name&gt;.&lt;delivery service&#8217;s FQDN&gt;/&lt;configured relative path&gt;&#8217;</li>
 <li>URL with domain that matches with the delivery service. For this URL, the router will also try to find a proper cache server within the delivery service and return the same format url as point 1.</li>
-<li>URL with domain that doesn’t match with the delivery service. For this URL, the router will return the configured url directly to the client.</li>
+<li>URL with domain that doesn&#8217;t match with the delivery service. For this URL, the router will return the configured url directly to the client.</li>
 </ol>
 </div>
 </div>
@@ -715,8 +716,8 @@ NXDOMAIN (the domain/name requested does not exist)</td>
 <span id="rl-tr-steering"></span><h2><a class="toc-backref" href="#contents">Steering feature</a><a class="headerlink" href="#steering-feature" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
 <h3>Overview<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>A Steering delivery service is a delivery service that is used to “steer” traffic to other delivery services. A Steering delivery service will have target delivery services configured for it with weights assigned to them.  Traffic Router uses the weights to make a consistent hash ring which it then uses to make sure that requests are routed to a target based on the configured weights.  This consistent hash ring is separate from the consistent hash ring used in cache selection.</p>
-<p>Special regular expressions called Filters can also be configured for target delivery services to pin traffic to a specific delivery service.  For example, if a filter called .*/news/.* for a target called target-ds-1 is created, any requests to traffic router with ‘news’ in them will be routed to target-ds-1.  This will happen regardless of the configured weights.</p>
+<p>A Steering delivery service is a delivery service that is used to &#8220;steer&#8221; traffic to other delivery services. A Steering delivery service will have target delivery services configured for it with weights assigned to them.  Traffic Router uses the weights to make a consistent hash ring which it then uses to make sure that requests are routed to a target based on the configured weights.  This consistent hash ring is separate from the consistent hash ring used in cache selection.</p>
+<p>Special regular expressions called Filters can also be configured for target delivery services to pin traffic to a specific delivery service.  For example, if a filter called .*/news/.* for a target called target-ds-1 is created, any requests to traffic router with &#8216;news&#8217; in them will be routed to target-ds-1.  This will happen regardless of the configured weights.</p>
 <p>A client can bypass the steering functionality by providing a header called X-TC-Steering-Option with the xml_id of the target delivery service to route to.  When Traffic Router receives this header it will route to the requested target delivery service regardless of weight configuration.</p>
 <p>Some other points of interest:
 - Steering is currently only available for HTTP delivery services that are a part of the same CDN.
@@ -756,7 +757,7 @@ As noted for DNSSEC, you may need to plan to scale Traffic Router vertically and
 </div>
 <p>The summary for setting up https is to:</p>
 <ol class="arabic simple">
-<li>Select one of ‘https’, ‘http and https’, or ‘http to https’ for the delivery service</li>
+<li>Select one of &#8216;https&#8217;, &#8216;http and https&#8217;, or &#8216;http to https&#8217; for the delivery service</li>
 <li>Generate private keys for the delivery service using a wildcard domain such as <code class="docutils literal"><span class="pre">*.my-delivery-service.my-cdn.example.com</span></code></li>
 <li>Obtain and import signed certificate chain</li>
 <li>Snapshot CR Config</li>
@@ -770,7 +771,7 @@ As noted for DNSSEC, you may need to plan to scale Traffic Router vertically and
 <dt><em>http and https</em></dt>
 <dd>Traffic Router will redirect both secure and non-secure clients</dd>
 <dt><em>http to https</em></dt>
-<dd>Traffic Router will redirect non-secure clients with a 302 and a location that is secure (i.e. starting with ‘https’ instead of ‘http’), secure clients will remain on https</dd>
+<dd>Traffic Router will redirect non-secure clients with a 302 and a location that is secure (i.e. starting with &#8216;https&#8217; instead of &#8216;http&#8217;), secure clients will remain on https</dd>
 <dt><em>http</em></dt>
 <dd>Any secure client will get an SSL handshake error. Non-secure clients will experience the same behavior as prior to 1.7</dd>
 </dl>
@@ -790,7 +791,7 @@ fetch certificates from Traffic Ops and load them into memory. Traffic Router do
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To adjust the frequency when Traffic Router fetches certificates add the parameter ‘certificates.polling.interval’ to CR Config and
+<p class="last">To adjust the frequency when Traffic Router fetches certificates add the parameter &#8216;certificates.polling.interval&#8217; to CR Config and
 setting it to the desired time in milliseconds.</p>
 </div>
 <div class="admonition note">
@@ -802,7 +803,7 @@ setting it to the desired time in milliseconds.</p>
 <p class="last">If a snapshot of CR Config is made that involves a delivery service missing its certificates, Traffic Router will ignore <strong>ALL</strong> changes in that CR-Config
 until one of the following occurs:
 * It receives certificates for that delivery service
-* Another snapshot of CR Config is created and the delivery service without certificates is changed so it’s HTTP protocol is set to ‘http’</p>
+* Another snapshot of CR Config is created and the delivery service without certificates is changed so it&#8217;s HTTP protocol is set to &#8216;http&#8217;</p>
 </div>
 </div>
 <div class="section" id="certificate-chain-ordering">
@@ -824,20 +825,20 @@ client will get an SSL handshake.  Inspection of /opt/tomcat/logs/catalina.out i
 <h3>Suggested Way of Setting up an HTTPS Delivery Service<a class="headerlink" href="#suggested-way-of-setting-up-an-https-delivery-service" title="Permalink to this headline">¶</a></h3>
 <p>Do the following in Traffic Ops:</p>
 <ol class="arabic simple">
-<li>Select one of ‘https’, ‘http and https’, or ‘http to https’ for the protocol field of a delivery service and click ‘Save’.</li>
-<li>Click ‘Manage SSL Keys’.</li>
-<li>Click ‘Generate New Keys’.</li>
+<li>Select one of &#8216;https&#8217;, &#8216;http and https&#8217;, or &#8216;http to https&#8217; for the protocol field of a delivery service and click &#8216;Save&#8217;.</li>
+<li>Click &#8216;Manage SSL Keys&#8217;.</li>
+<li>Click &#8216;Generate New Keys&#8217;.</li>
 <li>Copy the contents of the Certificate Signing Request field and save it locally.</li>
-<li>Click ‘Load Keys’.</li>
-<li>Select ‘http’ for the protocol field of the delivery service and click ‘Save’ (to avoid preventing other CR Config updates from being blocked by Traffic Router)</li>
+<li>Click &#8216;Load Keys&#8217;.</li>
+<li>Select &#8216;http&#8217; for the protocol field of the delivery service and click &#8216;Save&#8217; (to avoid preventing other CR Config updates from being blocked by Traffic Router)</li>
 <li>Follow your standard procedure for obtaining your signed certificate chain from a CA.</li>
 <li>After receiving your certificate chain import it into Traffic Ops.</li>
 <li>Edit the delivery service.</li>
 <li>Restore your original choice for the protocol field and click save.</li>
-<li>Click ‘Manage SSL Keys’.</li>
-<li>Click ‘Paste Existing Keys’.</li>
+<li>Click &#8216;Manage SSL Keys&#8217;.</li>
+<li>Click &#8216;Paste Existing Keys&#8217;.</li>
 <li>Paste the certificate chain into the CRT field.</li>
-<li>Click ‘Load Keys’.</li>
+<li>Click &#8216;Load Keys&#8217;.</li>
 <li>Take a new snapshot of CR Config.</li>
 </ol>
 <p>Once this is done you should be able to test you are getting correctly redirected by Traffic Router using curl commands to https destinations on your delivery service.</p>
@@ -846,6 +847,25 @@ You can control which cdn, delivery services, how many transactions per delivery
 During the test it will provide feedback about request latency and transactions per second.</p>
 <p>While it is running it is suggested that you monitor your Traffic Router nodes for memory and CPU utilization.</p>
 </div>
+</div>
+<div class="section" id="tuning-recommendations">
+<h2><a class="toc-backref" href="#contents">Tuning Recommendations</a><a class="headerlink" href="#tuning-recommendations" title="Permalink to this headline">¶</a></h2>
+<p>The following is an example of /opt/tomcat/bin/setenv.sh that has been tested on a multi core server running under HTTPS load test requests.
+This is following the general recommendation to use the G1 garbage collector for JVM applications running on multi core machines.
+In addition to using the G1 garbage collector the InitiatingHeapOccupancyPercent was lowered to run garbage collection more frequently which
+improved overall throughput for Traffic Router and reduced &#8216;Stop the World&#8217; garbage collection. Note that setting the min and max heap settings
+in setenv.sh will override init scripts in /etc/init.d/tomcat.</p>
+<blockquote>
+<div><p>/opt/tomcat/bin/setenv.sh:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="ch">#! /bin/sh</span>
+<span class="n">export</span> <span class="n">CATALINA_OPTS</span><span class="o">=</span><span class="s2">&quot;$CATALINA_OPTS -server&quot;</span>
+<span class="n">export</span> <span class="n">CATALINA_OPTS</span><span class="o">=</span><span class="s2">&quot;$CATALINA_OPTS -Xms2g -Xmx2g&quot;</span>
+<span class="n">export</span> <span class="n">CATALINA_OPTS</span><span class="o">=</span><span class="s2">&quot;$CATALINA_OPTS -XX:+UseG1GC&quot;</span>
+<span class="n">export</span> <span class="n">CATALINA_OPTS</span><span class="o">=</span><span class="s2">&quot;$CATALINA_OPTS -XX:+UnlockExperimentalVMOptions&quot;</span>
+<span class="n">export</span> <span class="n">CATALINA_OPTS</span><span class="o">=</span><span class="s2">&quot;$CATALINA_OPTS -XX:InitiatingHeapOccupancyPercent=30&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 

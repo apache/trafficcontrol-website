@@ -61,7 +61,7 @@
 
         
           
-          <img src="../_static/tc_logo.png" class="logo" />
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Traffic Server Administration</li>
       <li class="wy-breadcrumbs-aside">
@@ -205,7 +205,7 @@
 <dl class="docutils">
 <dt><strong>traffic_ops_ort.pl</strong></dt>
 <dd><p class="first">The traffic_ops_ort.pl should be installed on all caches (by puppet or other non Traffic Ops means), usually in /opt/ort. It is used to do initial install of the config files when the cache is being deployed, and to keep the config files up to date when the cache is already in service.  The usage message of the script is shown below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo ./traffic_ops_ort.pl syncds warn https://to.cdn.kabletown.net
+<div class="highlight-default"><div class="highlight"><pre>$ sudo ./traffic_ops_ort.pl syncds warn https://to.cdn.kabletown.net
 Thu May 26 15:52:11 UTC 2016
 ====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-====
 Usage: ./traffic_ops_ort.pl &lt;Mode&gt; &lt;Log_Level&gt; &lt;Traffic_Ops_URL&gt; &lt;Traffic_Ops_Login&gt; [optional flags]
@@ -228,17 +228,17 @@ Usage: ./traffic_ops_ort.pl &lt;Mode&gt; &lt;Log_Level&gt; &lt;Traffic_Ops_URL&g
 $
 </pre></div>
 </div>
-<p>For initial configuration or when major changes (like a Profile change) need to be made, run the script in “badass mode”. All required rpm packages will be installed, all Traffic Server config files will be fetched and installed, and (if needed) the Traffic Server application will be restarted.  Example run below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">here</span>
+<p>For initial configuration or when major changes (like a Profile change) need to be made, run the script in &#8220;badass mode&#8221;. All required rpm packages will be installed, all Traffic Server config files will be fetched and installed, and (if needed) the Traffic Server application will be restarted.  Example run below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">run</span> <span class="n">here</span>
 </pre></div>
 </div>
-<p>For “every day changes” such as adding deliveryservices or changing records.config parameters caches should run the script in “syncds” mode out of cron. Example crontab entry:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*/</span><span class="mi">15</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">syncds</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+<p>For &#8220;every day changes&#8221; such as adding deliveryservices or changing records.config parameters caches should run the script in &#8220;syncds&#8221; mode out of cron. Example crontab entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">*/</span><span class="mi">15</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">syncds</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
 </pre></div>
 </div>
 <div class="last admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">&lt;disclaimer on what is “hot changeable” here&gt;</p>
+<p class="last">&lt;disclaimer on what is &#8220;hot changeable&#8221; here&gt;</p>
 </div>
 </dd>
 </dl>

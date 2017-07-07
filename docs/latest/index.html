@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Control &mdash; Traffic Control 1.8-dev documentation </title>
+  <title>Traffic Control &mdash; Traffic Control 2.0-dev documentation </title>
   
 
   
@@ -36,7 +36,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Traffic Control 1.8-dev documentation" href="#"/>
+    <link rel="top" title="Traffic Control 2.0-dev documentation" href="#"/>
         <link rel="next" title="CDN Basics" href="basics/index.html"/> 
 
   
@@ -59,7 +59,7 @@
 
         
           
-          <img src="_static/tc_logo.png" class="logo" />
+          <img src="_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
@@ -102,7 +102,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_using.html">Using Traffic Ops</a></li>
@@ -118,7 +118,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_router.html">Traffic Router</a></li>
@@ -160,7 +160,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Traffic Control 1.8-dev</a> &raquo;</li>
+    <li><a href="#">Traffic Control 2.0-dev</a> &raquo;</li>
       
     <li>Traffic Control</li>
       <li class="wy-breadcrumbs-aside">
@@ -183,7 +183,7 @@
             
   <div class="section" id="traffic-control">
 <h1>Traffic Control<a class="headerlink" href="#traffic-control" title="Permalink to this headline">¶</a></h1>
-<p>The vast majority of today’s Internet traffic is media files being sent from a single source to many thousands or even millions of destinations.  Content Delivery Networks make that one-to-many distribution possible in an economical way.</p>
+<p>The vast majority of today&#8217;s Internet traffic is media files being sent from a single source to many thousands or even millions of destinations.  Content Delivery Networks make that one-to-many distribution possible in an economical way.</p>
 <p>Traffic Control is an Open Source implementation of a Content Delivery Network.</p>
 <p>The following documentation sections are available:</p>
 <div class="section" id="cdn-basics">
@@ -238,11 +238,11 @@
 </div>
 </div>
 <div class="section" id="administrator-s-guide">
-<h2>Administrator’s Guide<a class="headerlink" href="#administrator-s-guide" title="Permalink to this headline">¶</a></h2>
+<h2>Administrator&#8217;s Guide<a class="headerlink" href="#administrator-s-guide" title="Permalink to this headline">¶</a></h2>
 <p>How to deploy and manage a Traffic Control CDN.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_install.html">Installing Traffic Ops</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_install.html#system-requirements">System Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_install.html#navigating-the-install">Navigating the Install</a></li>
@@ -287,12 +287,13 @@
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_router.html#geolimit-failure-redirect-feature">GeoLimit Failure Redirect feature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_router.html#steering-feature">Steering feature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_router.html#https-for-http-type-delivery-services">HTTPS for Http Type Delivery Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_router.html#tuning-recommendations">Tuning Recommendations</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_stats.html">Traffic Stats Administration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_stats.html#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_stats.html#configuration">Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_stats.html#id2">InfluxDb Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_stats.html#id1">InfluxDb Tools</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_server.html">Traffic Server Administration</a><ul>
@@ -320,11 +321,11 @@
 </div>
 </div>
 <div class="section" id="developer-s-guide">
-<h2>Developer’s Guide<a class="headerlink" href="#developer-s-guide" title="Permalink to this headline">¶</a></h2>
+<h2>Developer&#8217;s Guide<a class="headerlink" href="#developer-s-guide" title="Permalink to this headline">¶</a></h2>
 <p>A guide to the various internal and external APIs, and a introduction for the Traffic Control developer.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_ops.html">Traffic Ops</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="development/traffic_ops.html#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="development/traffic_ops.html#software-requirements">Software Requirements</a></li>
@@ -454,7 +455,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.8-dev',
+            VERSION:'2.0-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
