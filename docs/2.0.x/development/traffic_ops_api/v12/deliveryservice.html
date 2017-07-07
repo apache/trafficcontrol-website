@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Delivery Service &mdash; Traffic Control 1.8-dev documentation </title>
+  <title>Delivery Service &mdash; Traffic Control 2.0.0 documentation </title>
   
 
   
@@ -36,7 +36,7 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.0.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Delivery Service Regexes" href="deliveryservice_regex.html"/>
         <link rel="prev" title="Change Logs" href="changelog.html"/> 
@@ -105,10 +105,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
@@ -121,6 +122,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
@@ -162,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.0.0</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -392,11 +394,11 @@ available).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
-<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">multiSiteOriginAlgor</span></code></td>
 <td>bool</td>
-<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
@@ -771,11 +773,11 @@ available).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
-<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">multiSiteOriginAlgor</span></code></td>
 <td>bool</td>
-<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
@@ -3331,7 +3333,7 @@ be a HIT)</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.8-dev',
+            VERSION:'2.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

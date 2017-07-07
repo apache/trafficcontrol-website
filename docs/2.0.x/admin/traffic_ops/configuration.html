@@ -7,12 +7,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuring Traffic Ops &mdash; Traffic Control 1.8-dev documentation </title>
+  <title>Traffic Ops - Configuring &mdash; Traffic Control 2.0.0 documentation </title>
   
 
   
   
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
 
   
@@ -25,21 +25,21 @@
 
   
   
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
 
   
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
   
 
   
         <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
-        <link rel="up" title="Administrator’s Guide" href="index.html"/>
-        <link rel="next" title="Using Traffic Ops" href="traffic_ops_using.html"/>
-        <link rel="prev" title="Installing Traffic Ops" href="traffic_ops_install.html"/> 
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Traffic Control 2.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="../index.html"/>
+        <link rel="next" title="Traffic Ops - Using" href="using.html"/>
+        <link rel="prev" title="Traffic Ops - Migrating from 1.x to 2.x" href="migration_from_10_to_20.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -61,13 +61,13 @@
 
         
           
-          <img src="../_static/tc_logo_c_only.png" class="logo" />
+          <img src="../../_static/tc_logo_c_only.png" class="logo" />
         
         </a>
 
         
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -82,64 +82,66 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">CDN Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basics/content_delivery_networks.html">Content Delivery Networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basics/http_11.html">HTTP 1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basics/caching_proxies.html">Caching Proxies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basics/cache_revalidation.html">Cache Control Headers and Revalidation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/index.html">CDN Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../basics/content_delivery_networks.html">Content Delivery Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../basics/http_11.html">HTTP 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../basics/caching_proxies.html">Caching Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../basics/cache_revalidation.html">Cache Control Headers and Revalidation</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Traffic Control Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_ops.html">Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_portal.html">Traffic Portal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_server.html">Traffic Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_vault.html">Traffic Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Traffic Control Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_ops.html">Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_portal.html">Traffic Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_router.html">Traffic Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_stats.html">Traffic Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_server.html">Traffic Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_vault.html">Traffic Vault</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_vault.html">Traffic Vault Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_howto/index.html">Quick How To Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal.html">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_router.html">Traffic Router Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_server.html">Traffic Server Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_vault.html">Traffic Vault Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_howto/index.html">Quick How To Guides</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_stats.html">Traffic Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_server.html">Traffic Server</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../faq/general.html">General</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../faq/development.html">Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../faq/administration.html">Running a Traffic Control CDN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/development.html">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/administration.html">Running a Traffic Control CDN</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 </ul>
 
           
@@ -153,7 +155,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Traffic Control</a>
+        <a href="../../index.html">Traffic Control</a>
       </nav>
 
 
@@ -162,14 +164,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
+    <li><a href="../../index.html">Traffic Control 2.0.0</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
-    <li>Configuring Traffic Ops</li>
+    <li>Traffic Ops - Configuring</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/admin/traffic_ops_config.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/admin/traffic_ops/configuration.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -178,21 +180,120 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="traffic_ops_using.html" class="btn btn-neutral float-right" title="Using Traffic Ops">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="using.html" class="btn btn-neutral float-right" title="Traffic Ops - Using">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="traffic_ops_install.html" class="btn btn-neutral" title="Installing Traffic Ops"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="migration_from_10_to_20.html" class="btn btn-neutral" title="Traffic Ops - Migrating from 1.x to 2.x"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
           <div role="main" class="document">
             
-  <div class="section" id="configuring-traffic-ops">
-<h1>Configuring Traffic Ops<a class="headerlink" href="#configuring-traffic-ops" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="traffic-ops-configuring">
+<h1>Traffic Ops - Configuring<a class="headerlink" href="#traffic-ops-configuring" title="Permalink to this headline">¶</a></h1>
 <p>Follow the steps below to configure the newly installed Traffic Ops Instance.</p>
 <div class="section" id="installing-the-ssl-cert">
 <h2>Installing the SSL Cert<a class="headerlink" href="#installing-the-ssl-cert" title="Permalink to this headline">¶</a></h2>
-<p>By default, Traffic Ops runs as an SSL web server, and a certificate needs to be installed.  TBD.</p>
+<p>By default, Traffic Ops runs as an SSL web server, and a certificate needs to be installed.</p>
+<div class="section" id="self-signed-certificate-development">
+<h3>Self-signed Certificate (Development)<a class="headerlink" href="#self-signed-certificate-development" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Example Procedure:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ openssl genrsa -des3 -passout pass:x -out localhost.pass.key 2048
+Generating RSA private key, 2048 bit long modulus
+...
+$ openssl rsa -passin pass:x -in localhost.pass.key -out localhost.key
+writing RSA key
+$ rm localhost.pass.key
+
+$ openssl req -new -key localhost.key -out localhost.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter &#39;.&#39;, the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:US&lt;enter&gt;
+State or Province Name (full name) []:CO&lt;enter&gt;
+Locality Name (eg, city) [Default City]:Denver&lt;enter&gt;
+Organization Name (eg, company) [Default Company Ltd]: &lt;enter&gt;
+Organizational Unit Name (eg, section) []: &lt;enter&gt;
+Common Name (eg, your name or your server&#39;s hostname) []: &lt;enter&gt;
+Email Address []: &lt;enter&gt;
+
+Please enter the following &#39;extra&#39; attributes
+to be sent with your certificate request
+A challenge password []: pass&lt;enter&gt;
+An optional company name []: &lt;enter&gt;
+$ openssl x509 -req -sha256 -days 365 -in localhost.csr -signkey localhost.key -out localhost.crt
+Signature ok
+subject=/C=US/ST=CO/L=Denver/O=Default Company Ltd
+Getting Private key
+$ sudo cp localhost.crt /etc/pki/tls/certs
+$ sudo cp localhost.key /etc/pki/tls/private
+$ sudo chown trafops:trafops /etc/pki/tls/certs/localhost.crt
+$ sudo chown trafops:trafops /etc/pki/tls/private/localhost.key
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="certificate-from-certificate-authority-production">
+<h3>Certificate from Certificate Authority (Production)<a class="headerlink" href="#certificate-from-certificate-authority-production" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will need to know the appropriate answers when generating the certificate request file <cite>trafficopss.csr</cite> below.</p>
+</div>
+<p>Example Procedure:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ openssl genrsa -des3 -passout pass:x -out trafficops.pass.key 2048
+Generating RSA private key, 2048 bit long modulus
+...
+$ openssl rsa -passin pass:x -in trafficops.pass.key -out trafficops.key
+writing RSA key
+$ rm localhost.pass.key
+
+Generate the Certificate Signing Request (CSR) file needed for Certificate Authority (CA) request.
+
+$ openssl req -new -key trafficops.key -out trafficops.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter &#39;.&#39;, the field will be left blank.
+-----
+Country Name (2 letter code) [XX]: &lt;enter country code&gt;
+State or Province Name (full name) []: &lt;enter state or province&gt;
+Locality Name (eg, city) [Default City]: &lt;enter locality name&gt;
+Organization Name (eg, company) [Default Company Ltd]: &lt;enter organization name&gt;
+Organizational Unit Name (eg, section) []: &lt;enter organizational unit name&gt;
+Common Name (eg, your name or your server&#39;s hostname) []: &lt;enter server&#39;s hostname name&gt;
+Email Address []: &lt;enter e-mail address&gt;
+
+Please enter the following &#39;extra&#39; attributes
+to be sent with your certificate request
+A challenge password []: &lt;enter challenge password&gt;
+An optional company name []: &lt;enter&gt;
+$ sudo cp trafficops.key /etc/pki/tls/private
+$ sudo chown trafops:trafops /etc/pki/tls/private/trafficops.key
+
+You must then take the output file trafficops.csr and submit a request to your Certificate Authority (CA).
+Once you get approved and receive your trafficops.crt file:
+
+$ sudo cp trafficops.crt /etc/pki/tls/certs
+$ sudo chown trafops:trafops /etc/pki/tls/certs/trafficops.crt
+
+If necessary, install the CA certificates .pem and .crt in /etc/pki/tls/certs.
+
+You will need to update the file /opt/traffic_ops/app/conf/cdn.conf with the following changes:
+      ...
+      e.g. given trafficops.crt and trafficops.key
+      &#39;hypnotoad&#39; =&gt; ...
+          &#39;listen&#39; =&gt; &#39;https://[::]:443?cert=/etc/pki/tls/certs/trafficops.crt&amp;key=/etc/pki/tls/private/trafficops.key&amp;ca=/etc/pki/tls/certs/localhost.ca&amp;verify=0x00&amp;ciphers=AES128-GCM-SHA256:HIGH:!RC4:!MD5:!aNULL:!EDH:!ED&#39;
+       ...
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="content-delivery-networks">
 <h2>Content Delivery Networks<a class="headerlink" href="#content-delivery-networks" title="Permalink to this headline">¶</a></h2>
@@ -318,7 +419,7 @@ The Traffic Monitor IP addresses have to be included in this, if they are using 
 </tr>
 <tr class="row-even"><td>purge_allow_ip</td>
 <td>ip_allow.config</td>
-<td>The IP address range that is allowed to execute the PURGE method on the caches (not related to <a class="reference internal" href="traffic_ops_using.html#rl-purge"><span class="std std-ref">Invalidate Content</span></a>)</td>
+<td>The IP address range that is allowed to execute the PURGE method on the caches (not related to <a class="reference internal" href="using.html#rl-purge"><span class="std std-ref">Invalidate Content</span></a>)</td>
 </tr>
 <tr class="row-odd"><td>coalesce_masklen_v4</td>
 <td>ip_allow.config</td>
@@ -396,7 +497,7 @@ Value is left blank.</td>
 </div>
 <div class="section" id="configuring-content-purge">
 <h2>Configuring Content Purge<a class="headerlink" href="#configuring-content-purge" title="Permalink to this headline">¶</a></h2>
-<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
+<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="../traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
 <p>Content Purge is controlled by the following parameters in the profile of the cache:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -471,10 +572,10 @@ For example: &#8211;config regex_revalidate.config</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="traffic_ops_using.html" class="btn btn-neutral float-right" title="Using Traffic Ops">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="using.html" class="btn btn-neutral float-right" title="Traffic Ops - Using">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="traffic_ops_install.html" class="btn btn-neutral" title="Installing Traffic Ops"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="migration_from_10_to_20.html" class="btn btn-neutral" title="Traffic Ops - Migrating from 1.x to 2.x"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -502,22 +603,22 @@ For example: &#8211;config regex_revalidate.config</td>
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.8-dev',
+            URL_ROOT:'../../',
+            VERSION:'2.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
   

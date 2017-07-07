@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Router Administration &mdash; Traffic Control 1.8-dev documentation </title>
+  <title>Traffic Router Administration &mdash; Traffic Control 2.0.0 documentation </title>
   
 
   
@@ -36,7 +36,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 2.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Traffic Stats Administration" href="traffic_stats.html"/>
         <link rel="prev" title="Traffic Monitor Administration" href="traffic_monitor.html"/> 
@@ -105,10 +105,11 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Router Administration</a></li>
@@ -121,6 +122,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
@@ -162,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 2.0.0</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -241,7 +243,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </li>
 <li><p class="first">Start Tomcat: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">tomcat</span> <span class="pre">start</span></code>, and test lookups with dig and curl against that server.</p>
 </li>
-<li><p class="first">Snapshot CRConfig; See <a class="reference internal" href="traffic_ops_using.html#rl-snapshot-crconfig"><span class="std std-ref">Snapshot CRConfig</span></a></p>
+<li><p class="first">Snapshot CRConfig; See <a class="reference internal" href="traffic_ops/using.html#rl-snapshot-crconfig"><span class="std std-ref">Snapshot CRConfig</span></a></p>
 </li>
 </ol>
 <div class="admonition note">
@@ -262,7 +264,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 <p class="first admonition-title">Note</p>
 <p class="last">Pre-existing installations having configuration files in <code class="docutils literal"><span class="pre">/opt/traffic_router/conf</span></code> will still be used and honored for Traffic Router 1.5 and onward.</p>
 </div>
-<p>For the most part, the configuration files and parameters that follow are used to get Traffic Router online and communicating with various Traffic Control components. Once Traffic Router is successfully communicating with Traffic Control, configuration is mostly performed in Traffic Ops, and is distributed throughout Traffic Control via the CRConfig snapshot process. See <a class="reference internal" href="traffic_ops_using.html#rl-snapshot-crconfig"><span class="std std-ref">Snapshot CRConfig</span></a> for more information. Please see the parameter documentation for Traffic Router in the Using Traffic Ops guide documented under <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> for parameters that influence the behavior of Traffic Router via the CRConfig.</p>
+<p>For the most part, the configuration files and parameters that follow are used to get Traffic Router online and communicating with various Traffic Control components. Once Traffic Router is successfully communicating with Traffic Control, configuration is mostly performed in Traffic Ops, and is distributed throughout Traffic Control via the CRConfig snapshot process. See <a class="reference internal" href="traffic_ops/using.html#rl-snapshot-crconfig"><span class="std std-ref">Snapshot CRConfig</span></a> for more information. Please see the parameter documentation for Traffic Router in the Using Traffic Ops guide documented under <a class="reference internal" href="traffic_ops/using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> for parameters that influence the behavior of Traffic Router via the CRConfig.</p>
 <div class="section" id="configuration-files">
 <span id="rl-tr-config-files"></span><h3>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
@@ -388,7 +390,7 @@ traffic_monitor.properties=file:/opt/traffic_router/conf/traffic_monitor.propert
 </div>
 <div class="section" id="operation">
 <h3>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h3>
-<p>Upon startup or a configuration change, Traffic Router obtains keys from the keystore API in Traffic Ops which returns key signing keys (KSK) and zone signing keys (ZSK) for each delivery service that is a subdomain off the CDN&#8217;s top level domain (TLD), in addition to the keys for the CDN TLD itself. Each key has timing information that allows Traffic Router to determine key validity (expiration, inception, and effective dates) in addition to the appropriate TTL to use for the DNSKEY record(s).  All TTLs are configurable parameters; see the <a class="reference internal" href="traffic_ops_using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> documentation for more information.</p>
+<p>Upon startup or a configuration change, Traffic Router obtains keys from the keystore API in Traffic Ops which returns key signing keys (KSK) and zone signing keys (ZSK) for each delivery service that is a subdomain off the CDN&#8217;s top level domain (TLD), in addition to the keys for the CDN TLD itself. Each key has timing information that allows Traffic Router to determine key validity (expiration, inception, and effective dates) in addition to the appropriate TTL to use for the DNSKEY record(s).  All TTLs are configurable parameters; see the <a class="reference internal" href="traffic_ops/using.html#rl-ccr-profile"><span class="std std-ref">CCR Profile or Traffic Router Profile</span></a> documentation for more information.</p>
 <p>Once Traffic Router obtains the key data from the API, it converts each public key into the appropriate record types (DNSKEY, DS) to place in zones and uses the private key to sign zones. DNSKEY records are added to each delivery service&#8217;s zone (e.g.: mydeliveryservice.cdn.kabletown.net) for every valid key that exists, in addition to the CDN TLD&#8217;s zone. A DS record is generated from each zone&#8217;s KSK and is placed in the CDN TLD&#8217;s zone (e.g.: cdn.kabletown.net); the DS record for the CDN TLD must be placed in its parent zone, which is not managed by Traffic Control.</p>
 <p>The DNSKEY to DS record relationship allows resolvers to validate signatures across zone delegation points; with Traffic Control, we control all delegation points below the CDN&#8217;s TLD, <strong>however, the DS record for the CDN TLD must be placed in the parent zone (e.g.: kabletown.net), which is not managed by Traffic Control</strong>. As such, the DS record (available in the Traffic Ops DNSSEC administration UI) must be placed in the parent zone prior to enabling DNSSEC, and prior to generating a new CDN KSK. Based on your deployment&#8217;s DNS configuration, this might be a manual process or it might be automated; either way, extreme care and diligence must be taken and knowledge of the management of the upstream zone is imperative for a successful DNSSEC deployment.</p>
 </div>
@@ -907,7 +909,7 @@ in setenv.sh will override init scripts in /etc/init.d/tomcat.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.8-dev',
+            VERSION:'2.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

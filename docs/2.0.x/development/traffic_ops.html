@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Ops &mdash; Traffic Control 1.8-dev documentation </title>
+  <title>Traffic Ops &mdash; Traffic Control 2.0.0 documentation </title>
   
 
   
@@ -36,10 +36,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 2.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Developer’s Guide" href="index.html"/>
         <link rel="next" title="API Routes" href="traffic_ops_api/routes.html"/>
-        <link rel="prev" title="Developer’s Guide" href="index.html"/> 
+        <link rel="prev" title="Building Traffic Control" href="building.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -105,10 +105,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_router.html">Traffic Router Administration</a></li>
@@ -121,6 +122,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router</a></li>
@@ -162,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 2.0.0</a> &raquo;</li>
       
           <li><a href="index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -181,7 +183,7 @@
         		  <a href="traffic_ops_api/routes.html" class="btn btn-neutral float-right" title="API Routes">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="index.html" class="btn btn-neutral" title="Developer’s Guide"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="building.html" class="btn btn-neutral" title="Building Traffic Control"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -210,7 +212,7 @@
 </ul>
 <p>Addionally, the installation of the following RPMs (or equivalent) is required:</p>
 <ul class="simple">
-<li>All RPMs listed in <a class="reference internal" href="../admin/traffic_ops_install.html#rl-ps"><span class="std std-ref">Installing Traffic Ops</span></a></li>
+<li>All RPMs listed in <a class="reference internal" href="../admin/traffic_ops/migration_from_10_to_20.html#rl-ps"><span class="std std-ref">Traffic Ops - Migrating from 1.x to 2.x</span></a></li>
 <li>mysql-test</li>
 </ul>
 </div>
@@ -494,7 +496,7 @@ Warning: Using a password on the command line interface can be insecure.
 </ol>
 <blockquote>
 <div>These allow you to add statistic sources for the graph views and APIs.</div></blockquote>
-<p>Extensions are managed using the $TO_HOME/bin/extensions command line script. For more information see <a class="reference internal" href="../admin/traffic_ops_extensions.html#admin-to-ext-script"><span class="std std-ref">Managing Traffic Ops Extensions</span></a>.</p>
+<p>Extensions are managed using the $TO_HOME/bin/extensions command line script. For more information see <a class="reference internal" href="../admin/traffic_ops/extensions.html#admin-to-ext-script"><span class="std std-ref">Managing Traffic Ops Extensions</span></a>.</p>
 <div class="section" id="check-extensions">
 <h3>Check Extensions<a class="headerlink" href="#check-extensions" title="Permalink to this headline">¶</a></h3>
 <p>In other words, check extensions are scripts that, after registering with Traffic Ops, have a column reserved in the &#8220;Health-&gt;Server Checks&#8221; view and that usually run periodically out of cron.</p>
@@ -845,7 +847,7 @@ Extensions::YourCustomExtension</p>
         <a href="traffic_ops_api/routes.html" class="btn btn-neutral float-right" title="API Routes">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Developer’s Guide"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="building.html" class="btn btn-neutral" title="Building Traffic Control"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -874,7 +876,7 @@ Extensions::YourCustomExtension</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.8-dev',
+            VERSION:'2.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
