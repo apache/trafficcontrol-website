@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Managing Traffic Ops Extensions &mdash; Traffic Control 1.8.1 documentation </title>
+  <title>Managing Traffic Ops Extensions &mdash; Traffic Control 1.8-dev documentation </title>
   
 
   
@@ -33,10 +33,7 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Traffic Control 1.8.1 documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Traffic Portal Administration" href="traffic_portal.html"/>
         <link rel="prev" title="Using Traffic Ops" href="traffic_ops_using.html"/> 
@@ -162,14 +159,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.8.1</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Managing Traffic Ops Extensions</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/admin/traffic_ops_extensions.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/admin/traffic_ops_extensions.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -193,7 +190,7 @@
 <p>The extensions must be registered with Traffic Ops in order to display a column on the Server Check page. The list of currently registered extensions can be listed by running <code class="docutils literal"><span class="pre">/opt/traffic_ops/app/bin/extensions</span> <span class="pre">-a</span></code>.</p>
 <p>The below extensions are automatically registered with the Traffic Ops database (<code class="docutils literal"><span class="pre">to_extension</span></code> table) at install time (see <code class="docutils literal"><span class="pre">traffic_ops/app/db/seeds.sql</span></code>). However, cron must still be configured to run these checks periodically.</p>
 <p>The scripts are called as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre>$TO_HOME/bin/checks/To&lt;name&gt;Check.pl  -c &quot;{\&quot;base_url\&quot;: \&quot;,https://\&quot;&lt;traffic_ops_ip&gt;\&quot;, \&quot;check_name\&quot;: \&quot;&lt;check_name&gt;\&quot;}&quot; -l &lt;log level&gt;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$TO_HOME/bin/checks/To&lt;name&gt;Check.pl  -c &quot;{\&quot;base_url\&quot;: \&quot;,https://\&quot;&lt;traffic_ops_ip&gt;\&quot;, \&quot;check_name\&quot;: \&quot;&lt;check_name&gt;\&quot;}&quot; -l &lt;log level&gt;
 where:
 
 &lt;name&gt; is the type of check script
@@ -205,7 +202,7 @@ where:
 <div class="section" id="example-cron-file">
 <h2>Example Cron File<a class="headerlink" href="#example-cron-file" title="Permalink to this headline">¶</a></h2>
 <p>Edit with <code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code>. You may need to adjust the path to your $TO_HOME to match your system.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">PERL5LIB</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">perl5</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">lib</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PERL5LIB</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">perl5</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">lib</span>
 
 <span class="c1"># IPv4 ping examples - The &#39;select: [&quot;hostName&quot;,&quot;domainName&quot;]&#39; works but, if you want to check DNS resolution use FQDN.</span>
 <span class="o">*/</span><span class="mi">15</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="n">root</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">checks</span><span class="o">/</span><span class="n">ToPingCheck</span><span class="o">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">base_url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">check_name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">10G</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">select</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\&quot;</span><span class="s2">hostName</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">domainName</span><span class="se">\&quot;</span><span class="s2">]}&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">extensionCheck</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
@@ -290,7 +287,7 @@ where:
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.8.1',
+            VERSION:'1.8-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

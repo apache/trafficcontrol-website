@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Vault Administration &mdash; Traffic Control 1.8.1 documentation </title>
+  <title>Traffic Vault Administration &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,10 +33,7 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Traffic Control 1.8.1 documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Quick How To Guides" href="quick_howto/index.html"/>
         <link rel="prev" title="Traffic Server Administration" href="traffic_server.html"/> 
@@ -105,12 +102,15 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
@@ -121,10 +121,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -162,14 +164,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 1.8.1</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Traffic Vault Administration</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/admin/traffic_vault.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/admin/traffic_vault.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -202,12 +204,14 @@ The installation instructions for Riak can be found <a class="reference external
 <div class="section" id="riak-configuration-file-configuration">
 <h3>Riak configuration file configuration<a class="headerlink" href="#riak-configuration-file-configuration" title="Permalink to this headline">¶</a></h3>
 <p>The following steps need to be performed on each Riak server in the cluster:</p>
-<ul class="simple">
-<li>Log into riak server as root</li>
-<li>cd to /etc/riak/</li>
+<ul>
+<li><p class="first">Log into riak server as root</p>
+</li>
+<li><p class="first">cd to /etc/riak/</p>
+</li>
 <li><dl class="first docutils">
 <dt>Update the following in riak.conf to reflect your IP:</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>nodename = <a class="reference external" href="mailto:riak&#37;&#52;&#48;a-host&#46;sys&#46;kabletown&#46;net">riak<span>&#64;</span>a-host<span>&#46;</span>sys<span>&#46;</span>kabletown<span>&#46;</span>net</a></li>
 <li>listener.http.internal = a-host.sys.kabletown.net:8098 (can be 80 - This endpoint will not work with sec enabled)</li>
 <li>listener.protobuf.internal = a-host.sys.kabletown.net:8087 (can be different port if you want)</li>
@@ -218,7 +222,7 @@ The installation instructions for Riak can be found <a class="reference external
 </li>
 <li><dl class="first docutils">
 <dt>Updated the following conf file to point to your cert files</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>ssl.certfile = /etc/riak/certs/server.crt</li>
 <li>ssl.keyfile = /etc/riak/certs/server.key</li>
 <li>ssl.cacertfile = /etc/pki/tls/certs/ca-bundle.crt</li>
@@ -228,7 +232,7 @@ The installation instructions for Riak can be found <a class="reference external
 </li>
 <li><dl class="first docutils">
 <dt>Add a line at the bottom of the config for tlsv1</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>tls_protocols.tlsv1 = on</li>
 </ul>
 </dd>
@@ -236,7 +240,7 @@ The installation instructions for Riak can be found <a class="reference external
 </li>
 <li><dl class="first docutils">
 <dt>Once the config file has been updated restart riak</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li><code class="docutils literal"><span class="pre">/etc/init.d/riak</span> <span class="pre">restart</span></code></li>
 </ul>
 </dd>
@@ -244,7 +248,7 @@ The installation instructions for Riak can be found <a class="reference external
 </li>
 <li><dl class="first docutils">
 <dt>Validate server is running by going to the following URL:</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li><a class="reference external" href="https:/">https:/</a>/&lt;serverHostname&gt;:8088/ping</li>
 </ul>
 </dd>
@@ -364,10 +368,10 @@ The installation instructions for Riak can be found <a class="reference external
 <div class="section" id="riak-configuration">
 <h3>Riak Configuration<a class="headerlink" href="#riak-configuration" title="Permalink to this headline">¶</a></h3>
 <p>On Each Riak Server:</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><dl class="first docutils">
 <dt>If java is not already installed on your Riak server, install Java</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>To see if Java is already installed: <code class="docutils literal"><span class="pre">java</span> <span class="pre">-version</span></code></li>
 <li>To install Java: <code class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">jdk</span></code></li>
 </ul>
@@ -376,7 +380,7 @@ The installation instructions for Riak can be found <a class="reference external
 </li>
 <li><dl class="first docutils">
 <dt>enable search in riak.conf</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li><code class="docutils literal"><span class="pre">vim</span> <span class="pre">/etc/riak/riak.conf</span></code></li>
 <li>look for search and change <code class="docutils literal"><span class="pre">search</span> <span class="pre">=</span> <span class="pre">off</span></code> to <code class="docutils literal"><span class="pre">search</span> <span class="pre">=</span> <span class="pre">on</span></code></li>
 </ul>
@@ -385,7 +389,7 @@ The installation instructions for Riak can be found <a class="reference external
 </li>
 <li><dl class="first docutils">
 <dt>Restart Riak so search is on</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li><code class="docutils literal"><span class="pre">service</span> <span class="pre">riak</span> <span class="pre">restart</span></code></li>
 </ul>
 </dd>
@@ -403,19 +407,19 @@ The installation instructions for Riak can be found <a class="reference external
 <p><code class="docutils literal"><span class="pre">riak-admin</span> <span class="pre">security</span> <span class="pre">grant</span> <span class="pre">search.query</span> <span class="pre">on</span> <span class="pre">index</span> <span class="pre">to</span> <span class="pre">riakuser</span></code></p>
 <p><code class="docutils literal"><span class="pre">riak-admin</span> <span class="pre">security</span> <span class="pre">grant</span> <span class="pre">search.query</span> <span class="pre">on</span> <span class="pre">index</span> <span class="pre">sslkeys</span> <span class="pre">to</span> <span class="pre">riakuser</span></code></p>
 <p><code class="docutils literal"><span class="pre">riak-admin</span> <span class="pre">security</span> <span class="pre">grant</span> <span class="pre">riak_core.set_bucket</span> <span class="pre">on</span> <span class="pre">any</span> <span class="pre">to</span> <span class="pre">admin</span></code></p>
-<ol class="arabic simple" start="2">
+<ol class="arabic" start="2">
 <li><dl class="first docutils">
 <dt>Add the search schema to Riak.  This schema is a simple Apache Solr configuration file which will index all records on cdn, hostname, and deliveryservice.</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>Get the schema file by either cloning the project and going to <cite>traffic_ops/app/config/misc/riak_search</cite> or from <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/tree/master/traffic_ops/app/conf/misc/riak_search">github</a>.</li>
-<li>Use curl to add the schema to riak: <code class="docutils literal"><span class="pre">curl</span> <span class="pre">-kvs</span> <span class="pre">-XPUT</span> <span class="pre">&quot;https://admin:pass&#64;riakserver:8088/search/schema/sslkeys&quot;</span> <span class="pre">-H</span> <span class="pre">'Content-Type:application/xml'</span>&#160; <span class="pre">-d</span> <span class="pre">&#64;sslkeys.xml</span></code></li>
+<li>Use curl to add the schema to riak: <code class="docutils literal"><span class="pre">curl</span> <span class="pre">-kvs</span> <span class="pre">-XPUT</span> <span class="pre">&quot;https://admin:pass&#64;riakserver:8088/search/schema/sslkeys&quot;</span> <span class="pre">-H</span> <span class="pre">'Content-Type:application/xml'</span>&nbsp; <span class="pre">-d</span> <span class="pre">&#64;sslkeys.xml</span></code></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Add search index to Riak</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>run the following curl command:  <code class="docutils literal"><span class="pre">curl</span> <span class="pre">-kvs</span> <span class="pre">-XPUT</span> <span class="pre">&quot;https://admin:pass&#64;riakserver:8088/search/index/sslkeys&quot;</span> <span class="pre">-H</span> <span class="pre">'Content-Type:</span> <span class="pre">application/json'</span> <span class="pre">-d</span> <span class="pre">'{&quot;schema&quot;:&quot;sslkeys&quot;}'</span></code></li>
 </ul>
 </dd>
@@ -423,7 +427,7 @@ The installation instructions for Riak can be found <a class="reference external
 </li>
 <li><dl class="first docutils">
 <dt>Associate the sslkeys index to the ssl bucket in Riak</dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>run the following curl command: <code class="docutils literal"><span class="pre">curl</span> <span class="pre">-kvs</span> <span class="pre">-XPUT</span> <span class="pre">&quot;https://admin:pass&#64;riakserver:8088/buckets/ssl/props&quot;</span> <span class="pre">-H'content-type:application/json'</span> <span class="pre">-d'{&quot;props&quot;:{&quot;search_index&quot;:&quot;sslkeys&quot;}}'</span></code></li>
 </ul>
 </dd>
@@ -481,10 +485,11 @@ The installation instructions for Riak can be found <a class="reference external
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.8.1',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

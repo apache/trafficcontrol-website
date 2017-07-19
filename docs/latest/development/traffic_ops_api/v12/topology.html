@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Snapshot CRConfig &mdash; Traffic Control 1.8.1 documentation </title>
+  <title>Snapshot CRConfig &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,10 +33,7 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Traffic Control 1.8.1 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Traffic Portal" href="../../traffic_portal.html"/>
         <link rel="prev" title="Users" href="user.html"/> 
@@ -105,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -121,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -162,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.8.1</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -171,7 +173,7 @@
     <li>Snapshot CRConfig</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../../_sources/development/traffic_ops_api/v12/topology.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../../_sources/development/traffic_ops_api/v12/topology.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -193,10 +195,174 @@
 <span id="to-api-v12-topology"></span><h1>Snapshot CRConfig<a class="headerlink" href="#snapshot-crconfig" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-1-2-snapshot-cdn-name">
 <span id="to-api-v12-topology-route"></span><h2>/api/1.2/snapshot/{:cdn_name}<a class="headerlink" href="#api-1-2-snapshot-cdn-name" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /api/1.2/cdns/{:cdn_name}/snapshot</strong></p>
+<blockquote>
+<div><p>Retrieves the CURRENT snapshot for a CDN which doesn&#8217;t necessarily represent the current state of the CDN. The contents of this snapshot are currently used by Traffic Monitor and Traffic Router.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="14%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn_name</span></code></td>
+<td>yes</td>
+<td>CDN name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="7%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">config</span></code></td>
+<td>hash</td>
+<td>General CDN configuration settings.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">contentRouters</span></code></td>
+<td>hash</td>
+<td>A list of Traffic Routers.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">contentServers</span></code></td>
+<td>hash</td>
+<td>A list of Traffic Servers and the delivery services associated with each.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryServices</span></code></td>
+<td>hash</td>
+<td>A list of delivery services.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">edgeLocations</span></code></td>
+<td>hash</td>
+<td>A list of cache groups.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">stats</span></code></td>
+<td>hash</td>
+<td>Snapshot properties.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;contentRouters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;contentServers&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;edgeLocations&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+            <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/cdns/{:cdn_name}/snapshot/new</strong></p>
+<blockquote>
+<div><p>Retrieves a PENDING snapshot for a CDN which represents the current state of the CDN. The contents of this snapshot are NOT currently used by Traffic Monitor and Traffic Router. Once a snapshot is performed, this snapshot will become the CURRENT snapshot and will be used by Traffic Monitor and Traffic Router.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="14%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn_name</span></code></td>
+<td>yes</td>
+<td>CDN name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="7%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">config</span></code></td>
+<td>hash</td>
+<td>General CDN configuration settings.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">contentRouters</span></code></td>
+<td>hash</td>
+<td>A list of Traffic Routers.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">contentServers</span></code></td>
+<td>hash</td>
+<td>A list of Traffic Servers and the delivery services associated with each.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryServices</span></code></td>
+<td>hash</td>
+<td>A list of delivery services.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">edgeLocations</span></code></td>
+<td>hash</td>
+<td>A list of cache groups.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">stats</span></code></td>
+<td>hash</td>
+<td>Snapshot properties.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;contentRouters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;contentServers&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;deliveryServices&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;edgeLocations&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+                    <span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+            <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><strong>PUT /api/1.2/snapshot/{:cdn_name}</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
-<p>Role(s) Required: admin or oper</p>
+<p>Role(s) Required: Admin or Operations</p>
 <p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -238,7 +404,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -288,10 +454,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.8.1',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

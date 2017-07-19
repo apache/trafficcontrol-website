@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>System &mdash; Traffic Control 1.8.1 documentation </title>
+  <title>System &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,10 +33,7 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Traffic Control 1.8.1 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="TO Extensions" href="to_extension.html"/>
         <link rel="prev" title="Status" href="status.html"/> 
@@ -105,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -121,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -162,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.8.1</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -171,7 +173,7 @@
     <li>System</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../../_sources/development/traffic_ops_api/v11/system.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../../_sources/development/traffic_ops_api/v11/system.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -219,7 +221,7 @@ These are all the parameters in the <code class="docutils literal"><span class="
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;tm.toolname</span></code></td>
 <td>string</td>
 <td>The name of the Traffic Ops tool. Usually &#8220;Traffic Ops&#8221;. Used in the About screen and in the comments headers of the files generated
-(<code class="docutils literal"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&#160; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
+(<code class="docutils literal"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&nbsp; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;tm.instance_name</span></code></td>
 <td>string</td>
@@ -235,7 +237,7 @@ set this parameter on a production system.</td>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;tm.url</span></code></td>
 <td>string</td>
 <td>The URL for this Traffic Ops instance. Used in the About screen and in the comments headers of the files generated
-(<code class="docutils literal"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&#160; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
+(<code class="docutils literal"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&nbsp; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;traffic_mon_fwd_proxy</span></code></td>
 <td>string</td>
@@ -255,7 +257,7 @@ set this parameter on a production system.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;tm.toolname&quot;</span><span class="p">:</span> <span class="s2">&quot;Traffic Ops&quot;</span><span class="p">,</span>
@@ -312,10 +314,11 @@ set this parameter on a production system.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.8.1',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

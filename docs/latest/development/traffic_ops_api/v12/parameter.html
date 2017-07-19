@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parameter &mdash; Traffic Control 1.8.1 documentation </title>
+  <title>Parameter &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,13 +33,10 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="Traffic Control 1.8.1 documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Physical Location" href="phys_location.html"/>
-        <link rel="prev" title="Hardware Info" href="hwinfo.html"/> 
+        <link rel="prev" title="Jobs" href="job.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -105,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -121,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -162,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control 1.8.1</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -171,7 +173,7 @@
     <li>Parameter</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../../_sources/development/traffic_ops_api/v12/parameter.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../../_sources/development/traffic_ops_api/v12/parameter.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -183,7 +185,7 @@
         		  <a href="phys_location.html" class="btn btn-neutral float-right" title="Physical Location">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="hwinfo.html" class="btn btn-neutral" title="Hardware Info"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="job.html" class="btn btn-neutral" title="Jobs"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -234,7 +236,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
        <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
@@ -306,7 +308,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
           <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
@@ -386,7 +388,85 @@
 </div></blockquote>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR_TOP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for top.foobar.net&quot;</span>
+    <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/parameters/:id/unassigned_profiles</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p>Retrieves all profiles NOT assigned to the parameter.</p>
+<blockquote>
+<div><p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Parameter ID.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="10%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>array</td>
+<td>The Time / Date this server entry was last updated</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>The name for the profile</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>string</td>
+<td>Primary key</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<td>string</td>
+<td>The description for the profile</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
@@ -404,7 +484,8 @@
 </div>
 <p><strong>GET /api/1.2/profiles/:id/parameters</strong></p>
 <blockquote>
-<div><p>Authentication Required: Yes</p>
+<div><p>Retrieves all parameters assigned to the profile.</p>
+<p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
 <p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
@@ -463,7 +544,100 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+       <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;foo.bar.net&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domain_name&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;FooConfig.xml&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+       <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;0,1,2,3,4,5,6&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Drive_Letters&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;storage.config&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+       <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;STRING __HOSTNAME__&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CONFIG proxy.config.proxy_name&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;records.config&quot;</span>
+    <span class="p">}</span>
+ <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>GET /api/1.2/profiles/:id/unassigned_parameters</strong></p>
+<blockquote>
+<div><p>Retrieves all parameters NOT assigned to the profile.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="20%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>yes</td>
+<td>Profile id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="8%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">last_updated</span></code></td>
+<td>string</td>
+<td>The Time / Date this server entry was last updated</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">secure</span></code></td>
+<td>boolean</td>
+<td>When true, the parameter is accessible only by admin users. Defaults to false.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">value</span></code></td>
+<td>string</td>
+<td>The parameter value, only visible to admin if secure is true</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<td>string</td>
+<td>The parameter name</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">config_file</span></code></td>
+<td>string</td>
+<td>The parameter config_file</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
        <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
@@ -555,7 +729,7 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
        <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
@@ -647,7 +821,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>&#160;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td>yes</td>
 <td>array</td>
 <td>parameters array</td>
@@ -688,7 +862,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>&#160;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td>array</td>
 <td>parameters array</td>
 </tr>
@@ -717,7 +891,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 <p><strong>Request Example</strong></p>
 <ol class="arabic">
 <li><p class="first">single parameter format example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
@@ -727,7 +901,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </div>
 </li>
 <li><p class="first">array format example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
         <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
@@ -746,7 +920,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </li>
 </ol>
 <p><strong>Response Example</strong></p>
-<div class="last highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
@@ -871,7 +1045,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
@@ -880,7 +1054,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="last highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
@@ -950,12 +1124,12 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
 <td>string</td>
-<td>&#160;</td>
+<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="last highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;alerts&quot;</span><span class="p">:</span>
     <span class="p">[</span>
       <span class="p">{</span>
@@ -1041,7 +1215,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span>
@@ -1049,7 +1223,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="last highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;secure&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
@@ -1077,7 +1251,7 @@ The request route parameters accept 2 formats, both single paramter and paramete
         <a href="phys_location.html" class="btn btn-neutral float-right" title="Physical Location">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hwinfo.html" class="btn btn-neutral" title="Hardware Info"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="job.html" class="btn btn-neutral" title="Jobs"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1106,10 +1280,11 @@ The request route parameters accept 2 formats, both single paramter and paramete
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'1.8.1',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
