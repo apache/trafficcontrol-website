@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>System &mdash; Traffic Control master documentation </title>
+  <title>System &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,10 +33,10 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
-        <link rel="next" title="TO Extensions" href="to_extension.html"/>
-        <link rel="prev" title="Status" href="status.html"/> 
+        <link rel="next" title="Tenants" href="tenant.html"/>
+        <link rel="prev" title="Steering Targets" href="steering_target.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -102,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -177,10 +182,10 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="to_extension.html" class="btn btn-neutral float-right" title="TO Extensions">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="tenant.html" class="btn btn-neutral float-right" title="Tenants">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="status.html" class="btn btn-neutral" title="Status"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="steering_target.html" class="btn btn-neutral" title="Steering Targets"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -252,16 +257,16 @@ set this parameter on a production system.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">&quot;tm.toolname&quot;</span><span class="p">:</span> <span class="s">&quot;Traffic Ops&quot;</span><span class="p">,</span>
-      <span class="s">&quot;tm.infourl&quot;</span><span class="p">:</span> <span class="s">&quot;http:\/\/staging-03.cdnlab.kabletown.net\/tm\/info&quot;</span><span class="p">,</span>
-      <span class="s">&quot;traffic_mon_fwd_proxy&quot;</span><span class="p">:</span> <span class="s">&quot;http:\/\/proxy.kabletown.net:81&quot;</span><span class="p">,</span>
-      <span class="s">&quot;traffic_rtr_fwd_proxy&quot;</span><span class="p">:</span> <span class="s">&quot;http:\/\/proxy.kabletown.net:81&quot;</span><span class="p">,</span>
-      <span class="s">&quot;tm.logourl&quot;</span><span class="p">:</span> <span class="s">&quot;\/images\/tc_logo.png&quot;</span><span class="p">,</span>
-      <span class="s">&quot;tm.url&quot;</span><span class="p">:</span> <span class="s">&quot;https:\/\/tm.kabletown.net\/&quot;</span><span class="p">,</span>
-      <span class="s">&quot;tm.instance_name&quot;</span><span class="p">:</span> <span class="s">&quot;Kabletown CDN&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;tm.toolname&quot;</span><span class="p">:</span> <span class="s2">&quot;Traffic Ops&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tm.infourl&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/staging-03.cdnlab.kabletown.net\/tm\/info&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;traffic_mon_fwd_proxy&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/proxy.kabletown.net:81&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;traffic_rtr_fwd_proxy&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/proxy.kabletown.net:81&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tm.logourl&quot;</span><span class="p">:</span> <span class="s2">&quot;\/images\/tc_logo.png&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tm.url&quot;</span><span class="p">:</span> <span class="s2">&quot;https:\/\/tm.kabletown.net\/&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tm.instance_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kabletown CDN&quot;</span>
     <span class="p">}</span>
   <span class="p">},</span>
 <span class="p">}</span>
@@ -280,10 +285,10 @@ set this parameter on a production system.</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="to_extension.html" class="btn btn-neutral float-right" title="TO Extensions">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tenant.html" class="btn btn-neutral float-right" title="Tenants">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="status.html" class="btn btn-neutral" title="Status"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="steering_target.html" class="btn btn-neutral" title="Steering Targets"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -312,10 +317,11 @@ set this parameter on a production system.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

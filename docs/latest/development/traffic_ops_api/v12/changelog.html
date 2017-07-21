@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Change Logs &mdash; Traffic Control master documentation </title>
+  <title>Change Logs &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,9 +33,9 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
-        <link rel="next" title="Delivery Service" href="deliveryservice.html"/>
+        <link rel="next" title="/api/1.2/servers/:hostname/configfiles/ats" href="configfiles_ats.html"/>
         <link rel="prev" title="CDN" href="cdn.html"/> 
 
   
@@ -102,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -177,7 +182,7 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="deliveryservice.html" class="btn btn-neutral float-right" title="Delivery Service">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="configfiles_ats.html" class="btn btn-neutral float-right" title="/api/1.2/servers/:hostname/configfiles/ats">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
         		  <a href="cdn.html" class="btn btn-neutral" title="CDN"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -190,10 +195,34 @@
 <span id="to-api-v12-change-logs"></span><h1>Change Logs<a class="headerlink" href="#change-logs" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-1-2-logs">
 <span id="to-api-v12-change-logs-route"></span><h2>/api/1.2/logs<a class="headerlink" href="#api-1-2-logs" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.2/logs.json</strong></p>
+<p><strong>GET /api/1.2/logs</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
+<p><strong>Request Query Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">days</span></code></td>
+<td>no</td>
+<td>The number of days of change logs to return.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">limit</span></code></td>
+<td>no</td>
+<td>The number of rows to limit the response to.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -235,23 +264,23 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;OPER&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2015-02-04 22:59:13&quot;</span><span class="p">,</span>
-       <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="s">&quot;userid852&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22661&quot;</span><span class="p">,</span>
-       <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Snapshot CRConfig created.&quot;</span>
+       <span class="s2">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;OPER&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-04 22:59:13&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;userid852&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22661&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Snapshot CRConfig created.&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;APICHANGE&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2015-02-03 17:04:20&quot;</span><span class="p">,</span>
-       <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="s">&quot;userid853&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22658&quot;</span><span class="p">,</span>
-       <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Update server odol-atsec-nyc-23.kbaletown.net status=REPORTED&quot;</span>
+       <span class="s2">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;APICHANGE&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-03 17:04:20&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;userid853&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22658&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Update server odol-atsec-nyc-23.kbaletown.net status=REPORTED&quot;</span>
     <span class="p">},</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -261,7 +290,7 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.2/logs/:days/days.json</strong></p>
+<p><strong>GET /api/1.2/logs/:days/days</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
@@ -326,23 +355,23 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;OPER&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2015-02-04 22:59:13&quot;</span><span class="p">,</span>
-       <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="s">&quot;userid852&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22661&quot;</span><span class="p">,</span>
-       <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Snapshot CRConfig created.&quot;</span>
+       <span class="s2">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;OPER&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-04 22:59:13&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;userid852&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22661&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Snapshot CRConfig created.&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;APICHANGE&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2015-02-03 17:04:20&quot;</span><span class="p">,</span>
-       <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="s">&quot;userid853&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;22658&quot;</span><span class="p">,</span>
-       <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Update server odol-atsec-nyc-23.kabletown.net status=REPORTED&quot;</span>
+       <span class="s2">&quot;ticketNum&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;APICHANGE&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-03 17:04:20&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;userid853&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22658&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Update server odol-atsec-nyc-23.kabletown.net status=REPORTED&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -352,7 +381,7 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.2/logs/newcount.json</strong></p>
+<p><strong>GET /api/1.2/logs/newcount</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
@@ -377,9 +406,9 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-     <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;newLogcount&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;newLogcount&quot;</span><span class="p">:</span> <span class="mi">0</span>
      <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -394,7 +423,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="deliveryservice.html" class="btn btn-neutral float-right" title="Delivery Service">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="configfiles_ats.html" class="btn btn-neutral float-right" title="/api/1.2/servers/:hostname/configfiles/ats">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cdn.html" class="btn btn-neutral" title="CDN"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -426,10 +455,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

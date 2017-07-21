@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Portal Administration &mdash; Traffic Control master documentation </title>
+  <title>Traffic Portal Administration &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,10 +33,10 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Traffic Monitor Administration" href="traffic_monitor.html"/>
-        <link rel="prev" title="Managing Traffic Ops Extensions" href="traffic_ops_extensions.html"/> 
+        <link rel="prev" title="Managing Traffic Ops Extensions" href="traffic_ops/extensions.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -102,12 +102,15 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -178,7 +183,7 @@
         		  <a href="traffic_monitor.html" class="btn btn-neutral float-right" title="Traffic Monitor Administration">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="traffic_ops_extensions.html" class="btn btn-neutral" title="Managing Traffic Ops Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="traffic_ops/extensions.html" class="btn btn-neutral" title="Managing Traffic Ops Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -234,7 +239,7 @@
         <a href="traffic_monitor.html" class="btn btn-neutral float-right" title="Traffic Monitor Administration">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="traffic_ops_extensions.html" class="btn btn-neutral" title="Managing Traffic Ops Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="traffic_ops/extensions.html" class="btn btn-neutral" title="Managing Traffic Ops Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -263,10 +268,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

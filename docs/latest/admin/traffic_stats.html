@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Stats Administration &mdash; Traffic Control master documentation </title>
+  <title>Traffic Stats Administration &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Traffic Server Administration" href="traffic_server.html"/>
         <link rel="prev" title="Traffic Router Administration" href="traffic_router.html"/> 
@@ -102,14 +102,17 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Traffic Stats Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_vault.html">Traffic Vault Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_howto/index.html">Quick How To Guides</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -192,9 +197,10 @@
 <p><strong>Installing Traffic Stats:</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li>Download the Traffic Stats RPM from the traffic control <a class="reference external" href="https://trafficcontrol.apache.org/downloads/index.html">downloads</a> page.</li>
-<li>Copy the Traffic Stats RPM to your server</li>
-<li>sudo rpm -ivh &lt;traffic_stats rpm&gt;</li>
+<li>See the <a class="reference external" href="https://trafficcontrol.apache.org/downloads/index.html">downloads</a> page for Traffic Control to get the lastest release.</li>
+<li>Follow our build <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/tree/master/build">intructions</a> to generate an RPM.</li>
+<li>Copy the RPM to your server</li>
+<li>perform the following command: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">rpm</span> <span class="pre">-ivh</span> <span class="pre">&lt;traffic_stats</span> <span class="pre">rpm&gt;</span></code></li>
 </ul>
 </div></blockquote>
 <p><strong>Installing InfluxDB:</strong></p>
@@ -325,27 +331,27 @@ The following values need to be configured:</p>
 <p>Under the Traffic Stats source directory there is a directory called influxdb_tools.  These tools are meant to be used as one-off scripts to help a user quickly get new databases and continuous queries setup in influxdb.
 They are specific for traffic stats and are not meant to be generic to influxdb.  Below is an brief description of each script along with how to use it.</p>
 <dl class="docutils">
-<dt><strong>create_ts_databases</strong></dt>
+<dt><strong>create/create_ts_databases.go</strong></dt>
 <dd><p class="first">This script creates all <a class="reference external" href="https://docs.influxdata.com/influxdb/latest/concepts/key_concepts/#database">databases</a>, <a class="reference external" href="https://docs.influxdata.com/influxdb/latest/concepts/key_concepts/#retention-policy">retention policies</a>, and <a class="reference external" href="https://docs.influxdata.com/influxdb/v0.11/query_language/continuous_queries/">continuous queries</a> required by traffic stats.</p>
 <p><strong>How to use create_ts_databases:</strong></p>
 <p>Pre-Requisites:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Go 1.4 or later</li>
+<li>Go 1.7 or later</li>
 <li>configured $GOPATH (e.g. export GOPATH=~/go)</li>
 </ol>
 </div></blockquote>
 <p>Using create_ts_databases.go</p>
 <blockquote class="last">
 <div><ol class="arabic">
-<li><p class="first">go get github.com/influxdata/influxdb</p>
+<li><p class="first">go to the traffic_stats/influxdb_tools/create directory</p>
 </li>
-<li><p class="first">go build create_ts_databases.go</p>
+<li><p class="first">build it by running <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span> <span class="pre">create_ts_databases.go</span></code> or simply <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span></code></p>
 </li>
 <li><dl class="first docutils">
 <dt>Run it:</dt>
 <dd><ul class="first last">
-<li><p class="first">./create_ts_databases -help</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">./create_ts_databases</span> <span class="pre">-help</span></code> or <code class="docutils literal"><span class="pre">./create</span> <span class="pre">-help</span></code></p>
 </li>
 <li><dl class="first docutils">
 <dt>optional flags:</dt>
@@ -358,7 +364,7 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 </dd>
 </dl>
 </li>
-<li><p class="first">example: ./create_ts_databases -url=localhost:8086 -replication=3 -user=joe -password=mysecret</p>
+<li><p class="first">example: <code class="docutils literal"><span class="pre">./create_ts_databases</span> <span class="pre">-url=localhost:8086</span> <span class="pre">-replication=3</span> <span class="pre">-user=joe</span> <span class="pre">-password=mysecret</span></code> or <code class="docutils literal"><span class="pre">./create</span> <span class="pre">-url=localhost:8086</span> <span class="pre">-replication=3</span> <span class="pre">-user=joe</span> <span class="pre">-password=mysecret</span></code></p>
 </li>
 </ul>
 </dd>
@@ -373,27 +379,27 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 <p>Pre-Requisites:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Go 1.4 or later</li>
+<li>Go 1.7 or later</li>
 <li>configured $GOPATH (e.g. export GOPATH=~/go)</li>
 </ol>
 </div></blockquote>
 <p>Using sync_ts_databases.go:</p>
 <blockquote class="last">
 <div><ol class="arabic">
-<li><p class="first">go get github.com/influxdata/influxdb</p>
+<li><p class="first">go to the traffic_stats/influxdb_tools/create directory</p>
 </li>
-<li><p class="first">go build sync_ts_databases.go</p>
+<li><p class="first">build it by running <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span> <span class="pre">sync_ts_databases.go</span></code> or simply <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span></code></p>
 </li>
 <li><dl class="first docutils">
 <dt>Run it</dt>
 <dd><ul class="first">
-<li><p class="first">./sync_ts_databases -help</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">./sync_ts_databases</span> <span class="pre">-help</span></code> or <code class="docutils literal"><span class="pre">./sync</span> <span class="pre">-help</span></code></p>
 </li>
 <li><dl class="first docutils">
 <dt>required flags:</dt>
 <dd><ul class="first last simple">
-<li>sourceUrl - The URL of the source database</li>
-<li>targetUrl - The URL of the target database</li>
+<li>source-url - The URL of the source database</li>
+<li>target-url - The URL of the target database</li>
 </ul>
 </dd>
 </dl>
@@ -404,15 +410,15 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 <dd><ul class="first last simple">
 <li>database - The database to sync (default = sync all databases)</li>
 <li>days - Days in the past to sync (default = sync all data)</li>
-<li>sourceUser - The user of the source database</li>
-<li>sourcePass - The password for the source database</li>
-<li>targetUser - The user of the target database</li>
-<li>targetPass - The password for the target database</li>
+<li>source-user - The user of the source database</li>
+<li>source-pass - The password for the source database</li>
+<li>target-user - The user of the target database</li>
+<li>target-pass - The password for the target database</li>
 </ul>
 </dd>
 </dl>
 <ul class="last simple">
-<li>example: ./sync_ts_databases -sourceUrl=http://influxdb-production-01.kabletown.net:8086 -targetUrl=http://influxdb-dev-01.kabletown.net:8086 -database=cache_stats -days=7 -sourceUser=joe sourcePass=mysecret</li>
+<li>example: <cite>./sync -source-url=http://idb-01.foo.net:8086 -target-url=http://idb-01.foo.net:8086 -database=cache_stats -days=7 -source-user=admin source-pass=mysecret</cite></li>
 </ul>
 </dd>
 </dl>
@@ -462,10 +468,11 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

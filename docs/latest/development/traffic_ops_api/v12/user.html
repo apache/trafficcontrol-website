@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Users &mdash; Traffic Control master documentation </title>
+  <title>Users &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Snapshot CRConfig" href="topology.html"/>
         <link rel="prev" title="Types" href="type.html"/> 
@@ -102,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -281,6 +286,14 @@
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<td>string</td>
+<td>Owning tenant name</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>Owning tenant ID</td>
+</tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">uid</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
@@ -292,29 +305,31 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-   <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                     <span class="s">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;company&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;country&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;email1@email.com&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;fullName&quot;</span><span class="p">:</span> <span class="s">&quot;Tom Simpson&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;gid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;53&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2016-01-26 10:22:07&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                     <span class="s">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;publicSshKey&quot;</span><span class="p">:</span> <span class="s">&quot;xxx&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;registrationSent&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                     <span class="s">&quot;role&quot;</span><span class="p">:</span> <span class="s">&quot;6&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;rolename&quot;</span><span class="p">:</span> <span class="s">&quot;admin&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;uid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;tsimpson&quot;</span>
+                     <span class="s2">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email1@email.com&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;fullName&quot;</span><span class="p">:</span> <span class="s2">&quot;Tom Simpson&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;gid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;53&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-26 10:22:07&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                     <span class="s2">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;publicSshKey&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;registrationSent&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                     <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;rolename&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s2">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;tsimpson&quot;</span>
               <span class="p">},</span>
               <span class="p">{</span>
                      <span class="o">...</span> <span class="n">more</span> <span class="n">users</span>
@@ -438,6 +453,14 @@
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<td>string</td>
+<td>Owning tenant name</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>Owning tenant ID</td>
+</tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">uid</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
@@ -449,35 +472,299 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-   <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                     <span class="s">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;company&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;country&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;email1@email.com&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;fullName&quot;</span><span class="p">:</span> <span class="s">&quot;Tom Simpson&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;gid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;53&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2016-01-26 10:22:07&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                     <span class="s">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;publicSshKey&quot;</span><span class="p">:</span> <span class="s">&quot;xxx&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;registrationSent&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                     <span class="s">&quot;role&quot;</span><span class="p">:</span> <span class="s">&quot;6&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;rolename&quot;</span><span class="p">:</span> <span class="s">&quot;admin&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;uid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-                     <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;tsimpson&quot;</span>
+                     <span class="s2">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email1@email.com&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;fullName&quot;</span><span class="p">:</span> <span class="s2">&quot;Tom Simpson&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;gid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;53&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-26 10:22:07&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                     <span class="s2">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;publicSshKey&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;registrationSent&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                     <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;rolename&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s2">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;tsimpson&quot;</span>
               <span class="p">},</span>
               <span class="p">{</span>
                      <span class="o">...</span> <span class="n">more</span> <span class="n">users</span>
               <span class="p">},</span>
      <span class="p">]</span>
  <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.2/users</strong></p>
+<blockquote>
+<div><p>Create a user.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: admin or oper</p>
+<p><strong>Request Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="9%" />
+<col width="11%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">addressLine1</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">addressLine2</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">city</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">confirmLocalPassword</span></code></td>
+<td>string</td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">company</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">country</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<td>string</td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">fullName</span></code></td>
+<td>string</td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">localPassword</span></code></td>
+<td>string</td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">newUser</span></code></td>
+<td>bool</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">phoneNumber</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">postalCode</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">publicSshKey</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">role</span></code></td>
+<td>int</td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">stateOrProvince</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>no</td>
+<td>Owning tenant ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">username</span></code></td>
+<td>string</td>
+<td>yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;tsimpson&quot;</span>
+    <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;fullName&quot;</span><span class="p">:</span> <span class="s2">&quot;Tom Simpson&quot;</span>
+    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email1@email.com&quot;</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="mi">6</span>
+    <span class="s2">&quot;localPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+    <span class="s2">&quot;confirmLocalPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="10%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">addressLine1</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">addressLine2</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">city</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">company</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">country</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">email</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">fullName</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">gid</span></code></td>
+<td>int</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">newUser</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">phoneNumber</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">postalCode</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">publicSshKey</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">registrationSent</span></code></td>
+<td>bool</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">role</span></code></td>
+<td>int</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">roleName</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">stateOrProvince</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">uid</span></code></td>
+<td>int</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>Owning tenant ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">username</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span><span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+              <span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;User creation was successful.&quot;</span>
+          <span class="p">}</span>
+      <span class="p">],</span>
+  <span class="s2">&quot;response: {</span>
+          <span class="s2">&quot;addressLine1&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;addressLine2&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;email1@email.com&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;fullName&quot;</span><span class="p">:</span><span class="s2">&quot;Tom Simpson&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;gid&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+          <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+          <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">,</span>
+          <span class="s2">&quot;newUser&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+          <span class="s2">&quot;phoneNumber&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;postalCode&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;publicSshKey&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;registrationSent&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+          <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+          <span class="s2">&quot;roleName&quot;</span><span class="p">:</span><span class="s2">&quot;portal&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;stateOrProvince&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;uid&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+          <span class="s2">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;tsimpson&quot;</span><span class="p">,</span>
+      <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -679,11 +966,11 @@ available).</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
-<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><em>Multi Site Origin</em></a></td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">multiSiteOriginAlgor</span></code></td>
 <td>bool</td>
-<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops_using.html#rl-multi-site-origin"><em>Multi Site Origin</em></a></td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
@@ -758,6 +1045,14 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<td>string</td>
+<td>Owning tenant name</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>Owning tenant ID.</td>
+</tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
@@ -781,89 +1076,91 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
-  &quot;response&quot;: [
-    {
-        &quot;active&quot;: true,
-        &quot;cacheurl&quot;: null,
-        &quot;ccrDnsTtl&quot;: &quot;3600&quot;,
-        &quot;cdnId&quot;: &quot;2&quot;,
-        &quot;cdnName&quot;: &quot;over-the-top&quot;,
-        &quot;checkPath&quot;: &quot;&quot;,
-        &quot;displayName&quot;: &quot;My Cool Delivery Service&quot;,
-        &quot;dnsBypassCname&quot;: &quot;&quot;,
-        &quot;dnsBypassIp&quot;: &quot;&quot;,
-        &quot;dnsBypassIp6&quot;: &quot;&quot;,
-        &quot;dnsBypassTtl&quot;: &quot;30&quot;,
-        &quot;dscp&quot;: &quot;40&quot;,
-        &quot;edgeHeaderRewrite&quot;: null,
-        &quot;exampleURLs&quot;: [
-            &quot;http://edge.foo-ds.foo.bar.net&quot;
-        ],
-        &quot;geoLimit&quot;: &quot;0&quot;,
-        &quot;geoLimitCountries&quot;: null,
-        &quot;geoLimitRedirectURL&quot;: null,
-        &quot;geoProvider&quot;: &quot;0&quot;,
-        &quot;globalMaxMbps&quot;: null,
-        &quot;globalMaxTps&quot;: &quot;0&quot;,
-        &quot;httpBypassFqdn&quot;: &quot;&quot;,
-        &quot;id&quot;: &quot;442&quot;,
-        &quot;infoUrl&quot;: &quot;&quot;,
-        &quot;initialDispersion&quot;: &quot;1&quot;,
-        &quot;ipv6RoutingEnabled&quot;: true,
-        &quot;lastUpdated&quot;: &quot;2016-01-26 08:49:35&quot;,
-        &quot;logsEnabled&quot;: false,
-        &quot;longDesc&quot;: &quot;&quot;,
-        &quot;longDesc1&quot;: &quot;&quot;,
-        &quot;longDesc2&quot;: &quot;&quot;,
-        &quot;matchList&quot;: [
-            {
-                &quot;pattern&quot;: &quot;.*\\.foo-ds\\..*&quot;,
-                &quot;setNumber&quot;: &quot;0&quot;,
-                &quot;type&quot;: &quot;HOST_REGEXP&quot;
-            }
-        ],
-        &quot;maxDnsAnswers&quot;: &quot;0&quot;,
-        &quot;midHeaderRewrite&quot;: null,
-        &quot;missLat&quot;: &quot;41.881944&quot;,
-        &quot;missLong&quot;: &quot;-87.627778&quot;,
-        &quot;multiSiteOrigin&quot;: false,
-        &quot;multiSiteOriginAlgorithm&quot;: null,
-        &quot;orgServerFqdn&quot;: &quot;http://baz.boo.net&quot;,
-        &quot;originShield&quot;: null,
-        &quot;profileDescription&quot;: &quot;Content Router for over-the-top&quot;,
-        &quot;profileId&quot;: &quot;5&quot;,
-        &quot;profileName&quot;: &quot;ROUTER_TOP&quot;,
-        &quot;protocol&quot;: &quot;0&quot;,
-        &quot;qstringIgnore&quot;: &quot;1&quot;,
-        &quot;rangeRequestHandling&quot;: &quot;0&quot;,
-        &quot;regexRemap&quot;: null,
-        &quot;regionalGeoBlocking&quot;: false,
-        &quot;remapText&quot;: null,
-        &quot;signed&quot;: false,
-        &quot;sslKeyVersion&quot;: &quot;0&quot;,
-        &quot;trRequestHeaders&quot;: null,
-        &quot;trResponseHeaders&quot;: &quot;Access-Control-Allow-Origin: *&quot;,
-        &quot;type&quot;: &quot;HTTP&quot;,
-        &quot;typeId&quot;: &quot;8&quot;,
-        &quot;xmlId&quot;: &quot;foo-ds&quot;
-    }
-    { .. },
-    { .. }
-  ]
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;cacheurl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;ccrDnsTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;over-the-top&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;checkPath&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;My Cool Delivery Service&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassCname&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassIp&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassIp6&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dnsBypassTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;geoLimitRedirectURL&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;geoProvider&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;globalMaxMbps&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;globalMaxTps&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;httpBypassFqdn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;442&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;infoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;initialDispersion&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ipv6RoutingEnabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-26 08:49:35&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;logsEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;longDesc&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;longDesc1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;longDesc2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;matchList&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;.*</span><span class="se">\\</span><span class="s2">.foo-ds</span><span class="se">\\</span><span class="s2">..*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;setNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;HOST_REGEXP&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;maxDnsAnswers&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;midHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;missLat&quot;</span><span class="p">:</span> <span class="s2">&quot;41.881944&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;missLong&quot;</span><span class="p">:</span> <span class="s2">&quot;-87.627778&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;multiSiteOrigin&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;multiSiteOriginAlgorithm&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;orgServerFqdn&quot;</span><span class="p">:</span> <span class="s2">&quot;http://baz.boo.net&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;originShield&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;profileDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for over-the-top&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;ROUTER_TOP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qstringIgnore&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rangeRequestHandling&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;trRequestHeaders&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;trResponseHeaders&quot;</span><span class="p">:</span> <span class="s2">&quot;Access-Control-Allow-Origin: *&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s2">&quot;foo-ds&quot;</span>
+    <span class="p">}</span>
+    <span class="p">{</span> <span class="o">..</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="o">..</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.2/user/current.json</strong></p>
+<p><strong>GET /api/1.2/user/current</strong></p>
 <blockquote>
 <div><p>Retrieves the profile for the authenticated user.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
-<p><strong>Request Properties</strong></p>
+<p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="28%" />
@@ -945,28 +1242,39 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<td>string</td>
+<td>Owning tenant name</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>Owning tenant ID</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-       <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;email@email.com&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;50&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;company&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;country&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;fullName&quot;</span><span class="p">:</span> <span class="s">&quot;Tom Callahan&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;localUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                        <span class="s">&quot;uid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;tommyboy&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-                        <span class="s">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;role&quot;</span><span class="p">:</span> <span class="s">&quot;6&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;gid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+       <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email@email.com&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;fullName&quot;</span><span class="p">:</span> <span class="s2">&quot;Tom Callahan&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;localUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                        <span class="s2">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;tommyboy&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                        <span class="s2">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;gid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span>
+
        <span class="p">},</span>
 <span class="p">}</span>
 </pre></div>
@@ -975,7 +1283,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>POST /api/1.2/user/current/update</strong></p>
+<p><strong>PUT /api/1.2/user/current</strong></p>
 <blockquote>
 <div><p>Updates the date for the authenticated user.</p>
 <p>Authentication Required: Yes</p>
@@ -1062,28 +1370,35 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>Owning tenant ID</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;company&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;country&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;fullName&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;localUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s">&quot;uid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-    <span class="s">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;tommyboy&quot;</span><span class="p">,</span>
-    <span class="s">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;role&quot;</span><span class="p">:</span> <span class="s">&quot;6&quot;</span><span class="p">,</span>
-    <span class="s">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;gid&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
-    <span class="s">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;phoneNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fullName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;localUser&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stateOrProvince&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;tommyboy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;newUser&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;addressLine2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;addressLine1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gid&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;postalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+
  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1126,11 +1441,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-      <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+      <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                        <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;UserProfile was successfully updated.&quot;</span>
+                        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;UserProfile was successfully updated.&quot;</span>
                 <span class="p">}</span>
         <span class="p">],</span>
 <span class="p">}</span>
@@ -1242,23 +1557,23 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
-       <span class="s">&quot;keyword&quot;</span><span class="p">:</span> <span class="s">&quot;PURGE&quot;</span><span class="p">,</span>
-       <span class="s">&quot;objectName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s">&quot;assetUrl&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-       <span class="s">&quot;assetType&quot;</span><span class="p">:</span> <span class="s">&quot;file&quot;</span><span class="p">,</span>
-       <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;PENDING&quot;</span><span class="p">,</span>
-       <span class="s">&quot;dsId&quot;</span><span class="p">:</span> <span class="s">&quot;9999&quot;</span><span class="p">,</span>
-       <span class="s">&quot;dsXmlId&quot;</span><span class="p">:</span> <span class="s">&quot;ds-xml-id&quot;</span><span class="p">,</span>
-       <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;peewee&quot;</span><span class="p">,</span>
-       <span class="s">&quot;parameters&quot;</span><span class="p">:</span> <span class="s">&quot;TTL:56h&quot;</span><span class="p">,</span>
-       <span class="s">&quot;enteredTime&quot;</span><span class="p">:</span> <span class="s">&quot;2015-01-21 18:00:16&quot;</span><span class="p">,</span>
-       <span class="s">&quot;objectType&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-       <span class="s">&quot;agent&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-       <span class="s">&quot;startTime&quot;</span><span class="p">:</span> <span class="s">&quot;2015-01-21 10:45:38&quot;</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;keyword&quot;</span><span class="p">:</span> <span class="s2">&quot;PURGE&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;objectName&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s2">&quot;assetUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;assetType&quot;</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;PENDING&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;dsId&quot;</span><span class="p">:</span> <span class="s2">&quot;9999&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;dsXmlId&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-xml-id&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;peewee&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="s2">&quot;TTL:56h&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;enteredTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-21 18:00:16&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;objectType&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+       <span class="s2">&quot;agent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;startTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-21 10:45:38&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -1327,11 +1642,11 @@ unnecessary work.</td>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-       <span class="s">&quot;dsId&quot;</span><span class="p">:</span> <span class="s">&quot;9999&quot;</span><span class="p">,</span>
-       <span class="s">&quot;regex&quot;</span><span class="p">:</span> <span class="s">&quot;/path/to/content.jpg&quot;</span><span class="p">,</span>
-       <span class="s">&quot;startTime&quot;</span><span class="p">:</span> <span class="s">&quot;2015-01-27 11:08:37&quot;</span><span class="p">,</span>
-       <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">54</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+       <span class="s2">&quot;dsId&quot;</span><span class="p">:</span> <span class="s2">&quot;9999&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;regex&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/to/content.jpg&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;startTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-27 11:08:37&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">54</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1373,12 +1688,12 @@ unnecessary work.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-      <span class="s">&quot;alerts&quot;</span><span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+      <span class="s2">&quot;alerts&quot;</span><span class="p">:</span>
               <span class="p">[</span>
                   <span class="p">{</span>
-                        <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Successfully created purge job for: .&quot;</span>
+                        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully created purge job for: .&quot;</span>
                   <span class="p">}</span>
               <span class="p">],</span>
 <span class="p">}</span>
@@ -1418,9 +1733,9 @@ unnecessary work.</td>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-   <span class="s">&quot;u&quot;</span><span class="p">:</span> <span class="s">&quot;username&quot;</span><span class="p">,</span>
-   <span class="s">&quot;p&quot;</span><span class="p">:</span> <span class="s">&quot;password&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1462,11 +1777,11 @@ unnecessary work.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
      <span class="p">{</span>
-        <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-        <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Successfully logged in.&quot;</span>
+        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully logged in.&quot;</span>
      <span class="p">}</span>
   <span class="p">],</span>
  <span class="p">}</span>
@@ -1476,7 +1791,7 @@ unnecessary work.</td>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.2/user/:id/deliveryservices/available.json</strong></p>
+<p><strong>GET /api/1.2/user/:id/deliveryservices/available</strong></p>
 <blockquote>
 <div><p>Authentication Required: Yes</p>
 <p>Role(s) Required: None</p>
@@ -1514,26 +1829,32 @@ unnecessary work.</td>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">displayName</span></code></td>
+<td>string</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s">&quot;ns-img&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;90&quot;</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;90&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo Bar DS&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s2">&quot;foo-bar&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s">&quot;ns-img-secure&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;280&quot;</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;92&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo Baz DS&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;xmlId&quot;</span><span class="p">:</span> <span class="s2">&quot;foo-baz&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -1569,8 +1890,8 @@ unnecessary work.</td>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-   <span class="s">&quot;t&quot;</span><span class="p">:</span> <span class="s">&quot;token-value&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;token-value&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1612,11 +1933,11 @@ unnecessary work.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;error&quot;</span><span class="p">,</span>
-       <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Unauthorized, please log in.&quot;</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Unauthorized, please log in.&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -1670,11 +1991,11 @@ unnecessary work.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-       <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;You are logged out.&quot;</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;You are logged out.&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -1711,8 +2032,8 @@ password reset.</td>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;email@email.com&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email@email.com&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1760,11 +2081,11 @@ password reset.</td>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-       <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Successfully sent password reset to email &#39;email@email.com&#39;&quot;</span>
+       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully sent password reset to email &#39;email@email.com&#39;&quot;</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -1815,10 +2136,11 @@ password reset.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

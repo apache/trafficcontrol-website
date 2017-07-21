@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Developer’s Guide &mdash; Traffic Control master documentation </title>
+  <title>Developer’s Guide &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,8 +33,8 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
-        <link rel="next" title="Traffic Ops" href="traffic_ops.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../index.html"/>
+        <link rel="next" title="Building Traffic Control" href="building.html"/>
         <link rel="prev" title="Configure Delivery Service Steering" href="../admin/quick_howto/steering.html"/> 
 
   
@@ -101,12 +101,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -116,11 +119,13 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -158,7 +163,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
     <li>Developer&#8217;s Guide</li>
       <li class="wy-breadcrumbs-aside">
@@ -172,7 +177,7 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="traffic_ops.html" class="btn btn-neutral float-right" title="Traffic Ops">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="building.html" class="btn btn-neutral float-right" title="Building Traffic Control">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
         		  <a href="../admin/quick_howto/steering.html" class="btn btn-neutral" title="Configure Delivery Service Steering"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -186,6 +191,11 @@
 <p>Use this guide to start developing applications that consume the Traffic Control APIs, to create extensions to Traffic Ops, or work on Traffic Control itself.</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building Traffic Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building.html#build-using-pkg">Build using pkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html#build-using-docker-compose">Build using docker-compose</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="traffic_ops.html">Traffic Ops</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops.html#software-requirements">Software Requirements</a></li>
@@ -227,6 +237,17 @@
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html#api">API</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Golang</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#project-tree-overview">Project Tree Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#formatting-conventions">Formatting Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#installing-the-developer-environment">Installing The Developer Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#test-cases">Test Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html#api">API</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="traffic_stats.html">Traffic Stats</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html#software-requirements">Software Requirements</a></li>
@@ -247,7 +268,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="traffic_ops.html" class="btn btn-neutral float-right" title="Traffic Ops">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="building.html" class="btn btn-neutral float-right" title="Building Traffic Control">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../admin/quick_howto/steering.html" class="btn btn-neutral" title="Configure Delivery Service Steering"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -279,10 +300,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

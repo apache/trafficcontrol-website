@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuring Traffic Ops &mdash; Traffic Control master documentation </title>
+  <title>Configuring Traffic Ops &mdash; Traffic Control 1.8-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../index.html"/>
+    <link rel="top" title="Traffic Control 1.8-dev documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Using Traffic Ops" href="traffic_ops_using.html"/>
         <link rel="prev" title="Installing Traffic Ops" href="traffic_ops_install.html"/> 
@@ -103,11 +103,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Configuring Traffic Ops</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuring Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_using.html">Using Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server Administration</a></li>
@@ -122,6 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +161,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 1.8-dev</a> &raquo;</li>
       
           <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -196,7 +198,7 @@
 </div>
 <div class="section" id="profile-parameters">
 <span id="rl-param-prof"></span><h2>Profile Parameters<a class="headerlink" href="#profile-parameters" title="Permalink to this headline">¶</a></h2>
-<p>Many of the settings for the different servers in a Traffic Control CDN are controlled by parameters in the parameter view of Traffic Ops. Parameters are grouped in profiles and profiles are assigned to a server. For a typical cache there are hundreds of configuration settings to apply. The Traffic Ops parameter view contains the defined settings. To make life easier, Traffic Ops allows for duplication, comparison, import and export of Profiles. Traffic Ops also has a &#8220;Global profile&#8221; - the parameters in this profile are going to be applied to all servers in the Traffic Ops instance, or apply to Traffic Ops themselves. These parameters are:</p>
+<p>Many of the settings for the different servers in a Traffic Control CDN are controlled by parameters in the parameter view of Traffic Ops. Parameters are grouped in profiles and profiles are assigned to a server or a deliveryservice. For a typical cache there are hundreds of configuration settings to apply. The Traffic Ops parameter view contains the defined settings. To make life easier, Traffic Ops allows for duplication, comparison, import and export of Profiles. Traffic Ops also has a &#8220;Global profile&#8221; - the parameters in this profile are going to be applied to all servers in the Traffic Ops instance, or apply to Traffic Ops themselves. These parameters are:</p>
 <table border="1" class="docutils" id="index-0">
 <colgroup>
 <col width="15%" />
@@ -214,34 +216,38 @@
 <td>global</td>
 <td>The URL where this Traffic Ops instance is being served from.</td>
 </tr>
-<tr class="row-odd"><td>tm.toolname</td>
+<tr class="row-odd"><td>tm.cache.url</td>
+<td>global</td>
+<td>Not required. The URL where the Traffic Ops Config file cache instance is being served from.  Requires Traffic Ops 2.1 and above.</td>
+</tr>
+<tr class="row-even"><td>tm.toolname</td>
 <td>global</td>
 <td>The name of the Traffic Ops tool. Usually &#8220;Traffic Ops&#8221;. Used in the About screen and in the comments headers of the files generated.</td>
 </tr>
-<tr class="row-even"><td>tm.infourl</td>
+<tr class="row-odd"><td>tm.infourl</td>
 <td>global</td>
 <td>This is the &#8220;for more information go here&#8221; URL, which is visible in the About page.</td>
 </tr>
-<tr class="row-odd"><td>tm.logourl</td>
+<tr class="row-even"><td>tm.logourl</td>
 <td>global</td>
 <td>This is the URL of the logo for Traffic Ops and can be relative if the logo is under traffic_ops/app/public.</td>
 </tr>
-<tr class="row-even"><td>tm.instance_name</td>
+<tr class="row-odd"><td>tm.instance_name</td>
 <td>global</td>
 <td>The name of the Traffic Ops instance. Can be used when multiple instances are active. Visible in the About page.</td>
 </tr>
-<tr class="row-odd"><td>tm.traffic_mon_fwd_proxy</td>
+<tr class="row-even"><td>tm.traffic_mon_fwd_proxy</td>
 <td>global</td>
 <td>When collecting stats from Traffic Monitor, Traffic Ops uses this forward proxy to pull the stats through.
 This can be any of the MID tier caches, or a forward cache specifically deployed for this purpose. Setting
 this variable can significantly lighten the load on the Traffic Monitor system and it is recommended to
 set this parameter on a production system.</td>
 </tr>
-<tr class="row-even"><td>geolocation.polling.url</td>
+<tr class="row-odd"><td>geolocation.polling.url</td>
 <td>CRConfig.json</td>
 <td>The location to get the GeoLiteCity database from.</td>
 </tr>
-<tr class="row-odd"><td>geolocation6.polling.url</td>
+<tr class="row-even"><td>geolocation6.polling.url</td>
 <td>CRConfig.json</td>
 <td>The location to get the IPv6 GeoLiteCity database from.</td>
 </tr>
@@ -307,15 +313,31 @@ The Traffic Monitor IP addresses have to be included in this, if they are using 
 </tr>
 <tr class="row-even"><td>Drive_Prefix</td>
 <td>storage.config</td>
-<td>JvD/Jeff to supply blurb</td>
+<td>The device path start of the disks. For example, if you have <code class="docutils literal"><span class="pre">/dev/sda</span></code> through <code class="docutils literal"><span class="pre">/dev/sdf</span></code> set this to <code class="docutils literal"><span class="pre">/dev/sd</span></code></td>
 </tr>
 <tr class="row-odd"><td>Drive_Letters</td>
 <td>storage.config</td>
-<td>JvD/Jeff to supply blurb</td>
+<td>The letter part of the disks, in the same example as above set this to <code class="docutils literal"><span class="pre">a,b,c,d,e,f</span></code></td>
 </tr>
 <tr class="row-even"><td>purge_allow_ip</td>
 <td>ip_allow.config</td>
-<td>The IP address range that is allowed to execute the PURGE method on the caches (not related to <a class="reference internal" href="traffic_ops_using.html#rl-purge"><em>Invalidate Content</em></a>)</td>
+<td>The IP address range that is allowed to execute the PURGE method on the caches (not related to <a class="reference internal" href="traffic_ops_using.html#rl-purge"><span class="std std-ref">Invalidate Content</span></a>)</td>
+</tr>
+<tr class="row-odd"><td>coalesce_masklen_v4</td>
+<td>ip_allow.config</td>
+<td>The masklen to use when coalescing v4 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
+</tr>
+<tr class="row-even"><td>coalesce_number_v4</td>
+<td>ip_allow.config</td>
+<td>The number to use when coalescing v4 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
+</tr>
+<tr class="row-odd"><td>coalesce_masklen_v6</td>
+<td>ip_allow.config</td>
+<td>The masklen to use when coalescing v6 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
+</tr>
+<tr class="row-even"><td>coalesce_masklen_v6</td>
+<td>ip_allow.config</td>
+<td>The masklen to use when coalescing v6 networks into one line using <a class="reference external" href="http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm">http://search.cpan.org/~miker/NetAddr-IP-4.078/IP.pm</a></td>
 </tr>
 <tr class="row-odd"><td>health.threshold.loadavg</td>
 <td>rascal.properties</td>
@@ -377,7 +399,7 @@ Value is left blank.</td>
 </div>
 <div class="section" id="configuring-content-purge">
 <h2>Configuring Content Purge<a class="headerlink" href="#configuring-content-purge" title="Permalink to this headline">¶</a></h2>
-<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="traffic_server.html#reference-traffic-ops-ort"><em>Configuring Traffic Server</em></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
+<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
 <p>Content Purge is controlled by the following parameters in the profile of the cache:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -410,6 +432,14 @@ Value is left blank.</td>
 For example: &#8211;config regex_revalidate.config</td>
 <td><a class="reference external" href="https://docs.trafficserver.apache.org/en/5.3.x/reference/plugins/regex_remap.en.html">regex_revalidate</a></td>
 </tr>
+<tr class="row-odd"><td>use_reval_pending</td>
+<td>global</td>
+<td>Configures Traffic Ops to use separate
+reval_pending flag for each cache.</td>
+<td>When this flag is in use ORT will check for a new regex_revalidate.config every 60 seconds in syncds mode during the dispersal timer. This will
+also allow ORT to be run in revalidate mode, which will check for and clear the reval_pending flag.  This can be set to run via cron task.
+This value is set to 0 by default.  Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and above.</td>
+</tr>
 </tbody>
 </table>
 <p>Note that the TTL the adminstrator enters in the purge request should be longer than the TTL of the content to ensure the bad content will not be used. If the CDN is serving content of unknown, or unlimited TTL, the administrator should consider using <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/files/records.config.en.html#proxy-config-http-cache-guaranteed-min-lifetime">proxy-config-http-cache-guaranteed-min-lifetime</a> to limit the maximum time an object can be in the cache before it is considered stale, and set that to the same value as <cite>maxRevalDurationDays</cite> (Note that the former is in seconds and the latter is in days, so convert appropriately).</p>
@@ -424,13 +454,13 @@ For example: &#8211;config regex_revalidate.config</td>
 <li>Start the kickstart installation.</li>
 </ol>
 <p>Create a ks.src file in the root of the selection location. See the example below:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir newdir
-cd newdir/
-cp -r ../centos65/* .
-vim ks.src
-vim isolinux/isolinux.cfg
-cd vim osversions.cfg
-vim osversions.cfg
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">newdir</span>
+<span class="n">cd</span> <span class="n">newdir</span><span class="o">/</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">centos65</span><span class="o">/*</span> <span class="o">.</span>
+<span class="n">vim</span> <span class="n">ks</span><span class="o">.</span><span class="n">src</span>
+<span class="n">vim</span> <span class="n">isolinux</span><span class="o">/</span><span class="n">isolinux</span><span class="o">.</span><span class="n">cfg</span>
+<span class="n">cd</span> <span class="n">vim</span> <span class="n">osversions</span><span class="o">.</span><span class="n">cfg</span>
+<span class="n">vim</span> <span class="n">osversions</span><span class="o">.</span><span class="n">cfg</span>
 </pre></div>
 </div>
 <p>This is a standard kickstart formatted file that the generate ISO process uses to create the kickstart (ks.cfg) file for the install. The generate ISO process uses the ks.src, overwriting any information set in the Generate ISO tab in Traffic Ops, creating ks.cfg.</p>
@@ -484,7 +514,7 @@ vim osversions.cfg
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'master',
+            VERSION:'1.8-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Control &mdash; Traffic Control master documentation </title>
+  <title>Traffic Control &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="#"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="#"/>
         <link rel="next" title="CDN Basics" href="basics/index.html"/> 
 
   
@@ -100,12 +100,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -116,10 +119,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -157,7 +162,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Traffic Control master</a> &raquo;</li>
+    <li><a href="#">Traffic Control 2.1-dev</a> &raquo;</li>
       
     <li>Traffic Control</li>
       <li class="wy-breadcrumbs-aside">
@@ -240,32 +245,44 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_install.html">Installing Traffic Ops</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_install.html#system-requirements">System Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_install.html#navigating-the-install">Navigating the Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/installation.html">Traffic Ops - Installing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/installation.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/installation.html#navigating-the-install">Navigating the Install</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_config.html">Configuring Traffic Ops</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_config.html#installing-the-ssl-cert">Installing the SSL Cert</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_config.html#content-delivery-networks">Content Delivery Networks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_config.html#profile-parameters">Profile Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_config.html#regions-locations-and-cache-groups">Regions, Locations and Cache Groups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_config.html#configuring-content-purge">Configuring Content Purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/default_profiles.html#minimum-traffic-ops-profiles-needed">Minimum Traffic Ops Profiles needed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/default_profiles.html#steps-to-import-a-profile">Steps to Import a Profile</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_using.html">Using Traffic Ops</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#the-traffic-ops-menu">The Traffic Ops Menu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#health">Health</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#server">Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#delivery-service">Delivery Service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#parameters-and-profiles">Parameters and Profiles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#tools">Tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#invalidate-content">Invalidate Content</a></li>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_using.html#manage-dnssec-keys">Manage DNSSEC Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html#setup-the-traffic-ops-db-directory">Setup the traffic_ops_db directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html#migration-preparation">Migration Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html#navigating-the-database-migration">Navigating the Database Migration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops_extensions.html#example-cron-file">Example Cron File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/configuration.html#installing-the-ssl-cert">Installing the SSL Cert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/configuration.html#content-delivery-networks">Content Delivery Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/configuration.html#profile-parameters">Profile Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/configuration.html#regions-locations-and-cache-groups">Regions, Locations and Cache Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/configuration.html#configuring-content-purge">Configuring Content Purge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/using.html">Traffic Ops - Using</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#the-traffic-ops-menu">The Traffic Ops Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#health">Health</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#delivery-service">Delivery Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#parameters-and-profiles">Parameters and Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#tools">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#invalidate-content">Invalidate Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/using.html#manage-dnssec-keys">Manage DNSSEC Keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_ops/extensions.html#example-cron-file">Example Cron File</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_portal.html">Traffic Portal Administration</a></li>
@@ -273,6 +290,12 @@
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_monitor.html#installing-traffic-monitor">Installing Traffic Monitor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_monitor.html#configuring-traffic-monitor">Configuring Traffic Monitor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/traffic_monitor.html#troubleshooting-and-log-files">Troubleshooting and log files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_monitor_golang.html">Traffic Monitor Administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_monitor_golang.html#installing-traffic-monitor">Installing Traffic Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_monitor_golang.html#configuring-traffic-monitor">Configuring Traffic Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/traffic_monitor_golang.html#troubleshooting-and-log-files">Troubleshooting and log files</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_router.html">Traffic Router Administration</a><ul>
@@ -306,6 +329,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="admin/quick_howto/index.html">Quick How To Guides</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="admin/quick_howto/multi_site.html">Configure Multi Site Origin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/quick_howto/multi_site_ats5.html">Configure Multi Site Origin (5.x)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/quick_howto/dnssec.html">Configure DNSSEC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/quick_howto/federations.html">Configure Federations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="admin/quick_howto/regionalgeo.html">Configure Regional Geo-blocking (RGB)</a></li>
@@ -319,10 +343,15 @@
 </div>
 <div class="section" id="developer-s-guide">
 <h2>Developer&#8217;s Guide<a class="headerlink" href="#developer-s-guide" title="Permalink to this headline">¶</a></h2>
-<p>A guide to the various internal and external APIs, and a introduction for the Traffic Control developer.</p>
+<p>A guide to the various internal and external APIs, and an introduction for the Traffic Control developer.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development/building.html">Building Traffic Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development/building.html#build-using-pkg">Build using pkg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/building.html#build-using-docker-compose">Build using docker-compose</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_ops.html">Traffic Ops</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="development/traffic_ops.html#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="development/traffic_ops.html#software-requirements">Software Requirements</a></li>
@@ -362,6 +391,17 @@
 <li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor.html#installing-the-developer-environment">Installing The Developer Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor.html#test-cases">Test Cases</a></li>
 <li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development/traffic_monitor_golang.html">Traffic Monitor Golang</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#project-tree-overview">Project Tree Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#architecture">Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#formatting-conventions">Formatting Conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#installing-the-developer-environment">Installing The Developer Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#test-cases">Test Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development/traffic_monitor_golang.html#api">API</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_stats.html">Traffic Stats</a><ul>
@@ -452,10 +492,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

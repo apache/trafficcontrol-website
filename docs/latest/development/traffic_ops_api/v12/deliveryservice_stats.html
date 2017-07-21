@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Delivery Service Statistics &mdash; Traffic Control master documentation </title>
+  <title>Delivery Service Statistics &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,10 +33,10 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Divisions" href="division.html"/>
-        <link rel="prev" title="Delivery Service" href="deliveryservice.html"/> 
+        <link rel="prev" title="Delivery Service Regexes" href="deliveryservice_regex.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -102,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -180,7 +185,7 @@
         		  <a href="division.html" class="btn btn-neutral float-right" title="Divisions">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="deliveryservice.html" class="btn btn-neutral" title="Delivery Service"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="deliveryservice_regex.html" class="btn btn-neutral" title="Delivery Service Regexes"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -316,61 +321,61 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;source&quot;</span><span class="p">:</span> <span class="s">&quot;TrafficStats&quot;</span><span class="p">,</span>
-        <span class="s">&quot;summary&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s">&quot;average&quot;</span><span class="p">:</span> <span class="mf">1081172.785</span><span class="p">,</span>
-            <span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
-            <span class="s">&quot;fifthPercentile&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
-            <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="mf">1326680.31</span><span class="p">,</span>
-            <span class="s">&quot;min&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
-            <span class="s">&quot;ninetyEighthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
-            <span class="s">&quot;ninetyFifthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
-            <span class="s">&quot;totalBytes&quot;</span><span class="p">:</span> <span class="mf">37841047.475</span><span class="p">,</span>
-            <span class="s">&quot;totalTransactions&quot;</span><span class="p">:</span> <span class="mi">1020202030101</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStats&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;average&quot;</span><span class="p">:</span> <span class="mf">1081172.785</span><span class="p">,</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+            <span class="s2">&quot;fifthPercentile&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
+            <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mf">1326680.31</span><span class="p">,</span>
+            <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mf">888827.26</span><span class="p">,</span>
+            <span class="s2">&quot;ninetyEighthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
+            <span class="s2">&quot;ninetyFifthPercentile&quot;</span><span class="p">:</span> <span class="mf">1324785.47</span><span class="p">,</span>
+            <span class="s2">&quot;totalBytes&quot;</span><span class="p">:</span> <span class="mf">37841047.475</span><span class="p">,</span>
+            <span class="s2">&quot;totalTransactions&quot;</span><span class="p">:</span> <span class="mi">1020202030101</span>
         <span class="p">},</span>
-        <span class="s">&quot;series&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s">&quot;&quot;</span>
+        <span class="s2">&quot;series&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;&quot;</span>
             <span class="p">],</span>
-            <span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;kbps&quot;</span><span class="p">,</span>
-            <span class="s">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s">&quot;total&quot;</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;kbps&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;total&quot;</span>
             <span class="p">},</span>
-            <span class="s">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:36:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:36:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">888827.26</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:37:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:37:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">980336.563333333</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:38:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:38:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">952111.975</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:39:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:39:00Z&quot;</span><span class="p">,</span>
                     <span class="n">null</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:43:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:43:00Z&quot;</span><span class="p">,</span>
                     <span class="n">null</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:44:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:44:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">934682.943333333</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:45:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:45:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">1251121.28</span>
                 <span class="p">],</span>
                 <span class="p">[</span>
-                    <span class="s">&quot;2015-08-11T11:46:00Z&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;2015-08-11T11:46:00Z&quot;</span><span class="p">,</span>
                     <span class="mf">1111012.99</span>
                 <span class="p">]</span>
             <span class="p">]</span>
@@ -395,7 +400,7 @@
         <a href="division.html" class="btn btn-neutral float-right" title="Divisions">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="deliveryservice.html" class="btn btn-neutral" title="Delivery Service"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="deliveryservice_regex.html" class="btn btn-neutral" title="Delivery Service Regexes"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -424,10 +429,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

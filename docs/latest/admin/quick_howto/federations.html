@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configure Federations &mdash; Traffic Control master documentation </title>
+  <title>Configure Federations &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../index.html"/>
         <link rel="up" title="Quick How To Guides" href="index.html"/>
         <link rel="next" title="Configure Regional Geo-blocking (RGB)" href="regionalgeo.html"/>
         <link rel="prev" title="Configure DNSSEC" href="dnssec.html"/> 
@@ -102,12 +102,15 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
@@ -200,24 +205,24 @@
 </div></blockquote>
 </li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/federation01.png"><img alt="../../_images/federation01.png" class="align-center" src="../../_images/federation01.png" /></a>
+<a class="reference internal image-reference" href="../../_images/federation01.png"><img alt="../../_images/federation01.png" class="align-center" src="../../_images/federation01.png" style="width: 804.0px; height: 690.0px;" /></a>
 <ol class="arabic simple" start="2">
 <li>As a user with admin priveleges, create a Federation Mapping by going to Delivery Services -&gt; Federations and then clicking &#8216;Add Federation Mapping&#8217;</li>
 <li>Choose the Delivery Service for the federation to be mapped to and assign it to the Federation User; click Add.</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/federation02.png"><img alt="../../_images/federation02.png" class="align-center" src="../../_images/federation02.png" /></a>
+<a class="reference internal image-reference" href="../../_images/federation02.png"><img alt="../../_images/federation02.png" class="align-center" src="../../_images/federation02.png" style="width: 766.0px; height: 494.0px;" /></a>
 <ol class="arabic" start="4">
 <li><p class="first">After the Federation is added, Traffic Ops will display the Federation.</p>
 <p>Changes can be made at this time or the Federation can be deleted.  Notice that no resolvers have been added to the fedeation yet.  This can only be done by the federation user created in step 1.</p>
 <p>If no further action is necessary, the Close button will close the window and display the list of all Federations.</p>
 </li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/federation03.png"><img alt="../../_images/federation03.png" class="align-center" src="../../_images/federation03.png" /></a>
+<a class="reference internal image-reference" href="../../_images/federation03.png"><img alt="../../_images/federation03.png" class="align-center" src="../../_images/federation03.png" style="width: 806.0px; height: 886.0px;" /></a>
 <p><strong>The Federation user can now add resolvers to the Federation Mapping in Traffic Ops.</strong></p>
 <ol class="arabic" start="5">
 <li><p class="first">The federation user logs to traffic ops and stores the mojolicious cookie.  The mojolicious cookie can be obtained manually using the debug tools on a web browser or via curl.</p>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ curl -i -XPOST &quot;http://localhost:3000/api/1.1/user/login&quot; -H &quot;Content-Type: application/json&quot; -d &#39;{ &quot;u&quot;: &quot;federation_user1&quot;, &quot;p&quot;: &quot;password&quot; }&#39;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -i -XPOST &quot;http://localhost:3000/api/1.1/user/login&quot; -H &quot;Content-Type: application/json&quot; -d &#39;{ &quot;u&quot;: &quot;federation_user1&quot;, &quot;p&quot;: &quot;password&quot; }&#39;
 
 HTTP/1.1 200 OK
 Date: Wed, 02 Dec 2015 21:12:06 GMT
@@ -239,7 +244,7 @@ Access-Control-Allow-Origin: http://localhost:8080
 <li><p class="first">The federation user sends a request to Traffic Ops to add IPV4 and/or IPV6 resolvers</p>
 <blockquote>
 <div><p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ curl -ki -H &quot;Cookie: mojolicious=eyJleHBpcmVzIjoxNDQ5MTA1MTI2LCJhdXRoX2RhdGEiOiJmZWRlcmF0aW9uX3VzZXIxIn0---06b4f870d809d82a91433e92eae8320875c3e8b0;&quot; -XPUT &#39;http://localhost:3000/api/1.2/federations&#39; -d &#39;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -ki -H &quot;Cookie: mojolicious=eyJleHBpcmVzIjoxNDQ5MTA1MTI2LCJhdXRoX2RhdGEiOiJmZWRlcmF0aW9uX3VzZXIxIn0---06b4f870d809d82a91433e92eae8320875c3e8b0;&quot; -XPUT &#39;http://localhost:3000/api/1.2/federations&#39; -d &#39;
         {&quot;federations&quot;: [
                 {   &quot;deliveryService&quot;: &quot;images-c1&quot;,
                         &quot;mappings&quot;:
@@ -271,12 +276,12 @@ Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
 <li><p class="first">The resolvers added by the federation user will now visible in Traffic Ops.</p>
 </li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/federation04.png"><img alt="../../_images/federation04.png" class="align-center" src="../../_images/federation04.png" /></a>
+<a class="reference internal image-reference" href="../../_images/federation04.png"><img alt="../../_images/federation04.png" class="align-center" src="../../_images/federation04.png" style="width: 802.0px; height: 875.0px;" /></a>
 <ol class="arabic" start="8">
 <li><p class="first">Any requests made from a client that resolves to one of the federation resolvers will now be given a CNAME from Traffic Router.</p>
 <blockquote>
 <div><p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ dig @tr.kabletown.net edge.images-c1.kabletown.net
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ dig @tr.kabletown.net edge.images-c1.kabletown.net
 
 ; &lt;&lt;&gt;&gt; DiG 9.7.3-RedHat-9.7.3-2.el6 &lt;&lt;&gt;&gt; @tr.kabletown.net edge.images-c1.kabletown.net
 ; (1 server found)
@@ -341,10 +346,11 @@ edge.images-c1.kabletown.net.   30 IN CNAME img.mega-cdn.net.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

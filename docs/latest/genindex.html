@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Traffic Control master documentation </title>
+  <title>Index &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -34,7 +34,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="index.html"/> 
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -100,12 +100,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -116,10 +119,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -157,7 +162,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
     <li></li>
       <li class="wy-breadcrumbs-aside">
@@ -203,7 +208,7 @@
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="glossary.html#term-content-routing"><strong>302 content routing</strong></a>
+  <dt><a href="glossary.html#term-302-content-routing"><strong>302 content routing</strong></a>
   </dt>
 
   </dl></td>
@@ -223,7 +228,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-3">Bulk Upload Server</a>
+  <dt><a href="admin/traffic_ops/using.html#index-3">Bulk Upload Server</a>
   </dt>
 
   </dl></td>
@@ -241,7 +246,7 @@
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-11">Cache Updates</a>
+  <dt><a href="admin/traffic_ops/using.html#index-12">Cache Updates</a>
   </dt>
 
       
@@ -253,7 +258,7 @@
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-1">Change Log</a>
+  <dt><a href="admin/traffic_ops/using.html#index-1">Change Log</a>
   </dt>
 
   </dl></td>
@@ -271,7 +276,7 @@
   </dt>
 
       
-  <dt><a href="glossary.html#term-5"><strong>content routing</strong></a>
+  <dt><a href="glossary.html#term-content-routing"><strong>content routing</strong></a>
   </dt>
 
       
@@ -289,13 +294,13 @@
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-7">Delivery Service regexp</a>
+  <dt><a href="admin/traffic_ops/using.html#index-8">Delivery Service regexp</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-4">Delivery Service Type</a>
+  <dt><a href="admin/traffic_ops/using.html#index-4">Delivery Service Type</a>
   </dt>
 
   </dl></td>
@@ -311,7 +316,7 @@
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-2">Edge Health</a>
+  <dt><a href="admin/traffic_ops/using.html#index-2">Edge Health</a>
   </dt>
 
   </dl></td>
@@ -337,7 +342,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-10">Generate ISO</a>
+  <dt><a href="admin/traffic_ops/using.html#index-11">Generate ISO</a>
   </dt>
 
       
@@ -347,7 +352,7 @@
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_config.html#index-0">Global Profile</a>
+  <dt><a href="admin/traffic_ops/configuration.html#index-0">Global Profile</a>
   </dt>
 
   </dl></td>
@@ -357,15 +362,15 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-5">Header Rewrite</a>
+  <dt><a href="admin/traffic_ops/using.html#index-5">Header Rewrite</a>
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-7">HEADER_REGEXP</a>
+  <dt><a href="admin/traffic_ops/using.html#index-8">HEADER_REGEXP</a>
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-2">Health</a>
+  <dt><a href="admin/traffic_ops/using.html#index-2">Health</a>
   </dt>
 
       
@@ -373,13 +378,13 @@
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-0">Health Tab</a>
+  <dt><a href="admin/traffic_ops/using.html#index-0">Health Tab</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-7">HOST_REGEXP</a>
+  <dt><a href="admin/traffic_ops/using.html#index-8">HOST_REGEXP</a>
   </dt>
 
       
@@ -401,13 +406,13 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-13">Invalidate Content</a>
+  <dt><a href="admin/traffic_ops/using.html#index-14">Invalidate Content</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-10">ISO</a>
+  <dt><a href="admin/traffic_ops/using.html#index-11">ISO</a>
   </dt>
 
   </dl></td>
@@ -457,7 +462,7 @@
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-7">PATH_REGEXP</a>
+  <dt><a href="admin/traffic_ops/using.html#index-8">PATH_REGEXP</a>
   </dt>
 
   </dl></td>
@@ -467,7 +472,7 @@
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-13">Purge</a>
+  <dt><a href="admin/traffic_ops/using.html#index-14">Purge</a>
   </dt>
 
   </dl></td>
@@ -477,7 +482,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-11">Queue Updates</a>
+  <dt><a href="admin/traffic_ops/using.html#index-12">Queue Updates</a>
   </dt>
 
   </dl></td>
@@ -487,15 +492,19 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="basics/cache_revalidation.html#index-0">Revalidation</a>
+  <dt><a href="admin/traffic_ops/using.html#index-7">Regex Remap Expression</a>
   </dt>
 
       
-  <dt><a href="basics/caching_proxies.html#index-0">Reverse Proxy</a>
+  <dt><a href="basics/cache_revalidation.html#index-0">Revalidation</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="basics/caching_proxies.html#index-0">Reverse Proxy</a>
+  </dt>
+
       
   <dt><a href="glossary.html#term-reverse-proxy"><strong>reverse proxy</strong></a>
   </dt>
@@ -507,21 +516,21 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-9">Server Assignments</a>
+  <dt><a href="admin/traffic_ops/using.html#index-10">Server Assignments</a>
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-6">Signed URLs</a>
+  <dt><a href="admin/traffic_ops/using.html#index-6">Signed URLs</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-12">Snapshot CRConfig</a>
+  <dt><a href="admin/traffic_ops/using.html#index-13">Snapshot CRConfig</a>
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_using.html#index-8">Static DNS Entries</a>
+  <dt><a href="admin/traffic_ops/using.html#index-9">Static DNS Entries</a>
   </dt>
 
   </dl></td>
@@ -531,7 +540,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="admin/traffic_ops_using.html#index-6">Token Based Authentication</a>
+  <dt><a href="admin/traffic_ops/using.html#index-6">Token Based Authentication</a>
   </dt>
 
       
@@ -539,11 +548,19 @@
   </dt>
 
       
-  <dt><a href="admin/traffic_ops_install.html#index-0">Traffic Ops - Installing</a>
+  <dt><a href="admin/traffic_ops/default_profiles.html#index-0">Traffic Ops - Default Profiles</a>
+  </dt>
+
+      
+  <dt><a href="admin/traffic_ops/installation.html#index-0">Traffic Ops - Installing</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="admin/traffic_ops/migration_from_10_to_20.html#index-0">Traffic Ops - Migrating from Traffic Ops 1.x to Traffic Ops 2.x</a>
+  </dt>
+
       
   <dt><a href="overview/traffic_portal.html#index-0">Traffic Portal - Overview</a>
   </dt>
@@ -589,10 +606,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

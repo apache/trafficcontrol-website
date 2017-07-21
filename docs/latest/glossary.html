@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Glossary &mdash; Traffic Control master documentation </title>
+  <title>Glossary &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="index.html"/>
         <link rel="prev" title="Running a Traffic Control CDN" href="faq/administration.html"/> 
 
   
@@ -100,12 +100,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -116,10 +119,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -134,7 +139,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Glossary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
 </ul>
 
           
@@ -157,7 +162,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
     <li>Glossary</li>
       <li class="wy-breadcrumbs-aside">
@@ -181,44 +186,44 @@
   <div class="section" id="glossary">
 <span id="id1"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
 <dl class="glossary docutils">
-<dt id="term-content-routing">302 content routing</dt>
-<dd><a class="reference internal" href="overview/traffic_router.html#rl-http-cr"><em> HTTP Content Routing</em></a>.</dd>
+<dt id="term-302-content-routing">302 content routing</dt>
+<dd><a class="reference internal" href="overview/traffic_router.html#rl-http-cr"><span class="std std-ref"> HTTP Content Routing</span></a>.</dd>
 <dt id="term-astats-stats-over-http">astats (stats_over_http)</dt>
-<dd>An ATS plugin that allows you to monitor vitals of the ATS server. See <a class="reference internal" href="overview/traffic_monitor.html#rl-astats"><em> Cache Monitoring</em></a>.</dd>
+<dd>An ATS plugin that allows you to monitor vitals of the ATS server. See <a class="reference internal" href="overview/traffic_monitor.html#rl-astats"><span class="std std-ref"> Cache Monitoring</span></a>.</dd>
 <dt id="term-cache">cache</dt>
-<dd>A caching proxy server. See <a class="reference internal" href="basics/caching_proxies.html#rl-caching-proxy"><em>Caching Proxies</em></a>.</dd>
+<dd>A caching proxy server. See <a class="reference internal" href="basics/caching_proxies.html#rl-caching-proxy"><span class="std std-ref">Caching Proxies</span></a>.</dd>
 <dt id="term-cachegroup">cachegroup</dt>
-<dd>A group of caches that together create a combined larger cache using consistent hashing. See <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><em> Cache Group</em></a>.</dd>
+<dd>A group of caches that together create a combined larger cache using consistent hashing. See <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><span class="std std-ref"> Cache Group</span></a>.</dd>
 <dt id="term-consistent-hashing">consistent hashing</dt>
-<dd>See <a class="reference external" href="http://en.wikipedia.org/wiki/Consistent_hashing">the Wikipedia article</a>; Traffic Control uses consistent hashing when using <a class="reference internal" href="overview/traffic_router.html#rl-http-cr"><em> HTTP Content Routing</em></a> for the edge tier and when selecting parents in the mid tier.</dd>
-<dt id="term-5">content routing</dt>
-<dd>Directing clients (or client systems) to a particular location or device in a location for optimal delivery of content See also <a class="reference internal" href="overview/traffic_router.html#rl-http-cr"><em> HTTP Content Routing</em></a> and <a class="reference internal" href="overview/traffic_router.html#rl-dns-cr"><em> DNS Content Routing</em></a>.</dd>
+<dd>See <a class="reference external" href="http://en.wikipedia.org/wiki/Consistent_hashing">the Wikipedia article</a>; Traffic Control uses consistent hashing when using <a class="reference internal" href="overview/traffic_router.html#rl-http-cr"><span class="std std-ref"> HTTP Content Routing</span></a> for the edge tier and when selecting parents in the mid tier.</dd>
+<dt id="term-content-routing">content routing</dt>
+<dd>Directing clients (or client systems) to a particular location or device in a location for optimal delivery of content See also <a class="reference internal" href="overview/traffic_router.html#rl-http-cr"><span class="std std-ref"> HTTP Content Routing</span></a> and <a class="reference internal" href="overview/traffic_router.html#rl-dns-cr"><span class="std std-ref"> DNS Content Routing</span></a>.</dd>
 <dt id="term-coverage-zone-map">coverage zone map</dt>
-<dd>The coverage zone map (czm) or coverage zone file (zcf) is a file that maps network prefixes to cachegroups. See <a class="reference internal" href="overview/traffic_router.html#rl-localization"><em> Localization</em></a>.</dd>
+<dd>The coverage zone map (czm) or coverage zone file (zcf) is a file that maps network prefixes to cachegroups. See <a class="reference internal" href="overview/traffic_router.html#rl-localization"><span class="std std-ref"> Localization</span></a>.</dd>
 <dt id="term-delivery-service">delivery service</dt>
-<dd>A grouping of content in the CDN, usually a determined by the URL hostname. See <a class="reference internal" href="overview/traffic_router.html#rl-ds"><em> Delivery Service</em></a>.</dd>
+<dd>A grouping of content in the CDN, usually a determined by the URL hostname. See <a class="reference internal" href="overview/traffic_router.html#rl-ds"><span class="std std-ref"> Delivery Service</span></a>.</dd>
 <dt id="term-edge-tier-or-cache">edge (tier or cache)</dt>
-<dd>Closest to the client or end-user. The edge tier is the tier that serves the client, edge caches are caches in the edge tier. In a Traffic Control CDN the basic function of the edge cache is that of a <a class="reference internal" href="basics/caching_proxies.html#rl-rev-proxy"><em> Reverse Proxy</em></a>.  See also <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><em> Cache Group</em></a>.</dd>
+<dd>Closest to the client or end-user. The edge tier is the tier that serves the client, edge caches are caches in the edge tier. In a Traffic Control CDN the basic function of the edge cache is that of a <a class="reference internal" href="basics/caching_proxies.html#rl-rev-proxy"><span class="std std-ref"> Reverse Proxy</span></a>.  See also <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><span class="std std-ref"> Cache Group</span></a>.</dd>
 <dt id="term-traffic-ops-extension">(traffic ops) extension</dt>
-<dd>Using <em>extensions</em>, Traffic Ops be extended to use proprietary checks or monitoring sources. See <a class="reference internal" href="overview/traffic_ops.html#rl-trops-ext"><em> Traffic Ops Extension</em></a>.</dd>
+<dd>Using <em>extensions</em>, Traffic Ops be extended to use proprietary checks or monitoring sources. See <a class="reference internal" href="overview/traffic_ops.html#rl-trops-ext"><span class="std std-ref"> Traffic Ops Extension</span></a>.</dd>
 <dt id="term-forward-proxy">forward proxy</dt>
-<dd>A proxy that works that acts like it is the client to the origin. See <a class="reference internal" href="basics/caching_proxies.html#rl-fwd-proxy"><em> Forward Proxy</em></a>.</dd>
+<dd>A proxy that works that acts like it is the client to the origin. See <a class="reference internal" href="basics/caching_proxies.html#rl-fwd-proxy"><span class="std std-ref"> Forward Proxy</span></a>.</dd>
 <dt id="term-geo-localization-or-geo-routing">geo localization or geo routing</dt>
 <dd>Localizing clients to the nearest caches using a geo database like the one from Maxmind.</dd>
 <dt id="term-health-protocol">health protocol</dt>
-<dd>The protocol to monitor the health of all the caches. See <a class="reference internal" href="overview/traffic_monitor.html#rl-health-proto"><em> Health Protocol</em></a>.</dd>
+<dd>The protocol to monitor the health of all the caches. See <a class="reference internal" href="overview/traffic_monitor.html#rl-health-proto"><span class="std std-ref"> Health Protocol</span></a>.</dd>
 <dt id="term-localization">localization</dt>
-<dd>Finding location on the network, or on planet earth. See <a class="reference internal" href="overview/traffic_router.html#rl-localization"><em> Localization</em></a>.</dd>
+<dd>Finding location on the network, or on planet earth. See <a class="reference internal" href="overview/traffic_router.html#rl-localization"><span class="std std-ref"> Localization</span></a>.</dd>
 <dt id="term-mid-tier-or-cache">mid (tier or cache)</dt>
-<dd>The tier above the edge tier. The mid tier does not directly serves the end-user and is used as an additional layer between the edge and the origin. In a Traffic Control CDN the basic function of the mid cache is that of a <a class="reference internal" href="basics/caching_proxies.html#rl-fwd-proxy"><em> Forward Proxy</em></a>. See also <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><em> Cache Group</em></a>.</dd>
+<dd>The tier above the edge tier. The mid tier does not directly serves the end-user and is used as an additional layer between the edge and the origin. In a Traffic Control CDN the basic function of the mid cache is that of a <a class="reference internal" href="basics/caching_proxies.html#rl-fwd-proxy"><span class="std std-ref"> Forward Proxy</span></a>. See also <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><span class="std std-ref"> Cache Group</span></a>.</dd>
 <dt id="term-origin">origin</dt>
 <dd>The source of content for the CDN. Usually a redundant HTTP/1.1 webserver.</dd>
 <dt id="term-parent-cache-or-cachegroup">parent (cache or cachegroup)</dt>
-<dd>The (group of) cache(s) in the higher tier.  See <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><em> Cache Group</em></a>.</dd>
+<dd>The (group of) cache(s) in the higher tier.  See <a class="reference internal" href="overview/traffic_server.html#rl-cachegroup"><span class="std std-ref"> Cache Group</span></a>.</dd>
 <dt id="term-profile">profile</dt>
-<dd>A group of settings (parameters) that will be applied to a server. See <a class="reference internal" href="overview/traffic_server.html#rl-profile"><em> Profile</em></a>.</dd>
+<dd>A group of settings (parameters) that will be applied to a server. See <a class="reference internal" href="overview/traffic_server.html#rl-profile"><span class="std std-ref"> Profile</span></a>.</dd>
 <dt id="term-reverse-proxy">reverse proxy</dt>
-<dd>A proxy that acts like it is the origin to the client. See <a class="reference internal" href="basics/caching_proxies.html#rl-rev-proxy"><em> Reverse Proxy</em></a>.</dd>
+<dd>A proxy that acts like it is the origin to the client. See <a class="reference internal" href="basics/caching_proxies.html#rl-rev-proxy"><span class="std std-ref"> Reverse Proxy</span></a>.</dd>
 </dl>
 </div>
 
@@ -258,10 +263,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

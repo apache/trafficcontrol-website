@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Physical Location &mdash; Traffic Control master documentation </title>
+  <title>Physical Location &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Profiles" href="profile.html"/>
         <link rel="prev" title="Parameter" href="parameter.html"/> 
@@ -102,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -287,39 +292,39 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;Mile High&quot;</span><span class="p">,</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;4&quot;</span><span class="p">,</span>
-       <span class="s">&quot;poc&quot;</span><span class="p">:</span> <span class="s">&quot;Jane Doe&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
-       <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;NM&quot;</span><span class="p">,</span>
-       <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
-       <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;87107&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;2&quot;</span><span class="p">,</span>
-       <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
-       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;Mile High&quot;</span><span class="p">,</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;4&quot;</span><span class="p">,</span>
-       <span class="s">&quot;poc&quot;</span><span class="p">:</span> <span class="s">&quot;Jane Doe&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
-       <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;NM&quot;</span><span class="p">,</span>
-       <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
-       <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;87107&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;2&quot;</span><span class="p">,</span>
-       <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
-       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -354,13 +359,13 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Ashburn&quot;</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ashburn&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -467,23 +472,23 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;Mile High&quot;</span><span class="p">,</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;4&quot;</span><span class="p">,</span>
-       <span class="s">&quot;poc&quot;</span><span class="p">:</span> <span class="s">&quot;Jane Doe&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
-       <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;NM&quot;</span><span class="p">,</span>
-       <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
-       <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;87107&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;2&quot;</span><span class="p">,</span>
-       <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
-       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -579,18 +584,18 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">{</span>
-   <span class="s">&quot;regionId&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
-   <span class="s">&quot;poc&quot;</span><span class="p">:</span> <span class="s">&quot;Jane Doesssss&quot;</span><span class="p">,</span>
-   <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-   <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-   <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
-   <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;NM&quot;</span><span class="p">,</span>
-   <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
-   <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-   <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;87107&quot;</span><span class="p">,</span>
-   <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;123 East 9rd St&quot;</span><span class="p">,</span>
-   <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;regionId&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doesssss&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 9rd St&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -673,29 +678,29 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-        <span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;Physical location update was successful.&quot;</span>
+        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Physical location update was successful.&quot;</span>
     <span class="p">}</span>
   <span class="p">],</span>
- <span class="s">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;Mile High&quot;</span><span class="p">,</span>
-       <span class="s">&quot;region&quot;</span><span class="p">:</span> <span class="s">&quot;4&quot;</span><span class="p">,</span>
-       <span class="s">&quot;poc&quot;</span><span class="p">:</span> <span class="s">&quot;Jane Doe&quot;</span><span class="p">,</span>
-       <span class="s">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
-       <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
-       <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;NM&quot;</span><span class="p">,</span>
-       <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
-       <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span><span class="p">,</span>
-       <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;87107&quot;</span><span class="p">,</span>
-       <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;2&quot;</span><span class="p">,</span>
-       <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
-       <span class="s">&quot;shortName&quot;</span><span class="p">:</span> <span class="s">&quot;Albuquerque&quot;</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;Mile High&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;poc&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-10-02 08:22:43&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;(123) 555-1111&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NM&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.doe@email.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;87107&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;123 East 3rd St&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;shortName&quot;</span><span class="p">:</span> <span class="s2">&quot;Albuquerque&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
@@ -788,14 +793,14 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;name&quot;</span> <span class="p">:</span> <span class="s">&quot;my physical location1&quot;</span><span class="p">,</span>
-    <span class="s">&quot;shortName&quot;</span> <span class="p">:</span> <span class="s">&quot;myphylocation1&quot;</span><span class="p">,</span>
-    <span class="s">&quot;address&quot;</span> <span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;city&quot;</span> <span class="p">:</span> <span class="s">&quot;Shanghai&quot;</span><span class="p">,</span>
-    <span class="s">&quot;state&quot;</span><span class="p">:</span> <span class="s">&quot;SH&quot;</span><span class="p">,</span>
-    <span class="s">&quot;zip&quot;</span><span class="p">:</span> <span class="s">&quot;200000&quot;</span><span class="p">,</span>
-    <span class="s">&quot;comments&quot;</span><span class="p">:</span> <span class="s">&quot;this is physical location1&quot;</span>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;my physical location1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;shortName&quot;</span> <span class="p">:</span> <span class="s2">&quot;myphylocation1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;city&quot;</span> <span class="p">:</span> <span class="s2">&quot;Shanghai&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;SH&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;200000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;this is physical location1&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -874,23 +879,23 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre> {
-   &quot;response&quot;: {
-     &#39;shortName&#39;: &#39;myphylocati&#39;,
-     &#39;regionName&#39;: &#39;myregion1&#39;,
-     &#39;name&#39;: &#39;my physical location1&#39;,
-     &#39;poc&#39;: &#39;&#39;,
-     &#39;phone&#39;: &#39;&#39;,
-     &#39;comments&#39;: &#39;this is physical location1&#39;,
-     &#39;state&#39;: &#39;SH&#39;,
-     &#39;email&#39;: &#39;&#39;,
-     &#39;zip&#39;: &#39;20000&#39;,
-     &#39;region_id&#39;: &#39;20&#39;,
-     &#39;city&#39;: &#39;Shanghai&#39;,
-     &#39;address&#39;: &#39;&#39;,
-     &#39;id&#39;: &#39;200&#39;
-  }
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="p">{</span>
+   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="s1">&#39;shortName&#39;</span><span class="p">:</span> <span class="s1">&#39;myphylocati&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;regionName&#39;</span><span class="p">:</span> <span class="s1">&#39;myregion1&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;my physical location1&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;poc&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;phone&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="s1">&#39;this is physical location1&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;SH&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;20000&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;region_id&#39;</span><span class="p">:</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Shanghai&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;200&#39;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -938,10 +943,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

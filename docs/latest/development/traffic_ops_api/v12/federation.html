@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Federation &mdash; Traffic Control master documentation </title>
+  <title>Federation &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -33,7 +33,7 @@
   
 
   
-    <link rel="top" title="Traffic Control master documentation" href="../../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
         <link rel="next" title="Hardware Info" href="hwinfo.html"/>
         <link rel="prev" title="Divisions" href="division.html"/> 
@@ -102,12 +102,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_install.html">Installing Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_config.html">Configuring Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_using.html">Using Traffic Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops_extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_server.html">Traffic Server Administration</a></li>
@@ -118,10 +121,12 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -159,7 +164,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Traffic Control master</a> &raquo;</li>
+    <li><a href="../../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
       
@@ -224,17 +229,17 @@
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>{
- &quot;response&quot;: [
-    {
-      &quot;mappings&quot;: [
-        &quot;cname&quot;: &quot;cname-01.&quot;,
-        &quot;ttl&quot;: 8865,
-      ]
-      &quot;deliveryService&quot;: &quot;ds-01&quot;,
-    }
-  ]
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;cname&quot;</span><span class="p">:</span> <span class="s2">&quot;cname-01.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">8865</span><span class="p">,</span>
+      <span class="p">]</span>
+      <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -275,16 +280,16 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
-      <span class="s">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s">&quot;255.255.255.255&quot;</span>
+      <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;255.255.255.255&quot;</span>
         <span class="p">],</span>
-        <span class="s">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
         <span class="p">]</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -339,16 +344,16 @@
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
-      <span class="s">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s">&quot;255.255.255.255&quot;</span>
+      <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;resolve4&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;255.255.255.255&quot;</span>
         <span class="p">],</span>
-        <span class="s">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;resolve6&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;FE80::0202:B3FF:FE1E:8329&quot;</span><span class="p">,</span>
         <span class="p">]</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -401,10 +406,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'master',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
