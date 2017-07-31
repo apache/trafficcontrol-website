@@ -1,6 +1,6 @@
 /*!
  * Home Screen CSS
- * 
+ *
  */
 
 html {
@@ -13,7 +13,7 @@ body {
     padding: 0;
     text-align: center;
     background-color: black;
-    
+
     font-style: normal;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
@@ -21,7 +21,8 @@ body {
 }
 
 .footer{
-	background-color: gray;
+	/*background-color: gray;*/
+    color:white;
 	padding: 10px;
 }
 

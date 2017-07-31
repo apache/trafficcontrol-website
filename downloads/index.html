@@ -63,7 +63,7 @@
     upgrading to 2.0.0.
   </p>
   </div>
-   
+
    <div class="relNotesContainer">
    <h1>Apache Traffic Control 1.8.1-incubating</h1>
   The source code for Traffic Control 1.8.1 is available here:
@@ -113,7 +113,7 @@ export CATALINA_OPTS="$CATALINA_OPTS -XX:InitiatingHeapOccupancyPercent=30"
 
  <h3>Traffic Stats</h3>
  <ul>
- <li>As of 1.8 Traffic Stats now requires InfluxDB 1.0 or greater.  For support of InfluxDb version &lt; 1.0 please use Traffic Stats 1.7.</li> 
+ <li>As of 1.8 Traffic Stats now requires InfluxDB 1.0 or greater.  For support of InfluxDb version &lt; 1.0 please use Traffic Stats 1.7.</li>
  <li>Traffic Stats now uses its config file to determine which influxdb urls to use. This allows a user to run a single instance of influxdb, an enterprise clustered solution, or a HA solution using influxdb-relay (https://github.com/influxdata/influxdb-relay).</li>
 
  <li>It is recommended to use the traffic_stats.cfg file provided by the TS 1.8 RPM. This version of the config file contains the new InfluxUrls array and there were some unnecessary variables that were removed.</li>
@@ -121,9 +121,25 @@ export CATALINA_OPTS="$CATALINA_OPTS -XX:InitiatingHeapOccupancyPercent=30"
 
 
    </div>
-   <div class="relNotesContainer">
-   Older, non-ASF releases can be found <a href="http://traffic-control-cdn.net/downloads/index.html">here</a>.
-   </div>
+     <div class="relNotesContainer">
+     Older, non-ASF releases can be found <a href="http://traffic-control-cdn.net/downloads/index.html">here</a>.
+     </div>
+
+      <br><hr>
+      <div id='footer' class='footer'>
+        <a href="http://incubator.apache.org/" target="_blank"><img src="../images/incubator_logo_bw.png" alt="" height=120/></a>
+        <br/>
+          <p>
+            Apache Traffic Control is an effort undergoing Incubation at The Apache Software Foundation (ASF), sponsored by the Incubator.
+            Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects.
+            While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+            <br>
+          </p>
+          <p>
+            Copyright &copy; 2016-2017 <a href='http://www.apache.org/'>The Apache Software Foundation</a>
+            <br>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+          </p>
+      </div>
     </div>
   </body>
 </html>
