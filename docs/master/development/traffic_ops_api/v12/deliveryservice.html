@@ -2965,6 +2965,220 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 </pre></div>
 </div>
 </div></blockquote>
+</div>
+<div class="section" id="url-sig-keys">
+<h2>URL Sig Keys<a class="headerlink" href="#url-sig-keys" title="Permalink to this headline">¶</a></h2>
+<p><strong>GET /api/1.2/deliveryservices/xmlId/:xmlid/urlkeys</strong></p>
+<blockquote>
+<div><p>Retrieves URL sig keys for a delivery service.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: None</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<td>yes</td>
+<td>xml_id of the desired delivery service</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="5%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">key0</span></code></td>
+<td>string</td>
+<td>base64 encoded key for delivery service</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">key2</span></code></td>
+<td>string</td>
+<td>base64 encoded key for delivery service</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">keyn...</span></code></td>
+<td>string</td>
+<td>base64 encoded key for delivery service &#8211; repeats to 15 (16 total) and is currently unsorted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">key9</span><span class="s2">&quot;:&quot;</span><span class="n">ZvVQNYpPVQWQV8tjQnUl6osm4y7xK4zD</span><span class="s2">&quot;,</span>
+    <span class="s2">&quot;key6&quot;</span><span class="p">:</span><span class="s2">&quot;JhGdpw5X9o8TqHfgezCm0bqb9SQPASWL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key8&quot;</span><span class="p">:</span><span class="s2">&quot;ySXdp1T8IeDEE1OCMftzZb9EIw_20wwq&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key0&quot;</span><span class="p">:</span><span class="s2">&quot;D4AYzJ1AE2nYisA9MxMtY03TPDCHji9C&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key3&quot;</span><span class="p">:</span><span class="s2">&quot;W90YHlGc_kYlYw5_I0LrkpV9JOzSIneI&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key12&quot;</span><span class="p">:</span><span class="s2">&quot;ZbtMb3mrKqfS8hnx9_xWBIP_OPWlUpzc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;0qgEoDO7sUsugIQemZbwmMt0tNCwB1sf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key4&quot;</span><span class="p">:</span><span class="s2">&quot;aFJ2Gb7atmxVB8uv7T9S6OaDml3ycpGf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;wnWNR1mCz1O4C7EFPtcqHd0xUMQyNFhA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key11&quot;</span><span class="p">:</span><span class="s2">&quot;k6HMzlBH1x6htKkypRFfWQhAndQqe50e&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key10&quot;</span><span class="p">:</span><span class="s2">&quot;zYONfdD7fGYKj4kLvIj4U0918csuZO0d&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key15&quot;</span><span class="p">:</span><span class="s2">&quot;3360cGaIip_layZMc_0hI2teJbazxTQh&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key5&quot;</span><span class="p">:</span><span class="s2">&quot;SIwv3GOhWN7EE9wSwPFj18qE4M07sFxN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key13&quot;</span><span class="p">:</span><span class="s2">&quot;SqQKBR6LqEOzp8AewZUCVtBcW_8YFc1g&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key14&quot;</span><span class="p">:</span><span class="s2">&quot;DtXsu8nsw04YhT0kNoKBhu2G3P9WRpQJ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key7&quot;</span><span class="p">:</span><span class="s2">&quot;cmKoIIxXGAxUMdCsWvnGLoIMGmNiuT5I&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.2/deliveryservices/xmlId/:xmlid/urlkeys/generate</strong></p>
+<blockquote>
+<div><p>Generates Url sig keys for a delivery service</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin OR assigned DS</p>
+<p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<td>yes</td>
+<td>xml_id of the desired delivery service</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="21%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">response</span></code></td>
+<td>string</td>
+<td>response string</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
+<td>string</td>
+<td>API version</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully generated and stored keys&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.2/deliveryservices/xmlId/:xmlid/urlkeys/copyFromXmlId/:copyFromXmlId</strong></p>
+<blockquote>
+<div><p>Allows user to copy url sig keys from a specified delivery service to a delivery service.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required:  Admin or assigned DS</p>
+</div></blockquote>
+<p><strong>Request Route Parameters</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="11%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<td>yes</td>
+<td>xml_id of the desired delivery service</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">copyFromXmlId</span></code></td>
+<td>yes</td>
+<td>xml_id of the delivery service to copy url sig keys from</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="21%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">response</span></code></td>
+<td>string</td>
+<td>response string</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
+<td>string</td>
+<td>API version</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully copied and stored keys&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
 <p><strong>POST /api/1.2/deliveryservices/request</strong></p>
 <blockquote>
 <div><p>Allows a user to send delivery service request details to a specified email address.</p>
