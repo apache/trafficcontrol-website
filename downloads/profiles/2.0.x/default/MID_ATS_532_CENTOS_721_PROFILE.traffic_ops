@@ -1346,36 +1346,6 @@
             "value": "/opt/trafficserver/etc/trafficserver"
         },
         {
-            "config_file": "cacheurl_cedexis-perf-tune.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "cacheurl_cedexis-perf-ext.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "cacheurl_cim-sfv.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "cacheurl_steam-dns-ext.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "cacheurl_steam-dns.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
-            "config_file": "cacheurl_yahoo-nfl-dns.config",
-            "name": "location",
-            "value": "/opt/trafficserver/etc/trafficserver"
-        },
-        {
             "config_file": "ip_allow.config",
             "name": "location",
             "value": "/opt/trafficserver/etc/trafficserver"
