@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -582,6 +584,11 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
 </div>
 </div>
 </div>
+<div class="section" id="configuring-the-go-application">
+<h2>Configuring the Go Application<a class="headerlink" href="#configuring-the-go-application" title="Permalink to this headline">¶</a></h2>
+<p>Traffic Ops is in the process of migrating from Perl to Go, and currently runs as two applications. The Go application serves all endpoints which have been rewritten in the Go language, and transparently proxies all other requests to the old Perl application. Both applications are installed by the RPM, and both run as a single service. When the project has fully migrated to Go, the Perl application will be removed, and the RPM and service will consist solely of the Go application.</p>
+<p>By default, the postinstall script configures the Go application to behave and transparently serve as the old Perl Traffic Ops did in previous versions. This includes reading the old <code class="docutils literal"><span class="pre">cdn.conf</span></code> and <code class="docutils literal"><span class="pre">database.conf</span></code> config files, and logging to the old <code class="docutils literal"><span class="pre">access.log</span></code> location. However, if you wish to customize the Go Traffic Ops application, you can do so by running it with the <code class="docutils literal"><span class="pre">-oldcfg=false</span></code> argument. By default, it will then look for a config file in <code class="docutils literal"><span class="pre">/opt/traffic_ops/conf/traffic_ops_golang.config</span></code>. The new config file location may also be customized via the <code class="docutils literal"><span class="pre">-cfg</span></code> flag. A sample config file is installed by the RPM at <code class="docutils literal"><span class="pre">/opt/traffic_ops/conf/traffic_ops_golang.config</span></code>. If you wish to run the new Go Traffic Ops application as a service with a new config file, the <code class="docutils literal"><span class="pre">-oldcfg=false</span></code> and  <code class="docutils literal"><span class="pre">-cfg</span></code> flags may be added to the <code class="docutils literal"><span class="pre">start</span></code> function in the service file, located by default at <code class="docutils literal"><span class="pre">etc/init.d/traffic_ops</span></code>.</p>
+</div>
 </div>
 
 
@@ -615,6 +622,8 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
 
   </div>
   
+
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book">Apache Traffic Control (Incubating)</span>
@@ -624,10 +633,10 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
     <div class="rst-other-versions">
       <dl>
         <dt>Versions</dt>
-        <dd><a href="/latest/">latest</a></dd>
-        <dd><a href="/2.0.x/">2.0.x</a></dd>
-        <dd><a href="/1.8.x/">1.8.x</a></dd>
-        <dd><a href="/1.7.x/">1.7.x</a></dd>
+        <dd><a href="/docs/master/">latest</a></dd>
+        <dd><a href="/docs/2.0/">2.0</a></dd>
+        <dd><a href="/docs/1.8.1/">1.8</a></dd>
+        <dd><a href="/docs/1.7.0/">1.7</a></dd>
       </dl>
       <hr/>
       Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
