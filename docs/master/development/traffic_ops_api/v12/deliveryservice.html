@@ -2793,7 +2793,7 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">key</span></code></td>
 <td>string</td>
-<td>ds_&lt;id&gt; where &lt;id&gt; is integer id of ds</td>
+<td>xml_id of the delivery service</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
 <td>string</td>
@@ -2827,7 +2827,7 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 </table>
 <p><strong>Request Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ds_1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01&quot;</span><span class="p">,</span>
   <span class="s2">&quot;businessUnit&quot;</span><span class="p">:</span> <span class="s2">&quot;CDN Engineering&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
   <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;tr.ds-01.ott.kabletown.com&quot;</span><span class="p">,</span>
@@ -2891,8 +2891,8 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
-<col width="13%" />
-<col width="65%" />
+<col width="14%" />
+<col width="64%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -2903,7 +2903,7 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">key</span></code></td>
 <td>string</td>
-<td>ds_&lt;id&gt; where &lt;id&gt; is integer id of ds</td>
+<td>xml_id of the delivery service</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
 <td>string</td>
@@ -2925,7 +2925,7 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 </table>
 <p><strong>Request Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ds_1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ds-01&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
   <span class="s2">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;some_key&quot;</span><span class="p">,</span>
