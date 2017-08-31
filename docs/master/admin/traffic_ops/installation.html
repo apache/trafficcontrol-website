@@ -421,13 +421,11 @@ use this user to login for the first time and create other users</td>
 <div class="section" id="upgrading-traffic-ops">
 <h3>Upgrading Traffic Ops<a class="headerlink" href="#upgrading-traffic-ops" title="Permalink to this headline">¶</a></h3>
 <p>To upgrade:</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">TODO : review for &gt; 2.0</p>
-</div>
 <ol class="arabic simple">
 <li>Enter the following command:<code class="docutils literal"><span class="pre">service</span> <span class="pre">traffic_ops</span> <span class="pre">stop</span></code></li>
 <li>Enter the following command:<code class="docutils literal"><span class="pre">yum</span> <span class="pre">upgrade</span> <span class="pre">traffic_ops</span></code></li>
+<li>Enter the following command from the /opt/traffic_ops/app directory:
+<code class="docutils literal"><span class="pre">PERL5LIB=/opt/traffic_ops/app/lib:/opt/traffic_ops/app/local/lib/perl5</span> <span class="pre">./db/admin.pl</span> <span class="pre">--env</span> <span class="pre">production</span> <span class="pre">upgrade</span></code></li>
 <li>See <a class="reference internal" href="#rl-to-install"><span class="std std-ref">Traffic Ops - Installing</span></a> to run postinstall.</li>
 <li>Enter the following command:<code class="docutils literal"><span class="pre">service</span> <span class="pre">traffic_ops</span> <span class="pre">start</span></code></li>
 </ol>
