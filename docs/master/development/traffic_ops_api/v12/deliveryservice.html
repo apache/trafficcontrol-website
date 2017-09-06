@@ -478,7 +478,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routingName</span></code></td>
+<td>string</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -486,31 +490,31 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
 <td>string</td>
 <td>Owning tenant name</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
 <td>int</td>
 <td>Owning tenant ID</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -534,7 +538,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
         <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
             <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+            <span class="s2">&quot;http://foo.foo-ds.foo.bar.net&quot;</span>
         <span class="p">],</span>
         <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -568,6 +572,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;routingName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
         <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
@@ -866,7 +871,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routingName</span></code></td>
+<td>string</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -874,31 +883,31 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
 <td>string</td>
 <td>Owning tenant name</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
 <td>int</td>
 <td>Owning tenant ID</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -922,7 +931,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
         <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+            <span class="s2">&quot;http://foo.foo-ds.foo.bar.net&quot;</span>
         <span class="p">],</span>
         <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -963,6 +972,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;routingName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
         <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
@@ -3319,117 +3329,122 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <td>yes</td>
 <td>Eg. DNS or HTTP Redirect</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;serviceDesc</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;routingName</span></code></td>
+<td>string</td>
+<td>no</td>
+<td>The routing name for the delivery service, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;serviceDesc</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>A description of the delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;peakBPSEstimate</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;peakBPSEstimate</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>Used to manage cache efficiency and plan for capacity.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;peakTPSEstimate</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;peakTPSEstimate</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>Used to manage cache efficiency and plan for capacity.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;maxLibrarySizeEstimate</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;maxLibrarySizeEstimate</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>Used to manage cache efficiency and plan for capacity.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;originURL</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;originURL</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>The URL path to the origin server.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;hasOriginDynamicRemap</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;hasOriginDynamicRemap</span></code></td>
 <td>bool</td>
 <td>yes</td>
 <td>This is a feature which allows services to use multiple origin URLs for the same service.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;originTestFile</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;originTestFile</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>A URL path to a test file available on the origin server.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;hasOriginACLWhitelist</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;hasOriginACLWhitelist</span></code></td>
 <td>bool</td>
 <td>yes</td>
 <td>Is access to your origin restricted using an access control list (ACL or whitelist) of Ips?</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;originHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;originHeaders</span></code></td>
 <td>string</td>
 <td>no</td>
 <td>Header values that must be passed to requests to your origin.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;otherOriginSecurity</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;otherOriginSecurity</span></code></td>
 <td>string</td>
 <td>no</td>
 <td>Other origin security measures that need to be considered for access.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;queryStringHandling</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;queryStringHandling</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>How to handle query strings that come with the request.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;rangeRequestHandling</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;rangeRequestHandling</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>How to handle range requests.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;hasSignedURLs</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;hasSignedURLs</span></code></td>
 <td>bool</td>
 <td>yes</td>
 <td>Are Urls signed?</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;hasNegativeCachingCustomization</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;hasNegativeCachingCustomization</span></code></td>
 <td>bool</td>
 <td>yes</td>
 <td>Any customization required for negative caching?</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;negativeCachingCustomizationNote</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;negativeCachingCustomizationNote</span></code></td>
 <td>string</td>
 <td>yes</td>
 <td>Negative caching customization instructions.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;serviceAliases</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;serviceAliases</span></code></td>
 <td>array</td>
 <td>no</td>
 <td>Service aliases which will be used for this service.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;rateLimitingGBPS</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;rateLimitingGBPS</span></code></td>
 <td>int</td>
 <td>no</td>
 <td>Rate Limiting - Bandwidth (Gbps)</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;rateLimitingTPS</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;rateLimitingTPS</span></code></td>
 <td>int</td>
 <td>no</td>
 <td>Rate Limiting - Transactions/Second</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;overflowService</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;overflowService</span></code></td>
 <td>string</td>
 <td>no</td>
 <td>An overflow point (URL or IP address) used if rate limits are met.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;headerRewriteEdge</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;headerRewriteEdge</span></code></td>
 <td>string</td>
 <td>no</td>
 <td>Headers can be added or altered at each layer of the CDN.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;headerRewriteMid</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;headerRewriteMid</span></code></td>
 <td>string</td>
 <td>no</td>
 <td>Headers can be added or altered at each layer of the CDN.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;headerRewriteRedirectRouter</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;headerRewriteRedirectRouter</span></code></td>
 <td>string</td>
 <td>no</td>
 <td>Headers can be added or altered at each layer of the CDN.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;notes</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;notes</span></code></td>
 <td>string</td>
 <td>no</td>
 <td>Additional instructions to provide the delivery service provisioning team.</td>
@@ -3444,6 +3459,7 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
       <span class="s2">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;video-on-demand&quot;</span><span class="p">,</span>
       <span class="s2">&quot;deliveryProtocol&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
       <span class="s2">&quot;routingType&quot;</span><span class="p">:</span> <span class="s2">&quot;dns&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;routingName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
       <span class="s2">&quot;serviceDesc&quot;</span><span class="p">:</span> <span class="s2">&quot;service description goes here&quot;</span><span class="p">,</span>
       <span class="s2">&quot;peakBPSEstimate&quot;</span><span class="p">:</span> <span class="s2">&quot;less-than-5-Gbps&quot;</span><span class="p">,</span>
       <span class="s2">&quot;peakTPSEstimate&quot;</span><span class="p">:</span> <span class="s2">&quot;less-than-1000-TPS&quot;</span><span class="p">,</span>
@@ -3758,7 +3774,11 @@ be a HIT)</li>
 <td>no</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-odd"><td>signed</td>
+<tr class="row-odd"><td>routingName</td>
+<td>no</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-even"><td>signed</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -3766,23 +3786,23 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>sslKeyVersion</td>
+<tr class="row-odd"><td>sslKeyVersion</td>
 <td>no</td>
 <td>SSL key version</td>
 </tr>
-<tr class="row-odd"><td>trRequestHeaders</td>
+<tr class="row-even"><td>trRequestHeaders</td>
 <td>no</td>
 <td>Traffic router log request headers</td>
 </tr>
-<tr class="row-even"><td>trResponseHeaders</td>
+<tr class="row-odd"><td>trResponseHeaders</td>
 <td>no</td>
 <td>Traffic router additional response headers</td>
 </tr>
-<tr class="row-odd"><td>typeId</td>
+<tr class="row-even"><td>typeId</td>
 <td>yes</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-even"><td>xmlId</td>
+<tr class="row-odd"><td>xmlId</td>
 <td>yes</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -4067,7 +4087,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routingName</span></code></td>
+<td>string</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4075,23 +4099,23 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -4115,7 +4139,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
         <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+            <span class="s2">&quot;http://foo.foo-ds.foo.bar.net&quot;</span>
         <span class="p">],</span>
         <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -4156,6 +4180,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;routingName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
         <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -4424,7 +4449,11 @@ be a HIT)</li>
 <td>no</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-odd"><td>signed</td>
+<tr class="row-odd"><td>routingName</td>
+<td>no</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-even"><td>signed</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4432,23 +4461,23 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>sslKeyVersion</td>
+<tr class="row-odd"><td>sslKeyVersion</td>
 <td>no</td>
 <td>SSL key version</td>
 </tr>
-<tr class="row-odd"><td>trRequestHeaders</td>
+<tr class="row-even"><td>trRequestHeaders</td>
 <td>no</td>
 <td>Traffic router log request headers</td>
 </tr>
-<tr class="row-even"><td>trResponseHeaders</td>
+<tr class="row-odd"><td>trResponseHeaders</td>
 <td>no</td>
 <td>Traffic router additional response headers</td>
 </tr>
-<tr class="row-odd"><td>typeId</td>
+<tr class="row-even"><td>typeId</td>
 <td>yes</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-even"><td>xmlId</td>
+<tr class="row-odd"><td>xmlId</td>
 <td>yes</td>
 <td>Unique string that describes this deliveryservice. This value cannot be changed on update.</td>
 </tr>
@@ -4733,7 +4762,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routingName</span></code></td>
+<td>string</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4741,23 +4774,23 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -4781,7 +4814,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
         <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+            <span class="s2">&quot;http://foo.foo-ds.foo.bar.net&quot;</span>
         <span class="p">],</span>
         <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -4822,6 +4855,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;routingName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
         <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -5162,7 +5196,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routingName</span></code></td>
+<td>string</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -5170,23 +5208,23 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -5210,7 +5248,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
         <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+            <span class="s2">&quot;http://foo.foo-ds.foo.bar.net&quot;</span>
         <span class="p">],</span>
         <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -5251,6 +5289,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;routingName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
         <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>

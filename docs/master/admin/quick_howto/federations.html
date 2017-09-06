@@ -286,9 +286,9 @@ Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
 <li><p class="first">Any requests made from a client that resolves to one of the federation resolvers will now be given a CNAME from Traffic Router.</p>
 <blockquote>
 <div><p>Example:</p>
-<div class="highlight-default"><div class="highlight"><pre>$ dig @tr.kabletown.net edge.images-c1.kabletown.net
+<div class="highlight-default"><div class="highlight"><pre>$ dig @tr.kabletown.net foo.images-c1.kabletown.net
 
-; &lt;&lt;&gt;&gt; DiG 9.7.3-RedHat-9.7.3-2.el6 &lt;&lt;&gt;&gt; @tr.kabletown.net edge.images-c1.kabletown.net
+; &lt;&lt;&gt;&gt; DiG 9.7.3-RedHat-9.7.3-2.el6 &lt;&lt;&gt;&gt; @tr.kabletown.net foo.images-c1.kabletown.net
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
@@ -297,10 +297,10 @@ Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
 ;; WARNING: recursion requested but not available
 
 ;; QUESTION SECTION:
-;edge.images-c1.kabletown.net.  IN A
+;foo.images-c1.kabletown.net.   IN A
 
 ;; ANSWER SECTION:
-edge.images-c1.kabletown.net.   30 IN CNAME img.mega-cdn.net.
+foo.images-c1.kabletown.net.    30 IN CNAME img.mega-cdn.net.
 
 ;; Query time: 9 msec
 ;; SERVER: 10.10.10.10#53(10.10.10.10)

@@ -1058,7 +1058,11 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routingName</span></code></td>
+<td>string</td>
+<td>The routing name of this deliveryservice.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -1066,35 +1070,35 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
 <td>string</td>
 <td>Owning tenant name</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
 <td>int</td>
 <td>Owning tenant ID.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">type</span></code></td>
 <td>string</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
 <td>string</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -1118,7 +1122,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;dscp&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
         <span class="s2">&quot;edgeHeaderRewrite&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;exampleURLs&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;http://edge.foo-ds.foo.bar.net&quot;</span>
+            <span class="s2">&quot;http://foo.foo-ds.foo.bar.net&quot;</span>
         <span class="p">],</span>
         <span class="s2">&quot;geoLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;geoLimitCountries&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -1160,6 +1164,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s2">&quot;regexRemap&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;remapText&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;routingName&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
         <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;sslKeyVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;tenant&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>

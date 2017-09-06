@@ -309,7 +309,7 @@ Also, crconfig previously recieved will be cached, and needs to be removed manua
 <td>The interval in milliseconds which Traffic Router will reload this configuration file</td>
 <td>60000</td>
 </tr>
-<tr class="row-even"><td rowspan="6">dns.properties</td>
+<tr class="row-even"><td rowspan="5">dns.properties</td>
 <td>dns.tcp.port</td>
 <td>TCP port that Traffic Router will use for incoming DNS requests</td>
 <td>53</td>
@@ -330,23 +330,14 @@ Also, crconfig previously recieved will be cached, and needs to be removed manua
 <td>Path to auto generated zone files for reference</td>
 <td>/opt/traffic_router/var/auto-zones</td>
 </tr>
-<tr class="row-odd"><td>dns.routing.name</td>
-<td>The label (A/AAAA) Traffic Router will use for the entry point for a DNS delivery service</td>
-<td>edge (e.g.: edge.mydeliveryservice.kabletown.net)</td>
-</tr>
-<tr class="row-even"><td rowspan="2">traffic_ops.properties</td>
+<tr class="row-odd"><td rowspan="2">traffic_ops.properties</td>
 <td>traffic_ops.username</td>
 <td>Username to access the APIs in Traffic Ops (must be in the admin role)</td>
 <td>admin</td>
 </tr>
-<tr class="row-odd"><td>traffic_ops.password</td>
+<tr class="row-even"><td>traffic_ops.password</td>
 <td>Password for the user specified in traffic_ops.username</td>
 <td>N/A</td>
-</tr>
-<tr class="row-even"><td>http.properties</td>
-<td>http.routing.name</td>
-<td>The label (A/AAAA) Traffic Router will use for the entry point for an HTTP delivery service</td>
-<td>tr (e.g.: tr.mydeliveryservice.kabletown.net)</td>
 </tr>
 <tr class="row-odd"><td rowspan="8">cache.properties</td>
 <td>cache.geolocation.database</td>
@@ -565,7 +556,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <div class="section" id="http-specifics">
 <h3>HTTP Specifics<a class="headerlink" href="#http-specifics" title="Permalink to this headline">¶</a></h3>
 <p>Sample Message</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="mf">1452197640.936</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">69.241</span><span class="o">.</span><span class="mf">53.218</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://ccr.mm-test.jenkins.cdnlab.comcast.net/some/asset.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">0</span> <span class="n">rurl</span><span class="o">=</span><span class="s2">&quot;http://odol-atsec-sim-114.mm-test.jenkins.cdnlab.comcast.net:8090/some/asset.m3u8&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;Accept: */*&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;myheader: asdasdasdasfasg&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="mf">1452197640.936</span> <span class="n">qtype</span><span class="o">=</span><span class="n">HTTP</span> <span class="n">chi</span><span class="o">=</span><span class="mf">69.241</span><span class="o">.</span><span class="mf">53.218</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://foo.mm-test.jenkins.cdnlab.comcast.net/some/asset.m3u8&quot;</span> <span class="n">cqhm</span><span class="o">=</span><span class="n">GET</span> <span class="n">cqhv</span><span class="o">=</span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="n">rtype</span><span class="o">=</span><span class="n">GEO</span> <span class="n">rloc</span><span class="o">=</span><span class="s2">&quot;40.252611,58.439389&quot;</span> <span class="n">rdtl</span><span class="o">=-</span> <span class="n">rerr</span><span class="o">=</span><span class="s2">&quot;-&quot;</span> <span class="n">pssc</span><span class="o">=</span><span class="mi">302</span> <span class="n">ttms</span><span class="o">=</span><span class="mi">0</span> <span class="n">rurl</span><span class="o">=</span><span class="s2">&quot;http://odol-atsec-sim-114.mm-test.jenkins.cdnlab.comcast.net:8090/some/asset.m3u8&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;Accept: */*&quot;</span> <span class="n">rh</span><span class="o">=</span><span class="s2">&quot;myheader: asdasdasdasfasg&quot;</span>
 </pre></div>
 </div>
 <p><strong>Request Fields</strong></p>
