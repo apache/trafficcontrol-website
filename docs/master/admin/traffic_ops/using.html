@@ -589,7 +589,7 @@ must have an ssh key on the edge servers.</td>
 <td>The DSCP value to mark IP packets to the client with.</td>
 </tr>
 <tr class="row-even"><td>Routing Name</td>
-<td>The routing name to use for the delivery FQDN, i.e. <code class="docutils literal"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>. It must be a valid hostname without periods.</td>
+<td>The routing name to use for the delivery FQDN, i.e. <code class="docutils literal"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>. It must be a valid hostname without periods. <a class="footnote-reference" href="#id8" id="id1">[2]</a></td>
 </tr>
 <tr class="row-odd"><td>Signed URLs</td>
 <td>Use Signed URLs? See <a class="reference internal" href="#rl-signed-urls"><span class="std std-ref">Token Based Authentication</span></a>.</td>
@@ -665,21 +665,21 @@ To set the qstring without the use of regex remap, or for further options, see <
 <td>Default Longitude for this delivery service. When client localization fails for bot Coverage Zone and Geo Lookup, this the client will be routed as if it was at this long.</td>
 </tr>
 <tr class="row-even"><td>Edge Header Rewrite Rules</td>
-<td>Header Rewrite rules to apply for this delivery service at the EDGE tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id6" id="id1">[1]</a></td>
+<td>Header Rewrite rules to apply for this delivery service at the EDGE tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id7" id="id2">[1]</a></td>
 </tr>
 <tr class="row-odd"><td>Mid Header Rewrite Rules</td>
-<td>Header Rewrite rules to apply for this delivery service at the MID tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id6" id="id2">[1]</a></td>
+<td>Header Rewrite rules to apply for this delivery service at the MID tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id7" id="id3">[1]</a></td>
 </tr>
 <tr class="row-even"><td>Regex Remap Expression</td>
-<td><p class="first">Regex Remap rule to apply to this delivery service at the Edge tier. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_remap.en.html">ATS documentation on regex_remap</a>. <a class="footnote-reference" href="#id6" id="id3">[1]</a></p>
+<td><p class="first">Regex Remap rule to apply to this delivery service at the Edge tier. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_remap.en.html">ATS documentation on regex_remap</a>. <a class="footnote-reference" href="#id7" id="id4">[1]</a></p>
 <p class="last"><strong>Note:</strong> you will not be able to save a Regex Remap Expression if you have Query String Handling set to drop query strings at the edge. See <a class="reference internal" href="#rl-regex-remap"><span class="std std-ref">Regex Remap Expression</span></a>.</p>
 </td>
 </tr>
 <tr class="row-odd"><td>Cache URL expression</td>
-<td>Cache URL rule to apply to this delivery service. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/cacheurl.en.html">ATS documentation on cacheurl</a>. <a class="footnote-reference" href="#id6" id="id4">[1]</a></td>
+<td>Cache URL rule to apply to this delivery service. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/cacheurl.en.html">ATS documentation on cacheurl</a>. <a class="footnote-reference" href="#id7" id="id5">[1]</a></td>
 </tr>
 <tr class="row-even"><td>Raw remap text</td>
-<td>For HTTP and DNS deliveryservices, this will get added to the end of the remap line on the cache verbatim. For ANY_MAP deliveryservices this is the remap line. <a class="footnote-reference" href="#id6" id="id5">[1]</a></td>
+<td>For HTTP and DNS deliveryservices, this will get added to the end of the remap line on the cache verbatim. For ANY_MAP deliveryservices this is the remap line. <a class="footnote-reference" href="#id7" id="id6">[1]</a></td>
 </tr>
 <tr class="row-odd"><td>Long Description</td>
 <td>Long description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
@@ -719,10 +719,16 @@ To set the qstring without the use of regex remap, or for further options, see <
 </tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
+<table class="docutils footnote" frame="void" id="id7" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id3">3</a>, <a class="fn-backref" href="#id4">4</a>, <a class="fn-backref" href="#id5">5</a>)</em> These fields are not validated by Traffic Ops to be correct syntactically, and can cause Traffic Server to not start if invalid. Please use with caution.</td></tr>
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id5">4</a>, <a class="fn-backref" href="#id6">5</a>)</em> These fields are not validated by Traffic Ops to be correct syntactically, and can cause Traffic Server to not start if invalid. Please use with caution.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>It is not recommended to change the Routing Name of a Delivery Service after deployment because this changes its Delivery FQDN (i.e. <code class="docutils literal"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>), which means that SSL certificates may need to be updated and clients using the Delivery Service will need to be transitioned to the new Delivery URL.</td></tr>
 </tbody>
 </table>
 <div class="section" id="delivery-service-types">
