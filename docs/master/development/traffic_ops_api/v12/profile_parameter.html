@@ -826,6 +826,184 @@ The request properties accept 2 formats, both single paramter and parameters arr
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<p><strong>POST /api/1.2/profileparameter</strong></p>
+<blockquote>
+<div><p>Create one or more profile / parameter assignments.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations</p>
+<p><strong>Request Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="9%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<td>yes</td>
+<td>The ID of the profile.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">paramIds</span></code></td>
+<td>yes</td>
+<td>An array of parameter IDs.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<td>no</td>
+<td>Replace existing profile/param assignments? (true|false)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+    <span class="s2">&quot;paramIds&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">],</span>
+    <span class="s2">&quot;replace&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="7%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<td>int</td>
+<td>The ID of the profile.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">paramIds</span></code></td>
+<td>array</td>
+<td>An array of parameter IDs.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<td>bool</td>
+<td>Existing profile/param assignments replaced? (true|false).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;14 parameters where assigned to the foo profile.&quot;</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;profileId&quot;</span> <span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+        <span class="s2">&quot;paramIds&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">],</span>
+        <span class="s2">&quot;replace&quot;</span> <span class="p">:</span> <span class="n">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>POST /api/1.2/parameterprofile</strong></p>
+<blockquote>
+<div><p>Create one or more parameter / profile assignments.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin or Operations</p>
+<p><strong>Request Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="9%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">paramId</span></code></td>
+<td>yes</td>
+<td>The ID of the parameter.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileIds</span></code></td>
+<td>yes</td>
+<td>An array of profile IDs.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<td>no</td>
+<td>Replace existing param/profile assignments? (true|false)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;paramId&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+    <span class="s2">&quot;profileIds&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">],</span>
+    <span class="s2">&quot;replace&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="7%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">paramId</span></code></td>
+<td>int</td>
+<td>The ID of the parameter.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileIds</span></code></td>
+<td>array</td>
+<td>An array of profile IDs.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<td>bool</td>
+<td>Existing param/profile assignments replaced? (true|false).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Example</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;14 profiles where assigned to the bar parameter.&quot;</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;paramId&quot;</span> <span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+        <span class="s2">&quot;profileIds&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">],</span>
+        <span class="s2">&quot;replace&quot;</span> <span class="p">:</span> <span class="n">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 </div>
 
