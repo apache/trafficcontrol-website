@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_portal.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor.html">Traffic Monitor Administration (Legacy)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_stats.html">Traffic Stats Administration</a></li>
@@ -2798,8 +2798,8 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="19%" />
-<col width="13%" />
+<col width="22%" />
+<col width="9%" />
 <col width="68%" />
 </colgroup>
 <thead valign="bottom">
@@ -2823,23 +2823,31 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">country</span></code></td>
 <td>string</td>
-<td>&#160;</td>
+<td>Country</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">state</span></code></td>
 <td>string</td>
-<td>&#160;</td>
+<td>State</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">city</span></code></td>
 <td>string</td>
-<td>&#160;</td>
+<td>City</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">org</span></code></td>
 <td>string</td>
-<td>&#160;</td>
+<td>Organization</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">unit</span></code></td>
 <td>boolean</td>
-<td>&#160;</td>
+<td>Business Unit</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryservice</span></code></td>
+<td>string</td>
+<td>The deliveryservice xml-id for which you want to generate certs</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>string</td>
+<td>The name of the CDN for which the deliveryservice belongs</td>
 </tr>
 </tbody>
 </table>
@@ -2857,7 +2865,9 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
   <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span>
   <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Kabletown&quot;</span><span class="p">,</span>
   <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Denver&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;Colorado&quot;</span>
+  <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;Colorado&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;deliveryservice&quot;</span> <span class="p">:</span> <span class="s2">&quot;ds-01&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn1&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2909,8 +2919,8 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
-<col width="14%" />
-<col width="64%" />
+<col width="9%" />
+<col width="69%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -2938,6 +2948,18 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">key</span></code></td>
 <td>string</td>
 <td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryservice</span></code></td>
+<td>string</td>
+<td>The deliveryservice xml-id for which you want to generate certs</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<td>string</td>
+<td>The name of the CDN for which the deliveryservice belongs</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">hostname</span></code></td>
+<td>string</td>
+<td>the <em>pristine hostname</em> of the delivery service</td>
 </tr>
 </tbody>
 </table>
