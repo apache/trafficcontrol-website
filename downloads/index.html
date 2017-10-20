@@ -28,118 +28,111 @@
             </ul>
           </div>
         </div>
-      <hr/>
-
-      <div class="announce">
-       <p class="relNotesText">Apache Traffic Control-2.0.0-incubating has been released!
-       The artifacts and release notes are below ...</p>
-      </div>
-
-
-   <div class="relNotesContainer">
-   <h1>Apache Traffic Control 2.0.0-incubating</h1>
-  The source code for Traffic Control 2.0.0 is available here:
-  <table><tbody padding="0 15px 0 15px">
-  <tr>
-     <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz">apache-trafficcontrol-2.0.0-incubating.tar.gz</a></td>
-     <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5sum">MD5</a></td>
-     <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.shasum">SHA512</a></td>
-     <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.asc">PGP</a></td>
-     <td padding = "10px"><a href="http://trafficcontrol.apache.org/downloads/profiles/2.0.x/default/">Default Profiles</a></td>
-  </tr>
-  </tbody></table>
-   </div>
-   <div class="relNotesContainer">
-  <h2>Release Notes</h2>
-
-  <h3>Traffic Ops DB</h3>
-  <p class="relNotesText">Starting in Traffic Control 2.0.0, Postgres replaces MySQL as the Traffic Ops
-    Database. The change in database server now provides a more friendly open source license for Traffic
-    Control users.
-  </p>
-
-  <p class="relNotesText">To begin using Postgres, see traffic_ops_db/pg-migration/README.md for the
-    MANDATORY migration steps. This upgrade must be performed using a Traffic Control 1.8.x database. If
-    currently using a version of Traffic Control prior to 1.8.0, you must upgrade to 1.8.1 first before
-    upgrading to 2.0.0.
-  </p>
-  </div>
-
-   <div class="relNotesContainer">
-   <h1>Apache Traffic Control 1.8.1-incubating</h1>
-  The source code for Traffic Control 1.8.1 is available here:
-  <table><tbody padding="0 15px 0 15px">
-  <tr>
-     <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz">trafficcontrol-incubating-1.8.1.tar.gz</a></td>
-     <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.md5">MD5</a></td>
-     <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.sha512">SHA512</a></td>
-     <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.asc">PGP</a></td>
-  </tr>
-  </tbody></table>
-   </div>
-
-   <div class="relNotesContainer">
-  <h2>Release Notes - We're Incubating!</h2>
-  <p class="relNotesText">The Traffic Control project has been accepted into the Apache Incubator, and is
-  thus now Apache Traffic Control (incubating). Beyond simply moving the website,
-  this necessitated a number of changes, including changing the license header on each file.
-  </p>
-
-  <p class="relNotesText">The 1.8.1-incubating release is Apache Traffic Control's
-  second release under the Apache incubator.  This release contains several bug
-  fixes as well as updating a couple of dependencies.
-  </p>
-
-  <h3>Traffic Router</h3>
-  <p class="relNotesText">Recommendations based on load testing of HTTPS support: </p>
-
-  <p class="relNotesText">It is generally recommended to use the G1 garbage collector for JVM
-  applications running on multi core machines. In addition to using the G1
-  garbage collector, the InitiatingHeapOccupancyPercent was lowered to run
-  garbage collection more frequently.  This improved overall throughput for
-  Traffic Router and reduced 'Stop the World' garbage collection. </p>
-  <p class="relNotesText">The following example of /opt/tomcat/bin/setenv.sh that
-  has been tested on a multi core server running under HTTPS load test requests.
-  Note that setting the min and max heap settings in setenv.sh will override init
-  scripts in /etc/init.d/tomcat.</p>
-
-   <pre><code>
+        <hr/>
+        <div class="announce">
+          <p class="relNotesText">Apache Traffic Control-2.0.0-incubating has been released! The artifacts and release notes are below ...</p>
+        </div>
+        <div class="relNotesContainer">
+          <h1>Apache Traffic Control 2.0.0-incubating</h1>
+          The source code for Traffic Control 2.0.0 is available here:
+          <table>
+            <tbody padding="0 15px 0 15px">
+              <tr>
+                <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz">apache-trafficcontrol-2.0.0-incubating.tar.gz</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5sum">MD5</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.shasum">SHA512</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.asc">PGP</a></td>
+                <td padding = "10px"><a href="http://trafficcontrol.apache.org/downloads/profiles/2.0.x/default/">Default Profiles</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="relNotesContainer">
+          <h2>Signing Keys</h2>
+          <p class="relNotesText">In order to validate signatures our KEYS can be found <a href="https://www.apache.org/dist/incubator/trafficcontrol/KEYS">here</a>.</p>
+          <h2>Release Notes</h2>
+          <h3>Traffic Ops DB</h3>
+          <p class="relNotesText">Starting in Traffic Control 2.0.0, Postgres replaces MySQL as the Traffic Ops
+            Database. The change in database server now provides a more friendly open source license for Traffic
+            Control users.
+          </p>
+          <p class="relNotesText">To begin using Postgres, see traffic_ops_db/pg-migration/README.md for the
+            MANDATORY migration steps. This upgrade must be performed using a Traffic Control 1.8.x database. If
+            currently using a version of Traffic Control prior to 1.8.0, you must upgrade to 1.8.1 first before
+            upgrading to 2.0.0.
+          </p>
+        </div>
+        <div class="relNotesContainer">
+          <h1>Apache Traffic Control 1.8.1-incubating</h1>
+          The source code for Traffic Control 1.8.1 is available here:
+          <table>
+            <tbody padding="0 15px 0 15px">
+              <tr>
+                <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz">trafficcontrol-incubating-1.8.1.tar.gz</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.md5">MD5</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.sha512">SHA512</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.asc">PGP</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="relNotesContainer">
+          <h2>Release Notes - We're Incubating!</h2>
+          <p class="relNotesText">The Traffic Control project has been accepted into the Apache Incubator, and is
+            thus now Apache Traffic Control (incubating). Beyond simply moving the website,
+            this necessitated a number of changes, including changing the license header on each file.
+          </p>
+          <p class="relNotesText">The 1.8.1-incubating release is Apache Traffic Control's
+            second release under the Apache incubator.  This release contains several bug
+            fixes as well as updating a couple of dependencies.
+          </p>
+          <h3>Traffic Router</h3>
+          <p class="relNotesText">Recommendations based on load testing of HTTPS support: </p>
+          <p class="relNotesText">It is generally recommended to use the G1 garbage collector for JVM
+            applications running on multi core machines. In addition to using the G1
+            garbage collector, the InitiatingHeapOccupancyPercent was lowered to run
+            garbage collection more frequently.  This improved overall throughput for
+            Traffic Router and reduced 'Stop the World' garbage collection.
+          </p>
+          <p class="relNotesText">The following example of /opt/tomcat/bin/setenv.sh that
+            has been tested on a multi core server running under HTTPS load test requests.
+            Note that setting the min and max heap settings in setenv.sh will override init
+            scripts in /etc/init.d/tomcat.
+          </p>
+          <pre><code>
 #! /bin/sh
 export CATALINA_OPTS="$CATALINA_OPTS -server"
 export CATALINA_OPTS="$CATALINA_OPTS -Xms2g -Xmx2g"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:+UnlockExperimentalVMOptions"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:InitiatingHeapOccupancyPercent=30"
-   </code></pre>
-
- <h3>Traffic Stats</h3>
- <ul>
- <li>As of 1.8 Traffic Stats now requires InfluxDB 1.0 or greater.  For support of InfluxDb version &lt; 1.0 please use Traffic Stats 1.7.</li>
- <li>Traffic Stats now uses its config file to determine which influxdb urls to use. This allows a user to run a single instance of influxdb, an enterprise clustered solution, or a HA solution using influxdb-relay (https://github.com/influxdata/influxdb-relay).</li>
-
- <li>It is recommended to use the traffic_stats.cfg file provided by the TS 1.8 RPM. This version of the config file contains the new InfluxUrls array and there were some unnecessary variables that were removed.</li>
-</ul>
-
-
-   </div>
-     <div class="relNotesContainer">
-     Older, non-ASF releases can be found <a href="http://traffic-control-cdn.net/downloads/index.html">here</a>.
-     </div>
-
-      <br><hr>
-      <div id='footer' class='footer'>
-        <a href="http://incubator.apache.org/" target="_blank"><img src="../images/incubator_logo_bw.png" alt="" height=120/></a>
+          </code></pre>
+          <h3>Traffic Stats</h3>
+          <ul>
+            <li>As of 1.8 Traffic Stats now requires InfluxDB 1.0 or greater.  For support of InfluxDb version &lt; 1.0 please use Traffic Stats 1.7.</li>
+            <li>Traffic Stats now uses its config file to determine which influxdb urls to use. This allows a user to run a single instance of influxdb, an enterprise clustered solution, or a HA solution using influxdb-relay (https://github.com/influxdata/influxdb-relay).</li>
+            <li>It is recommended to use the traffic_stats.cfg file provided by the TS 1.8 RPM. This version of the config file contains the new InfluxUrls array and there were some unnecessary variables that were removed.</li>
+          </ul>
+        </div>
+        <div class="relNotesContainer">
+          Older, non-ASF releases can be found <a href="http://traffic-control-cdn.net/downloads/index.html">here</a>.
+        </div>
         <br/>
+        <hr/>
+        <div id='footer' class='footer'>
+          <a href="http://incubator.apache.org/" target="_blank"><img src="../images/incubator_logo_bw.png" alt="" height=120/></a>
+          <br/>
           <p>
             Apache Traffic Control is an effort undergoing Incubation at The Apache Software Foundation (ASF), sponsored by the Incubator.
             Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects.
             While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
-            <br>
+            <br/>
           </p>
           <p>
             Copyright &copy; 2016-2017 <a href='http://www.apache.org/'>The Apache Software Foundation</a>
-            <br>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+            <br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
           </p>
+        </div>
       </div>
     </div>
   </body>
