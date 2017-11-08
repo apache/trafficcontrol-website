@@ -242,6 +242,293 @@
 </tbody>
 </table>
 <p><strong>Response Properties</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="5%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">active</span></code></td>
+<td>bool</td>
+<td>true if active, false if inactive.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cacheurl</span></code></td>
+<td>string</td>
+<td>Cache URL rule to apply to this delivery service.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ccrDnsTtl</span></code></td>
+<td>int</td>
+<td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr. host.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">cdnId</span></code></td>
+<td>int</td>
+<td>Id of the CDN to which the delivery service belongs to.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdnName</span></code></td>
+<td>string</td>
+<td>Name of the CDN to which the delivery service belongs to.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">checkPath</span></code></td>
+<td>string</td>
+<td>The path portion of the URL to check this deliveryservice for health.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">displayName</span></code></td>
+<td>string</td>
+<td>The display name of the delivery service.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">dnsBypassCname</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dnsBypassIp</span></code></td>
+<td>string</td>
+<td>The IPv4 IP to use for bypass on a DNS deliveryservice  - bypass starts when serving more than the
+globalMaxMbps traffic on this deliveryservice.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">dnsBypassIp6</span></code></td>
+<td>string</td>
+<td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
+globalMaxMbps traffic on this deliveryservice.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dnsBypassTtl</span></code></td>
+<td>int</td>
+<td>The TTL of the DNS bypass response.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">dscp</span></code></td>
+<td>int</td>
+<td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt;  customer) traffic.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">edgeHeaderRewrite</span></code></td>
+<td>string</td>
+<td>The EDGE header rewrite actions to perform.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">exampleURLs</span></code></td>
+<td>array</td>
+<td>Entry points into the CDN for this deliveryservice.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">geoLimitRedirectUrl</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">geoLimit</span></code></td>
+<td>int</td>
+<td><ul class="first simple">
+<li>0: None - no limitations</li>
+<li>1: Only route on CZF file hit</li>
+<li>2: Only route on CZF hit or when from USA</li>
+</ul>
+<p class="last">Note that this does not prevent access to content or makes content secure; it just prevents
+routing to the content by Traffic Router.</p>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">geoLimitCountries</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">geoProvider</span></code></td>
+<td>int</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">globalMaxMbps</span></code></td>
+<td>int</td>
+<td>The maximum global bandwidth allowed on this deliveryservice. If exceeded, the traffic routes to the
+dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliveryservices.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">globalMaxTps</span></code></td>
+<td>int</td>
+<td>The maximum global transactions per second allowed on this deliveryservice. When this is exceeded
+traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
+HTTP deliveryservices</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">httpBypassFqdn</span></code></td>
+<td>string</td>
+<td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more than the
+globalMaxMbps traffic on this deliveryservice.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>The deliveryservice id (database row number).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">infoUrl</span></code></td>
+<td>string</td>
+<td>Use this to add a URL that points to more information about that deliveryservice.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">initialDispersion</span></code></td>
+<td>int</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ipv6RoutingEnabled</span></code></td>
+<td>bool</td>
+<td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">logsEnabled</span></code></td>
+<td>bool</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">longDesc</span></code></td>
+<td>string</td>
+<td>Description field.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">longDesc1</span></code></td>
+<td>string</td>
+<td>Description field 1.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">longDesc2</span></code></td>
+<td>string</td>
+<td>Description field 2.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">maxDnsAnswers</span></code></td>
+<td>int</td>
+<td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
+available).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">midHeaderRewrite</span></code></td>
+<td>string</td>
+<td>The MID header rewrite actions to perform.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">missLat</span></code></td>
+<td>float</td>
+<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
+<ul class="last simple">
+<li>e.g. 39.7391500 or null</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">missLong</span></code></td>
+<td>float</td>
+<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
+<ul class="last simple">
+<li>e.g. -104.9847000 or null</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">multiSiteOrigin</span></code></td>
+<td>bool</td>
+<td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">orgServerFqdn</span></code></td>
+<td>string</td>
+<td>The origin server base URL (FQDN when used in this instance, includes the
+protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">originShield</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileDescription</span></code></td>
+<td>string</td>
+<td>The description of the Traffic Router Profile with which this deliveryservice is associated.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<td>int</td>
+<td>The id of the Traffic Router Profile with which this deliveryservice is associated.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileName</span></code></td>
+<td>string</td>
+<td>The name of the Traffic Router Profile with which this deliveryservice is associated.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">protocol</span></code></td>
+<td>int</td>
+<td><ul class="first last simple">
+<li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
+<li>1: serve with <a class="reference external" href="https://">https://</a> at EDGE</li>
+<li>2: serve with both <a class="reference external" href="http://">http://</a> and <a class="reference external" href="https://">https://</a> at EDGE</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">qstringIgnore</span></code></td>
+<td>int</td>
+<td><ul class="first last simple">
+<li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
+<li>1: ignore query string in cache-key, but pass it up to parent and or origin.</li>
+<li>2: drop query string at edge, and do not use it in the cache-key.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">rangeRequestHandling</span></code></td>
+<td>int</td>
+<td><p class="first">How to treat range requests:</p>
+<ul class="last simple">
+<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
+<li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
+<li>2 Use the cache_range_requests plugin.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">regexRemap</span></code></td>
+<td>string</td>
+<td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">regionalGeoBlocking</span></code></td>
+<td>bool</td>
+<td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">remapText</span></code></td>
+<td>string</td>
+<td>Additional raw remap line text.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">routingName</span></code></td>
+<td>string</td>
+<td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signed</span></code></td>
+<td>bool</td>
+<td><ul class="first last simple">
+<li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
+<li>true: token based auth is enabled for this deliveryservice.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">signingAlgorithm</span></code></td>
+<td>string</td>
+<td><ul class="first last simple">
+<li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
+<li>&#8220;url_sig&#8221;: URL Sign token based auth is enabled for this deliveryservice.</li>
+<li>&#8220;uri_signing&#8221;: URI Signing token based auth is enabled for this deliveryservice.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sslKeyVersion</span></code></td>
+<td>int</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">tenant</span></code></td>
+<td>string</td>
+<td>Owning tenant name</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">tenantId</span></code></td>
+<td>int</td>
+<td>Owning tenant ID</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">trRequestHeaders</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">trResponseHeaders</span></code></td>
+<td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<td>int</td>
+<td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=&#8217;deliveryservice&#8217;).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">xmlId</span></code></td>
+<td>string</td>
+<td>Unique string that describes this deliveryservice.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -5171,19 +5458,57 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </div>
 <div class="section" id="uri-signing-keys">
 <h2>URI Signing Keys<a class="headerlink" href="#uri-signing-keys" title="Permalink to this headline">¶</a></h2>
-<p><a href="#id5"><span class="problematic" id="id6">**</span></a>DELETE /api/1.2/deliveryservices/:xml_id/urisignkeys</p>
+<p><strong>DELETE /api/1.2/deliveryservices/:xml_id/urisignkeys</strong></p>
 <blockquote>
 <div><p>Deletes URISigning objects for a delivery service.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: admin</p>
 <p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xml_id</td>
+<td>yes</td>
+<td>xml_id of the desired delivery service</td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
-<p><a href="#id7"><span class="problematic" id="id8">**</span></a>GET /api/1.2/deliveryservices/:xml_id/urisignkeys</p>
+<p><strong>GET /api/1.2/deliveryservices/:xml_id/urisignkeys</strong></p>
 <blockquote>
 <div><p>Retrieves one or more URISigning objects for a delivery service.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: admin</p>
 <p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xml_id</td>
+<td>yes</td>
+<td>xml_id of the desired delivery service</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -5230,43 +5555,52 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </table>
 <p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;Kabletown URI Authority&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;renewal_kid&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Key&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;First Key&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;Kh_RkUMj-fzbD37qBnDf_3e_RvQ3RP9PaSmVEpE24AM&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Key&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;fZBpDBNbk2GqhwoB_DGBAsBxqQZVix04rIoLJ7p_RlE&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<blockquote>
-<div><dl class="docutils">
-<dt>&#8220;Kabletown URI Authority&#8221;: {</dt>
-<dd><p class="first">&#8220;renewal_kid&#8221;: &#8220;Second Key&#8221;,
-&#8220;keys&#8221;: [</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd>&#8220;alg&#8221;: &#8220;HS256&#8221;,
-&#8220;kid&#8221;: &#8220;First Key&#8221;,
-&#8220;kty&#8221;: &#8220;oct&#8221;,
-&#8220;k&#8221;: &#8220;Kh_RkUMj-fzbD37qBnDf_3e_RvQ3RP9PaSmVEpE24AM&#8221;</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div>&#8220;alg&#8221;: &#8220;HS256&#8221;,
-&#8220;kid&#8221;: &#8220;Second Key&#8221;,
-&#8220;kty&#8221;: &#8220;oct&#8221;,
-&#8220;k&#8221;: &#8220;fZBpDBNbk2GqhwoB_DGBAsBxqQZVix04rIoLJ7p_RlE&#8221;</div></blockquote>
-<p>}</p>
 </div></blockquote>
-<p class="last">]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p><a href="#id9"><span class="problematic" id="id10">**</span></a>POST /api/1.2/deliveryservices/:xml_id/urisignkeys</p>
+<p><strong>POST /api/1.2/deliveryservices/:xml_id/urisignkeys</strong></p>
 <blockquote>
 <div><p>Assigns URISigning objects to a delivery service.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: admin</p>
 <p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xml_id</td>
+<td>yes</td>
+<td>xml_id of the desired delivery service</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -5313,43 +5647,52 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </table>
 <p><strong>Request Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;Kabletown URI Authority&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;renewal_kid&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Key&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;First Key&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;Kh_RkUMj-fzbD37qBnDf_3e_RvQ3RP9PaSmVEpE24AM&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Key&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;fZBpDBNbk2GqhwoB_DGBAsBxqQZVix04rIoLJ7p_RlE&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<blockquote>
-<div><dl class="docutils">
-<dt>&#8220;Kabletown URI Authority&#8221;: {</dt>
-<dd><p class="first">&#8220;renewal_kid&#8221;: &#8220;Second Key&#8221;,
-&#8220;keys&#8221;: [</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd>&#8220;alg&#8221;: &#8220;HS256&#8221;,
-&#8220;kid&#8221;: &#8220;First Key&#8221;,
-&#8220;kty&#8221;: &#8220;oct&#8221;,
-&#8220;k&#8221;: &#8220;Kh_RkUMj-fzbD37qBnDf_3e_RvQ3RP9PaSmVEpE24AM&#8221;</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div>&#8220;alg&#8221;: &#8220;HS256&#8221;,
-&#8220;kid&#8221;: &#8220;Second Key&#8221;,
-&#8220;kty&#8221;: &#8220;oct&#8221;,
-&#8220;k&#8221;: &#8220;fZBpDBNbk2GqhwoB_DGBAsBxqQZVix04rIoLJ7p_RlE&#8221;</div></blockquote>
-<p>}</p>
 </div></blockquote>
-<p class="last">]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p><a href="#id11"><span class="problematic" id="id12">**</span></a>PUT /api/1.2/deliveryservices/:xml_id/urisignkeys</p>
+<p><strong>PUT /api/1.2/deliveryservices/:xml_id/urisignkeys</strong></p>
 <blockquote>
 <div><p>updates URISigning objects on a delivery service.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: admin</p>
 <p><strong>Request Route Parameters</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="16%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xml_id</td>
+<td>yes</td>
+<td>xml_id of the desired delivery service</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -5396,36 +5739,26 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </table>
 <p><strong>Request Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;Kabletown URI Authority&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;renewal_kid&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Key&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;First Key&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;Kh_RkUMj-fzbD37qBnDf_3e_RvQ3RP9PaSmVEpE24AM&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Key&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;fZBpDBNbk2GqhwoB_DGBAsBxqQZVix04rIoLJ7p_RlE&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<blockquote>
-<div><dl class="docutils">
-<dt>&#8220;Kabletown URI Authority&#8221;: {</dt>
-<dd><p class="first">&#8220;renewal_kid&#8221;: &#8220;Second Key&#8221;,
-&#8220;keys&#8221;: [</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>{</dt>
-<dd>&#8220;alg&#8221;: &#8220;HS256&#8221;,
-&#8220;kid&#8221;: &#8220;First Key&#8221;,
-&#8220;kty&#8221;: &#8220;oct&#8221;,
-&#8220;k&#8221;: &#8220;Kh_RkUMj-fzbD37qBnDf_3e_RvQ3RP9PaSmVEpE24AM&#8221;</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div>&#8220;alg&#8221;: &#8220;HS256&#8221;,
-&#8220;kid&#8221;: &#8220;Second Key&#8221;,
-&#8220;kty&#8221;: &#8220;oct&#8221;,
-&#8220;k&#8221;: &#8220;fZBpDBNbk2GqhwoB_DGBAsBxqQZVix04rIoLJ7p_RlE&#8221;</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p class="last">]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
 </div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
