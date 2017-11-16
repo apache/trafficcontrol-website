@@ -3508,7 +3508,7 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <blockquote>
 <div><p>Allows user to create a delivery service.</p>
 <p>Authentication Required: Yes</p>
-<p>Role(s) Required:  admin or oper</p>
+<p>Role(s) Required:  Admin or Operations</p>
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -3527,61 +3527,57 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <td>yes</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td>tenantId</td>
-<td>No</td>
-<td>Owning tenant ID</td>
-</tr>
-<tr class="row-even"><td>cacheurl</td>
+<tr class="row-odd"><td>cacheurl</td>
 <td>no</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-odd"><td>ccrDnsTtl</td>
+<tr class="row-even"><td>ccrDnsTtl</td>
 <td>no</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr.host.</td>
 </tr>
-<tr class="row-even"><td>cdnId</td>
+<tr class="row-odd"><td>cdnId</td>
 <td>yes</td>
 <td>cdn id</td>
 </tr>
-<tr class="row-odd"><td>checkPath</td>
+<tr class="row-even"><td>checkPath</td>
 <td>no</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-even"><td>displayName</td>
+<tr class="row-odd"><td>displayName</td>
 <td>yes</td>
 <td>Display name</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassCname</td>
+<tr class="row-even"><td>dnsBypassCname</td>
 <td>no</td>
 <td>Bypass CNAME</td>
 </tr>
-<tr class="row-even"><td>dnsBypassIp</td>
+<tr class="row-odd"><td>dnsBypassIp</td>
 <td>no</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassIp6</td>
+<tr class="row-even"><td>dnsBypassIp6</td>
 <td>no</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>dnsBypassTtl</td>
+<tr class="row-odd"><td>dnsBypassTtl</td>
 <td>no</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-odd"><td>dscp</td>
+<tr class="row-even"><td>dscp</td>
 <td>yes</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt; customer) traffic.</td>
 </tr>
-<tr class="row-even"><td>edgeHeaderRewrite</td>
+<tr class="row-odd"><td>edgeHeaderRewrite</td>
 <td>no</td>
 <td>The EDGE header rewrite actions to perform.</td>
 </tr>
-<tr class="row-odd"><td>geoLimitRedirectURL</td>
+<tr class="row-even"><td>geoLimitRedirectURL</td>
 <td>no</td>
 <td>This is the URL Traffic Router will redirect to when Geo Limit Failure.</td>
 </tr>
-<tr class="row-even"><td>geoLimit</td>
+<tr class="row-odd"><td>geoLimit</td>
 <td>yes</td>
 <td><ul class="first simple">
 <li>0: None - no limitations</li>
@@ -3592,11 +3588,11 @@ globalMaxMbps traffic on this deliveryservice.</td>
 routing to the content by Traffic Router.</p>
 </td>
 </tr>
-<tr class="row-odd"><td>geoLimitCountries</td>
+<tr class="row-even"><td>geoLimitCountries</td>
 <td>no</td>
 <td>The geo limit countries.</td>
 </tr>
-<tr class="row-even"><td>geoProvider</td>
+<tr class="row-odd"><td>geoProvider</td>
 <td>yes</td>
 <td><ul class="first last simple">
 <li>0: Maxmind(default)</li>
@@ -3604,35 +3600,36 @@ routing to the content by Traffic Router.</p>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>globalMaxMbps</td>
+<tr class="row-even"><td>globalMaxMbps</td>
 <td>no</td>
 <td>The maximum global bandwidth allowed on this deliveryservice. If exceeded, the traffic routes to the
 dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliveryservices.</td>
 </tr>
-<tr class="row-even"><td>globalMaxTps</td>
+<tr class="row-odd"><td>globalMaxTps</td>
 <td>no</td>
 <td>The maximum global transactions per second allowed on this deliveryservice. When this is exceeded
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td>httpBypassFqdn</td>
+<tr class="row-even"><td>httpBypassFqdn</td>
 <td>no</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more
 than the globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>infoUrl</td>
+<tr class="row-odd"><td>infoUrl</td>
 <td>no</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>initialDispersion</td>
-<td>yes</td>
-<td>Initial dispersion</td>
+<tr class="row-even"><td>initialDispersion</td>
+<td>yes|no</td>
+<td>Initial dispersion. Required for HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>ipv6RoutingEnabled</td>
-<td>yes</td>
-<td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
+<tr class="row-odd"><td>ipv6RoutingEnabled</td>
+<td>yes|no</td>
+<td>false: send IPv4 address of Traffic Router to client on HTTP type del.
+Required for DNS*, HTTP* and STEERING* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>logsEnabled</td>
+<tr class="row-even"><td>logsEnabled</td>
 <td>yes</td>
 <td><ul class="first last simple">
 <li>false: No</li>
@@ -3640,82 +3637,78 @@ than the globalMaxMbps traffic on this deliveryservice.</td>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>longDesc</td>
+<tr class="row-odd"><td>longDesc</td>
 <td>no</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-odd"><td>longDesc1</td>
+<tr class="row-even"><td>longDesc1</td>
 <td>no</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-even"><td>longDesc2</td>
+<tr class="row-odd"><td>longDesc2</td>
 <td>no</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-odd"><td>maxDnsAnswers</td>
+<tr class="row-even"><td>maxDnsAnswers</td>
 <td>no</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-even"><td>midHeaderRewrite</td>
+<tr class="row-odd"><td>midHeaderRewrite</td>
 <td>no</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-odd"><td>missLat</td>
-<td>no</td>
-<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. 39.7391500 or null</li>
-</ul>
-</td>
+<tr class="row-even"><td>missLat</td>
+<td>yes|no</td>
+<td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+e.g. 39.7391500 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>missLong</td>
-<td>no</td>
-<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. -104.9847000 or null</li>
-</ul>
-</td>
+<tr class="row-odd"><td>missLong</td>
+<td>yes|no</td>
+<td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+e.g. -104.9847000 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>multiSiteOrigin</td>
-<td>yes</td>
-<td>1 if enabled, 0 if disabled.</td>
+<tr class="row-even"><td>multiSiteOrigin</td>
+<td>yes|no</td>
+<td>true if enabled, false if disabled. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>orgServerFqdn</td>
+<tr class="row-odd"><td>orgServerFqdn</td>
 <td>yes|no</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server. This field is
-NOT required if type is ANY_MAP, STEERING OR CLIENT_STEERING.</td>
+required if type is DNS* or HTTP*.</td>
 </tr>
-<tr class="row-odd"><td>originShield</td>
+<tr class="row-even"><td>originShield</td>
 <td>no</td>
 <td>Origin shield</td>
 </tr>
-<tr class="row-even"><td>profileId</td>
+<tr class="row-odd"><td>profileId</td>
 <td>no</td>
 <td>DS profile ID</td>
 </tr>
-<tr class="row-odd"><td>protocol</td>
-<td>yes</td>
-<td><ul class="first last simple">
+<tr class="row-even"><td>protocol</td>
+<td>yes|no</td>
+<td><ul class="first simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
 <li>1: serve with <a class="reference external" href="https://">https://</a> at EDGE</li>
 <li>2: serve with both <a class="reference external" href="http://">http://</a> and <a class="reference external" href="https://">https://</a> at EDGE</li>
 </ul>
+<p class="last">Required for DNS*, HTTP* or <em>STEERING</em> delivery services.</p>
 </td>
 </tr>
-<tr class="row-even"><td>qstringIgnore</td>
-<td>yes</td>
-<td><ul class="first last simple">
+<tr class="row-odd"><td>qstringIgnore</td>
+<td>yes|no</td>
+<td><ul class="first simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
 <li>1: ignore query string in cache-key, but pass it up to parent and or origin.</li>
 <li>2: drop query string at edge, and do not use it in the cache-key.</li>
 </ul>
+<p class="last">Required for DNS* and HTTP* delivery services.</p>
 </td>
 </tr>
-<tr class="row-odd"><td>rangeRequestHandling</td>
-<td>yes</td>
-<td><p class="first">How to treat range requests:</p>
+<tr class="row-even"><td>rangeRequestHandling</td>
+<td>yes|no</td>
+<td><p class="first">How to treat range requests (required for DNS* and HTTP* delivery services):</p>
 <ul class="last simple">
 <li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will
 be a HIT)</li>
@@ -3724,23 +3717,23 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>regexRemap</td>
+<tr class="row-odd"><td>regexRemap</td>
 <td>no</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-odd"><td>regionalGeoBlocking</td>
-<td>no</td>
-<td>Is the Regional Geo Blocking feature enabled for this delivery service.</td>
+<tr class="row-even"><td>regionalGeoBlocking</td>
+<td>yes</td>
+<td>Is the Regional Geo Blocking feature enabled.</td>
 </tr>
-<tr class="row-even"><td>remapText</td>
+<tr class="row-odd"><td>remapText</td>
 <td>no</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-odd"><td>routingName</td>
-<td>no</td>
+<tr class="row-even"><td>routingName</td>
+<td>yes</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-even"><td>signed</td>
+<tr class="row-odd"><td>signed</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -3748,7 +3741,7 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>signingAlgorithm</td>
+<tr class="row-even"><td>signingAlgorithm</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -3757,9 +3750,13 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>sslKeyVersion</td>
+<tr class="row-odd"><td>sslKeyVersion</td>
 <td>no</td>
 <td>SSL key version</td>
+</tr>
+<tr class="row-even"><td>tenantId</td>
+<td>No</td>
+<td>Owning tenant ID</td>
 </tr>
 <tr class="row-odd"><td>trRequestHeaders</td>
 <td>no</td>
@@ -4223,61 +4220,57 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>yes</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td>tenantId</td>
-<td>no</td>
-<td>Owning tenant ID</td>
-</tr>
-<tr class="row-even"><td>cacheurl</td>
+<tr class="row-odd"><td>cacheurl</td>
 <td>no</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-odd"><td>ccrDnsTtl</td>
+<tr class="row-even"><td>ccrDnsTtl</td>
 <td>no</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr.host.</td>
 </tr>
-<tr class="row-even"><td>cdnId</td>
+<tr class="row-odd"><td>cdnId</td>
 <td>yes</td>
 <td>cdn id</td>
 </tr>
-<tr class="row-odd"><td>checkPath</td>
+<tr class="row-even"><td>checkPath</td>
 <td>no</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-even"><td>displayName</td>
+<tr class="row-odd"><td>displayName</td>
 <td>yes</td>
 <td>Display name</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassCname</td>
+<tr class="row-even"><td>dnsBypassCname</td>
 <td>no</td>
 <td>Bypass CNAME</td>
 </tr>
-<tr class="row-even"><td>dnsBypassIp</td>
+<tr class="row-odd"><td>dnsBypassIp</td>
 <td>no</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassIp6</td>
+<tr class="row-even"><td>dnsBypassIp6</td>
 <td>no</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>dnsBypassTtl</td>
+<tr class="row-odd"><td>dnsBypassTtl</td>
 <td>no</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-odd"><td>dscp</td>
+<tr class="row-even"><td>dscp</td>
 <td>yes</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt; customer) traffic.</td>
 </tr>
-<tr class="row-even"><td>edgeHeaderRewrite</td>
+<tr class="row-odd"><td>edgeHeaderRewrite</td>
 <td>no</td>
 <td>The EDGE header rewrite actions to perform.</td>
 </tr>
-<tr class="row-odd"><td>geoLimitRedirectURL</td>
+<tr class="row-even"><td>geoLimitRedirectURL</td>
 <td>no</td>
 <td>This is the URL Traffic Router will redirect to when Geo Limit Failure.</td>
 </tr>
-<tr class="row-even"><td>geoLimit</td>
+<tr class="row-odd"><td>geoLimit</td>
 <td>yes</td>
 <td><ul class="first simple">
 <li>0: None - no limitations</li>
@@ -4288,11 +4281,11 @@ globalMaxMbps traffic on this deliveryservice.</td>
 routing to the content by Traffic Router.</p>
 </td>
 </tr>
-<tr class="row-odd"><td>geoLimitCountries</td>
+<tr class="row-even"><td>geoLimitCountries</td>
 <td>no</td>
 <td>The geo limit countries.</td>
 </tr>
-<tr class="row-even"><td>geoProvider</td>
+<tr class="row-odd"><td>geoProvider</td>
 <td>yes</td>
 <td><ul class="first last simple">
 <li>0: Maxmind(default)</li>
@@ -4300,35 +4293,36 @@ routing to the content by Traffic Router.</p>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>globalMaxMbps</td>
+<tr class="row-even"><td>globalMaxMbps</td>
 <td>no</td>
 <td>The maximum global bandwidth allowed on this deliveryservice. If exceeded, the traffic routes to the
 dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliveryservices.</td>
 </tr>
-<tr class="row-even"><td>globalMaxTps</td>
+<tr class="row-odd"><td>globalMaxTps</td>
 <td>no</td>
 <td>The maximum global transactions per second allowed on this deliveryservice. When this is exceeded
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td>httpBypassFqdn</td>
+<tr class="row-even"><td>httpBypassFqdn</td>
 <td>no</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more
 than the globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>infoUrl</td>
+<tr class="row-odd"><td>infoUrl</td>
 <td>no</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>initialDispersion</td>
-<td>yes</td>
-<td>Initial dispersion</td>
+<tr class="row-even"><td>initialDispersion</td>
+<td>yes|no</td>
+<td>Initial dispersion. Required for HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>ipv6RoutingEnabled</td>
-<td>yes</td>
-<td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
+<tr class="row-odd"><td>ipv6RoutingEnabled</td>
+<td>yes|no</td>
+<td>false: send IPv4 address of Traffic Router to client on HTTP type del.
+Required for DNS*, HTTP* and STEERING* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>logsEnabled</td>
+<tr class="row-even"><td>logsEnabled</td>
 <td>yes</td>
 <td><ul class="first last simple">
 <li>false: No</li>
@@ -4336,81 +4330,78 @@ than the globalMaxMbps traffic on this deliveryservice.</td>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>longDesc</td>
+<tr class="row-odd"><td>longDesc</td>
 <td>no</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-odd"><td>longDesc1</td>
+<tr class="row-even"><td>longDesc1</td>
 <td>no</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-even"><td>longDesc2</td>
+<tr class="row-odd"><td>longDesc2</td>
 <td>no</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-odd"><td>maxDnsAnswers</td>
+<tr class="row-even"><td>maxDnsAnswers</td>
 <td>no</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-even"><td>midHeaderRewrite</td>
+<tr class="row-odd"><td>midHeaderRewrite</td>
 <td>no</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-odd"><td>missLat</td>
-<td>no</td>
-<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. 39.7391500 or null</li>
-</ul>
-</td>
+<tr class="row-even"><td>missLat</td>
+<td>yes|no</td>
+<td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+e.g. 39.7391500 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>missLong</td>
-<td>no</td>
-<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. -104.9847000 or null</li>
-</ul>
-</td>
+<tr class="row-odd"><td>missLong</td>
+<td>yes|no</td>
+<td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+e.g. -104.9847000 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>multiSiteOrigin</td>
-<td>yes</td>
-<td>1 if enabled, 0 if disabled.</td>
+<tr class="row-even"><td>multiSiteOrigin</td>
+<td>yes|no</td>
+<td>true if enabled, false if disabled. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>orgServerFqdn</td>
-<td>yes</td>
+<tr class="row-odd"><td>orgServerFqdn</td>
+<td>yes|no</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
-protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
+protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server. This field is
+required if type is DNS* or HTTP*.</td>
 </tr>
-<tr class="row-odd"><td>originShield</td>
+<tr class="row-even"><td>originShield</td>
 <td>no</td>
 <td>Origin shield</td>
 </tr>
-<tr class="row-even"><td>profileId</td>
+<tr class="row-odd"><td>profileId</td>
 <td>no</td>
 <td>DS profile ID</td>
 </tr>
-<tr class="row-odd"><td>protocol</td>
-<td>yes</td>
-<td><ul class="first last simple">
+<tr class="row-even"><td>protocol</td>
+<td>yes|no</td>
+<td><ul class="first simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
 <li>1: serve with <a class="reference external" href="https://">https://</a> at EDGE</li>
 <li>2: serve with both <a class="reference external" href="http://">http://</a> and <a class="reference external" href="https://">https://</a> at EDGE</li>
 </ul>
+<p class="last">Required for DNS*, HTTP* or <em>STEERING</em> delivery services.</p>
 </td>
 </tr>
-<tr class="row-even"><td>qstringIgnore</td>
-<td>yes</td>
-<td><ul class="first last simple">
+<tr class="row-odd"><td>qstringIgnore</td>
+<td>yes|no</td>
+<td><ul class="first simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
 <li>1: ignore query string in cache-key, but pass it up to parent and or origin.</li>
 <li>2: drop query string at edge, and do not use it in the cache-key.</li>
 </ul>
+<p class="last">Required for DNS* and HTTP* delivery services.</p>
 </td>
 </tr>
-<tr class="row-odd"><td>rangeRequestHandling</td>
-<td>yes</td>
-<td><p class="first">How to treat range requests:</p>
+<tr class="row-even"><td>rangeRequestHandling</td>
+<td>yes|no</td>
+<td><p class="first">How to treat range requests (required for DNS* and HTTP* delivery services):</p>
 <ul class="last simple">
 <li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will
 be a HIT)</li>
@@ -4419,23 +4410,23 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>regexRemap</td>
+<tr class="row-odd"><td>regexRemap</td>
 <td>no</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-odd"><td>regionalGeoBlocking</td>
-<td>no</td>
-<td>Is the Regional Geo Blocking feature enabled for this delivery service.</td>
+<tr class="row-even"><td>regionalGeoBlocking</td>
+<td>yes</td>
+<td>Is the Regional Geo Blocking feature enabled.</td>
 </tr>
-<tr class="row-even"><td>remapText</td>
+<tr class="row-odd"><td>remapText</td>
 <td>no</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-odd"><td>routingName</td>
-<td>no</td>
+<tr class="row-even"><td>routingName</td>
+<td>yes</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-even"><td>signed</td>
+<tr class="row-odd"><td>signed</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4443,7 +4434,7 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>signingAlgorithm</td>
+<tr class="row-even"><td>signingAlgorithm</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4452,9 +4443,13 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>sslKeyVersion</td>
+<tr class="row-odd"><td>sslKeyVersion</td>
 <td>no</td>
 <td>SSL key version</td>
+</tr>
+<tr class="row-even"><td>tenantId</td>
+<td>No</td>
+<td>Owning tenant ID</td>
 </tr>
 <tr class="row-odd"><td>trRequestHeaders</td>
 <td>no</td>
