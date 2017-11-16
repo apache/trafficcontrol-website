@@ -734,6 +734,51 @@ To set the qstring without the use of regex remap, or for further options, see <
 <div class="section" id="delivery-service-types">
 <span id="rl-ds-types"></span><span id="index-4"></span><h3>Delivery Service Types<a class="headerlink" href="#delivery-service-types" title="Permalink to this headline">¶</a></h3>
 <p>One of the most important settings when creating the delivery service is the selection of the delivery service <em>type</em>. This type determines the routing method and the primary storage for the delivery service.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HTTP</td>
+<td>HTTP Content Routing  - The Traffic Router DNS auth server returns its own IP address on DNS queries, and the client gets redirected to a specific cache
+in the nearest cache group using HTTP 302.  Use this for long sessions like HLS/HDS/Smooth live streaming, where a longer setup time is not a.
+problem.</td>
+</tr>
+<tr class="row-odd"><td>DNS</td>
+<td>DNS Content Routing - The Traffic Router DNS auth server returns an edge cache IP address to the client right away. The client will find the cache quickly
+but the Traffic Router can not route to a cache that already has this content in the cache group. Use this for smaller objects like web page images / objects.</td>
+</tr>
+<tr class="row-even"><td>HTTP_NO_CACHE</td>
+<td>HTTP Content Routing, but the caches will not actually cache the content, they act as just proxies. The MID tier is bypassed.</td>
+</tr>
+<tr class="row-odd"><td>HTTP_LIVE</td>
+<td>HTTP Content routing, but where for &#8220;standard&#8221; HTTP content routing the objects are stored on disk, for this delivery service type the objects are stored
+on the RAM disks. Use this for linear TV. The MID tier is bypassed for this type.</td>
+</tr>
+<tr class="row-even"><td>HTTP_LIVE_NATNL</td>
+<td>HTTP Content routing, same as HTTP_LIVE, but the MID tier is NOT bypassed.</td>
+</tr>
+<tr class="row-odd"><td>DNS_LIVE_NATNL</td>
+<td>DNS Content routing, but where for &#8220;standard&#8221; DNS content routing the objects are stored on disk, for this delivery service type the objects are stored
+on the RAM disks. Use this for linear TV. The MID tier is NOT bypassed for this type.</td>
+</tr>
+<tr class="row-even"><td>DNS_LIVE</td>
+<td>DNS Content routing, same as DNS_LIVE_NATNL, but the MID tier is bypassed.</td>
+</tr>
+<tr class="row-odd"><td>ANY_MAP</td>
+<td>ANY_MAP is not known to Traffic Router. For this deliveryservice, the &#8220;Raw remap text&#8221; field in the input form will be used as the remap line on the cache.</td>
+</tr>
+<tr class="row-even"><td>STEERING</td>
+<td>The Delivery Service will be used to route to other delivery services. The target delivery services and the routing weights for those delivery services will be defined by an admin or steering user. For more information see the <a class="reference external" href="../traffic_router.html#steering-feature">steering feature</a> documentation</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Once created, the Traffic Ops user interface does not allow you to change the delivery service type; the drop down is greyed out. There are many things that can go wrong when changing the type, and it is safer to delete the delivery service, and recreate it.</p>
