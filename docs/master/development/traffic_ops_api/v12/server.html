@@ -1625,9 +1625,9 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
-<col width="13%" />
-<col width="65%" />
+<col width="18%" />
+<col width="11%" />
+<col width="70%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -1644,13 +1644,13 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>yes</td>
 <td>The domain name part of the FQDN of the cache.</td>
 </tr>
-<tr class="row-even"><td>cachegroup</td>
+<tr class="row-even"><td>cachegroupId</td>
 <td>yes</td>
-<td>cache group name</td>
+<td>Cache Group ID</td>
 </tr>
 <tr class="row-odd"><td>interfaceName</td>
 <td>yes</td>
-<td>&#160;</td>
+<td>The interface name (e.g. eth0, p2p1).</td>
 </tr>
 <tr class="row-even"><td>ipAddress</td>
 <td>yes</td>
@@ -1658,39 +1658,47 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tr>
 <tr class="row-odd"><td>ipNetmask</td>
 <td>yes</td>
-<td>&#160;</td>
+<td>The IPv4 Netmask</td>
 </tr>
 <tr class="row-even"><td>ipGateway</td>
 <td>yes</td>
-<td>&#160;</td>
+<td>The IPv4 Gateway.</td>
 </tr>
 <tr class="row-odd"><td>interfaceMtu</td>
-<td>no</td>
+<td>yes</td>
 <td>1500 or 9000</td>
 </tr>
-<tr class="row-even"><td>physLocation</td>
+<tr class="row-even"><td>physLocationId</td>
 <td>yes</td>
-<td>&#160;</td>
+<td>The ID of the Physical Location.</td>
 </tr>
-<tr class="row-odd"><td>type</td>
+<tr class="row-odd"><td>typeId</td>
 <td>yes</td>
-<td>server type</td>
+<td>The ID of the Server Type</td>
 </tr>
-<tr class="row-even"><td>profile</td>
+<tr class="row-even"><td>profileId</td>
 <td>yes</td>
 <td>Profile ID - Profile&#8217;s CDN must match server&#8217;s.</td>
 </tr>
-<tr class="row-odd"><td>cdnName</td>
+<tr class="row-odd"><td>cdnId</td>
 <td>yes</td>
-<td>cdn name the server belongs to</td>
+<td>CDN ID the server belongs to</td>
+</tr>
+<tr class="row-even"><td>updPending</td>
+<td>yes</td>
+<td>Is there an update pending for this server. (true or false)</td>
+</tr>
+<tr class="row-odd"><td>statusId</td>
+<td>yes</td>
+<td>The Status ID of the server.</td>
 </tr>
 <tr class="row-even"><td>tcpPort</td>
 <td>no</td>
-<td>&#160;</td>
+<td>Must be a valid TCP port if specified.</td>
 </tr>
 <tr class="row-odd"><td>httpsPort</td>
 <td>no</td>
-<td>&#160;</td>
+<td>Must be a valid TCP port if specified.</td>
 </tr>
 <tr class="row-even"><td>xmppId</td>
 <td>no</td>
@@ -1702,72 +1710,74 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </tr>
 <tr class="row-even"><td>ip6Address</td>
 <td>no</td>
-<td>Must be unique per server profile.</td>
+<td>IPv6 address and prefix. Must be unique per server profile.</td>
 </tr>
 <tr class="row-odd"><td>ip6Gateway</td>
 <td>no</td>
-<td>&#160;</td>
+<td>IPv6 Gateway</td>
 </tr>
 <tr class="row-even"><td>rack</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The rack location in the Data Center.</td>
 </tr>
 <tr class="row-odd"><td>mgmtIpAddress</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The IPv4 management address.</td>
 </tr>
 <tr class="row-even"><td>mgmtIpNetmask</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The IPv4 management netmask.</td>
 </tr>
 <tr class="row-odd"><td>mgmtIpGateway</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The IPv4 management gateway.</td>
 </tr>
 <tr class="row-even"><td>iloIpAddress</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The IPv4 ILO address.</td>
 </tr>
 <tr class="row-odd"><td>iloIpNetmask</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The IPv4 ILO netmask.</td>
 </tr>
 <tr class="row-even"><td>iloIpGateway</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The IPv4 ILO gateway.</td>
 </tr>
 <tr class="row-odd"><td>iloUsername</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The ILO username.</td>
 </tr>
 <tr class="row-even"><td>iloPassword</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The ILO password.</td>
 </tr>
 <tr class="row-odd"><td>routerHostName</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The hostname of the router the server is connected to.</td>
 </tr>
 <tr class="row-even"><td>routerPortName</td>
 <td>no</td>
-<td>&#160;</td>
+<td>The portname in the router.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;tc1_ats1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;my.test.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cachegroup&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_group_edge&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cdnName&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn_number_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domainName&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn1.kabletown.test&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cachegroupId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">&quot;interfaceName&quot;</span><span class="p">:</span> <span class="s2">&quot;eth0&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;10.74.27.188&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ipNetmask&quot;</span><span class="p">:</span> <span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ipGateway&quot;</span><span class="p">:</span> <span class="s2">&quot;10.74.27.1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;interfaceMtu&quot;</span><span class="p">:</span> <span class="s2">&quot;1500&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;physLocation&quot;</span><span class="p">:</span> <span class="s2">&quot;plocation-chi-1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;EDGE1_CDN1_421&quot;</span>
+    <span class="s2">&quot;interfaceMtu&quot;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+    <span class="s2">&quot;physLocationId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;updPending&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;statusId&quot;</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1915,27 +1925,29 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
     <span class="s1">&#39;response&#39;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;profileId&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="s1">&#39;xmppPasswd&#39;</span> <span class="p">:</span> <span class="s1">&#39;**********&#39;</span><span class="p">,</span>
         <span class="s1">&#39;profile&#39;</span> <span class="p">:</span> <span class="s1">&#39;EDGE1_CDN1_421&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;iloUsername&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s1">&#39;iloUsername&#39;</span> <span class="p">:</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;statusId&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="s1">&#39;status&#39;</span> <span class="p">:</span> <span class="s1">&#39;REPORTED&#39;</span><span class="p">,</span>
         <span class="s1">&#39;ipAddress&#39;</span> <span class="p">:</span> <span class="s1">&#39;10.74.27.188&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;cdnId&#39;</span> <span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cdnId&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="s1">&#39;physLocation&#39;</span> <span class="p">:</span> <span class="s1">&#39;plocation-chi-1&#39;</span><span class="p">,</span>
         <span class="s1">&#39;cachegroup&#39;</span> <span class="p">:</span> <span class="s1">&#39;cache_group_edge&#39;</span><span class="p">,</span>
         <span class="s1">&#39;interfaceName&#39;</span> <span class="p">:</span> <span class="s1">&#39;eth0&#39;</span><span class="p">,</span>
         <span class="s1">&#39;ip6Gateway&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s1">&#39;iloPassword&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="s1">&#39;1003&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="mi">1003</span><span class="p">,</span>
         <span class="s1">&#39;routerPortName&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s1">&#39;lastUpdated&#39;</span> <span class="p">:</span> <span class="s1">&#39;2016-01-25 14:16:16&#39;</span><span class="p">,</span>
         <span class="s1">&#39;ipNetmask&#39;</span> <span class="p">:</span> <span class="s1">&#39;255.255.255.0&#39;</span><span class="p">,</span>
         <span class="s1">&#39;ipGateway&#39;</span> <span class="p">:</span> <span class="s1">&#39;10.74.27.1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;tcpPort&#39;</span> <span class="p">:</span> <span class="s1">&#39;80&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;httpsPort&#39;</span> <span class="p">:</span> <span class="s1">&#39;443&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tcpPort&#39;</span> <span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+        <span class="s1">&#39;httpsPort&#39;</span> <span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
         <span class="s1">&#39;mgmtIpAddress&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s1">&#39;ip6Address&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s1">&#39;interfaceMtu&#39;</span> <span class="p">:</span> <span class="s1">&#39;1500&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;interfaceMtu&#39;</span> <span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
         <span class="s1">&#39;iloIpGateway&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s1">&#39;hostName&#39;</span> <span class="p">:</span> <span class="s1">&#39;tc1_ats1&#39;</span><span class="p">,</span>
         <span class="s1">&#39;xmppId&#39;</span> <span class="p">:</span> <span class="s1">&#39;tc1_ats1&#39;</span><span class="p">,</span>
@@ -1944,9 +1956,17 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
         <span class="s1">&#39;iloIpAddress&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s1">&#39;mgmtIpGateway&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;EDGE&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;domainName&#39;</span> <span class="p">:</span> <span class="s1">&#39;my.test.com&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;domainName&#39;</span> <span class="p">:</span> <span class="s1">&#39;cdn1.kabletown.test&#39;</span><span class="p">,</span>
         <span class="s1">&#39;iloIpNetmask&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s1">&#39;routerHostName&#39;</span> <span class="p">:</span> <span class="n">null</span>
+        <span class="s1">&#39;routerHostName&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s1">&#39;updPending&#39;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s1">&#39;guid&#39;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s1">&#39;physLocationId&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;offlineReason&#39;</span> <span class="p">:</span> <span class="s1">&#39;N\/A&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cachegroupId&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;typeId&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;cdnName&#39;</span> <span class="p">:</span> <span class="s1">&#39;cdn1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;profileDesc&#39;</span> <span class="p">:</span> <span class="s1">&#39;The profile description&#39;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
