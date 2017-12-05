@@ -227,7 +227,7 @@ pg-$ /usr/pgsql-9.6/bin/initdb -A md5 -W #-W forces the user to provide a superu
 <div class="highlight-none"><div class="highlight"><pre>host  all   all     99.33.99.1/32 md5
 </pre></div>
 </div>
-<p>to the appropriate section of this file. Edit the <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.6/data/postgresql.conf</span></code> file to add the approriate listen_addresses or <code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code>,  and start the database:</p>
+<p>to the appropriate section of this file. Edit the <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.6/data/postgresql.conf</span></code> file to add the approriate listen_addresses or <code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code>, set <code class="docutils literal"><span class="pre">timezone</span> <span class="pre">=</span> <span class="pre">'UTC'</span></code>,  and start the database:</p>
 <div class="highlight-none"><div class="highlight"><pre>pg-$ exit
 pg-# systemctl enable postgresql-9.6
 pg-# systemctl start postgresql-9.6
