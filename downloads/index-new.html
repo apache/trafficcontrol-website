@@ -60,7 +60,11 @@
         <div id="2.1.0_rel_notes" class="relNotesContainer" style="display: none;">
           <a href="#" onclick="rel_notes('2.1.0_rel_notes'); return false;">Hide</a>
           <h2>Release Notes</h2>
-          <p class="relNotesText">A bunch of release notes here.
+          <h3>Building</h3>
+          <p>
+            Selinux has to b something other than "enforcing" in order
+            for the build to work, otherwise it fails on permissions erros. This can
+            be accomplished by running `setenforce 0` as root.
           </p>
           <h3>Traffic Stats</h3>
           <p class="relNotesText">
