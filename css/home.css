@@ -211,5 +211,6 @@ table.dlTable {
 	width: 32em;
 }
 
-
-
+code {
+    display: block;
+}
