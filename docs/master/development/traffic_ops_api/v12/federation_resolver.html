@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Types &mdash; Traffic Control 2.1-dev documentation </title>
+  <title>Federation Resolver &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -40,8 +40,8 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../../index.html"/>
         <link rel="up" title="Traffic Ops" href="../../traffic_ops.html"/>
-        <link rel="next" title="Users" href="user.html"/>
-        <link rel="prev" title="TO Extensions" href="to_extension.html"/> 
+        <link rel="next" title="Federation User" href="federation_user.html"/>
+        <link rel="prev" title="Federation Federation Resolver" href="federation_federationresolver.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -175,10 +175,10 @@
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
-    <li>Types</li>
+    <li>Federation Resolver</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../../_sources/development/traffic_ops_api/v11/type.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../../_sources/development/traffic_ops_api/v12/federation_resolver.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -187,90 +187,52 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="user.html" class="btn btn-neutral float-right" title="Users">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="federation_user.html" class="btn btn-neutral float-right" title="Federation User">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="to_extension.html" class="btn btn-neutral" title="TO Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="federation_federationresolver.html" class="btn btn-neutral" title="Federation Federation Resolver"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
           <div role="main" class="document">
             
-  <div class="section" id="types">
-<span id="to-api-v11-type"></span><h1>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="api-1-1-types">
-<span id="to-api-v11-types-route"></span><h2>/api/1.1/types<a class="headerlink" href="#api-1-1-types" title="Permalink to this headline">¶</a></h2>
-<p><strong>GET /api/1.1/types</strong></p>
+  <div class="section" id="federation-resolver">
+<span id="to-api-v12-federation-resolver"></span><h1>Federation Resolver<a class="headerlink" href="#federation-resolver" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-1-2-federation-resolvers">
+<span id="to-api-v12-federation-resolver-route"></span><h2>/api/1.2/federation_resolvers<a class="headerlink" href="#api-1-2-federation-resolvers" title="Permalink to this headline">¶</a></h2>
+<p><strong>POST /api/1.2/federation_resolvers</strong></p>
 <blockquote>
-<div><p>Authentication Required: Yes</p>
-<p>Role(s) Required: None</p>
-<p><strong>Request Query Parameters</strong></p>
+<div><p>Create a federation resolver.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: ADMIN</p>
+<p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
+<col width="32%" />
 <col width="13%" />
-<col width="67%" />
+<col width="55%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Parameter</th>
 <th class="head">Required</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
-<td>no</td>
-<td>Filter types by the table in which they apply</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ipAddress</span></code></td>
+<td>yes</td>
+<td>IP or CIDR range</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">typeId</span></code></td>
+<td>yes</td>
+<td>Type Id where useintable=federation</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Response Properties</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="28%" />
-<col width="10%" />
-<col width="62%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response Example</strong></p>
+<p><strong>Request Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Static DNS AAAA entry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;useInTable&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-23 15:28:31&quot;</span>
-    <span class="p">}</span>
- <span class="p">]</span>
+    <span class="s2">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;2.2.2.2/32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;typeId&quot;</span><span class="p">:</span> <span class="mi">245</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -278,11 +240,8 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>GET /api/1.1/types/trimmed</strong></p>
 <blockquote>
-<div><p>Authentication Required: Yes</p>
-<p>Role(s) Required: None</p>
-<p><strong>Response Properties</strong></p>
+<div><p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="28%" />
@@ -296,42 +255,51 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<td>int</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ipAddress</span></code></td>
 <td>string</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>int</td>
 <td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE_DIRECTORY&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;A_RECORD&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR&quot;</span>
+    <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                      <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Federation resolver created [ IP = 2.2.2.2/32 ] with id: 27&quot;</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+        <span class="s2">&quot;ipAddress&quot;</span> <span class="p">:</span> <span class="s2">&quot;2.2.2.2/32&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;typeId&quot;</span> <span class="p">:</span> <span class="mi">245</span><span class="p">,</span>
     <span class="p">}</span>
- <span class="p">],</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p><strong>GET /api/1.1/types/:id</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>DELETE /api/1.2/federation_resolvers/:id</strong></p>
 <blockquote>
-<div><p>Authentication Required: Yes</p>
-<p>Role(s) Required: None</p>
+<div><p>Deletes a federation resolver.</p>
+<p>Authentication Required: Yes</p>
+<p>Role(s) Required: Admin</p>
 <p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
+<col width="22%" />
 <col width="13%" />
-<col width="67%" />
+<col width="65%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -340,62 +308,25 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">resolver</span></code></td>
 <td>yes</td>
-<td>Type ID.</td>
+<td>Federation resolver ID.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Response Properties</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="28%" />
-<col width="10%" />
-<col width="62%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useInTable</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
-<td>string</td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response Example</strong></p>
+<blockquote>
+<div><p><strong>Response Example</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
- <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAA_RECORD&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Static DNS AAAA entry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;useInTable&quot;</span><span class="p">:</span> <span class="s2">&quot;staticdnsentry&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-23 15:28:31&quot;</span>
-    <span class="p">}</span>
- <span class="p">]</span>
+       <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="p">{</span>
+                         <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Federation resolver deleted [ IP = 2.2.2.2/32 ] with id: 27&quot;</span>
+                 <span class="p">}</span>
+         <span class="p">],</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div></blockquote>
 </div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -409,10 +340,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="user.html" class="btn btn-neutral float-right" title="Users">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="federation_user.html" class="btn btn-neutral float-right" title="Federation User">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="to_extension.html" class="btn btn-neutral" title="TO Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="federation_federationresolver.html" class="btn btn-neutral" title="Federation Federation Resolver"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

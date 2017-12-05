@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/using.html">Traffic Ops - Using</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_portal.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor.html">Traffic Monitor Administration (Legacy)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_stats.html">Traffic Stats Administration</a></li>
@@ -245,7 +245,7 @@
 <div class="section" id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
 <p>At the highest level, Traffic Monitor polls caches, aggregates their data and availability, and serves it at HTTP JSON endpoints.</p>
-<p>In the code, the data flows thru microthread (goroutine) pipelines. All stages of the pipeline are independent running microthreads:sup:<cite>1</cite>. The pipelines are:</p>
+<p>In the code, the data flows thru microthread (goroutine) pipelines. All stages of the pipeline are independent running microthreads <a class="footnote-reference" href="#f1" id="id1">[1]</a> . The pipelines are:</p>
 <ul class="simple">
 <li><strong>stat poll</strong> - polls caches for all statistics data. This should be a slower poll, which gets a lot of data.</li>
 <li><strong>health poll</strong> - polls caches for a tiny amount of data, typically system information. This poll is designed to be a heartbeat, determining quickly whether the cache is reachable. Since it&#8217;s a small amount of data, it should poll more frequently.</li>
@@ -308,7 +308,12 @@
                       <span class="o">...</span>                                    <span class="o">...</span>
 </pre></div>
 </div>
-<p>:sup:<a href="#id1"><span class="problematic" id="id2">`</span></a>1`Technically, some stages which are one-to-one simply call the next stage as a function. For example, the Fetcher calls the Handler as a function in the same microthread. But this isn&#8217;t architecturally significant.</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Technically, some stages which are one-to-one simply call the next stage as a function. For example, the Fetcher calls the Handler as a function in the same microthread. But this isn&#8217;t architecturally significant.</td></tr>
+</tbody>
+</table>
 <div class="section" id="stat-pipeline">
 <h3>Stat Pipeline<a class="headerlink" href="#stat-pipeline" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default"><div class="highlight"><pre><span class="o">---------</span>     <span class="o">---------</span>     <span class="o">---------</span>     <span class="o">---------</span>
@@ -324,7 +329,7 @@
 <li><strong>poller</strong> - <code class="docutils literal"><span class="pre">common/poller/poller.go:HttpPoller.Poll()</span></code>. Listens for config changes (from the ops config manager), and starts its own internal microthreads, one for each cache to poll. These internal microthreads call the Fetcher at each cache&#8217;s poll interval.</li>
 <li><strong>fetcher</strong> - <code class="docutils literal"><span class="pre">common/fetcher/fetcher.go:HttpFetcher.Fetch()</span></code>. Fetches the given URL, and passes the returned data to the Handler, along with any errors.</li>
 <li><strong>handler</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/cache/cache.go:Handler.Handle()</span></code>. Takes the given result and does all data computation possible with the single result. Currently, this computation primarily involves processing the denormalized ATS data into Go structs, and processing System data into OutBytes, Kbps, etc. Precomputed data is then passed to its result channel, which is picked up by the Manager.</li>
-<li><strong>manager</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/manager/stat.go:StartStatHistoryManager()</span></code>. Takes preprocessed results, and aggregates them. Aggregated results are then placed in shared data structures. The major data aggregated are delivery service statistics, and cache availability data. See <span class="xref std std-ref">Aggregated Stat Data</span> and <span class="xref std std-ref">Aggregated Availability Data</span>.</li>
+<li><strong>manager</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/manager/stat.go:StartStatHistoryManager()</span></code>. Takes preprocessed results, and aggregates them. Aggregated results are then placed in shared data structures. The major data aggregated are delivery service statistics, and cache availability data. See <a class="reference internal" href="#agg-stat-data"><span class="std std-ref">Aggregated Stat Data</span></a> and <a class="reference internal" href="#agg-avail-data"><span class="std std-ref">Aggregated Availability Data</span></a>.</li>
 </ul>
 </div>
 <div class="section" id="health-pipeline">
@@ -342,7 +347,7 @@
 <li><strong>poller</strong> - <code class="docutils literal"><span class="pre">common/poller/poller.go:HttpPoller.Poll()</span></code>. Same poller type as the Stat Poller pipeline, with a different handler object.</li>
 <li><strong>fetcher</strong> - <code class="docutils literal"><span class="pre">common/fetcher/fetcher.go:HttpFetcher.Fetch()</span></code>. Same fetcher type as the Stat Poller pipeline, with a different handler object.</li>
 <li><strong>handler</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/cache/cache.go:Handler.Handle()</span></code>. Same handler type as the Stat Poller pipeline, but constructed with a flag to not precompute. The health endpoint is of the same form as the stat endpoint, but doesn&#8217;t return all stat data. So, it doesn&#8217;t precompute like the Stat Handler, but only processes the system data, and passes the processed result to its result channel, which is picked up by the Manager.</li>
-<li><strong>manager</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/manager/health.go:StartHealthResultManager()</span></code>. Takes preprocessed results, and aggregates them. For the Health pipeline, only health availability data is aggregated. Aggregated results are then placed in shared data structures (lastHealthDurationsThreadsafe, lastHealthEndTimes, etc). See <span class="xref std std-ref">Aggregated Availability Data</span>.</li>
+<li><strong>manager</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/manager/health.go:StartHealthResultManager()</span></code>. Takes preprocessed results, and aggregates them. For the Health pipeline, only health availability data is aggregated. Aggregated results are then placed in shared data structures (lastHealthDurationsThreadsafe, lastHealthEndTimes, etc). See <a class="reference internal" href="#agg-avail-data"><span class="std std-ref">Aggregated Availability Data</span></a>.</li>
 </ul>
 </div>
 <div class="section" id="peer-pipeline">
@@ -360,7 +365,7 @@
 <li><strong>poller</strong> - <code class="docutils literal"><span class="pre">common/poller/poller.go:HttpPoller.Poll()</span></code>. Same poller type as the Stat and Health Poller pipelines, with a different handler object. Its config changes come from the Monitor Config Manager, and it starts an internal microthread for each peer to poll.</li>
 <li><strong>fetcher</strong> - <code class="docutils literal"><span class="pre">common/fetcher/fetcher.go:HttpFetcher.Fetch()</span></code>. Same fetcher type as the Stat and Health Poller pipeline, with a different handler object.</li>
 <li><strong>handler</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/cache/peer.go:Handler.Handle()</span></code>. Decodes the JSON result into an object, and without further processing passes to its result channel, which is picked up by the Manager.</li>
-<li><strong>manager</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/manager/peer.go:StartPeerManager()</span></code>. Takes JSON peer Traffic Monitor results, and aggregates them. The availability of the Peer Traffic Monitor itself, as well as all cache availability from the given peer result, is stored in the shared <code class="docutils literal"><span class="pre">peerStates</span></code> object. Results are then aggregated via a call to the <code class="docutils literal"><span class="pre">combineState()</span></code> lambda, which signals the State Combiner microthread (which stores the combined availability in the shared object <code class="docutils literal"><span class="pre">combinedStates</span></code>; See <span class="xref std std-ref">State Combiner</span>).</li>
+<li><strong>manager</strong> - <code class="docutils literal"><span class="pre">traffic_monitor/manager/peer.go:StartPeerManager()</span></code>. Takes JSON peer Traffic Monitor results, and aggregates them. The availability of the Peer Traffic Monitor itself, as well as all cache availability from the given peer result, is stored in the shared <code class="docutils literal"><span class="pre">peerStates</span></code> object. Results are then aggregated via a call to the <code class="docutils literal"><span class="pre">combineState()</span></code> lambda, which signals the State Combiner microthread (which stores the combined availability in the shared object <code class="docutils literal"><span class="pre">combinedStates</span></code>; See <a class="reference internal" href="#state-combiner"><span class="std std-ref">State Combiner</span></a>).</li>
 </ul>
 </div>
 <div class="section" id="monitor-config-pipeline">
@@ -397,25 +402,25 @@
 <p>The <code class="docutils literal"><span class="pre">events</span></code> shared data object is passed to each pipeline microthread which needs to signal events. Most of them do. Events are then logged, and visible in the UI as well as an HTTP JSON endpoint. Most events are caches becoming available or unavailable, but include other things such as peer availability changes.</p>
 </div>
 <div class="section" id="state-combiner">
-<h3>State Combiner<a class="headerlink" href="#state-combiner" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>State Combiner<a class="headerlink" href="#state-combiner" title="Permalink to this headline">¶</a></h3>
 <p>The State Combiner is a microthread started in <code class="docutils literal"><span class="pre">traffic_monitor/manager/manager.go:Start()</span></code> via <code class="docutils literal"><span class="pre">traffic_monitor/manager/statecombiner.go:StartStateCombiner()</span></code>, which listens for signals to combine states. It should be signaled by any pipeline which updates the local or peer availability shared data objects, <code class="docutils literal"><span class="pre">localStates</span></code> and <code class="docutils literal"><span class="pre">peerStates</span></code>. It holds the threadsafe shared data objects for local states and peer states, so no data is passed or returned, only a signal.</p>
 <p>When a signal is received, it combines the local and peer states optimistically. That is, if a cache is marked available locally or by any peer, that cache is marked available in the combined states. There exists a variable to combine pessimistically, which may be set at compile time (it&#8217;s unusual for a CDN to operate well with pessimistic cache availability). Combined data is stored in the threadsafe shared data object <code class="docutils literal"><span class="pre">combinedStates</span></code>.</p>
 </div>
 <div class="section" id="aggregated-stat-data">
-<h3>Aggregated Stat Data<a class="headerlink" href="#aggregated-stat-data" title="Permalink to this headline">¶</a></h3>
+<span id="agg-stat-data"></span><h3>Aggregated Stat Data<a class="headerlink" href="#aggregated-stat-data" title="Permalink to this headline">¶</a></h3>
 <p>The Stat pipeline Manager is responsible for aggregating stats from all caches, into delivery services statistics. This is done via a call to <code class="docutils literal"><span class="pre">traffic_monitor/deliveryservice/stat.go:CreateStats()</span></code>.</p>
 </div>
 <div class="section" id="aggregated-availability-data">
-<h3>Aggregated Availability Data<a class="headerlink" href="#aggregated-availability-data" title="Permalink to this headline">¶</a></h3>
+<span id="agg-avail-data"></span><h3>Aggregated Availability Data<a class="headerlink" href="#aggregated-availability-data" title="Permalink to this headline">¶</a></h3>
 <p>Both the Stat and Health pipelines aggregate availability data received from caches. This is done via a call to <code class="docutils literal"><span class="pre">traffic_monitor/deliveryservice/health.go:CalcAvailability()</span></code> followed by a call to <code class="docutils literal"><span class="pre">combineState()</span></code>. The <code class="docutils literal"><span class="pre">CalcAvailability</span></code> function calculates the availability of each cache from the result of polling it, that is, local availability. The <code class="docutils literal"><span class="pre">combineState()</span></code> function is a lambda passed to the Manager, which signals the State Combiner microthread, which will combine the local and peer Traffic Monitor availability data, and insert it into the shared data <code class="docutils literal"><span class="pre">combinedStates</span></code> object.</p>
 </div>
 <div class="section" id="http-data-requests">
 <h3>HTTP Data Requests<a class="headerlink" href="#http-data-requests" title="Permalink to this headline">¶</a></h3>
-<p>Data is provided to HTTP requests via the threadsafe shared data objects (see <span class="xref std std-ref">Shared Data</span>). These objects are closed in lambdas created via <code class="docutils literal"><span class="pre">traffic_monitor/datareq/datareq.go:MakeDispatchMap()</span></code>. This is called by the Ops Config Manager when it recreates the HTTP server.</p>
+<p>Data is provided to HTTP requests via the threadsafe shared data objects (see <a class="reference internal" href="#shared-data"><span class="std std-ref">Shared Data</span></a>). These objects are closed in lambdas created via <code class="docutils literal"><span class="pre">traffic_monitor/datareq/datareq.go:MakeDispatchMap()</span></code>. This is called by the Ops Config Manager when it recreates the HTTP server.</p>
 <p>Each HTTP endpoint is mapped to a function which closes around the shared data objects it needs, and takes the request data it needs (such as query parameters). Each endpoint function resides in its own file in <code class="docutils literal"><span class="pre">traffic_monitor/datareq/</span></code>. Because each Go HTTP routing function must be a <code class="docutils literal"><span class="pre">http.HandlerFunc</span></code>, wrapper functions take the endpoint functions and return <code class="docutils literal"><span class="pre">http.HandlerFunc</span></code> functions which call them, and which are stored in the dispatch map, to be registered with the HTTP server.</p>
 </div>
 <div class="section" id="shared-data">
-<h3>Shared Data<a class="headerlink" href="#shared-data" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Shared Data<a class="headerlink" href="#shared-data" title="Permalink to this headline">¶</a></h3>
 <p>Processed and aggregated data must be shared between the end of the stat and health processing pipelines, and HTTP requests. The CSP paradigm of idiomatic Go does not work efficiently with storing and sharing state. While not idiomatic Go, shared mutexed data structures are faster and simpler than CSP manager microthreads for each data object.</p>
 <p>Traffic Monitor has many threadsafe shared data types and objects. All shared data objects can be seen in <code class="docutils literal"><span class="pre">manager/manager.go:Start()</span></code>, where they are created and passed to the various pipeline stage microthreads that need them. Their respective types all include the word <code class="docutils literal"><span class="pre">Threadsafe</span></code>, and can be found in <code class="docutils literal"><span class="pre">traffic_monitor/threadsafe/</span></code> as well as, for dependency reasons, various appropriate directories.</p>
 <p>Currently, all Threadsafe shared data types use mutexes. In the future, these could be changed to lock-free or wait-free structures, if the performance needs outweighed the readability and correctness costs. They could also easily be changed to internally be manager microthreads and channels, if being idiomatic were deemed more important than readability or performance.</p>
