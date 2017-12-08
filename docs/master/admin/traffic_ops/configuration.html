@@ -501,6 +501,33 @@ Value is left blank.</td>
 </tr>
 </tbody>
 </table>
+<p>Below is a list of cache parameters for special configuration, which are unlikely to need changes, but may be useful in particular circumstances:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="11%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Config file</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>not_a_parent</td>
+<td>parent.config</td>
+<td>This is a boolean flag and is considered true if it exists and has any value except &#8216;false&#8217;.
+This prevents servers with this parameter in their profile from being inserted into the parent.config generated for
+servers with this server&#8217;s cachegroup as a parent of their cachegroup. This is primarily useful for when edge caches
+are configured to have a cachegroup of other edge caches as parents (a highly unusual configuration), and it is
+necessary to exclude some, but not all, edges in the parent cachegroup from the parent.config (for example, because they
+lack necessary capabilities), but still have all edges in the same cachegroup in order to take traffic from ordinary
+delivery services at that cachegroup&#8217;s geo location. Once again, this is a highly unusual scenario, and under ordinary
+circumstances this parameter should not exist.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="regions-locations-and-cache-groups">
 <h2>Regions, Locations and Cache Groups<a class="headerlink" href="#regions-locations-and-cache-groups" title="Permalink to this headline">¶</a></h2>
