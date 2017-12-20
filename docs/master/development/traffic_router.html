@@ -198,17 +198,16 @@
 <h1>Traffic Router<a class="headerlink" href="#traffic-router" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Traffic Router is a Java Tomcat application that routes clients to the closest available cache on the CDN using both HTTP and DNS.  Cache availability is determined by Traffic Monitor; consequently Traffic Router polls Traffic Monitor for its configuration and cache health state information, and uses this data to make routing decisions.  HTTP routing is performed by localizing the client based on the request&#8217;s source IP address (IPv4 or IPv6), and issues an HTTP 302 redirect to the nearest cache.  HTTP routing utilizes consistent hashing on request URLs to optimize cache performance and request distribution.  DNS routing is performed by localizing clients, resolvers in most cases, requesting <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">AAAA</span></code> records for a configurable name such as <code class="docutils literal"><span class="pre">foo.deliveryservice.somecdn.net</span></code>. Traffic Router is comprised of four separate Maven modules:</p>
-<blockquote>
-<div><ul class="simple">
-<li>api - Provides a simple JSON interface into certain aspects of core and is deployed as a WAR to a Service (read: connector/listen port) within Tomcat which is separate from core</li>
+<p>Traffic Router is a Java Tomcat application that routes clients to the closest available cache on the CDN using both HTTP and DNS.  Cache availability is determined by Traffic Monitor; consequently Traffic Router polls Traffic Monitor for its configuration and cache health state information, and uses this data to make routing decisions.  HTTP routing is performed by localizing the client based on the request&#8217;s source IP address (IPv4 or IPv6), and issues an HTTP 302 redirect to the nearest cache.  HTTP routing utilizes consistent hashing on request URLs to optimize cache performance and request distribution.  DNS routing is performed by localizing clients, resolvers in most cases, requesting <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">AAAA</span></code> records for a configurable name such as <code class="docutils literal"><span class="pre">foo.deliveryservice.somecdn.net</span></code>. Traffic Router is comprised of seven separate Maven modules:</p>
+<ul class="simple">
+<li>shared - A reusable utility JAR for defining Delivery Service Certificates</li>
+<li>configuration - A resuable JAR defining the ConfigurationListener interface</li>
 <li>connector - A JAR that overrides Tomcat&#8217;s standard Http11Protocol Connector class and allows Traffic Router to delay opening listen sockets until it is in a state suitable for routing traffic</li>
 <li>geolocation - Submodule for defining geolocation services</li>
-<li>testServer - A convenience server for easier manual testing of the API portion of Traffic Router on a development machine</li>
+<li>neustar - A Jar that provides a bean &#8220;neustarGeolocationService&#8221; that implements the GeolocationService interface defined in the geolocation maven submodule, which can optionally be added to the build of Traffic Router</li>
 <li>core - Services DNS and HTTP requests, performs localization on routing requests, and is deployed as a WAR to a Service (read: connector/listen port) within Tomcat which is separate from api</li>
-<li>rpm - A simple Maven project which gathers the artifacts from the prior three modules and builds an RPM</li>
+<li>build - A simple Maven project which gathers the artifacts from the modules and builds an RPM</li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="software-requirements">
 <h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h2>
@@ -216,7 +215,7 @@
 <ul class="simple">
 <li>Eclipse &gt;= Kepler SR2 (or another Java IDE)</li>
 <li>Maven &gt;= 3.3.1</li>
-<li>JDK &gt;= 6.0</li>
+<li>JDK &gt;= 8.0</li>
 </ul>
 </div>
 <div class="section" id="traffic-router-project-tree-overview">
@@ -225,29 +224,6 @@
 <li><p class="first"><code class="docutils literal"><span class="pre">traffic_control/traffic_traffic_router/</span></code> - base directory for Traffic Router</p>
 <blockquote>
 <div><ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">api/</span></code> - Source code for Traffic Router API, which is built as its own deployable WAR file and communicates with Traffic Router Core using JMX</p>
-<blockquote>
-<div><ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">src/main</span></code> - Main source directory for Traffic Router API</p>
-<blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">java/</span></code> - Java source code for Traffic Router API</li>
-<li><code class="docutils literal"><span class="pre">resources/</span></code> - Spring resources pulled in during an RPM build</li>
-<li><code class="docutils literal"><span class="pre">webapp/</span></code> - Java webapp resources</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">src/test</span></code> - Test source directory for Traffic Router API</p>
-<blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">java/</span></code> - JUnit based unit tests for Traffic Router API</li>
-<li><code class="docutils literal"><span class="pre">resources/</span></code> - Resources pulled in by unit tests</li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
-</li>
 <li><p class="first"><code class="docutils literal"><span class="pre">connector/</span></code> - Source code for Traffic Router Connector;</p>
 <blockquote>
 <div><ul class="simple">
@@ -305,28 +281,32 @@
 <div class="section" id="installing-the-developer-environment">
 <h2>Installing The Developer Environment<a class="headerlink" href="#installing-the-developer-environment" title="Permalink to this headline">¶</a></h2>
 <p>To install the Traffic Router Developer environment:</p>
-<ol class="arabic">
-<li><p class="first">Clone the traffic_control repository using Git.</p>
+<ol class="arabic simple">
+<li>Clone the traffic_control repository using Git.</li>
+<li>Change directories into <code class="docutils literal"><span class="pre">traffic_control/traffic_router</span></code>.</li>
+<li>Follow the instructions in &#8220;README.DNSSEC&#8221; for DNSSEC support.</li>
+<li>Set the environment variable TRAFFIC_MONITOR_HOSTS to be a semicolon delimited list of Traffic Monitors that can be accessed during integration tests</li>
+<li>Additional configuration is set using the below files:</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first">core/src/test/conf/dns.properties              - copy from core/src/main/conf</p>
 </li>
-<li><p class="first">Change directories into <code class="docutils literal"><span class="pre">traffic_control/traffic_router</span></code>.</p>
+<li><p class="first">core/src/test/conf/http.properties             - copy from core/src/main/conf</p>
 </li>
-<li><p class="first">Follow the instructions in &#8220;README.DNSSEC&#8221; for DNSSEC support.</p>
+<li><p class="first">core/src/test/conf/log4j.properties            - copy from core/src/main/conf</p>
 </li>
-<li><p class="first">Set the environment variable TRAFFIC_MONITOR_HOSTS to be a semicolon delimited list of Traffic Monitors that can be accessed during integration tests</p>
+<li><p class="first">core/src/test/conf/traffic_monitor.properties  - copy from core/src/main/conf</p>
 </li>
-<li><dl class="first docutils">
-<dt>Additional configuration is set using the below files:</dt>
-<dd><ul class="first last">
-<li><p class="first">core/src/test/resources no longer exists</p>
-</li>
-<li><p class="first">core/src/test/conf/traffic_ops.properties file holds the credentials for accessing Traffic Ops.</p>
+<li><p class="first">core/src/test/conf/traffic_ops.properties file holds the credentials for accessing Traffic Ops.              - copy from core/src/main/conf</p>
 </li>
 <li><p class="first">Default configuration values now reside in core/src/main/webapp/WEB-INF/applicationContext.xml</p>
 </li>
 <li><p class="first">The above values may be overridden by creating and/or modifying the property files listed in core/src/main/resources/applicationProperties.xml</p>
 </li>
 <li><p class="first">Pre-existing properties files are still honored by Traffic Router. For example traffic_monitor.properties:</p>
-<table border="1" class="docutils">
+<blockquote>
+<div><table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
 <col width="75%" />
@@ -342,11 +322,11 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </li>
 </ul>
-</dd>
-</dl>
-</li>
+</div></blockquote>
+<ol class="arabic" start="6">
 <li><p class="first">Import the existing git repo into Eclipse:</p>
 <blockquote>
 <div><ol class="loweralpha simple">
@@ -362,7 +342,7 @@
 </li>
 <li><p class="first">From the terminal, run <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">verify</span></code> from the <code class="docutils literal"><span class="pre">traffic_router</span></code> directory</p>
 </li>
-<li><p class="first">Start the embedded Jetty instance for Core from within Eclipse</p>
+<li><p class="first">Start the embedded Tomcat instance for Core from within your IDE by following these steps:</p>
 <blockquote>
 <div><ol class="loweralpha">
 <li><p class="first">In the package explorer, expand <code class="docutils literal"><span class="pre">traffic_router_core</span></code></p>
@@ -382,9 +362,14 @@
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">Traffic Router Core should now be running; the HTTP routing interface is available on <a class="reference external" href="http://localhost:8081">http://localhost:8081</a>, while HTTPS is available on <a class="reference external" href="http://localhost:8443">http://localhost:8443</a>. The DNS server and routing interface is available on localhost:1053 via TCP and UDP.</p>
-</li>
 </ol>
+<p>9. Traffic Router Core should now be running; the Traffic Router API is available at <a class="reference external" href="http://localhost:3333">http://localhost:3333</a>, the HTTP routing interface is available on <a class="reference external" href="http://localhost:8888">http://localhost:8888</a> and HTTPS is available on <a class="reference external" href="http://localhost:8443">http://localhost:8443</a>.
+The DNS server and routing interface is available on localhost:1053 via TCP and UDP.</p>
+</div>
+<div class="section" id="manual-testing">
+<h2>Manual Testing<a class="headerlink" href="#manual-testing" title="Permalink to this headline">¶</a></h2>
+<p>Look up the URL for your test &#8216;http&#8217; Delivery Service in Traffic Ops and then:</p>
+<p>curl -vs -H “Host: &lt;Delivery Service URL&gt;” <a class="reference external" href="http://localhost:8888/x">http://localhost:8888/x</a></p>
 </div>
 <div class="section" id="test-cases">
 <h2>Test Cases<a class="headerlink" href="#test-cases" title="Permalink to this headline">¶</a></h2>
