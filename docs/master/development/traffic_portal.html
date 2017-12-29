@@ -198,7 +198,7 @@
 <h1>Traffic Portal<a class="headerlink" href="#traffic-portal" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Traffic Portal is an <a class="reference external" href="https://angularjs.org/">AngularJS 1.x</a> client served from a <a class="reference external" href="https://nodejs.org/en/">Node.js</a> web server designed to consume the Traffic Ops 1.x API. Traffic Portal provides a set of functionality restricted to the delivery service(s) of the authenticated user. Functionality primarily includes a set of charts / graphs designed to provide insight into the performance of a user&#8217;s delivery service(s).</p>
+<p>Traffic Portal is an <a class="reference external" href="https://angularjs.org/">AngularJS 1.x</a> client served from a <a class="reference external" href="https://nodejs.org/en/">Node.js</a> web server designed to consume the Traffic Ops 1.x API. The Traffic Portal replaces the Traffic Ops UI.</p>
 </div>
 <div class="section" id="software-requirements">
 <h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h2>
@@ -228,9 +228,9 @@
 <div><ul class="simple">
 <li>Clone the traffic_control repository</li>
 <li>Navigate to the traffic_control/traffic_portal of your cloned repository.</li>
-<li>Run <code class="docutils literal"><span class="pre">npm</span> <span class="pre">install</span></code> to install application dependencies. Only needs to be done the first time unless traffic_portal/package.json changes.</li>
-<li>Run <code class="docutils literal"><span class="pre">bower</span> <span class="pre">install</span></code> to install client-side dependencies. Only needs to be done the first time unless traffic_portal/bower.json changes.</li>
-<li>Run <code class="docutils literal"><span class="pre">grunt</span></code> to package the application into traffic_portal/app/dist, start a local http server (Express), and start a file watcher.</li>
+<li>Run <code class="docutils literal"><span class="pre">npm</span> <span class="pre">install</span></code> to install application dependencies into traffic_portal/node_modules. Only needs to be done the first time unless traffic_portal/package.json changes.</li>
+<li>Run <code class="docutils literal"><span class="pre">bower</span> <span class="pre">install</span></code> to install client-side dependencies into traffic_portal/app/bower_components. Only needs to be done the first time unless traffic_portal/bower.json changes.</li>
+<li>Run <code class="docutils literal"><span class="pre">grunt</span></code> to package the application into traffic_portal/app/dist, start a local https server (Express), and start a file watcher.</li>
 <li>Navigate to <a class="reference external" href="https://localhost:8443">https://localhost:8443</a></li>
 </ul>
 </div></blockquote>
@@ -238,7 +238,7 @@
 <div class="section" id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>The Traffic Portal consumes the Traffic Ops API. By default, Traffic Portal assumes Traffic Ops is running on <a class="reference external" href="http://localhost:3000">http://localhost:3000</a>. Temporarily modify conf/config.js if you need to change the location of Traffic Ops.</li>
+<li>The Traffic Portal consumes the Traffic Ops API. By default, Traffic Portal assumes Traffic Ops is running on <a class="reference external" href="https://localhost:8444">https://localhost:8444</a>. Temporarily modify traffic_portal/conf/config.js if you need to change the location of Traffic Ops.</li>
 </ul>
 </div>
 </div>
