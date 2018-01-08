@@ -92,8 +92,8 @@
             <tbody padding="0 15px 0 15px">
               <tr>
                 <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz">apache-trafficcontrol-2.0.0-incubating.tar.gz</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5sum">MD5</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.shasum">SHA512</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5">MD5</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.sha512">SHA512</a></td>
                 <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.asc">ASC</a></td>
                 <td padding = "10px"><a href="http://trafficcontrol.apache.org/downloads/profiles/2.0.x/default/">Default Profiles</a></td>
                 <td padding = "10px"><a href="#" onclick="rel_notes('2.0.0_rel_notes'); return false;">Release Notes</a></td>
@@ -114,63 +114,6 @@
             currently using a version of Traffic Control prior to 1.8.0, you must upgrade to 1.8.1 first before
             upgrading to 2.0.0.
           </p>
-        </div>
-        <div class="relNotesContainer">
-          <h2>Apache Traffic Control 1.8.1-incubating</h2>
-          The source code for Traffic Control 1.8.1 is available here:
-          <table>
-            <tbody padding="0 15px 0 15px">
-              <tr>
-                <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz">trafficcontrol-incubating-1.8.1.tar.gz</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.md5">MD5</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.sha512">SHA512</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.asc">ASC</a></td>
-                <td padding="10px"><a href="#" onclick="rel_notes('1.8.1_rel_notes'); return false;">Release Notes</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div id="1.8.1_rel_notes" class="relNotesContainer" style="display: none;">
-          <a href="#" onclick="rel_notes('1.8.1_rel_notes'); return false;">Hide</a>
-          <h2>Release Notes - We're Incubating!</h2>
-          <p class="relNotesText">The Traffic Control project has been accepted into the Apache Incubator, and is
-            thus now Apache Traffic Control (incubating). Beyond simply moving the website,
-            this necessitated a number of changes, including changing the license header on each file.
-          </p>
-          <p class="relNotesText">The 1.8.1-incubating release is Apache Traffic Control's
-            second release under the Apache incubator.  This release contains several bug
-            fixes as well as updating a couple of dependencies.
-          </p>
-          <h3>Traffic Router</h3>
-          <p class="relNotesText">Recommendations based on load testing of HTTPS support: </p>
-          <p class="relNotesText">It is generally recommended to use the G1 garbage collector for JVM
-            applications running on multi core machines. In addition to using the G1
-            garbage collector, the InitiatingHeapOccupancyPercent was lowered to run
-            garbage collection more frequently.  This improved overall throughput for
-            Traffic Router and reduced 'Stop the World' garbage collection.
-          </p>
-          <p class="relNotesText">The following example of /opt/tomcat/bin/setenv.sh that
-            has been tested on a multi core server running under HTTPS load test requests.
-            Note that setting the min and max heap settings in setenv.sh will override init
-            scripts in /etc/init.d/tomcat.
-          </p>
-          <pre><code>
-#! /bin/sh
-export CATALINA_OPTS="$CATALINA_OPTS -server"
-export CATALINA_OPTS="$CATALINA_OPTS -Xms2g -Xmx2g"
-export CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
-export CATALINA_OPTS="$CATALINA_OPTS -XX:+UnlockExperimentalVMOptions"
-export CATALINA_OPTS="$CATALINA_OPTS -XX:InitiatingHeapOccupancyPercent=30"
-          </code></pre>
-          <h3>Traffic Stats</h3>
-          <ul>
-            <li>As of 1.8 Traffic Stats now requires InfluxDB 1.0 or greater.  For support of InfluxDb version &lt; 1.0 please use Traffic Stats 1.7.</li>
-            <li>Traffic Stats now uses its config file to determine which influxdb urls to use. This allows a user to run a single instance of influxdb, an enterprise clustered solution, or a HA solution using influxdb-relay (https://github.com/influxdata/influxdb-relay).</li>
-            <li>It is recommended to use the traffic_stats.cfg file provided by the TS 1.8 RPM. This version of the config file contains the new InfluxUrls array and there were some unnecessary variables that were removed.</li>
-          </ul>
-        </div>
-        <div class="relNotesContainer">
-          Older, non-ASF releases can be found <a href="http://traffic-control-cdn.net/downloads/index.html">here</a>.
         </div>
         <div class="relNotesContainer" id="verify">
           <h2>Signing Keys</h2>
