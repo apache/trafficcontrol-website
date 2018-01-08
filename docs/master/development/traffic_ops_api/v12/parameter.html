@@ -242,7 +242,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">last_updated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
 <td>string</td>
 <td>The Time / Date this server entry was last updated</td>
 </tr>
@@ -258,9 +258,13 @@
 <td>string</td>
 <td>The parameter name</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">config_file</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">configFile</span></code></td>
 <td>string</td>
 <td>The parameter config_file</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profiles</span></code></td>
+<td>array</td>
+<td>An array of profiles attached to this parameter.</td>
 </tr>
 </tbody>
 </table>
@@ -268,25 +272,29 @@
 <div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
        <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;foo.bar.net&quot;</span><span class="p">,</span>
        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domain_name&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;FooConfig.xml&quot;</span>
+       <span class="s2">&quot;configFile&quot;</span><span class="p">:</span> <span class="s2">&quot;FooConfig.xml&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;profiles&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;EDGE-FOO, MID-FOO&quot;</span> <span class="p">]</span>
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
        <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;0,1,2,3,4,5,6&quot;</span><span class="p">,</span>
        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Drive_Letters&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;storage.config&quot;</span>
+       <span class="s2">&quot;configFile&quot;</span><span class="p">:</span> <span class="s2">&quot;storage.config&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;profiles&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;EDGE-FOO, MID-FOO&quot;</span> <span class="p">]</span>
+
     <span class="p">},</span>
     <span class="p">{</span>
-       <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-09-17 21:41:22&quot;</span><span class="p">,</span>
        <span class="s2">&quot;secure&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;STRING __HOSTNAME__&quot;</span><span class="p">,</span>
        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CONFIG proxy.config.proxy_name&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;config_file&quot;</span><span class="p">:</span> <span class="s2">&quot;records.config&quot;</span>
+       <span class="s2">&quot;configFile&quot;</span><span class="p">:</span> <span class="s2">&quot;records.config&quot;</span>
+       <span class="s2">&quot;profiles&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
     <span class="p">}</span>
  <span class="p">],</span>
 <span class="p">}</span>
@@ -397,7 +405,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">lastUpdated</span></code></td>
-<td>array</td>
+<td>string</td>
 <td>The Time / Date this server entry was last updated</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">name</span></code></td>
@@ -412,6 +420,10 @@
 <td>string</td>
 <td>The description for the profile</td>
 </tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">type</span></code></td>
+<td>string</td>
+<td>The type for the profile</td>
+</tr>
 </tbody>
 </table>
 </div></blockquote>
@@ -423,7 +435,8 @@
         <span class="s2">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-08 19:34:45&quot;</span><span class="p">,</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR_TOP&quot;</span><span class="p">,</span>
         <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for top.foobar.net&quot;</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Content Router for top.foobar.net&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ATS_PROFILE&quot;</span>
     <span class="p">}</span>
  <span class="p">]</span>
 <span class="p">}</span>
