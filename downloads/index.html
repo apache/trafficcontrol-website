@@ -10,6 +10,17 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/home.css" rel="stylesheet">
 
+    <script type="text/javascript">
+      function rel_notes(id, text, btn) {
+          var x = document.getElementById(id);
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+      }
+    </script>
+
   </head>
   <body>
     <div class="bkgdWrapper">
@@ -29,27 +40,69 @@
           </div>
         </div>
         <hr/>
-        <div class="announce">
-          <p class="relNotesText">Apache Traffic Control-2.0.0-incubating has been released! The artifacts and release notes are below ...</p>
+        <div class="relNotesContainer">
+          <h2>Apache Traffic Control 2.1.0-incubating</h2>
+          The source code for Traffic Control 2.1.0 is available here:
+          <table>
+            <tbody padding="0 15px 0 15px">
+              <tr>
+                <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz">apache-trafficcontrol-2.1.0-incubating.tar.gz</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.md5">MD5</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.sha512">SHA512</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.asc">ASC</a></td>
+                <td padding = "10px"><a href="http://trafficcontrol.apache.org/downloads/profiles/2.1.x/default/">Default Profiles</a></td>
+                <td padding = "10px"><a href="#" onclick="rel_notes('2.1.0_rel_notes'); return false;">Release Notes</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="2.1.0_rel_notes" class="relNotesContainer" style="display: none;">
+          <a href="#" onclick="rel_notes('2.1.0_rel_notes'); return false;">Hide</a>
+          <h2>Release Notes</h2>
+          <h3>Building</h3>
+          <p>
+            Selinux has to b something other than "enforcing" in order
+            for the build to work, otherwise it fails on permissions erros. This can
+            be accomplished by running `setenforce 0` as root.
+          </p>
+          <h3>Traffic Stats</h3>
+          <p class="relNotesText">
+            Traffic Stats works best with
+            influxdb version < 1.3.x.  As of 1.3.x InfluxDB now returns a 400 response
+            when the client attempts to write points that are outside of the retention
+            policy.  When this happens, Traffic Stats seems to hold on to the "old"
+            points and attempts to write them again on the next POST.  This causes what
+            is essentially a memory leak in Traffic Stats since it continues to hold
+            onto and tries to write stats that are outside of the retention policy.
+            This may or may not affect a user, depending upon which stats they are
+            trying to write to influxdb.  For example, we write the wrap_count to
+            influxdb, this is a stat that does not often change within 24 hours, so we
+            see the memory leak with stats not written on each poll of traffic stats.
+          </p>
+          <p class="relNotesText">
+            In versions < 1.3.x InfluxDB would still not write the point, but it would
+            accept the write request and just drop the points outside of the retention
+            policy on the floor.
+          </p>
         </div>
         <div class="relNotesContainer">
-          <h1>Apache Traffic Control 2.0.0-incubating</h1>
+          <h2>Apache Traffic Control 2.0.0-incubating</h2>
           The source code for Traffic Control 2.0.0 is available here:
           <table>
             <tbody padding="0 15px 0 15px">
               <tr>
                 <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz">apache-trafficcontrol-2.0.0-incubating.tar.gz</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5sum">MD5</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.shasum">SHA512</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.asc">PGP</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5">MD5</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.sha512">SHA512</a></td>
+                <td padding="10px"><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.asc">ASC</a></td>
                 <td padding = "10px"><a href="http://trafficcontrol.apache.org/downloads/profiles/2.0.x/default/">Default Profiles</a></td>
+                <td padding = "10px"><a href="#" onclick="rel_notes('2.0.0_rel_notes'); return false;">Release Notes</a></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="relNotesContainer">
-          <h2>Signing Keys</h2>
-          <p class="relNotesText">In order to validate signatures our KEYS can be found <a href="https://www.apache.org/dist/incubator/trafficcontrol/KEYS">here</a>.</p>
+        <div id="2.0.0_rel_notes" class="relNotesContainer" style="display: none;">
+          <a href="#" onclick="rel_notes('2.0.0_rel_notes'); return false;">Hide</a>
           <h2>Release Notes</h2>
           <h3>Traffic Ops DB</h3>
           <p class="relNotesText">Starting in Traffic Control 2.0.0, Postgres replaces MySQL as the Traffic Ops
@@ -62,60 +115,39 @@
             upgrading to 2.0.0.
           </p>
         </div>
-        <div class="relNotesContainer">
-          <h1>Apache Traffic Control 1.8.1-incubating</h1>
-          The source code for Traffic Control 1.8.1 is available here:
-          <table>
-            <tbody padding="0 15px 0 15px">
-              <tr>
-                <td><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz">trafficcontrol-incubating-1.8.1.tar.gz</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.md5">MD5</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.sha512">SHA512</a></td>
-                <td padding="10px"><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/1.8.1-incubating/trafficcontrol-incubating-1.8.1.tar.gz.asc">PGP</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="relNotesContainer">
-          <h2>Release Notes - We're Incubating!</h2>
-          <p class="relNotesText">The Traffic Control project has been accepted into the Apache Incubator, and is
-            thus now Apache Traffic Control (incubating). Beyond simply moving the website,
-            this necessitated a number of changes, including changing the license header on each file.
+        <div class="relNotesContainer" id="verify">
+          <h2>Signing Keys</h2>
+          <p class="relNotesText">It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
+          <p class="relNotesText">
+          <p>The PGP signatures can be verified using PGP or GPG. First download the <a href="https://www.apache.org/dist/incubator/trafficcontrol/KEYS">KEYS</a> as well as the 
+            <font color="red" >`ASC`</font> signature file for the relevant distribution. Make sure you get these files from the <a href="//www.apache.org/incubator/trafficcontrol/">main distribution 
+            directory</a>, rather than from a mirror. Then verify the signatures using
           </p>
-          <p class="relNotesText">The 1.8.1-incubating release is Apache Traffic Control's
-            second release under the Apache incubator.  This release contains several bug
-            fixes as well as updating a couple of dependencies.
+          <code>
+            % pgpk -a KEYS
+            % pgpv apache-trafficcontrol-2.0.0-incubating.tar.gz.asc
+          </code>
+          <p>
+            <em>or</em> <br/>
+            <code>
+              % pgp -ka KEYS<br/>
+              % pgp apache-trafficcontrol-2.0.0-incubating.tar.gz.asc
+            </code>
+            <em>or</em><br/>
+            <code>
+              % gpg --import KEYS<br/>
+              % gpg --verify apache-trafficcontrol-2.0.0-incubating.tar.gz.asc apache-trafficcontrol-2.0.0-incubating.tar.gz
+            </code>
           </p>
-          <h3>Traffic Router</h3>
-          <p class="relNotesText">Recommendations based on load testing of HTTPS support: </p>
-          <p class="relNotesText">It is generally recommended to use the G1 garbage collector for JVM
-            applications running on multi core machines. In addition to using the G1
-            garbage collector, the InitiatingHeapOccupancyPercent was lowered to run
-            garbage collection more frequently.  This improved overall throughput for
-            Traffic Router and reduced 'Stop the World' garbage collection.
-          </p>
-          <p class="relNotesText">The following example of /opt/tomcat/bin/setenv.sh that
-            has been tested on a multi core server running under HTTPS load test requests.
-            Note that setting the min and max heap settings in setenv.sh will override init
-            scripts in /etc/init.d/tomcat.
-          </p>
-          <pre><code>
-#! /bin/sh
-export CATALINA_OPTS="$CATALINA_OPTS -server"
-export CATALINA_OPTS="$CATALINA_OPTS -Xms2g -Xmx2g"
-export CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
-export CATALINA_OPTS="$CATALINA_OPTS -XX:+UnlockExperimentalVMOptions"
-export CATALINA_OPTS="$CATALINA_OPTS -XX:InitiatingHeapOccupancyPercent=30"
-          </code></pre>
-          <h3>Traffic Stats</h3>
           <ul>
-            <li>As of 1.8 Traffic Stats now requires InfluxDB 1.0 or greater.  For support of InfluxDb version &lt; 1.0 please use Traffic Stats 1.7.</li>
-            <li>Traffic Stats now uses its config file to determine which influxdb urls to use. This allows a user to run a single instance of influxdb, an enterprise clustered solution, or a HA solution using influxdb-relay (https://github.com/influxdata/influxdb-relay).</li>
-            <li>It is recommended to use the traffic_stats.cfg file provided by the TS 1.8 RPM. This version of the config file contains the new InfluxUrls array and there were some unnecessary variables that were removed.</li>
+            <li><p>apache-trafficcontrol-2.1.0-incubating.tar.* are signed by Hank Beatty <font color="red">4E0CC77C</font> </p></li>
+            <li><p>apache-trafficcontrol-2.0.0-incubating.tar.* are signed by Eric Friedrich <font color="red">9AB7BDD5</font> </p></li>
           </ul>
-        </div>
-        <div class="relNotesContainer">
-          Older, non-ASF releases can be found <a href="http://traffic-control-cdn.net/downloads/index.html">here</a>.
+          <p>
+            Alternatively, you can verify the MD5 signature on the files. A unix program called <font color="red" >`md5`</font> or <font color="red">`md5sum`</font> is included in many unix distributions. It
+            is also available as part of <a href="http://www.gnu.org/software/textutils/textutils.html">GNU Textutils</a>. An MD5 signature consists of 32 hex characters, and a 
+            SHA1 signature consists of 40 hex characters. Ensure your generated signature string matches the signature string published in the files above.
+          </p>
         </div>
         <br/>
         <hr/>
