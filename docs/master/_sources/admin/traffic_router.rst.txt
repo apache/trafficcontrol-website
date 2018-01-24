@@ -102,6 +102,10 @@ Configuration files
 |                            +-------------------------------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------+
 |                            | cache.czmap.database.refresh.period       | The interval in milliseconds which Traffic Router will poll for a new coverage zone file            | 10800000                                          |
 |                            +-------------------------------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|                            | cache.dczmap.database                     | Full path to the local copy of the deep coverage zone file                                          | /opt/traffic_router/db/dczmap.json                |
+|                            +-------------------------------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|                            | cache.dczmap.database.refresh.period      | The interval in milliseconds which Traffic Router will poll for a new deep coverage zone file       | 10800000                                          |
+|                            +-------------------------------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------+
 |                            | cache.health.json                         | Full path to the local copy of the health state                                                     | /opt/traffic_router/db/health.json                |
 |                            +-------------------------------------------+-----------------------------------------------------------------------------------------------------+---------------------------------------------------+
 |                            | cache.health.json.refresh.period          | The interval in milliseconds which Traffic Router will poll for a new health state file             | 1000                                              |
@@ -183,23 +187,23 @@ Items within brackets below are detailed under the HTTP and DNS sections
 Fields Always Present
 ---------------------
 
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-|Name  |Description                                                                      |Data                                                                       |
-+======+=================================================================================+===========================================================================+
-|qtype |Whether the request was for DNS or HTTP                                          |Always DNS or HTTP                                                         |
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-|chi   |The IP address of the requester                                                  |Depends on whether this was a DNS or HTTP request, see below sections      |
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-|ttms  |The amount of time in milliseconds it took Traffic Router to process the request |A number greater than or equal to zero                                     |
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-|rtype |Routing Result Type                                                              |One of ERROR, CZ, GEO, MISS, STATIC_ROUTE, DS_REDIRECT, DS_MISS, INIT, FED |
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-|rloc  |GeoLocation of result                                                            |Latitude and Longitude in Decimal Degrees                                  |
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-|rdtl  |Result Details Associated with unusual conditions                                |One of DS_NOT_FOUND, DS_NO_BYPASS, DS_BYPASS, DS_CZ_ONLY                   |
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-|rerr  |Message about internal Traffic Router Error                                      |String                                                                     |
-+------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------+
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+|Name  |Description                                                                      |Data                                                                                |
++======+=================================================================================+====================================================================================+
+|qtype |Whether the request was for DNS or HTTP                                          |Always DNS or HTTP                                                                  |
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+|chi   |The IP address of the requester                                                  |Depends on whether this was a DNS or HTTP request, see below sections               |
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+|ttms  |The amount of time in milliseconds it took Traffic Router to process the request |A number greater than or equal to zero                                              |
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+|rtype |Routing Result Type                                                              |One of ERROR, CZ, DEEP_CZ, GEO, MISS, STATIC_ROUTE, DS_REDIRECT, DS_MISS, INIT, FED |
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+|rloc  |GeoLocation of result                                                            |Latitude and Longitude in Decimal Degrees                                           |
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+|rdtl  |Result Details Associated with unusual conditions                                |One of DS_NOT_FOUND, DS_NO_BYPASS, DS_BYPASS, DS_CZ_ONLY                            |
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+|rerr  |Message about internal Traffic Router Error                                      |String                                                                              |
++------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
 
 **rtype meanings**
 
@@ -209,6 +213,8 @@ Fields Always Present
 |ERROR        |An internal error occurred within Traffic Router, more details may be found in the rerr field                                                                           |
 +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |CZ           |The result was derived from Coverage Zone data based on the address in the chi field                                                                                    |
++-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|DEEP_CZ      |The result was derived from Deep Coverage Zone data based on the address in the chi field                                                                               |
 +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |GEO          |The result was derived from geolocation service based on the address in the chi field                                                                                   |
 +-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -346,6 +352,54 @@ The URL has 3 kinds of formats, which have different meanings:
 2. URL with domain that matches with the delivery service. For this URL, the router will also try to find a proper cache server within the delivery service and return the same format url as point 1.
 
 3. URL with domain that doesn't match with the delivery service. For this URL, the router will return the configured url directly to the client.
+
+
+.. _rl-deep-cache:
+
+Deep Caching - Deep Coverage Zone Topology
+==========================================
+
+Overview
+--------
+
+Deep Caching is a feature that enables clients to be routed to the closest
+possible "deep" edge caches on a per Delivery Service basis. The term "deep" is
+used in the networking sense, meaning that the edge caches are located deep in
+the network where the number of network hops to a client is as minimal as
+possible. This deep caching topology is desirable because storing content closer
+to the client gives better bandwidth savings, and sometimes the cost of
+bandwidth usage in the network outweighs the cost of adding storage. While it
+may not be feasible to cache an entire copy of the CDN's contents in every deep
+location (for the best possible bandwidth savings), storing just a relatively
+small amount of the CDN's most requested content can lead to very high bandwidth
+savings.
+
+Getting started
+---------------
+
+What you need:
+
+#. Edge caches deployed in "deep" locations and registered in Traffic Ops
+#. A Deep Coverage Zone File (DCZF) mapping these deep cache hostnames to specific network prefixes (see :ref:`rl-deep-czf` for details)
+#. Deep caching parameters in the Traffic Router Profile (see :ref:`rl-ccr-profile` for details):
+
+   * ``deepcoveragezone.polling.interval``
+   * ``deepcoveragezone.polling.url``
+
+#. Deep Caching enabled on one or more HTTP Delivery Services (i.e. ``deepCachingType`` = ALWAYS)
+
+How it works
+------------
+
+Deep Coverage Zone routing is very similar to that of regular Coverage Zone
+routing, except that the DCZF is preferred over the regular  CZF for Delivery
+Services with DC (Deep Caching) enabled. If the client requests a DC-enabled
+Delivery Service and their IP address gets a "hit" in the DCZF, Traffic Router
+will attempt to route that client to one of the available deep caches in the
+client's corresponding zone. If there are no deep caches available for a
+client's request, Traffic Router will "fall back" to the regular CZF and
+continue regular CZF routing from there.
+
 
 .. _rl-tr-steering:
 

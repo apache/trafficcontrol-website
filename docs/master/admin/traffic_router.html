@@ -199,16 +199,17 @@
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#traffic-router-administration" id="id4">Traffic Router Administration</a><ul>
-<li><a class="reference internal" href="#installing-traffic-router" id="id5">Installing Traffic Router</a></li>
-<li><a class="reference internal" href="#configuring-traffic-router" id="id6">Configuring Traffic Router</a></li>
-<li><a class="reference internal" href="#dnssec" id="id7">DNSSEC</a></li>
-<li><a class="reference internal" href="#troubleshooting-and-log-files" id="id8">Troubleshooting and log files</a></li>
-<li><a class="reference internal" href="#event-log-file-format" id="id9">Event Log File Format</a></li>
-<li><a class="reference internal" href="#geolimit-failure-redirect-feature" id="id10">GeoLimit Failure Redirect feature</a></li>
-<li><a class="reference internal" href="#steering-feature" id="id11">Steering feature</a></li>
-<li><a class="reference internal" href="#https-for-http-type-delivery-services" id="id12">HTTPS for Http Type Delivery Services</a></li>
-<li><a class="reference internal" href="#tuning-recommendations" id="id13">Tuning Recommendations</a></li>
+<li><a class="reference internal" href="#traffic-router-administration" id="id5">Traffic Router Administration</a><ul>
+<li><a class="reference internal" href="#installing-traffic-router" id="id6">Installing Traffic Router</a></li>
+<li><a class="reference internal" href="#configuring-traffic-router" id="id7">Configuring Traffic Router</a></li>
+<li><a class="reference internal" href="#dnssec" id="id8">DNSSEC</a></li>
+<li><a class="reference internal" href="#troubleshooting-and-log-files" id="id9">Troubleshooting and log files</a></li>
+<li><a class="reference internal" href="#event-log-file-format" id="id10">Event Log File Format</a></li>
+<li><a class="reference internal" href="#geolimit-failure-redirect-feature" id="id11">GeoLimit Failure Redirect feature</a></li>
+<li><a class="reference internal" href="#deep-caching-deep-coverage-zone-topology" id="id12">Deep Caching - Deep Coverage Zone Topology</a></li>
+<li><a class="reference internal" href="#steering-feature" id="id13">Steering feature</a></li>
+<li><a class="reference internal" href="#https-for-http-type-delivery-services" id="id14">HTTPS for Http Type Delivery Services</a></li>
+<li><a class="reference internal" href="#tuning-recommendations" id="id15">Tuning Recommendations</a></li>
 </ul>
 </li>
 </ul>
@@ -339,7 +340,7 @@ Also, crconfig previously recieved will be cached, and needs to be removed manua
 <td>Password for the user specified in traffic_ops.username</td>
 <td>N/A</td>
 </tr>
-<tr class="row-odd"><td rowspan="8">cache.properties</td>
+<tr class="row-odd"><td rowspan="10">cache.properties</td>
 <td>cache.geolocation.database</td>
 <td>Full path to the local copy of the MaxMind geolocation binary database file</td>
 <td>/opt/traffic_router/db/GeoIP2-City.mmdb</td>
@@ -354,6 +355,14 @@ Also, crconfig previously recieved will be cached, and needs to be removed manua
 </tr>
 <tr class="row-even"><td>cache.czmap.database.refresh.period</td>
 <td>The interval in milliseconds which Traffic Router will poll for a new coverage zone file</td>
+<td>10800000</td>
+</tr>
+<tr class="row-odd"><td>cache.dczmap.database</td>
+<td>Full path to the local copy of the deep coverage zone file</td>
+<td>/opt/traffic_router/db/dczmap.json</td>
+</tr>
+<tr class="row-even"><td>cache.dczmap.database.refresh.period</td>
+<td>The interval in milliseconds which Traffic Router will poll for a new deep coverage zone file</td>
 <td>10800000</td>
 </tr>
 <tr class="row-odd"><td>cache.health.json</td>
@@ -441,8 +450,8 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
-<col width="50%" />
-<col width="46%" />
+<col width="47%" />
+<col width="49%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -465,7 +474,7 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 </tr>
 <tr class="row-odd"><td>rtype</td>
 <td>Routing Result Type</td>
-<td>One of ERROR, CZ, GEO, MISS, STATIC_ROUTE, DS_REDIRECT, DS_MISS, INIT, FED</td>
+<td>One of ERROR, CZ, DEEP_CZ, GEO, MISS, STATIC_ROUTE, DS_REDIRECT, DS_MISS, INIT, FED</td>
 </tr>
 <tr class="row-even"><td>rloc</td>
 <td>GeoLocation of result</td>
@@ -499,22 +508,25 @@ This file grows up to 200Mb and gets rolled into older log files, 10 log files t
 <tr class="row-odd"><td>CZ</td>
 <td>The result was derived from Coverage Zone data based on the address in the chi field</td>
 </tr>
-<tr class="row-even"><td>GEO</td>
+<tr class="row-even"><td>DEEP_CZ</td>
+<td>The result was derived from Deep Coverage Zone data based on the address in the chi field</td>
+</tr>
+<tr class="row-odd"><td>GEO</td>
 <td>The result was derived from geolocation service based on the address in the chi field</td>
 </tr>
-<tr class="row-odd"><td>MISS</td>
+<tr class="row-even"><td>MISS</td>
 <td>Traffic Router was unable to resolve a DNS request or find a cache for the requested resource</td>
 </tr>
-<tr class="row-even"><td>STATIC_ROUTE</td>
+<tr class="row-odd"><td>STATIC_ROUTE</td>
 <td>_*DNS Only*_ No DNS Delivery Service supports the hostname portion of the requested url</td>
 </tr>
-<tr class="row-odd"><td>DS_MISS</td>
+<tr class="row-even"><td>DS_MISS</td>
 <td>_*HTTP Only*_ No HTTP Delivery Service supports either this request&#8217;s URL path or headers</td>
 </tr>
-<tr class="row-even"><td>DS_REDIRECT</td>
+<tr class="row-odd"><td>DS_REDIRECT</td>
 <td>The result is using the Bypass Destination configured for the matched Delivery Service when that Delivery Service is unavailable or does not have the requested resource</td>
 </tr>
-<tr class="row-odd"><td>FED</td>
+<tr class="row-even"><td>FED</td>
 <td>_*DNS Only*_ The result was obtained through federated coverage zone data outside of any delivery service</td>
 </tr>
 </tbody>
@@ -715,10 +727,52 @@ NXDOMAIN (the domain/name requested does not exist)</td>
 </ol>
 </div>
 </div>
-<div class="section" id="steering-feature">
-<span id="rl-tr-steering"></span><h2><a class="toc-backref" href="#contents">Steering feature</a><a class="headerlink" href="#steering-feature" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deep-caching-deep-coverage-zone-topology">
+<span id="rl-deep-cache"></span><h2><a class="toc-backref" href="#contents">Deep Caching - Deep Coverage Zone Topology</a><a class="headerlink" href="#deep-caching-deep-coverage-zone-topology" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
 <h3>Overview<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Deep Caching is a feature that enables clients to be routed to the closest
+possible &#8220;deep&#8221; edge caches on a per Delivery Service basis. The term &#8220;deep&#8221; is
+used in the networking sense, meaning that the edge caches are located deep in
+the network where the number of network hops to a client is as minimal as
+possible. This deep caching topology is desirable because storing content closer
+to the client gives better bandwidth savings, and sometimes the cost of
+bandwidth usage in the network outweighs the cost of adding storage. While it
+may not be feasible to cache an entire copy of the CDN&#8217;s contents in every deep
+location (for the best possible bandwidth savings), storing just a relatively
+small amount of the CDN&#8217;s most requested content can lead to very high bandwidth
+savings.</p>
+</div>
+<div class="section" id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h3>
+<p>What you need:</p>
+<ol class="arabic simple">
+<li>Edge caches deployed in &#8220;deep&#8221; locations and registered in Traffic Ops</li>
+<li>A Deep Coverage Zone File (DCZF) mapping these deep cache hostnames to specific network prefixes (see <a class="reference internal" href="traffic_ops/using.html#rl-deep-czf"><span class="std std-ref">The Deep Coverage Zone File</span></a> for details)</li>
+<li>Deep caching parameters in the Traffic Router Profile (see <a class="reference internal" href="traffic_ops/using.html#rl-ccr-profile"><span class="std std-ref">Traffic Router Profile</span></a> for details):<ul>
+<li><code class="docutils literal"><span class="pre">deepcoveragezone.polling.interval</span></code></li>
+<li><code class="docutils literal"><span class="pre">deepcoveragezone.polling.url</span></code></li>
+</ul>
+</li>
+<li>Deep Caching enabled on one or more HTTP Delivery Services (i.e. <code class="docutils literal"><span class="pre">deepCachingType</span></code> = ALWAYS)</li>
+</ol>
+</div>
+<div class="section" id="how-it-works">
+<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h3>
+<p>Deep Coverage Zone routing is very similar to that of regular Coverage Zone
+routing, except that the DCZF is preferred over the regular  CZF for Delivery
+Services with DC (Deep Caching) enabled. If the client requests a DC-enabled
+Delivery Service and their IP address gets a &#8220;hit&#8221; in the DCZF, Traffic Router
+will attempt to route that client to one of the available deep caches in the
+client&#8217;s corresponding zone. If there are no deep caches available for a
+client&#8217;s request, Traffic Router will &#8220;fall back&#8221; to the regular CZF and
+continue regular CZF routing from there.</p>
+</div>
+</div>
+<div class="section" id="steering-feature">
+<span id="rl-tr-steering"></span><h2><a class="toc-backref" href="#contents">Steering feature</a><a class="headerlink" href="#steering-feature" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Overview<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>A Steering delivery service is a delivery service that is used to &#8220;steer&#8221; traffic to other delivery services. A Steering delivery service will have target delivery services configured for it with weights assigned to them.  Traffic Router uses the weights to make a consistent hash ring which it then uses to make sure that requests are routed to a target based on the configured weights.  This consistent hash ring is separate from the consistent hash ring used in cache selection.</p>
 <p>Special regular expressions called Filters can also be configured for target delivery services to pin traffic to a specific delivery service.  For example, if a filter called .*/news/.* for a target called target-ds-1 is created, any requests to traffic router with &#8216;news&#8217; in them will be routed to target-ds-1.  This will happen regardless of the configured weights.</p>
 <p>A client can bypass the steering functionality by providing a header called X-TC-Steering-Option with the xml_id of the target delivery service to route to.  When Traffic Router receives this header it will route to the requested target delivery service regardless of weight configuration.</p>
@@ -734,8 +788,8 @@ NXDOMAIN (the domain/name requested does not exist)</td>
 <li>Load balancing between delivery services.</li>
 </ol>
 </div>
-<div class="section" id="id3">
-<h3>Configuration<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Configuration<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>The following needs to be completed for Steering to work correctly:</p>
 <ol class="arabic simple">
 <li>Two target delivery services are created in Traffic Ops.  They must both be HTTP delivery services part of the same CDN.</li>
