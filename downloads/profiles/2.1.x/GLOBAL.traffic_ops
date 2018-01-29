@@ -1,0 +1,100 @@
+{
+	"parameters": [
+		{
+			"value": "Traffic Ops CDN",
+			"name": "tm.instance_name",
+			"config_file": "global"
+		},
+		{
+			"value": "Traffic Ops",
+			"name": "tm.toolname",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your traffic_ops url here}}",
+			"name": "tm.url",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your traffic_ops url here}}/doc",
+			"name": "tm.infourl",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your traffic_ops url here}}/routing/GeoIP2-City.mmdb.gz",
+			"name": "geolocation.polling.url",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "https://{{add your traffic_ops url here}}/routing/GeoLiteCityv6.dat.gz",
+			"name": "geolocation6.polling.url",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard/db/deliveryservice-stats",
+			"name": "all_graph_url",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard/db/cache-group-stats?refresh=1m&orgId=1&var-CDN=rogers&var-DS=All&var-CG=",
+			"name": "cachegroup_graph_url",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard/db/deliveryservice-stats?refresh=1m&orgId=1&var-CDN=rogers&var-DS=",
+			"name": "deliveryservice_graph_url",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard/db/server-stats?refresh=30s&orgId=1&var-SERVER=",
+			"name": "server_graph_url",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard-solo/db/cdn-stats-by-type?refresh=1m&orgId=1&panelId=1&from=now-24h&to=now",
+			"name": "visual_status_panel_1",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard-solo/db/cdn-stats-by-type?refresh=1m&orgId=1&panelId=2&from=now-24h&to=now",
+			"name": "visual_status_panel_2",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard-solo/db/daily-summary?orgId=1&from=1502668800000&to=now&panelId=1",
+			"name": "daily_bw_url",
+			"config_file": "global"
+		},
+		{
+			"value": "https://{{add your grafana url here}}/dashboard/db/daily-summary?orgId=1&from=1502668800000&to=now&panelId=2&fullscreen",
+			"name": "daily_served_url",
+			"config_file": "global"
+		},
+		{
+			"value": "0",
+			"name": "use_tenancy",
+			"config_file": "global"
+		},
+		{
+			"value": "41.881944",
+			"name": "default_geo_miss_latitude",
+			"config_file": "global"
+		},
+		{
+			"value": "-87.627778",
+			"name": "default_geo_miss_longitude",
+			"config_file": "global"
+		},
+		{
+			"value": "/images/tc_logo.png",
+			"name": "tm.logourl",
+			"config_file": "global"
+		}
+	],
+	"profile": {
+		"cdn": "ALL",
+		"name": "GLOBAL",
+		"type": "UNK_PROFILE",
+		"description": "Global Traffic Ops profile, DO NOT DELETE"
+	}
+}

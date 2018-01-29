@@ -1,0 +1,15 @@
+{
+	"parameters": [
+		{
+			"value": "/opt/traffic_ops/app/public/gen_iso",
+			"name": "kickstart.files.location",
+			"config_file": "mkisofs"
+		}
+	],
+	"profile": {
+		"cdn": "ALL",
+		"name": "TRAFFIC_OPS",
+		"type": "ALL",
+		"description": "Traffic Ops profile"
+	}
+}

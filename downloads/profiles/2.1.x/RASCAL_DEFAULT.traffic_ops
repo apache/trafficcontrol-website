@@ -1,0 +1,70 @@
+{
+	"parameters": [
+		{
+			"value": "30",
+			"name": "hack.ttl",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "200",
+			"name": "health.event-count",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "6000",
+			"name": "health.polling.interval",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "4",
+			"name": "health.threadPool",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "0",
+			"name": "health.timepad",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "2000",
+			"name": "heartbeat.polling.interval",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "/opt/traffic_monitor/conf",
+			"name": "location",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "1000",
+			"name": "peers.polling.interval",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "https://${tmHostname}/CRConfig-Snapshots/${cdnName}/CRConfig.xml",
+			"name": "tm.crConfig.polling.url",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "https://${tmHostname}/dataserver/orderby/id",
+			"name": "tm.dataServer.polling.url",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "https://${tmHostname}/health/${cdnName}",
+			"name": "tm.healthParams.polling.url",
+			"config_file": "rascal-config.txt"
+		},
+		{
+			"value": "60000",
+			"name": "tm.polling.interval",
+			"config_file": "rascal-config.txt"
+		}
+	],
+	"profile": {
+		"cdn": "rogers",
+		"name": "RASCAL_ROGERS",
+		"type": "TM_PROFILE",
+		"description": "Rogers Traffic Monitor Profile"
+	}
+}

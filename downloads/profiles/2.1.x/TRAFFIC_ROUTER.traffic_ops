@@ -1,0 +1,140 @@
+{
+	"parameters": [
+		{
+			"value": "86400",
+			"name": "tld.ttls.SOA",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "86400000",
+			"name": "geolocation.polling.interval",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "3600000",
+			"name": "coveragezone.polling.interval",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "3600",
+			"name": "tld.ttls.AAAA",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "3600",
+			"name": "tld.ttls.A",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "604800",
+			"name": "tld.soa.expire",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "30",
+			"name": "tld.soa.minimum",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "admin",
+			"name": "tld.soa.admin",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "7200",
+			"name": "tld.soa.retry",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "28800",
+			"name": "tld.soa.refresh",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "3600",
+			"name": "tld.ttls.NS",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "3333",
+			"name": "api.port",
+			"config_file": "server.xml"
+		},
+		{
+			"value": "10",
+			"name": "api.cache-control.max-age",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "https://${toHostname}/internal/api/1.2/federations.json",
+			"name": "federationmapping.polling.url",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "60000",
+			"name": "federationmapping.polling.interval",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "30",
+			"name": "tld.ttls.DNSKEY",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "30",
+			"name": "tld.ttls.DS",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "300",
+			"name": "zonemanager.cache.maintenance.interval",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "300",
+			"name": "keystore.maintenance.interval",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "300s",
+			"name": "dnssec.dynamic.response.expiration",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "0.50",
+			"name": "zonemanager.threadpool.scale",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "true",
+			"name": "consistent.dns.routing",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "300000",
+			"name": "certificates.polling.interval",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "60000",
+			"name": "steeringmapping.polling.interval",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "https://{{enter your traffic ops url here}}/routing/GeoIP2-City.mmdb.gz",
+			"name": "geolocation.polling.url",
+			"config_file": "CRConfig.json"
+		},
+		{
+			"value": "http://{{enter your czf location here}}",
+			"name": "coveragezone.polling.url",
+			"config_file": "CRConfig.json"
+		}
+	],
+	"profile": {
+		"cdn": "ALL",
+		"name": "TRAFFIC_ROUTER",
+		"type": "TR_PROFILE",
+		"description": "Traffic Router profile"
+	}
+}
