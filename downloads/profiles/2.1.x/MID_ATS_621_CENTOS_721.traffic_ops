@@ -1554,7 +1554,7 @@
 			"value": "INT 2",
 			"name": "CONFIG proxy.config.diags.logfile.rolling_enabled",
 			"config_file": "records.config"
-		},
+		}
 	],
 	"profile": {
 		"cdn": "ALL",
