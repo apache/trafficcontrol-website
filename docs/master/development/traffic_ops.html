@@ -198,7 +198,7 @@
 <h1>Traffic Ops<a class="headerlink" href="#traffic-ops" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Traffic Ops uses a MySql or Postgres database to store the configuration information, and the <a class="reference external" href="http://mojolicio.us/">Mojolicious framework</a> to generate the user interface and REST APIs.</p>
+<p>Traffic Ops uses a Postgres database to store the configuration information, and the <a class="reference external" href="http://mojolicio.us/">Mojolicious framework</a> to generate the user interface and REST APIs.</p>
 </div>
 <div class="section" id="software-requirements">
 <h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h2>
@@ -209,16 +209,15 @@
 <li>cpan JSON::PP</li>
 </ul>
 </li>
-<li><a class="reference external" href="http://golang.org/doc/install">Go 1.4</a></li>
+<li><a class="reference external" href="http://golang.org/doc/install">Go 1.8.3</a></li>
 <li>Perl 5.10.1</li>
 <li>Git</li>
-<li>MySQL 5.1.52</li>
+<li>Postgres 9.6.6</li>
 <li><a class="reference external" href="https://bitbucket.org/liamstask/goose/">Goose</a></li>
 </ul>
 <p>Addionally, the installation of the following RPMs (or equivalent) is required:</p>
 <ul class="simple">
 <li>All RPMs listed in <a class="reference internal" href="../admin/traffic_ops/migration_from_10_to_20.html#rl-ps"><span class="std std-ref">Traffic Ops - Migrating from 1.x to 2.x</span></a></li>
-<li>mysql-test</li>
 </ul>
 </div>
 <div class="section" id="traffic-ops-project-tree-overview">
@@ -370,32 +369,10 @@ $ carton
 </pre></div>
 </div>
 </div></blockquote>
-<ol class="arabic simple" start="3">
-<li>Set up a user in MySQL.</li>
-</ol>
-<blockquote>
-<div><p>Example:</p>
-<div class="highlight-default"><div class="highlight"><pre>master $ mysql
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 305
-Server version: 5.6.19 Homebrew
-
-Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
-
-mysql&gt; create user &#39;to_user&#39;@&#39;localhost&#39;;
-mysql&gt; grant all on to_development.* to &#39;to_user&#39;@&#39;localhost&#39; identified by &#39;twelve&#39;;
-mysql&gt; grant all on to_test.* to &#39;to_user&#39;@&#39;localhost&#39; identified by &#39;twelve&#39;;
-mysql&gt; grant all on to_integration.* to &#39;to_user&#39;@&#39;localhost&#39; identified by &#39;twelve&#39;;
-</pre></div>
-</div>
-</div></blockquote>
-<ol class="arabic" start="4">
+<ol class="arabic" start="3">
+<li><p class="first">Set up a role (user) in Postgres</p>
+<p>See Postgres instructions on initdb <a class="reference external" href="https://wiki.postgresql.org/wiki/First_steps">https://wiki.postgresql.org/wiki/First_steps</a></p>
+</li>
 <li><p class="first">Enter <code class="docutils literal"><span class="pre">db/admin.pl</span> <span class="pre">--env=&lt;enviroment</span> <span class="pre">name&gt;</span> <span class="pre">setup</span></code> to set up the traffic_ops database(s).</p>
 <ul class="simple">
 <li>Unit test database: <code class="docutils literal"><span class="pre">$</span> <span class="pre">db/admin.pl</span> <span class="pre">--env=test</span> <span class="pre">setup</span></code></li>
