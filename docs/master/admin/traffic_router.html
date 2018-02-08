@@ -777,11 +777,13 @@ continue regular CZF routing from there.</p>
 <p>A Steering delivery service is a delivery service that is used to &#8220;steer&#8221; traffic to other delivery services. A Steering delivery service will have target delivery services configured for it with weights assigned to them.  Traffic Router uses the weights to make a consistent hash ring which it then uses to make sure that requests are routed to a target based on the configured weights.  This consistent hash ring is separate from the consistent hash ring used in cache selection.</p>
 <p>Special regular expressions called Filters can also be configured for target delivery services to pin traffic to a specific delivery service.  For example, if a filter called .*/news/.* for a target called target-ds-1 is created, any requests to traffic router with &#8216;news&#8217; in them will be routed to target-ds-1.  This will happen regardless of the configured weights.</p>
 <p>A client can bypass the steering functionality by providing a header called X-TC-Steering-Option with the xml_id of the target delivery service to route to.  When Traffic Router receives this header it will route to the requested target delivery service regardless of weight configuration.</p>
-<p>Some other points of interest:
-- Steering is currently only available for HTTP delivery services that are a part of the same CDN.
-- A new role called STEERING has been added to the traffic ops database.  Only users with Admin or Steering privileges can modify steering assignments for a Delivery Service.
-- A new API has been created in Traffic Ops under /internal.  This API is used by a Steering user to add filters and modify assignments.  (Filters can only be added via the API).
-- Traffic Router uses the steering API in Traffic Ops to poll for steering assignments, the assignments are then used when routing traffic.</p>
+<p>Some other points of interest:</p>
+<ul class="simple">
+<li>Steering is currently only available for HTTP delivery services that are a part of the same CDN.</li>
+<li>A new role called STEERING has been added to the traffic ops database.  Only users with Admin or Steering privileges can modify steering assignments for a Delivery Service.</li>
+<li>A new API has been created in Traffic Ops under /internal.  This API is used by a Steering user to add filters and modify assignments.  (Filters can only be added via the API).</li>
+<li>Traffic Router uses the steering API in Traffic Ops to poll for steering assignments, the assignments are then used when routing traffic.</li>
+</ul>
 <p>A couple simple use cases for steering are:</p>
 <ol class="arabic simple">
 <li>Migrating traffic from one delivery service to another over time.</li>
