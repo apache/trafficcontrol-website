@@ -214,7 +214,7 @@
 <ol class="arabic simple" start="4">
 <li>Check the multi-site check box in the delivery service screen:</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/mso-enable.png"><img alt="../../_images/mso-enable.png" class="align-center" src="../../_images/mso-enable.png" style="width: 1695.0px; height: 1079.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mso-enable.png"><img alt="../../_images/mso-enable.png" class="align-center" src="../../_images/mso-enable.png" style="width: 1636.0px; height: 1005.0px;" /></a>
 <ol class="arabic simple" start="5">
 <li>Assign the org servers to the delivery service that will have the multi site feature.  Org servers assigned to a delivery service with multi-site checked will be assigned to be the origin servers for this DS.</li>
 </ol>
@@ -228,57 +228,13 @@
 4) This OFQDN must be valid - ATS will perform a DNS lookup on this FQDN even if IPs, not DNS, are used in the parent.config.
 5) The OFQDN entered as the &#8220;Origin Server Base URL&#8221; will be sent to the origins as a host header.  All origins must be configured to respond to this host.</p>
 </div>
-<ol class="arabic simple" start="6">
-<li>Select an option from the &#8220;Multi Site Origin Algorithm&#8221; drop-down list. Four MSO algorithms are supported:</li>
-</ol>
-<table border="1" class="docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Option</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Consistent hash</td>
-<td>Origin server selection is based on the consistent hash of requested URLs.</td>
-</tr>
-<tr class="row-odd"><td>Primary/back</td>
-<td>Round robin selection does not occur. The first origin server is selected unless it fails.
-If the first fails, the second and other following origin servers will be tried by order.
-Order is defined by 2 factors - if the origin server&#8217;s cachegroup is configured as the
-parent cachegroup for the mid, then this server will be used as the primary. The same rules
-apply for secondary parents, in order.  Within the cachegroups, the rank parameter will sort
-order further. If no parents are defined at the mid, then only rank is considered.</td>
-</tr>
-<tr class="row-even"><td>Strict
-round-robin</td>
-<td>MID caches serve requests strictly in turn. For example: origin server 1 serves the first request,
-origin server 2 serves the second request, and so on.</td>
-</tr>
-<tr class="row-odd"><td>IP based
-round-robin</td>
-<td>MID cache goes through the origin server list in a round robin-based on the IP address of EDGE cache.</td>
-</tr>
-</tbody>
-</table>
-<ol class="arabic simple" start="7">
-<li>Optionally, there are two configuration options that can set the order of the origins used if &#8220;Primary/backup&#8221; is selected for &#8220;Multi Site Origin Algorithm&#8221;. By creating location-based cachegroups and assigning the origin servers accordingly and defining these cachegroups as parents for specific mids, location-based primary/secondary selection can be made.   If primary/secondary selection should be the same for all mids, then a new parameter “rank” should be configured for each origin server profile. Origin servers with lower values of rank have higher ranking in the origin server list on MID caches, e.g. OS with rank of &#8220;2&#8221; precedes OS with the rank of &#8220;5&#8221;. For any OS, if rank value is not defined in its profile, its rank value will default to “1”.  In the event that both location based cachegroups are used alongside rank, sorting will be by cachegroup first and rank second.  In this way it is possible to have specific backup servers for use at specific locations.</li>
-</ol>
-<a class="reference internal image-reference" href="../../_images/mso-rank.png"><img alt="../../_images/mso-rank.png" class="align-center" src="../../_images/mso-rank.png" style="width: 585.0px; height: 105.6px;" /></a>
-<ol class="arabic simple" start="8">
-<li>Assign the parent.config location parameter to the MID profile:</li>
-</ol>
-<a class="reference internal image-reference" href="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png"><img alt="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" class="align-center" src="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" style="width: 658.0px; height: 601.0px;" /></a>
-<ol class="arabic" start="9">
+<ol class="arabic" start="6">
 <li><p class="first">For ATS 5.x, configure the mid hdr_rewrite on the delivery service, example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">As of ATS 6.x, multi-site options must be set as parameters within the parent.config.  Header rewrite parameters will be ignored.  See <cite>ATS parent.config &lt;https://docs.trafficserver.apache.org/en/6.2.x/admin-guide/files/parent.config.en.html&gt;</cite> for more details.  These parameters are now handled by the creation of a delivery service profile.</p>
+<li><p class="first">Create a delivery service profile. This must be done to set the MSO algorithm.  Also, as of ATS 6.x, multi-site options must be set as parameters within the parent.config.  Header rewrite parameters will be ignored.  See <cite>ATS parent.config &lt;https://docs.trafficserver.apache.org/en/6.2.x/admin-guide/files/parent.config.en.html&gt;</cite> for more details.  These parameters are now handled by the creation of a delivery service profile.</p>
 </li>
 </ol>
 <ol class="loweralpha simple">
@@ -319,7 +275,25 @@ unavailable_server_retry</td>
 <td>parent.config</td>
 <td>list of server response
 codes, eg &#8220;500,502,503&#8221;</td>
-<td>&#160;</td>
+<td>defaults to the value
+in records.config
+when unused.</td>
+</tr>
+<tr class="row-odd"><td>mso.max_simple_retries</td>
+<td>parent.config</td>
+<td>Nubmer of retries made
+after a 4xx error</td>
+<td>defaults to the value
+in records.config
+when unused.</td>
+</tr>
+<tr class="row-even"><td>mso.max_unavailable_server_retries</td>
+<td>parent.config</td>
+<td>Nubmer of retries made
+after a 5xx error</td>
+<td>defaults to the value
+in records.config
+when unused.</td>
 </tr>
 </tbody>
 </table>
