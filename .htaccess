@@ -1,2 +1,3 @@
 RedirectMatch 301 /docs(.*) http://traffic-control-cdn.readthedocs.io/en$1
 RedirectMatch 301 /licenses(.*) http://www.apache.org/licenses$1
+RedirectMatch 301 /foundation(.*) http://www.apache.org/foundation$1
