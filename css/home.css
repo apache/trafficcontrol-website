@@ -146,6 +146,12 @@ body {
 	background-color: black;
 }
 
+.apacheFooterTxt {
+	color: #ffffff;
+	margin:0px;
+	margin-top: 16px;
+}
+
 .relNotesText {
 	margin:0px;
 	margin-top: 16px;
