@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick How To Guides &mdash; Traffic Control 2.2-dev documentation </title>
+  <title>Delivery Service Requests &mdash; Traffic Control 2.2-dev documentation </title>
   
 
   
@@ -39,9 +39,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Traffic Control 2.2-dev documentation" href="../../index.html"/>
-        <link rel="up" title="Administrator’s Guide" href="../index.html"/>
-        <link rel="next" title="Configure Multi Site Origin" href="multi_site.html"/>
-        <link rel="prev" title="Traffic Vault Administration" href="../traffic_vault.html"/> 
+        <link rel="up" title="Quick How To Guides" href="index.html"/>
+        <link rel="next" title="Developer’s Guide" href="../../development/index.html"/>
+        <link rel="prev" title="Configure Delivery Service Steering" href="steering.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -122,7 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_server.html">Traffic Server Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_vault.html">Traffic Vault Administration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Quick How To Guides</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Quick How To Guides</a></li>
 </ul>
 </li>
 </ul>
@@ -175,10 +175,12 @@
       
           <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
-    <li>Quick How To Guides</li>
+          <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
+      
+    <li>Delivery Service Requests</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/admin/quick_howto/index.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/admin/quick_howto/ds_requests.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -187,48 +189,60 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="multi_site.html" class="btn btn-neutral float-right" title="Configure Multi Site Origin">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="../../development/index.html" class="btn btn-neutral float-right" title="Developer’s Guide">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="../traffic_vault.html" class="btn btn-neutral" title="Traffic Vault Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="steering.html" class="btn btn-neutral" title="Configure Delivery Service Steering"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
           <div role="main" class="document">
             
-  <div class="section" id="quick-how-to-guides">
-<h1>Quick How To Guides<a class="headerlink" href="#quick-how-to-guides" title="Permalink to this headline">¶</a></h1>
-<p>Traffic Control is a complicated system, and documenting it is not trivial. Sometimes a picture says more than a thousand words, so here are some screen shot based tutorials on how to use some of the more involved features.</p>
-<div class="section" id="traffic-ops">
-<h2>Traffic Ops<a class="headerlink" href="#traffic-ops" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="multi_site.html">Configure Multi Site Origin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dnssec.html">Configure DNSSEC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="federations.html">Configure Federations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regionalgeo.html">Configure Regional Geo-blocking (RGB)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="steering.html">Configure Delivery Service Steering</a></li>
-</ul>
+  <div class="section" id="delivery-service-requests">
+<span id="ds-requests"></span><h1>Delivery Service Requests<a class="headerlink" href="#delivery-service-requests" title="Permalink to this headline">¶</a></h1>
+<p>When enabled in traffic_portal_properties.json, delivery service requests are created when ALL users attempt to create, update or delete a delivery service.
+This allows users with higher level permissions (ops or admin) to review the changes for completeness and accuracy before deploying the changes.
+In addition, most delivery service changes require cache config updates (aka queue updates) and/or a cdn snapshot. Both of these actions are reserved for users with elevated permissions.</p>
+<p>A list of the delivery service requests associated with your tenant can be found here:</p>
+<p><code class="docutils literal"><span class="pre">https://traffic-portal.domain.com/#!/delivery-service-requests</span></code></p>
+<img alt="../../_images/tp_table_ds_requests.png" src="../../_images/tp_table_ds_requests.png" />
+<div class="section" id="who-can-create-a-delivery-service-request-and-how">
+<h2>Who Can Create a Delivery Service Request and How?<a class="headerlink" href="#who-can-create-a-delivery-service-request-and-how" title="Permalink to this headline">¶</a></h2>
+<p>Users with the Portal role (or above) can create delivery service requests by doing one of three things:</p>
+<ol class="arabic simple">
+<li>Creating a new delivery service</li>
+<li>Updating an existing delivery service</li>
+<li>Deleting an exiting delivery service</li>
+</ol>
+<p>By performing one of these actions, a delivery service request will be created for you with a status of draft or submitted. You determine the status of your request. Only change the status of your request to submitted once the request is ready for review and deployment.</p>
 </div>
+<div class="section" id="who-can-fulfill-a-delivery-service-request-and-how">
+<h2>Who Can Fulfill a Delivery Service Request and How?<a class="headerlink" href="#who-can-fulfill-a-delivery-service-request-and-how" title="Permalink to this headline">¶</a></h2>
+<p>Users with elevated permissions (Operations or above) can fulfill (apply the changes) or reject the delivery service request. In fact, they can do all of the following:</p>
+<div class="section" id="update-the-contents-of-the-delivery-service-request">
+<h3>Update the contents of the delivery service request<a class="headerlink" href="#update-the-contents-of-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
+<p>Optional. This will update the &#8220;Last Edited By&#8221; field to indicate who last updated the request.</p>
 </div>
-<div class="section" id="traffic-portal">
-<h2>Traffic Portal<a class="headerlink" href="#traffic-portal" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ds_requests.html">Delivery Service Requests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ds_requests.html#who-can-create-a-delivery-service-request-and-how">Who Can Create a Delivery Service Request and How?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ds_requests.html#who-can-fulfill-a-delivery-service-request-and-how">Who Can Fulfill a Delivery Service Request and How?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#update-the-contents-of-the-delivery-service-request">Update the contents of the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#assign-or-unassign-the-delivery-service-request">Assign or unassign the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#reject-the-delivery-service-request">Reject the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#fulfill-the-delivery-service-request">Fulfill the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#complete-the-delivery-service-request">Complete the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#delete-the-delivery-service-request">Delete the delivery service request</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<div class="section" id="assign-or-unassign-the-delivery-service-request">
+<h3>Assign or unassign the delivery service request<a class="headerlink" href="#assign-or-unassign-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
+<p>Optional. Assignment is currently limited to current user. This is optional as fulfillment will auto-assign the request to the user doing the fulfillment.</p>
+</div>
+<div class="section" id="reject-the-delivery-service-request">
+<h3>Reject the delivery service request<a class="headerlink" href="#reject-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
+<p>Rejecting a delivery service request will set status to <code class="docutils literal"><span class="pre">rejected</span></code> and the request can no longer be modified. This will auto-assign the request to the user doing the rejection.</p>
+</div>
+<div class="section" id="fulfill-the-delivery-service-request">
+<h3>Fulfill the delivery service request<a class="headerlink" href="#fulfill-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
+<p>Fulfilling a delivery service request will show the requested changes and, once committed, will apply the desired changes and set status to <code class="docutils literal"><span class="pre">pending</span></code>. The request is pending because many types of changes will require cache config updates (aka queue updates) and/or a cdn snapshot. Once queue updates and/or cdn snapshot is complete, the request should be marked <code class="docutils literal"><span class="pre">complete</span></code>.</p>
+</div>
+<div class="section" id="complete-the-delivery-service-request">
+<h3>Complete the delivery service request<a class="headerlink" href="#complete-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
+<p>Only after the delivery service request has been fulfilled and the changes have been applied can a delivery service request be marked as complete. Marking a delivery service as complete is currently a manual step because some changes require cache config updates (aka queue updates) and/or a cdn snapshot.
+Once that is done and the changes have been deployed, the request status should be changed from <code class="docutils literal"><span class="pre">pending</span></code> to <code class="docutils literal"><span class="pre">complete</span></code>.</p>
+</div>
+<div class="section" id="delete-the-delivery-service-request">
+<h3>Delete the delivery service request<a class="headerlink" href="#delete-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
+<p>Delivery service requests with a status of draft or submitted can always be deleted entirely if appropriate.</p>
 </div>
 </div>
 </div>
@@ -239,10 +253,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="multi_site.html" class="btn btn-neutral float-right" title="Configure Multi Site Origin">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../development/index.html" class="btn btn-neutral float-right" title="Developer’s Guide">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../traffic_vault.html" class="btn btn-neutral" title="Traffic Vault Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="steering.html" class="btn btn-neutral" title="Configure Delivery Service Steering"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
