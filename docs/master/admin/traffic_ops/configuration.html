@@ -363,6 +363,12 @@ set this parameter on a production system.</td>
 <td>CRConfig.json</td>
 <td>The location to get the IPv6 GeoLiteCity database from.</td>
 </tr>
+<tr class="row-odd"><td>maxmind.default.override</td>
+<td>CRConfig.json</td>
+<td>The destination geo coordinates to use for client location when maxmind returns a default location that matches the country code.
+This parameter can be specified multiple times with different values to support default overrides for multiple countries.
+Format: &lt;CountryCode&gt;;&lt;Lat&gt;,&lt;Long&gt;   Ex: US;37.751,-97.822</td>
+</tr>
 </tbody>
 </table>
 <p>These parameters should be set to reflect the local environment.</p>
