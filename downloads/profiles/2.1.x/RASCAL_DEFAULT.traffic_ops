@@ -62,9 +62,9 @@
 		}
 	],
 	"profile": {
-		"cdn": "rogers",
-		"name": "RASCAL_ROGERS",
+		"cdn": "CDN_NAME_HERE"
+		"name": "RASCAL_DEFAUL",
 		"type": "TM_PROFILE",
-		"description": "Rogers Traffic Monitor Profile"
+		"description": "DEFAULT Traffic Monitor Profile"
 	}
 }
