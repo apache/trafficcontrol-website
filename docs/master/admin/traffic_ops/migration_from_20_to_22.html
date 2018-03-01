@@ -330,6 +330,12 @@ capture-prefix-uri - This is usually used in combination with remove-path and re
 <p>Further documentation on the cachekey plugin can be found at <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/cachekey.en.html">ApacheTrafficServerDocs</a></p>
 </div>
 </div>
+<div class="section" id="apache-traffic-server-7-x-logging">
+<h2>Apache Traffic Server 7.x (Logging)<a class="headerlink" href="#apache-traffic-server-7-x-logging" title="Permalink to this headline">¶</a></h2>
+<p>Trafficserver v7 has changed the logging format.  Previously this was an xml file and now it is a lua file. Traffic Control compensates for this
+automatically depending upon the filename used for the logging parameters.  Previously the file used was <code class="docutils literal"><span class="pre">logs_xml.config</span></code>, for ATS 7 it is now
+<code class="docutils literal"><span class="pre">logging.config</span></code>.  The same parameters will work this new file, <code class="docutils literal"><span class="pre">LogFormat.Format</span></code>, <code class="docutils literal"><span class="pre">LogFormat.Name</span></code>, <code class="docutils literal"><span class="pre">LogObject.Format</span></code> etc.</p>
+</div>
 </div>
 
 
