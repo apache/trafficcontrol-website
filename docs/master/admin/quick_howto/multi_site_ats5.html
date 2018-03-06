@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configure Multi Site Origin &mdash; Traffic Control 2.2-dev documentation </title>
+  <title>Configure Multi Site Origin (5.x) &mdash; Traffic Control 2.1-dev documentation </title>
   
 
   
@@ -38,10 +38,10 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Traffic Control 2.2-dev documentation" href="../../index.html"/>
+    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../index.html"/>
         <link rel="up" title="Quick How To Guides" href="index.html"/>
         <link rel="next" title="Configure DNSSEC" href="dnssec.html"/>
-        <link rel="prev" title="Quick How To Guides" href="index.html"/> 
+        <link rel="prev" title="Configure Multi Site Origin" href="multi_site.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -110,13 +110,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_ops/migration_from_20_to_22.html">Traffic Ops - Migrating from 2.0 to 2.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/using.html">Traffic Ops - Using</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/installation.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/usingtrafficportal.html">Traffic Portal - Using</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal.html">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
@@ -171,16 +169,16 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
+    <li><a href="../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
       
           <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
       
           <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
       
-    <li>Configure Multi Site Origin</li>
+    <li>Configure Multi Site Origin (5.x)</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/admin/quick_howto/multi_site.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/admin/quick_howto/multi_site_ats5.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -192,16 +190,16 @@
         		  <a href="dnssec.html" class="btn btn-neutral float-right" title="Configure DNSSEC">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="index.html" class="btn btn-neutral" title="Quick How To Guides"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="multi_site.html" class="btn btn-neutral" title="Configure Multi Site Origin"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
           <div role="main" class="document">
             
-  <div class="section" id="configure-multi-site-origin">
-<span id="rl-multi-site-origin-qht"></span><h1>Configure Multi Site Origin<a class="headerlink" href="#configure-multi-site-origin" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="configure-multi-site-origin-5-x">
+<span id="rl-multi-site-origin-qht-ats5"></span><h1>Configure Multi Site Origin (5.x)<a class="headerlink" href="#configure-multi-site-origin-5-x" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li>Create cachegroups for the origin locations, and assign the appropriate parent-child relationship between the mid and org cachegroups (click the image to see full size).  Each mid cachegroup can be assigned a primary and secondary origin parent cachegroup.  When the mid cache parent configuration is generated, origins in the primary cachegroups will be listed first, followed by origins in the secondary cachegroup. Origin servers assigned to the delivery service that are assigned to neither the primary nor secondary cachegroups will be listed last.</li>
+<li>Create &#8220;cachegroups&#8221; for the origin locations, and assign the appropriate parent-child relationship between the mid cg&#8217;s and org cgs (click the image to see full size):</li>
 </ol>
 <a class="reference internal image-reference" href="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png"><img alt="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" class="align-center" src="../../_images/C5C4CD22-949A-48FD-8976-C673083E2177.png" style="width: 1472.0px; height: 210.0px;" /></a>
 <ol class="arabic simple" start="2">
@@ -215,92 +213,67 @@
 <ol class="arabic simple" start="4">
 <li>Check the multi-site check box in the delivery service screen:</li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/mso-enable.png"><img alt="../../_images/mso-enable.png" class="align-center" src="../../_images/mso-enable.png" style="width: 1636.0px; height: 1005.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mso-enable.png"><img alt="../../_images/mso-enable.png" class="align-center" src="../../_images/mso-enable.png" style="width: 1695.0px; height: 1079.0px;" /></a>
 <ol class="arabic simple" start="5">
-<li>Assign the org servers to the delivery service that will have the multi site feature.  Org servers assigned to a delivery service with multi-site checked will be assigned to be the origin servers for this DS.</li>
+<li>Assign the org servers to the delivery service that will have the multi site feature:</li>
 </ol>
 <a class="reference internal image-reference" href="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png"><img alt="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png" class="align-center" src="../../_images/066CEF4F-C1A3-4A89-8B52-4F72B0531367.png" style="width: 580.0px; height: 343.0px;" /></a>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>“Origin Server Base URL” uniqueness: In order to enable MID caches to distinguish delivery services by different MSO algorithms while performing parent failover, it requires that “Origin Server Base URL” (OFQDN) for each MSO enabled delivery service is unique unless the exceptions listed afterwards. This means that the OFQDN of a MSO enabled delivery service should be different with the OFQDNs of any other delivery service, regardless of whether they are MSO enabled or not. The exceptions are:</p>
-<ol class="last arabic simple">
-<li>If there are multiple CDNs created on the same Traffic Ops, delivery services across different CDNs may have the same OFQDN configured.</li>
-<li>If several delivery services in the same CDN have the same MSO algorithm configured, they may share the same OFQDN.</li>
-<li>If delivery services are assigned with different MID cache groups respectively, they can share the same OFQDN.</li>
-<li>This OFQDN must be valid - ATS will perform a DNS lookup on this FQDN even if IPs, not DNS, are used in the parent.config.</li>
-<li>The OFQDN entered as the &#8220;Origin Server Base URL&#8221; will be sent to the origins as a host header.  All origins must be configured to respond to this host.</li>
+<p class="last">“Origin Server Base URL” uniqueness: In order to enable MID caches to distinguish delivery services by different MSO algorithms while performing parent failover, it requires that “Origin Server Base URL” (OFQDN) for each MSO enabled delivery service is unique unless the exceptions listed afterwards. This means that the OFQDN of a MSO enabled delivery service should be different with the OFQDNs of any other delivery service, regardless of whether they are MSO enabled or not. The exceptions are:
+1) If there are multiple CDNs created on the same Traffic Ops, delivery services across different CDNs may have the same OFQDN configured.
+2) If several delivery services in the same CDN have the same MSO algorithm configured, they may share the same OFQDN.
+3) If delivery services are assigned with different MID cache groups respectively, they can share the same OFQDN.</p>
+</div>
+<ol class="arabic simple" start="6">
+<li>Select an option from the &#8220;Multi Site Origin Algorithm&#8221; drop-down list. Four MSO algorithms are supported:</li>
 </ol>
-</div>
-<ol class="arabic" start="6">
-<li><p class="first">For ATS 5.x, configure the mid hdr_rewrite on the delivery service, example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Create a delivery service profile. This must be done to set the MSO algorithm.  Also, as of ATS 6.x, multi-site options must be set as parameters within the parent.config.  Header rewrite parameters will be ignored.  See <cite>ATS parent.config &lt;https://docs.trafficserver.apache.org/en/6.2.x/admin-guide/files/parent.config.en.html&gt;</cite> for more details.  These parameters are now handled by the creation of a delivery service profile.</p>
-<ol class="loweralpha">
-<li><p class="first">Create a profile of the type DS_PROFILE for the delivery service in question.</p>
-<a class="reference internal image-reference" href="../../_images/ds-profile.png"><img alt="../../_images/ds-profile.png" class="align-center" src="../../_images/ds-profile.png" style="width: 589.0px; height: 269.0px;" /></a>
-</li>
-<li><p class="first">Click &#8220;Show profile parameters&#8221; to bring up the parameters screen for the profile.  Create parameters for the following:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="37%" />
-<col width="17%" />
-<col width="24%" />
-<col width="23%" />
+<col width="13%" />
+<col width="87%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter Name</th>
-<th class="head">Config File Name</th>
-<th class="head">Value</th>
-<th class="head">ATS parent.config value</th>
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>mso.algorithm</td>
-<td>parent.config</td>
-<td>true, false, strict,
-consistent_hash</td>
-<td>round_robin</td>
+<tr class="row-even"><td>Consistent hash</td>
+<td>Origin server selection is based on the consistent hash of requested URLs.</td>
 </tr>
-<tr class="row-odd"><td>mso.parent_retry</td>
-<td>parent.config</td>
-<td>simple_retry, both,
-unavailable_server_retry</td>
-<td>parent_retry</td>
+<tr class="row-odd"><td>Primary/back</td>
+<td>Round robin selection does not occur. The first origin server is selected unless it fails.
+If the first fails, the second and other following origin servers will be tried by order.
+Order is defined by 2 factors - if the origin server&#8217;s cachegroup is configured as the
+parent cachegroup for the mid, then this server will be used as the primary. The same rules
+apply for secondary parents, in order.  Within the cachegroups, the rank parameter will sort
+order further. If no parents are defined at the mid, then only rank is considered.</td>
 </tr>
-<tr class="row-even"><td>mso.unavailable_server_retry_responses</td>
-<td>parent.config</td>
-<td>list of server response
-codes, eg &#8220;500,502,503&#8221;</td>
-<td>defaults to the value
-in records.config
-when unused.</td>
+<tr class="row-even"><td>Strict
+round-robin</td>
+<td>MID caches serve requests strictly in turn. For example: origin server 1 serves the first request,
+origin server 2 serves the second request, and so on.</td>
 </tr>
-<tr class="row-odd"><td>mso.max_simple_retries</td>
-<td>parent.config</td>
-<td>Nubmer of retries made
-after a 4xx error</td>
-<td>defaults to the value
-in records.config
-when unused.</td>
-</tr>
-<tr class="row-even"><td>mso.max_unavailable_server_retries</td>
-<td>parent.config</td>
-<td>Nubmer of retries made
-after a 5xx error</td>
-<td>defaults to the value
-in records.config
-when unused.</td>
+<tr class="row-odd"><td>IP based
+round-robin</td>
+<td>MID cache goes through the origin server list in a round robin-based on the IP address of EDGE cache.</td>
 </tr>
 </tbody>
 </table>
-<a class="reference internal image-reference" href="../../_images/ds_profile_parameters.png"><img alt="../../_images/ds_profile_parameters.png" class="align-center" src="../../_images/ds_profile_parameters.png" style="width: 2840.0px; height: 338.0px;" /></a>
-</li>
-<li><p class="first">In the delivery service page, select the newly created DS_PROFILE and save the delivery service.</p>
-</li>
+<ol class="arabic simple" start="7">
+<li>Optionally, there are two configuration options that can set the order of the origins used if &#8220;Primary/backup&#8221; is selected for &#8220;Multi Site Origin Algorithm&#8221;. By creating location-based cachegroups and assigning the origin servers accordingly and defining these cachegroups as parents for specific mids, location-based primary/secondary selection can be made.   If primary/secondary selection should be the same for all mids, then a new parameter “rank” should be configured for each origin server profile. Origin servers with lower values of rank have higher ranking in the origin server list on MID caches, e.g. OS with rank of &#8220;2&#8221; precedes OS with the rank of &#8220;5&#8221;. For any OS, if rank value is not defined in its profile, its rank value will default to “1”.  In the event that both location based cachegroups are used alongside rank, sorting will be by cachegroup first and rank second.  In this way it is possible to have specific backup servers for use at specific locations.</li>
 </ol>
+<a class="reference internal image-reference" href="../../_images/mso-rank.png"><img alt="../../_images/mso-rank.png" class="align-center" src="../../_images/mso-rank.png" style="width: 585.0px; height: 105.6px;" /></a>
+<ol class="arabic simple" start="8">
+<li>Assign the parent.config location parameter to the MID profile:</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png"><img alt="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" class="align-center" src="../../_images/D22DCAA3-18CC-48F4-965B-5312993F9820.png" style="width: 658.0px; height: 601.0px;" /></a>
+<ol class="arabic" start="9">
+<li><p class="first">Configure the mid hdr_rewrite on the delivery service, example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
+</pre></div>
+</div>
 </li>
 <li><p class="first">Turn on parent_proxy_routing in the MID profile.</p>
 </li>
@@ -316,7 +289,7 @@ when unused.</td>
         <a href="dnssec.html" class="btn btn-neutral float-right" title="Configure DNSSEC">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Quick How To Guides"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="multi_site.html" class="btn btn-neutral" title="Configure Multi Site Origin"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -365,7 +338,7 @@ when unused.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'2.2-dev',
+            VERSION:'2.1-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
