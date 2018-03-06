@@ -62,7 +62,7 @@
 		}
 	],
 	"profile": {
-		"cdn": "CDN_NAME_HERE"
+		"cdn": "CDN_NAME_HERE",
 		"name": "RASCAL_DEFAUL",
 		"type": "TM_PROFILE",
 		"description": "DEFAULT Traffic Monitor Profile"
