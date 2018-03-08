@@ -220,8 +220,43 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>/crs/locations/:location/caches</p>
+<p><strong>/crs/locations/:location/caches</strong></p>
 <p>A list of caches for this cache group only.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>/crs/consistenthash/cache/coveragezone/?ip=:ip&amp;deliveryServiceId=:deliveryServiceId&amp;requestPath=:requestPath</strong></p>
+<p>The resulting cache of the consistent hash using coverage zone file for a given client IP, delivery service, and request path.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>/crs/consistenthash/cache/deep/coveragezone/?ip=:ip&amp;deliveryServiceId=:deliveryServiceId&amp;requestPath=:requestPath</strong></p>
+<p>The resulting cache of the consistent hash using deep coverage zone file (deep caching) for a given client IP, delivery service, and request path.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>/crs/consistenthash/cache/geolocation/?ip=:ip&amp;deliveryServiceId=:deliveryServiceId&amp;requestPath=:requestPath</strong></p>
+<p>The resulting cache of the consistent hash using geolocation for a given client IP, delivery service, and request path.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>/crs/consistenthash/deliveryservice/?deliveryServiceId=:deliveryServiceId&amp;requestPath=:requestPath</strong></p>
+<p>The resulting delivery service of the consistent hash for a given delivery service and request path &#8211; used to test steering delivery services.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>/crs/coveragezone/caches/?deliveryServiceId=:deliveryServiceId&amp;cacheLocationId=:cacheLocationId</strong></p>
+<p>A list of caches for a given delivery service and cache location.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>/crs/coveragezone/cachelocation/?ip=:ip&amp;deliveryServiceId=:deliveryServiceId</strong></p>
+<p>The resulting cache location for a given client IP and delivery service.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>/crs/deepcoveragezone/cachelocation/?ip=:ip&amp;deliveryServiceId=:deliveryServiceId</strong></p>
+<p>The resulting cache location using deep coverage zone file (deep caching) for a given client IP and delivery service.</p>
 </div>
 
 
