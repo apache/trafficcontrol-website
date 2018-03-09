@@ -340,26 +340,18 @@ The installation instructions for Riak can be found <a class="reference external
 <div class="section" id="traffic-ops-configuration">
 <h3>Traffic Ops Configuration<a class="headerlink" href="#traffic-ops-configuration" title="Permalink to this headline">¶</a></h3>
 <p>There are a couple configurations that are necessary in Traffic Ops.</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><dl class="first docutils">
 <dt>Database Updates</dt>
-<dd><ul class="first simple">
-<li>A new profile for Riak needs to be added to the profile table</li>
-<li>A new type of Riak needs to be added to the type table</li>
-<li>The servers in the Riak cluster need to be added to the server table</li>
+<dd><ul class="first last">
+<li>The servers in the Riak cluster need to be added to the server table (TCP Port = 8088, type = RIAK, profile = RIAK_ALL)</li>
 </ul>
-<blockquote class="last">
-<div><div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">profile and type data should be pre-loaded by seeds sql script.</p>
-</div>
-</div></blockquote>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Configuration updates</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>/opt/traffic_ops/app/conf/&lt;environment&gt;/riak.conf needs to be updated to reflect the correct username and password for accessing riak.</li>
 </ul>
 </dd>
