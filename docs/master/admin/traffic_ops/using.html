@@ -689,6 +689,13 @@ URI Signing Keys</td>
 <tr class="row-even"><td>DNS Bypass TTL</td>
 <td>&#160;</td>
 </tr>
+<tr class="row-odd"><td>Maximum Bytes per Second allowed per session</td>
+<td>The maximum bytes per second a cache will delivery on any single TCP connection. This uses the Linux kernel&#8217;s Fair Queuing setsockopt(SO_MAX_PACING_RATE) to limit the rate of delivery. Traffic exceeding this
+speed will only be rate-limited and not diverted. This option <em>requires</em> <cite>net.core.default_qdisc = fq</cite> in <cite>/etc/sysctl.conf</cite>.</td>
+</tr>
+<tr class="row-even"><td>Long Description</td>
+<td>Long description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
+</tr>
 <tr class="row-odd"><td>Max DNS Answers</td>
 <td>&#160;</td>
 </tr>
