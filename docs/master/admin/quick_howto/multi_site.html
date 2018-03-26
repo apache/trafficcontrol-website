@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
           <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
       
@@ -228,12 +228,12 @@
 <li>If several delivery services in the same CDN have the same MSO algorithm configured, they may share the same OFQDN.</li>
 <li>If delivery services are assigned with different MID cache groups respectively, they can share the same OFQDN.</li>
 <li>This OFQDN must be valid - ATS will perform a DNS lookup on this FQDN even if IPs, not DNS, are used in the parent.config.</li>
-<li>The OFQDN entered as the &#8220;Origin Server Base URL&#8221; will be sent to the origins as a host header.  All origins must be configured to respond to this host.</li>
+<li>The OFQDN entered as the “Origin Server Base URL” will be sent to the origins as a host header.  All origins must be configured to respond to this host.</li>
 </ol>
 </div>
 <ol class="arabic" start="6">
 <li><p class="first">For ATS 5.x, configure the mid hdr_rewrite on the delivery service, example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">cond</span> <span class="o">%</span><span class="p">{</span><span class="n">REMAP_PSEUDO_HOOK</span><span class="p">}</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_enabled</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">simple_retry_response_codes</span> <span class="s2">&quot;400,404,412&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">parent_origin</span><span class="o">.</span><span class="n">dead_server_retry_response_codes</span> <span class="s2">&quot;502,503&quot;</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_timeout</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries</span> <span class="mi">2</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">connect_attempts_max_retries_dead_server</span> <span class="mi">1</span> <span class="n">__RETURN__</span> <span class="nb">set</span><span class="o">-</span><span class="n">config</span> <span class="n">proxy</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">transaction_active_timeout_in</span> <span class="mi">5</span> <span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="n">__RETURN__</span>
 </pre></div>
 </div>
 </li>
@@ -242,7 +242,7 @@
 <li><p class="first">Create a profile of the type DS_PROFILE for the delivery service in question.</p>
 <a class="reference internal image-reference" href="../../_images/ds-profile.png"><img alt="../../_images/ds-profile.png" class="align-center" src="../../_images/ds-profile.png" style="width: 589.0px; height: 269.0px;" /></a>
 </li>
-<li><p class="first">Click &#8220;Show profile parameters&#8221; to bring up the parameters screen for the profile.  Create parameters for the following:</p>
+<li><p class="first">Click “Show profile parameters” to bring up the parameters screen for the profile.  Create parameters for the following:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="37%" />
@@ -273,7 +273,7 @@ unavailable_server_retry</td>
 <tr class="row-even"><td>mso.unavailable_server_retry_responses</td>
 <td>parent.config</td>
 <td>list of server response
-codes, eg &#8220;500,502,503&#8221;</td>
+codes, eg “500,502,503”</td>
 <td>defaults to the value
 in records.config
 when unused.</td>

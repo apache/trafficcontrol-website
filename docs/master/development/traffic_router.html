@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Developer&#8217;s Guide</a> &raquo;</li>
+          <li><a href="index.html">Developer’s Guide</a> &raquo;</li>
       
     <li>Traffic Router</li>
       <li class="wy-breadcrumbs-aside">
@@ -200,13 +200,13 @@
 <h1>Traffic Router<a class="headerlink" href="#traffic-router" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Traffic Router is a Java Tomcat application that routes clients to the closest available cache on the CDN using both HTTP and DNS.  Cache availability is determined by Traffic Monitor; consequently Traffic Router polls Traffic Monitor for its configuration and cache health state information, and uses this data to make routing decisions.  HTTP routing is performed by localizing the client based on the request&#8217;s source IP address (IPv4 or IPv6), and issues an HTTP 302 redirect to the nearest cache.  HTTP routing utilizes consistent hashing on request URLs to optimize cache performance and request distribution.  DNS routing is performed by localizing clients, resolvers in most cases, requesting <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">AAAA</span></code> records for a configurable name such as <code class="docutils literal"><span class="pre">foo.deliveryservice.somecdn.net</span></code>. Traffic Router is comprised of seven separate Maven modules:</p>
+<p>Traffic Router is a Java Tomcat application that routes clients to the closest available cache on the CDN using both HTTP and DNS.  Cache availability is determined by Traffic Monitor; consequently Traffic Router polls Traffic Monitor for its configuration and cache health state information, and uses this data to make routing decisions.  HTTP routing is performed by localizing the client based on the request’s source IP address (IPv4 or IPv6), and issues an HTTP 302 redirect to the nearest cache.  HTTP routing utilizes consistent hashing on request URLs to optimize cache performance and request distribution.  DNS routing is performed by localizing clients, resolvers in most cases, requesting <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">AAAA</span></code> records for a configurable name such as <code class="docutils literal notranslate"><span class="pre">foo.deliveryservice.somecdn.net</span></code>. Traffic Router is comprised of seven separate Maven modules:</p>
 <ul class="simple">
 <li>shared - A reusable utility JAR for defining Delivery Service Certificates</li>
 <li>configuration - A resuable JAR defining the ConfigurationListener interface</li>
-<li>connector - A JAR that overrides Tomcat&#8217;s standard Http11Protocol Connector class and allows Traffic Router to delay opening listen sockets until it is in a state suitable for routing traffic</li>
+<li>connector - A JAR that overrides Tomcat’s standard Http11Protocol Connector class and allows Traffic Router to delay opening listen sockets until it is in a state suitable for routing traffic</li>
 <li>geolocation - Submodule for defining geolocation services</li>
-<li>neustar - A Jar that provides a bean &#8220;neustarGeolocationService&#8221; that implements the GeolocationService interface defined in the geolocation maven submodule, which can optionally be added to the build of Traffic Router</li>
+<li>neustar - A Jar that provides a bean “neustarGeolocationService” that implements the GeolocationService interface defined in the geolocation maven submodule, which can optionally be added to the build of Traffic Router</li>
 <li>core - Services DNS and HTTP requests, performs localization on routing requests, and is deployed as a WAR to a Service (read: connector/listen port) within Tomcat which is separate from api</li>
 <li>build - A simple Maven project which gathers the artifacts from the modules and builds an RPM</li>
 </ul>
@@ -223,45 +223,45 @@
 <div class="section" id="traffic-router-project-tree-overview">
 <h2>Traffic Router Project Tree Overview<a class="headerlink" href="#traffic-router-project-tree-overview" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">traffic_control/traffic_traffic_router/</span></code> - base directory for Traffic Router</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">traffic_control/traffic_traffic_router/</span></code> - base directory for Traffic Router</p>
 <blockquote>
 <div><ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">connector/</span></code> - Source code for Traffic Router Connector;</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">connector/</span></code> - Source code for Traffic Router Connector;</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">src/main/java</span></code> - Java source directory for Traffic Router Connector</li>
+<li><code class="docutils literal notranslate"><span class="pre">src/main/java</span></code> - Java source directory for Traffic Router Connector</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">core/</span></code> - Source code for Traffic Router Core, which is built as its own deployable WAR file and communicates with Traffic Router API using JMX</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">core/</span></code> - Source code for Traffic Router Core, which is built as its own deployable WAR file and communicates with Traffic Router API using JMX</p>
 <blockquote>
 <div><ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">src/main</span></code> - Main source directory for Traffic Router Core</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">src/main</span></code> - Main source directory for Traffic Router Core</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">etc/init.d</span></code> - Init script for Tomcat</li>
-<li><code class="docutils literal"><span class="pre">conf/</span></code> - Minimum required configuration files</li>
-<li><code class="docutils literal"><span class="pre">java/</span></code> - Java source code for Traffic Router Core</li>
-<li><code class="docutils literal"><span class="pre">opt/tomcat/conf</span></code> - Contains Tomcat configuration file(s) pulled in during an RPM build</li>
-<li><code class="docutils literal"><span class="pre">resources/</span></code> - Resources pulled in during an RPM build</li>
-<li><code class="docutils literal"><span class="pre">scripts/</span></code> - Scripts used by the RPM build process</li>
-<li><code class="docutils literal"><span class="pre">webapp/</span></code> - Java webapp resources</li>
+<li><code class="docutils literal notranslate"><span class="pre">etc/init.d</span></code> - Init script for Tomcat</li>
+<li><code class="docutils literal notranslate"><span class="pre">conf/</span></code> - Minimum required configuration files</li>
+<li><code class="docutils literal notranslate"><span class="pre">java/</span></code> - Java source code for Traffic Router Core</li>
+<li><code class="docutils literal notranslate"><span class="pre">opt/tomcat/conf</span></code> - Contains Tomcat configuration file(s) pulled in during an RPM build</li>
+<li><code class="docutils literal notranslate"><span class="pre">resources/</span></code> - Resources pulled in during an RPM build</li>
+<li><code class="docutils literal notranslate"><span class="pre">scripts/</span></code> - Scripts used by the RPM build process</li>
+<li><code class="docutils literal notranslate"><span class="pre">webapp/</span></code> - Java webapp resources</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">src/test</span></code> - Test source directory for Traffic Router Core</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">src/test</span></code> - Test source directory for Traffic Router Core</p>
 <blockquote>
 <div><ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">conf/</span></code> - Minimal Configuration files that make it possible to run junit tests</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">conf/</span></code> - Minimal Configuration files that make it possible to run junit tests</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">db/</span></code> - Files downloaded by unit tests</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">db/</span></code> - Files downloaded by unit tests</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">java/</span></code> - JUnit based unit tests for Traffic Router Core</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">java/</span></code> - JUnit based unit tests for Traffic Router Core</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">resources/</span></code> - Example data files used by junit tests</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">resources/</span></code> - Example data files used by junit tests</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">var/auto-zones</span></code> - BIND formatted zone files generated by Traffic Router Core during unit testing</li>
+<li><code class="docutils literal notranslate"><span class="pre">var/auto-zones</span></code> - BIND formatted zone files generated by Traffic Router Core during unit testing</li>
 </ul>
 </div></blockquote>
 </li>
@@ -285,8 +285,8 @@
 <p>To install the Traffic Router Developer environment:</p>
 <ol class="arabic simple">
 <li>Clone the traffic_control repository using Git.</li>
-<li>Change directories into <code class="docutils literal"><span class="pre">traffic_control/traffic_router</span></code>.</li>
-<li>Follow the instructions in &#8220;README.DNSSEC&#8221; for DNSSEC support.</li>
+<li>Change directories into <code class="docutils literal notranslate"><span class="pre">traffic_control/traffic_router</span></code>.</li>
+<li>Follow the instructions in “README.DNSSEC” for DNSSEC support.</li>
 <li>Set the environment variable TRAFFIC_MONITOR_HOSTS to be a semicolon delimited list of Traffic Monitors that can be accessed during integration tests</li>
 <li>Additional configuration is set using the below files:</li>
 </ol>
@@ -319,7 +319,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">traffic_monitor.bootstrap.hosts</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">traffic_monitor.bootstrap.hosts</span></code></td>
 <td>FQDN and port of the Traffic Monitor instance(s), separated by semicolons as necessary (do not include <a class="reference external" href="http://">http://</a>).</td>
 </tr>
 </tbody>
@@ -334,30 +334,30 @@
 <div><ol class="loweralpha simple">
 <li>File -&gt; Import -&gt; Git -&gt; Projects from Git; Next</li>
 <li>Existing local repository; Next</li>
-<li>Add -&gt; browse to find <code class="docutils literal"><span class="pre">traffic_control</span></code>; Open</li>
-<li>Select <code class="docutils literal"><span class="pre">traffic_control</span></code>; Next</li>
-<li>Ensure &#8220;Import existing projects&#8221; is selected, expand <code class="docutils literal"><span class="pre">traffic_control</span></code>, select <code class="docutils literal"><span class="pre">traffic_router</span></code>; Next</li>
-<li>Ensure <code class="docutils literal"><span class="pre">traffic_router_api</span></code>, <code class="docutils literal"><span class="pre">traffic_router_connector</span></code>, and <code class="docutils literal"><span class="pre">traffic_router_core</span></code> are checked; Finish (this step can take several minutes to complete)</li>
-<li>Ensure <code class="docutils literal"><span class="pre">traffic_router_api</span></code>, <code class="docutils literal"><span class="pre">traffic_router_connector</span></code>, and <code class="docutils literal"><span class="pre">traffic_router_core</span></code> have been opened by Eclipse after importing</li>
+<li>Add -&gt; browse to find <code class="docutils literal notranslate"><span class="pre">traffic_control</span></code>; Open</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">traffic_control</span></code>; Next</li>
+<li>Ensure “Import existing projects” is selected, expand <code class="docutils literal notranslate"><span class="pre">traffic_control</span></code>, select <code class="docutils literal notranslate"><span class="pre">traffic_router</span></code>; Next</li>
+<li>Ensure <code class="docutils literal notranslate"><span class="pre">traffic_router_api</span></code>, <code class="docutils literal notranslate"><span class="pre">traffic_router_connector</span></code>, and <code class="docutils literal notranslate"><span class="pre">traffic_router_core</span></code> are checked; Finish (this step can take several minutes to complete)</li>
+<li>Ensure <code class="docutils literal notranslate"><span class="pre">traffic_router_api</span></code>, <code class="docutils literal notranslate"><span class="pre">traffic_router_connector</span></code>, and <code class="docutils literal notranslate"><span class="pre">traffic_router_core</span></code> have been opened by Eclipse after importing</li>
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">From the terminal, run <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">verify</span></code> from the <code class="docutils literal"><span class="pre">traffic_router</span></code> directory</p>
+<li><p class="first">From the terminal, run <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">verify</span></code> from the <code class="docutils literal notranslate"><span class="pre">traffic_router</span></code> directory</p>
 </li>
 <li><p class="first">Start the embedded Tomcat instance for Core from within your IDE by following these steps:</p>
 <blockquote>
 <div><ol class="loweralpha">
-<li><p class="first">In the package explorer, expand <code class="docutils literal"><span class="pre">traffic_router_core</span></code></p>
+<li><p class="first">In the package explorer, expand <code class="docutils literal notranslate"><span class="pre">traffic_router_core</span></code></p>
 </li>
-<li><p class="first">Expand <code class="docutils literal"><span class="pre">src/test/java</span></code></p>
+<li><p class="first">Expand <code class="docutils literal notranslate"><span class="pre">src/test/java</span></code></p>
 </li>
-<li><p class="first">Expand the package <code class="docutils literal"><span class="pre">com.comcast.cdn.traffic_control.traffic_router.core</span></code></p>
+<li><p class="first">Expand the package <code class="docutils literal notranslate"><span class="pre">com.comcast.cdn.traffic_control.traffic_router.core</span></code></p>
 </li>
-<li><p class="first">Open and run <code class="docutils literal"><span class="pre">TrafficRouterStart.java</span></code></p>
+<li><p class="first">Open and run <code class="docutils literal notranslate"><span class="pre">TrafficRouterStart.java</span></code></p>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If an error is displayed in the Console, run <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">verify</span></code> from the <code class="docutils literal"><span class="pre">traffic_router</span></code> directory</p>
+<p class="last">If an error is displayed in the Console, run <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">verify</span></code> from the <code class="docutils literal notranslate"><span class="pre">traffic_router</span></code> directory</p>
 </div>
 </div></blockquote>
 </li>
@@ -370,19 +370,19 @@ The DNS server and routing interface is available on localhost:1053 via TCP and 
 </div>
 <div class="section" id="manual-testing">
 <h2>Manual Testing<a class="headerlink" href="#manual-testing" title="Permalink to this headline">¶</a></h2>
-<p>Look up the URL for your test &#8216;http&#8217; Delivery Service in Traffic Ops and then:</p>
+<p>Look up the URL for your test ‘http’ Delivery Service in Traffic Ops and then:</p>
 <p>curl -vs -H “Host: &lt;Delivery Service URL&gt;” <a class="reference external" href="http://localhost:8888/x">http://localhost:8888/x</a></p>
 </div>
 <div class="section" id="test-cases">
 <h2>Test Cases<a class="headerlink" href="#test-cases" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Unit tests can be executed using Maven by running <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">test</span></code> at the root of the <code class="docutils literal"><span class="pre">traffic_router</span></code> project.</li>
-<li>Unit and Integration tests can be executed using Maven by running <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">verify</span></code> at the root of the <code class="docutils literal"><span class="pre">traffic_router</span></code> project.</li>
+<li>Unit tests can be executed using Maven by running <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">test</span></code> at the root of the <code class="docutils literal notranslate"><span class="pre">traffic_router</span></code> project.</li>
+<li>Unit and Integration tests can be executed using Maven by running <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code> at the root of the <code class="docutils literal notranslate"><span class="pre">traffic_router</span></code> project.</li>
 </ul>
 </div>
 <div class="section" id="rpm-packaging">
 <h2>RPM Packaging<a class="headerlink" href="#rpm-packaging" title="Permalink to this headline">¶</a></h2>
-<p>Running <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">package</span></code> on a Linux based distribution will trigger the build process to create the Traffic Router rpm.</p>
+<p>Running <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">package</span></code> on a Linux based distribution will trigger the build process to create the Traffic Router rpm.</p>
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>

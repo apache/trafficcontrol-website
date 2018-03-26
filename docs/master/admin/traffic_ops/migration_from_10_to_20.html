@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Ops - Migrating from 1.x to 2.x</li>
       <li class="wy-breadcrumbs-aside">
@@ -213,16 +213,16 @@ help with that conversion using an open source Postgres tool called <a class="re
 <h2>Setup the traffic_ops_db directory<a class="headerlink" href="#setup-the-traffic-ops-db-directory" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Modify /opt dir permission to make it writable and owned by postgres:postgres</p>
-<div class="highlight-default"><div class="highlight"><pre>$ sudo chmod 755 /opt
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ sudo chmod 755 /opt
 </pre></div>
 </div>
 <p>Download the Traffic Control tarball for 2.0.0</p>
-<div class="highlight-default"><div class="highlight"><pre>$ cd /opt
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ cd /opt
 $ wget https://dist.apache.org/repos/dist/release/incubator/trafficcontrol/&lt;tarball_version&gt;
 </pre></div>
 </div>
 <p>Extract the <strong>traffic_ops_db</strong> dir to <strong>/opt/traffic_ops_db</strong></p>
-<div class="highlight-default"><div class="highlight"><pre>$ tar -zxvf trafficcontrol-incubating-&lt;version&gt;.tar.gz --strip=1 trafficcontrol-incubating-&lt;version&gt;/traffic_ops_db
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ tar -zxvf trafficcontrol-incubating-&lt;version&gt;.tar.gz --strip=1 trafficcontrol-incubating-&lt;version&gt;/traffic_ops_db
 $ sudo chown -R postgres:postgres /opt/traffic_ops_db
 </pre></div>
 </div>
@@ -230,14 +230,14 @@ $ sudo chown -R postgres:postgres /opt/traffic_ops_db
 </div>
 <div class="section" id="migration-preparation">
 <h2>Migration Preparation<a class="headerlink" href="#migration-preparation" title="Permalink to this headline">¶</a></h2>
-<p>Be sure there is connectivity between your MySQL server&#8217;s IP address/port and your Postgres server&#8217;s IP address/port.</p>
+<p>Be sure there is connectivity between your MySQL server’s IP address/port and your Postgres server’s IP address/port.</p>
 </div>
 <div class="section" id="navigating-the-database-migration">
 <h2>Navigating the Database Migration<a class="headerlink" href="#navigating-the-database-migration" title="Permalink to this headline">¶</a></h2>
 <p>Begin the database migration after settings up the <strong>/opt/traffic_ops_db</strong> directory</p>
 <blockquote>
 <div><p>Switch to the postgres user so permissions stay intact.</p>
-<div class="highlight-none"><div class="highlight"><pre>$ su - postgres
+<div class="highlight-none notranslate"><div class="highlight"><pre>$ su - postgres
 $ cd /opt/traffic_ops_db/
 </pre></div>
 </div>
@@ -246,7 +246,7 @@ $ cd /opt/traffic_ops_db/
 <li><p class="first">Configure the <strong>/opt/traffic_ops_db/pg-migration/mysql-to-postgres.env</strong> migration for your source MySQL and target Postgres settings</p>
 </li>
 <li><p class="first">Run the migration, watch the console output for any errors (it may take some time)</p>
-<div class="highlight-none"><div class="highlight"><pre>$ ./migrate.sh
+<div class="highlight-none notranslate"><div class="highlight"><pre>$ ./migrate.sh
 </pre></div>
 </div>
 </li>

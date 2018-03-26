@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
@@ -198,31 +198,36 @@
             
   <div class="section" id="content-delivery-networks">
 <span id="index-0"></span><h1>Content Delivery Networks<a class="headerlink" href="#content-delivery-networks" title="Permalink to this headline">¶</a></h1>
-<p>The vast majority of today&#8217;s Internet traffic is media files (often video or audio) being sent from a single source (the <em>Content Provider</em>) to many thousands or even millions of destinations (the <em>Content Consumers</em>).  Content Delivery Networks are the technology that make that one-to-many distribution possible in an economical way. A Content Delivery Network (CDN) is a distributed system of servers for delivering content over HTTP. These servers are deployed in multiple locations with the goal of optimizing the delivery of content to the end users, while minimizing the traffic on the network. A CDN typically consists of the following:</p>
-<ul class="simple">
+<p>The vast majority of today’s Internet traffic is media files (often video or audio) being sent from a single source (the <em>Content Provider</em>) to many thousands or even millions of destinations (the <em>Content Consumers</em>).  Content Delivery Networks are the technology that make that one-to-many distribution possible in an economical way. A Content Delivery Network (CDN) is a distributed system of servers for delivering content over HTTP. These servers are deployed in multiple locations with the goal of optimizing the delivery of content to the end users, while minimizing the traffic on the network. A CDN typically consists of the following:</p>
+<ul>
 <li><dl class="first docutils">
 <dt><strong>Caching Proxies</strong></dt>
-<dd>The proxy (cache or caching proxy) is a server that both proxies the requests and caches the results for reusing.</dd>
+<dd><p class="first last">The proxy (cache or caching proxy) is a server that both proxies the requests and caches the results for reusing.</p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Content Router</strong></dt>
-<dd>The Content Router ensures that the end user is connected to the optimal cache for the location of the end user and content availability.</dd>
+<dd><p class="first last">The Content Router ensures that the end user is connected to the optimal cache for the location of the end user and content availability.</p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Health Protocol</strong></dt>
-<dd>The Health Protocol monitors the usage of the caches and tenants in the CDN.</dd>
+<dd><p class="first last">The Health Protocol monitors the usage of the caches and tenants in the CDN.</p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Configuration Management System</strong></dt>
-<dd>In many cases a CDN encompasses hundreds of servers across a large geographic area. The Configuration Management System allows an operator to manage these servers.</dd>
+<dd><p class="first last">In many cases a CDN encompasses hundreds of servers across a large geographic area. The Configuration Management System allows an operator to manage these servers.</p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Log File Analysis System</strong></dt>
-<dd>Every transaction in the CDN gets logged. The Log File Analysis System aggregates all of the log entries from all of the servers to a central location for analysis and troubleshooting.</dd>
+<dd><p class="first last">Every transaction in the CDN gets logged. The Log File Analysis System aggregates all of the log entries from all of the servers to a central location for analysis and troubleshooting.</p>
+</dd>
 </dl>
 </li>
 </ul>

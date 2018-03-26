@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Ops - Migrating from 2.0 to 2.2</li>
       <li class="wy-breadcrumbs-aside">
@@ -200,8 +200,8 @@
 <h1>Traffic Ops - Migrating from 2.0 to 2.2<a class="headerlink" href="#traffic-ops-migrating-from-2-0-to-2-2" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="per-deliveryservice-routing-names">
 <h2>Per-DeliveryService Routing Names<a class="headerlink" href="#per-deliveryservice-routing-names" title="Permalink to this headline">¶</a></h2>
-<p>Before this release, DNS Delivery Services were hardcoded to use the name &#8220;edge&#8221;, i.e. &#8220;edge.myds.mycdn.com&#8221;, and HTTP Delivery Services use the name &#8220;tr&#8221; (or previously &#8220;ccr&#8221;), i.e. &#8220;tr.myds.mycdn.com&#8221;. As of 2.2, Routing Names will default to &#8220;cdn&#8221; if left unspecified and can be set to any arbitrary non-dotted hostname.</p>
-<p>Pre-2.2 the HTTP Routing Name is configurable via the http.routing.name option in in the Traffic Router http.properties config file. If your CDN uses that option to change the name from &#8220;tr&#8221; to something else, then you will need to perform the following steps for each CDN affected:</p>
+<p>Before this release, DNS Delivery Services were hardcoded to use the name “edge”, i.e. “edge.myds.mycdn.com”, and HTTP Delivery Services use the name “tr” (or previously “ccr”), i.e. “tr.myds.mycdn.com”. As of 2.2, Routing Names will default to “cdn” if left unspecified and can be set to any arbitrary non-dotted hostname.</p>
+<p>Pre-2.2 the HTTP Routing Name is configurable via the http.routing.name option in in the Traffic Router http.properties config file. If your CDN uses that option to change the name from “tr” to something else, then you will need to perform the following steps for each CDN affected:</p>
 <ol class="arabic simple">
 <li>In Traffic Ops, create the following profile parameter (double-check for typos, trailing spaces, etc):</li>
 </ol>
@@ -209,7 +209,7 @@
 <div><ul class="simple">
 <li><strong>name</strong>: upgrade_http_routing_name</li>
 <li><strong>config file</strong>: temp</li>
-<li><strong>value</strong>: whatever value is used for the affected CDN&#8217;s http.routing.name</li>
+<li><strong>value</strong>: whatever value is used for the affected CDN’s http.routing.name</li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="2">
@@ -226,7 +226,7 @@ fixed in 7.x (or require this patch(<a class="reference external" href="https://
 <p>First if you are currently using a regex for your delivery service you will have to remove that existing value. Then you will need to make a new DS profile and assign parameters in
 it to the cachekey.config file.</p>
 <p>Some common parameters are</p>
-<div class="highlight-none"><div class="highlight"><pre>static-prefix      - This is used for a simple domain replacement
+<div class="highlight-none notranslate"><div class="highlight"><pre>static-prefix      - This is used for a simple domain replacement
 separator          - Used by cachekey and in general is always a single space
 remove-path        - Removes path information from the URL
 remove-all-params  - Removes parameters from the URL
@@ -237,7 +237,7 @@ capture-prefix-uri - This is usually used in combination with remove-path and re
 <div class="section" id="examples-of-cacheurl-to-cachekey-replacements">
 <h3>Examples of Cacheurl to Cachekey Replacements<a class="headerlink" href="#examples-of-cacheurl-to-cachekey-replacements" title="Permalink to this headline">¶</a></h3>
 <p><strong>Original regex value:</strong></p>
-<p><code class="docutils literal"><span class="pre">http://test.net/(.*)</span> <span class="pre">http://test-cdn.net/$1</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">http://test.net/(.*)</span> <span class="pre">http://test-cdn.net/$1</span></code></p>
 <p><strong>Cachekey parameters:</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -254,7 +254,7 @@ capture-prefix-uri - This is usually used in combination with remove-path and re
 <tbody valign="top">
 <tr class="row-even"><td>static-prefix</td>
 <td>cachekey.config</td>
-<td><code class="docutils literal"><span class="pre">http://test-cdn.net/</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">http://test-cdn.net/</span></code></td>
 </tr>
 <tr class="row-odd"><td>separator</td>
 <td>cachekey.config</td>
@@ -263,7 +263,7 @@ capture-prefix-uri - This is usually used in combination with remove-path and re
 </tbody>
 </table>
 <p><strong>Original regex value:</strong></p>
-<p><code class="docutils literal"><span class="pre">http://([^?]+)(?:?|$)</span> <span class="pre">http://test-cdn.net/$1</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">http://([^?]+)(?:?|$)</span> <span class="pre">http://test-cdn.net/$1</span></code></p>
 <p><strong>Cachekey parameters:</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -292,13 +292,13 @@ capture-prefix-uri - This is usually used in combination with remove-path and re
 </tr>
 <tr class="row-odd"><td>capture-prefix-uri</td>
 <td>cachekey.config</td>
-<td><code class="docutils literal"><span class="pre">/https?:\/\/([^?]*)/http:\/\/test-cdn.net\/$1/</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">/https?:\/\/([^?]*)/http:\/\/test-cdn.net\/$1/</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Also note the <code class="docutils literal"><span class="pre">s?</span></code> used here so that both http and https requests will end up with the same key value</p>
+<p>Also note the <code class="docutils literal notranslate"><span class="pre">s?</span></code> used here so that both http and https requests will end up with the same key value</p>
 <p><strong>Original regex value:</strong></p>
-<p><code class="docutils literal"><span class="pre">http://test.net/([^?]+)(?:\?|$)</span> <span class="pre">http://test-cdn.net/$1</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">http://test.net/([^?]+)(?:\?|$)</span> <span class="pre">http://test-cdn.net/$1</span></code></p>
 <p><strong>Cachekey parameters:</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -315,7 +315,7 @@ capture-prefix-uri - This is usually used in combination with remove-path and re
 <tbody valign="top">
 <tr class="row-even"><td>static-prefix</td>
 <td>cachekey.config</td>
-<td><code class="docutils literal"><span class="pre">http://test-cdn.net/</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">http://test-cdn.net/</span></code></td>
 </tr>
 <tr class="row-odd"><td>separator</td>
 <td>cachekey.config</td>
@@ -333,8 +333,8 @@ capture-prefix-uri - This is usually used in combination with remove-path and re
 <div class="section" id="apache-traffic-server-7-x-logging">
 <h2>Apache Traffic Server 7.x (Logging)<a class="headerlink" href="#apache-traffic-server-7-x-logging" title="Permalink to this headline">¶</a></h2>
 <p>Trafficserver v7 has changed the logging format.  Previously this was an xml file and now it is a lua file. Traffic Control compensates for this
-automatically depending upon the filename used for the logging parameters.  Previously the file used was <code class="docutils literal"><span class="pre">logs_xml.config</span></code>, for ATS 7 it is now
-<code class="docutils literal"><span class="pre">logging.config</span></code>.  The same parameters will work this new file, <code class="docutils literal"><span class="pre">LogFormat.Format</span></code>, <code class="docutils literal"><span class="pre">LogFormat.Name</span></code>, <code class="docutils literal"><span class="pre">LogObject.Format</span></code> etc.</p>
+automatically depending upon the filename used for the logging parameters.  Previously the file used was <code class="docutils literal notranslate"><span class="pre">logs_xml.config</span></code>, for ATS 7 it is now
+<code class="docutils literal notranslate"><span class="pre">logging.config</span></code>.  The same parameters will work this new file, <code class="docutils literal notranslate"><span class="pre">LogFormat.Format</span></code>, <code class="docutils literal notranslate"><span class="pre">LogFormat.Name</span></code>, <code class="docutils literal notranslate"><span class="pre">LogObject.Format</span></code> etc.</p>
 </div>
 </div>
 

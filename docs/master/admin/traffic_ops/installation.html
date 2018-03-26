@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Ops - Installing</li>
       <li class="wy-breadcrumbs-aside">
@@ -216,8 +216,8 @@
 <li>Install Postgres</li>
 </ol>
 <blockquote>
-<div><p>For a production install it is best to install postgres on it&#8217;s own server/VM. To install postgres, on the postgres host (pg)</p>
-<div class="highlight-none"><div class="highlight"><pre>pg-$ sudo su -
+<div><p>For a production install it is best to install postgres on it’s own server/VM. To install postgres, on the postgres host (pg)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>pg-$ sudo su -
 pg-# yum -y update
 pg-# yum -y install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
 pg-# yum -y install postgresql96-server
@@ -225,12 +225,12 @@ pg-$ su - postgres
 pg-$ /usr/pgsql-9.6/bin/initdb -A md5 -W #-W forces the user to provide a superuser (postgres) password
 </pre></div>
 </div>
-<p>Edit <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.6/data/pg_hba.conf</span></code> to allow your traffic ops app server access. For example if you are going to install traffic ops on <code class="docutils literal"><span class="pre">99.33.99.1</span></code> add:</p>
-<div class="highlight-none"><div class="highlight"><pre>host  all   all     99.33.99.1/32 md5
+<p>Edit <code class="docutils literal notranslate"><span class="pre">/var/lib/pgsql/9.6/data/pg_hba.conf</span></code> to allow your traffic ops app server access. For example if you are going to install traffic ops on <code class="docutils literal notranslate"><span class="pre">99.33.99.1</span></code> add:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>host  all   all     99.33.99.1/32 md5
 </pre></div>
 </div>
-<p>to the appropriate section of this file. Edit the <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.6/data/postgresql.conf</span></code> file to add the approriate listen_addresses or <code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code>, set <code class="docutils literal"><span class="pre">timezone</span> <span class="pre">=</span> <span class="pre">'UTC'</span></code>,  and start the database:</p>
-<div class="highlight-none"><div class="highlight"><pre>pg-$ exit
+<p>to the appropriate section of this file. Edit the <code class="docutils literal notranslate"><span class="pre">/var/lib/pgsql/9.6/data/postgresql.conf</span></code> file to add the approriate listen_addresses or <code class="docutils literal notranslate"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code>, set <code class="docutils literal notranslate"><span class="pre">timezone</span> <span class="pre">=</span> <span class="pre">'UTC'</span></code>,  and start the database:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>pg-$ exit
 pg-# systemctl enable postgresql-9.6
 pg-# systemctl start postgresql-9.6
 pg-# systemctl status postgresql-9.6
@@ -246,29 +246,29 @@ pg-# systemctl status postgresql-9.6
 </ol>
 <blockquote>
 <div><p>Install the postgresql 9.6 yum repository access.</p>
-<div class="highlight-none"><div class="highlight"><pre>to-$ sudo su -
+<div class="highlight-none notranslate"><div class="highlight"><pre>to-$ sudo su -
 to-# yum -y install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
 </pre></div>
 </div>
 </div></blockquote>
 <ol class="arabic" start="4">
 <li><p class="first">Install the rpm built in step 2.</p>
-<div class="highlight-none"><div class="highlight"><pre>to-# yum -y install ./dist/traffic_ops-2.0.0-xxxx.yyyyyyy.el7.x86_64.rpm
+<div class="highlight-none notranslate"><div class="highlight"><pre>to-# yum -y install ./dist/traffic_ops-2.0.0-xxxx.yyyyyyy.el7.x86_64.rpm
 </pre></div>
 </div>
 </li>
 </ol>
 <blockquote>
-<div><p>Install some additional packages that it depends on that were not installed as dependecies in the previous step (these are for the 2.0.0 install, this may change, but the pre-installs won&#8217;t hurt):</p>
-<div class="highlight-none"><div class="highlight"><pre>to-# yum -y install git
+<div><p>Install some additional packages that it depends on that were not installed as dependecies in the previous step (these are for the 2.0.0 install, this may change, but the pre-installs won’t hurt):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>to-# yum -y install git
 to-# wget -q https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
 to-# tar -C /usr/local -xzf go1.8.3.linux-amd64.tar.gz
 to-# PATH=$PATH:/usr/local/go/bin             # go bins are needed in the path for postinstall
 to-# go get bitbucket.org/liamstask/goose/cmd/goose
 </pre></div>
 </div>
-<p>At this point you should be able to login to the database from the <code class="docutils literal"><span class="pre">to</span></code> host to the <code class="docutils literal"><span class="pre">pg</span></code> host like:</p>
-<div class="highlight-none"><div class="highlight"><pre>to-# psql -h 99.33.99.1 -U postgres
+<p>At this point you should be able to login to the database from the <code class="docutils literal notranslate"><span class="pre">to</span></code> host to the <code class="docutils literal notranslate"><span class="pre">pg</span></code> host like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>to-# psql -h 99.33.99.1 -U postgres
 Password for user postgres:
 psql (9.6.3)
 Type &quot;help&quot; for help.
@@ -276,8 +276,8 @@ Type &quot;help&quot; for help.
 postgres=#
 </pre></div>
 </div>
-<p>Use this connectivity to create the user and database. In  this example, we use user: <code class="docutils literal"><span class="pre">traffic_ops</span></code>, password: <code class="docutils literal"><span class="pre">tcr0cks</span></code>, database: <code class="docutils literal"><span class="pre">traffic_ops</span></code>:</p>
-<div class="highlight-none"><div class="highlight"><pre>to-# psql -U postgres -h 99.33.99.1 -c &quot;CREATE USER traffic_ops  WITH ENCRYPTED PASSWORD &#39;tcr0cks&#39;;&quot;
+<p>Use this connectivity to create the user and database. In  this example, we use user: <code class="docutils literal notranslate"><span class="pre">traffic_ops</span></code>, password: <code class="docutils literal notranslate"><span class="pre">tcr0cks</span></code>, database: <code class="docutils literal notranslate"><span class="pre">traffic_ops</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>to-# psql -U postgres -h 99.33.99.1 -c &quot;CREATE USER traffic_ops  WITH ENCRYPTED PASSWORD &#39;tcr0cks&#39;;&quot;
 Password for user postgres:
 CREATE ROLE
 to-# createdb traffic_ops --owner traffic_ops -U postgres -h 99.33.99.1
@@ -285,16 +285,16 @@ Password:
 to-#
 </pre></div>
 </div>
-<p>Now, run the following command as root: <code class="docutils literal"><span class="pre">/opt/traffic_ops/install/bin/postinstall</span></code></p>
+<p>Now, run the following command as root: <code class="docutils literal notranslate"><span class="pre">/opt/traffic_ops/install/bin/postinstall</span></code></p>
 <p>The postinstall will first get all packages needed from CPAN. This may take a while, expect up to 30 minutes on the first install.
 If there are any prompts in this phase, please just answer with the defaults (some CPAN installs can prompt for install questions).</p>
 <p>When this phase is complete, you will see:</p>
-<div class="highlight-none"><div class="highlight"><pre>Complete! Modules were installed into /opt/traffic_ops/app/local
+<div class="highlight-none notranslate"><div class="highlight"><pre>Complete! Modules were installed into /opt/traffic_ops/app/local
 </pre></div>
 </div>
 <p>Some additional files will be installed, and then it will proceed with the next phase of the install, where it will ask you about the local environment for your CDN. Please make sure you remember all your answers and the database answers match the database information previously used to create the database.</p>
 <p>Example output:</p>
-<div class="highlight-none"><div class="highlight"><pre>===========/opt/traffic_ops/app/conf/production/database.conf===========
+<div class="highlight-none notranslate"><div class="highlight"><pre>===========/opt/traffic_ops/app/conf/production/database.conf===========
 Database type [Pg]:
 Database type: Pg
 Database name [traffic_ops]:
@@ -424,12 +424,12 @@ use this user to login for the first time and create other users</td>
 <h3>Upgrading Traffic Ops<a class="headerlink" href="#upgrading-traffic-ops" title="Permalink to this headline">¶</a></h3>
 <p>To upgrade:</p>
 <ol class="arabic simple">
-<li>Enter the following command:<code class="docutils literal"><span class="pre">service</span> <span class="pre">traffic_ops</span> <span class="pre">stop</span></code></li>
-<li>Enter the following command:<code class="docutils literal"><span class="pre">yum</span> <span class="pre">upgrade</span> <span class="pre">traffic_ops</span></code></li>
+<li>Enter the following command:<code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">traffic_ops</span> <span class="pre">stop</span></code></li>
+<li>Enter the following command:<code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">upgrade</span> <span class="pre">traffic_ops</span></code></li>
 <li>Enter the following command from the /opt/traffic_ops/app directory:
-<code class="docutils literal"><span class="pre">PERL5LIB=/opt/traffic_ops/app/lib:/opt/traffic_ops/app/local/lib/perl5</span> <span class="pre">./db/admin.pl</span> <span class="pre">--env</span> <span class="pre">production</span> <span class="pre">upgrade</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">PERL5LIB=/opt/traffic_ops/app/lib:/opt/traffic_ops/app/local/lib/perl5</span> <span class="pre">./db/admin.pl</span> <span class="pre">--env</span> <span class="pre">production</span> <span class="pre">upgrade</span></code></li>
 <li>See <a class="reference internal" href="#rl-to-install"><span class="std std-ref">Traffic Ops - Installing</span></a> to run postinstall.</li>
-<li>Enter the following command:<code class="docutils literal"><span class="pre">service</span> <span class="pre">traffic_ops</span> <span class="pre">start</span></code></li>
+<li>Enter the following command:<code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">traffic_ops</span> <span class="pre">start</span></code></li>
 </ol>
 </div>
 </div>

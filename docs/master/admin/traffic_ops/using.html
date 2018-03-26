@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Ops - Using</li>
       <li class="wy-breadcrumbs-aside">
@@ -302,10 +302,10 @@ per CDN.</td>
 <td>Select the parameter list by profile first, then get a table of just the parameters for that profile.</td>
 </tr>
 <tr class="row-even"><td>Export Profile</td>
-<td>Profiles can be exported from one Traffic Ops instance to another using &#8216;Select Profile&#8217; and under the &#8220;Profile Details&#8221; dialog for the desired profile</td>
+<td>Profiles can be exported from one Traffic Ops instance to another using ‘Select Profile’ and under the “Profile Details” dialog for the desired profile</td>
 </tr>
 <tr class="row-odd"><td>Import Profile</td>
-<td>Profiles can be imported from one Traffic Ops instance to another using the button &#8220;Import Profile&#8221; after using the &#8220;Export Profile&#8221; feature</td>
+<td>Profiles can be imported from one Traffic Ops instance to another using the button “Import Profile” after using the “Export Profile” feature</td>
 </tr>
 <tr class="row-even"><td>Orphaned Parameters</td>
 <td>A table of parameters that are not associated to any profile of cache group. These parameters either should be deleted or associated with a profile of cache group.</td>
@@ -314,7 +314,7 @@ per CDN.</td>
 </table>
 </li>
 <li><p class="first"><strong>Tools</strong></p>
-<p>Tools for working with Traffic Ops and it&#8217;s servers. Hover over this tab to get the following options:</p>
+<p>Tools for working with Traffic Ops and it’s servers. Hover over this tab to get the following options:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -436,7 +436,7 @@ per CDN.</td>
 <li><strong>Edge Cache Group</strong>: the edge cache group short name or ALL, meaning this row shows data for multiple servers, and the row shows the sum of all values.</li>
 <li><strong>Healthy</strong>: indicates if this cache is healthy according to the Health Protocol. A row with ALL in any of the columns will always show a <img alt="checkmark" src="../../_images/good.png" />, this column is valid only for individual EDGE caches.</li>
 <li><strong>Admin</strong>: shows the administrative status of the server.</li>
-<li><strong>Connections</strong>: the number of connections this cache (or group of caches) has open (<code class="docutils literal"><span class="pre">ats.proxy.process.http.current_client_connections</span></code> from ATS).</li>
+<li><strong>Connections</strong>: the number of connections this cache (or group of caches) has open (<code class="docutils literal notranslate"><span class="pre">ats.proxy.process.http.current_client_connections</span></code> from ATS).</li>
 <li><strong>Mbps Out</strong>: the bandwidth being served out if this cache (or group of caches)</li>
 </ul>
 <p>Since the top line has ALL, ALL, ALL, it shows the total connections and bandwidth for all caches managed by this instance of Traffic Ops.</p>
@@ -500,12 +500,12 @@ must have an ssh key on the edge servers.</td>
 </div>
 <div class="section" id="daily-summary">
 <h3>Daily Summary<a class="headerlink" href="#daily-summary" title="Permalink to this headline">¶</a></h3>
-<p>Displays daily max gbps and bytes served for all CDNs.  In order for the graphs to appear, the &#8216;daily_bw_url&#8217; and &#8216;daily_served_url&#8217; parameters need to be be created, assigned to the global profile, and have a value of a grafana graph.  For more information on configuring grafana, see the <a class="reference external" href="../traffic_stats.html">Traffic Stats</a>  section.</p>
+<p>Displays daily max gbps and bytes served for all CDNs.  In order for the graphs to appear, the ‘daily_bw_url’ and ‘daily_served_url’ parameters need to be be created, assigned to the global profile, and have a value of a grafana graph.  For more information on configuring grafana, see the <a class="reference external" href="../traffic_stats.html">Traffic Stats</a>  section.</p>
 </div>
 </div>
 <div class="section" id="server">
 <span id="rl-server"></span><h2>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
-<p>This view shows a table of all the servers in Traffic Ops. The table columns show the most important details of the server. The <strong>IPAddrr</strong> column is clickable to launch an <code class="docutils literal"><span class="pre">ssh://</span></code> link to this server. The <img alt="graph" src="../../_images/graph.png" /> icon will link to a Traffic Stats graph of this server for caches, and the <img alt="info" src="../../_images/info.png" /> will link to the server status pages for other server types.</p>
+<p>This view shows a table of all the servers in Traffic Ops. The table columns show the most important details of the server. The <strong>IPAddrr</strong> column is clickable to launch an <code class="docutils literal notranslate"><span class="pre">ssh://</span></code> link to this server. The <img alt="graph" src="../../_images/graph.png" /> icon will link to a Traffic Stats graph of this server for caches, and the <img alt="info" src="../../_images/info.png" /> will link to the server status pages for other server types.</p>
 <div class="section" id="server-types">
 <h3>Server Types<a class="headerlink" href="#server-types" title="Permalink to this headline">¶</a></h3>
 <p>These are the types of servers that can be managed in Traffic Ops:</p>
@@ -591,7 +591,7 @@ must have an ssh key on the edge servers.</td>
 <td>Dropdown to choose the CDN that the delivery service will use.</td>
 </tr>
 <tr class="row-even"><td>Origin Server Base URL</td>
-<td>The Origin Server&#8217;s base URL. This includes the protocol (http or https). Example: <code class="docutils literal"><span class="pre">http://movies.origin.com</span></code></td>
+<td>The Origin Server’s base URL. This includes the protocol (http or https). Example: <code class="docutils literal notranslate"><span class="pre">http://movies.origin.com</span></code></td>
 </tr>
 <tr class="row-odd"><td>Protocol</td>
 <td><p class="first">The protocol to serve this delivery service to the clients with:</p>
@@ -613,7 +613,7 @@ must have an ssh key on the edge servers.</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Routing Name</td>
-<td>The routing name to use for the delivery FQDN, i.e. <code class="docutils literal"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>. It must be a valid hostname without periods. <a class="footnote-reference" href="#id8" id="id1">[2]</a></td>
+<td>The routing name to use for the delivery FQDN, i.e. <code class="docutils literal notranslate"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>. It must be a valid hostname without periods. <a class="footnote-reference" href="#id8" id="id1">[2]</a></td>
 </tr>
 <tr class="row-even"><td>DSCP Tag</td>
 <td>The DSCP value to mark IP packets to the client with.</td>
@@ -690,7 +690,7 @@ URI Signing Keys</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Maximum Bytes per Second allowed per session</td>
-<td>The maximum bytes per second a cache will delivery on any single TCP connection. This uses the Linux kernel&#8217;s Fair Queuing setsockopt(SO_MAX_PACING_RATE) to limit the rate of delivery. Traffic exceeding this
+<td>The maximum bytes per second a cache will delivery on any single TCP connection. This uses the Linux kernel’s Fair Queuing setsockopt(SO_MAX_PACING_RATE) to limit the rate of delivery. Traffic exceeding this
 speed will only be rate-limited and not diverted. This option <em>requires</em> <cite>net.core.default_qdisc = fq</cite> in <cite>/etc/sysctl.conf</cite>.</td>
 </tr>
 <tr class="row-even"><td>Long Description</td>
@@ -700,7 +700,7 @@ speed will only be rate-limited and not diverted. This option <em>requires</em> 
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>Delivery Service DNS TTL</td>
-<td>The Time To Live on the DNS record for the Traffic Router A and AAAA records (<code class="docutils literal"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>).</td>
+<td>The Time To Live on the DNS record for the Traffic Router A and AAAA records (<code class="docutils literal notranslate"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>).</td>
 </tr>
 <tr class="row-odd"><td>Delivery Service Profile</td>
 <td>The profile for this delivery service.</td>
@@ -765,7 +765,7 @@ speed will only be rate-limited and not diverted. This option <em>requires</em> 
 <table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>It is not recommended to change the Routing Name of a Delivery Service after deployment because this changes its Delivery FQDN (i.e. <code class="docutils literal"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>), which means that SSL certificates may need to be updated and clients using the Delivery Service will need to be transitioned to the new Delivery URL.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>It is not recommended to change the Routing Name of a Delivery Service after deployment because this changes its Delivery FQDN (i.e. <code class="docutils literal notranslate"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>), which means that SSL certificates may need to be updated and clients using the Delivery Service will need to be transitioned to the new Delivery URL.</td></tr>
 </tbody>
 </table>
 <div class="section" id="delivery-service-types">
@@ -795,21 +795,21 @@ but the Traffic Router can not route to a cache that already has this content in
 <td>HTTP Content Routing, but the caches will not actually cache the content, they act as just proxies. The MID tier is bypassed.</td>
 </tr>
 <tr class="row-odd"><td>HTTP_LIVE</td>
-<td>HTTP Content routing, but where for &#8220;standard&#8221; HTTP content routing the objects are stored on disk, for this delivery service type the objects are stored
+<td>HTTP Content routing, but where for “standard” HTTP content routing the objects are stored on disk, for this delivery service type the objects are stored
 on the RAM disks. Use this for linear TV. The MID tier is bypassed for this type.</td>
 </tr>
 <tr class="row-even"><td>HTTP_LIVE_NATNL</td>
 <td>HTTP Content routing, same as HTTP_LIVE, but the MID tier is NOT bypassed.</td>
 </tr>
 <tr class="row-odd"><td>DNS_LIVE_NATNL</td>
-<td>DNS Content routing, but where for &#8220;standard&#8221; DNS content routing the objects are stored on disk, for this delivery service type the objects are stored
+<td>DNS Content routing, but where for “standard” DNS content routing the objects are stored on disk, for this delivery service type the objects are stored
 on the RAM disks. Use this for linear TV. The MID tier is NOT bypassed for this type.</td>
 </tr>
 <tr class="row-even"><td>DNS_LIVE</td>
 <td>DNS Content routing, same as DNS_LIVE_NATNL, but the MID tier is bypassed.</td>
 </tr>
 <tr class="row-odd"><td>ANY_MAP</td>
-<td>ANY_MAP is not known to Traffic Router. For this deliveryservice, the &#8220;Raw remap text&#8221; field in the input form will be used as the remap line on the cache.</td>
+<td>ANY_MAP is not known to Traffic Router. For this deliveryservice, the “Raw remap text” field in the input form will be used as the remap line on the cache.</td>
 </tr>
 <tr class="row-even"><td>STEERING</td>
 <td>The Delivery Service will be used to route to other delivery services. The target delivery services and the routing weights for those delivery services will be defined by an admin or steering user. For more information see the <a class="reference external" href="../traffic_router.html#steering-feature">steering feature</a> documentation</td>
@@ -823,7 +823,7 @@ on the RAM disks. Use this for linear TV. The MID tier is NOT bypassed for this 
 <div class="section" id="federations">
 <span id="rl-federations"></span><h3>Federations<a class="headerlink" href="#federations" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>Federations allow for other (federated) CDNs (at a different ISP, MSO, etc) to add a list of resolvers and a CNAME to a delivery service Traffic Ops.  When a request is made from one of federated CDN&#8217;s clients, Traffic Router will return the CNAME configured in the federation mapping.  This allows the federated CDN to serve the content without the content provider changing the URL, or having to manage multiple URLs.</p>
+<div><p>Federations allow for other (federated) CDNs (at a different ISP, MSO, etc) to add a list of resolvers and a CNAME to a delivery service Traffic Ops.  When a request is made from one of federated CDN’s clients, Traffic Router will return the CNAME configured in the federation mapping.  This allows the federated CDN to serve the content without the content provider changing the URL, or having to manage multiple URLs.</p>
 <p>Before adding a federation in the Traffic Ops UI, a user with the federations role needs to be created.  This user will be assigned to the federation and will be able to add resolvers to the federation via the Traffic Ops <a class="reference external" href="../../development/traffic_ops_api/v12/federation.html">Federation API</a>.</p>
 </div></blockquote>
 </div>
@@ -845,39 +845,39 @@ on the RAM disks. Use this for linear TV. The MID tier is NOT bypassed for this 
 <td>A newline</td>
 </tr>
 <tr class="row-odd"><td>__CACHE_IPV4__</td>
-<td>The cache&#8217;s IPv4 address</td>
+<td>The cache’s IPv4 address</td>
 </tr>
 </tbody>
 </table>
 <p>The deliveryservice screen also allows you to set the DSCP value of traffic sent to the client. This setting also results in a header_rewrite rule to be generated and applied to at the edge.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The DSCP setting in the UI is <em>only</em> for setting traffic towards the client, and gets applied <em>after</em> the initial TCP handshake is complete, and the HTTP request is received (before that the cache can&#8217;t determine what deliveryservice this request is for, and what DSCP to apply), so the DSCP feature can not be used for security settings - the TCP SYN-ACK is not going to be DSCP marked.</p>
+<p class="last">The DSCP setting in the UI is <em>only</em> for setting traffic towards the client, and gets applied <em>after</em> the initial TCP handshake is complete, and the HTTP request is received (before that the cache can’t determine what deliveryservice this request is for, and what DSCP to apply), so the DSCP feature can not be used for security settings - the TCP SYN-ACK is not going to be DSCP marked.</p>
 </div>
 </div>
 <div class="section" id="token-based-authentication">
 <span id="rl-signed-urls"></span><span id="index-6"></span><h3>Token Based Authentication<a class="headerlink" href="#token-based-authentication" title="Permalink to this headline">¶</a></h3>
-<p>Token based authentication or <em>signed URLs</em> is implemented using the Traffic Server <code class="docutils literal"><span class="pre">url_sig</span></code> plugin. To sign a URL at the signing portal take the full URL, without any query string, and add on a query string with the following parameters:</p>
+<p>Token based authentication or <em>signed URLs</em> is implemented using the Traffic Server <code class="docutils literal notranslate"><span class="pre">url_sig</span></code> plugin. To sign a URL at the signing portal take the full URL, without any query string, and add on a query string with the following parameters:</p>
 <dl class="docutils">
 <dt>Client IP address</dt>
 <dd><p class="first">The client IP address that this signature is valid for.</p>
-<p class="last"><code class="docutils literal"><span class="pre">C=&lt;client</span> <span class="pre">IP</span> <span class="pre">address&gt;</span></code></p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">C=&lt;client</span> <span class="pre">IP</span> <span class="pre">address&gt;</span></code></p>
 </dd>
 <dt>Expiration</dt>
 <dd><p class="first">The Expiration time (seconds since epoch) of this signature.</p>
-<p class="last"><code class="docutils literal"><span class="pre">E=&lt;expiration</span> <span class="pre">time</span> <span class="pre">in</span> <span class="pre">secs</span> <span class="pre">since</span> <span class="pre">unix</span> <span class="pre">epoch&gt;</span></code></p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">E=&lt;expiration</span> <span class="pre">time</span> <span class="pre">in</span> <span class="pre">secs</span> <span class="pre">since</span> <span class="pre">unix</span> <span class="pre">epoch&gt;</span></code></p>
 </dd>
 <dt>Algorithm</dt>
 <dd><p class="first">The Algorithm used to create the signature. Only 1 (HMAC_SHA1)
 and 2 (HMAC_MD5) are supported at this time</p>
-<p class="last"><code class="docutils literal"><span class="pre">A=&lt;algorithm</span> <span class="pre">number&gt;</span></code></p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">A=&lt;algorithm</span> <span class="pre">number&gt;</span></code></p>
 </dd>
 <dt>Key index</dt>
 <dd><p class="first">Index of the key used. This is the index of the key in the
 configuration file on the cache. The set of keys is a shared
 secret between the signing portal and the edge caches. There
 is one set of keys per reverse proxy domain (fqdn).</p>
-<p class="last"><code class="docutils literal"><span class="pre">K=&lt;key</span> <span class="pre">index</span> <span class="pre">used&gt;</span></code></p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">K=&lt;key</span> <span class="pre">index</span> <span class="pre">used&gt;</span></code></p>
 </dd>
 <dt>Parts</dt>
 <dd><p class="first">Parts to use for the signature, always excluding the scheme
@@ -889,12 +889,12 @@ Examples:</p>
 <div>1: use fqdn and all of URl path
 0110: use part1 and part 2 of path only
 01: use everything except the fqdn</div></blockquote>
-<p class="last"><code class="docutils literal"><span class="pre">P=&lt;parts</span> <span class="pre">string</span> <span class="pre">(0's</span> <span class="pre">and</span> <span class="pre">1's)&gt;</span></code></p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">P=&lt;parts</span> <span class="pre">string</span> <span class="pre">(0's</span> <span class="pre">and</span> <span class="pre">1's)&gt;</span></code></p>
 </dd>
 <dt>Signature</dt>
 <dd><p class="first">The signature over the parts + the query string up to and
-including &#8220;S=&#8221;.</p>
-<p class="last"><code class="docutils literal"><span class="pre">S=&lt;signature&gt;</span></code></p>
+including “S=”.</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">S=&lt;signature&gt;</span></code></p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -1043,7 +1043,7 @@ http.parent_proxy.connect_attempts_timeout</td>
 <tr class="row-odd"><td>weight</td>
 <td>parent.config</td>
 <td>1.0</td>
-<td>The weight of this parent, translates to the number of replicas in the consistent hash ring. This parameter only has effect with algorithm at the client set to &#8220;consistent_hash&#8221;</td>
+<td>The weight of this parent, translates to the number of replicas in the consistent hash ring. This parameter only has effect with algorithm at the client set to “consistent_hash”</td>
 </tr>
 <tr class="row-even"><td>port</td>
 <td>parent.config</td>
@@ -1060,7 +1060,7 @@ http.parent_proxy.connect_attempts_timeout</td>
 </div>
 <div class="section" id="qstring-handling">
 <span id="rl-qstring-handling"></span><h3>Qstring Handling<a class="headerlink" href="#qstring-handling" title="Permalink to this headline">¶</a></h3>
-<p>Delivery services have a Query String Handling option that, when set to ignore, will automatically add a regex remap to that delivery service&#8217;s config.  There may be times this is not preferred, or there may be requirements for one delivery service or server(s) to behave differently.  When this is required, the psel.qstring_handling parameter can be set in either the delivery service profile or the server profile, but it is important to note that the server profile will override ALL delivery services assigned to servers with this profile parameter.  If the parameter is not set for the server profile but is present for the Delivery Service profile, this will override the setting in the delivery service.  A value of &#8220;ignore&#8221; will not result in the addition of regex remap configuration.</p>
+<p>Delivery services have a Query String Handling option that, when set to ignore, will automatically add a regex remap to that delivery service’s config.  There may be times this is not preferred, or there may be requirements for one delivery service or server(s) to behave differently.  When this is required, the psel.qstring_handling parameter can be set in either the delivery service profile or the server profile, but it is important to note that the server profile will override ALL delivery services assigned to servers with this profile parameter.  If the parameter is not set for the server profile but is present for the Delivery Service profile, this will override the setting in the delivery service.  A value of “ignore” will not result in the addition of regex remap configuration.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -1083,7 +1083,7 @@ http.parent_proxy.connect_attempts_timeout</td>
 </ul>
 </td>
 <td>Sets qstring handling without the use of regex remap for a delivery service when assigned to a delivery service profile, and overrides qstring handling for all delivery services
-for associated servers when assigned to a server profile. Value must be &#8220;consider&#8221; or &#8220;ignore&#8221;.</td>
+for associated servers when assigned to a server profile. Value must be “consider” or “ignore”.</td>
 </tr>
 </tbody>
 </table>
@@ -1094,8 +1094,8 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <p class="first admonition-title">Note</p>
 <p class="last">The configuration of this feature changed significantly between ATS version 5 and &gt;= 6. Some configuration in Traffic Control is different as well. This documentation assumes ATS 6 or higher. See <a class="reference internal" href="../quick_howto/multi_site.html#rl-multi-site-origin-qht"><span class="std std-ref">Configure Multi Site Origin</span></a> for more details.</p>
 </div>
-<p>Normally, the mid servers are not aware of any redundancy at the origin layer. With Multi Site Origin enabled this changes - Traffic Server (and Traffic Ops) are now made aware of the fact there are multiple origins, and can be configured to do more advanced failover and loadbalancing actions. A prerequisite for MSO to work is that the multiple origin sites serve identical content with identical paths, and both are configured to serve the same origin hostname as is configured in the deliveryservice <cite>Origin Server Base URL</cite> field. See the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/files/parent.config.en.html">Apache Traffic Server docs</a> for more information on that cache&#8217;s implementation.</p>
-<p>With This feature enabled, origin servers (or origin server VIP names for a site) are going to be entered as servers in to the Traiffic Ops UI. Server type is &#8220;ORG&#8221;.</p>
+<p>Normally, the mid servers are not aware of any redundancy at the origin layer. With Multi Site Origin enabled this changes - Traffic Server (and Traffic Ops) are now made aware of the fact there are multiple origins, and can be configured to do more advanced failover and loadbalancing actions. A prerequisite for MSO to work is that the multiple origin sites serve identical content with identical paths, and both are configured to serve the same origin hostname as is configured in the deliveryservice <cite>Origin Server Base URL</cite> field. See the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/files/parent.config.en.html">Apache Traffic Server docs</a> for more information on that cache’s implementation.</p>
+<p>With This feature enabled, origin servers (or origin server VIP names for a site) are going to be entered as servers in to the Traiffic Ops UI. Server type is “ORG”.</p>
 <p>Parameters in the mid profile that influence this feature:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1143,24 +1143,24 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <tr class="row-even"><td>mso.parent_retry</td>
 <td>parent.config</td>
 <td>-</td>
-<td>Either <code class="docutils literal"><span class="pre">simple_retry</span></code>, <code class="docutils literal"><span class="pre">dead_server_retry</span></code> or <code class="docutils literal"><span class="pre">both</span></code>.</td>
+<td>Either <code class="docutils literal notranslate"><span class="pre">simple_retry</span></code>, <code class="docutils literal notranslate"><span class="pre">dead_server_retry</span></code> or <code class="docutils literal notranslate"><span class="pre">both</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>mso.algorithm</td>
 <td>parent.config</td>
 <td>consistent_hash</td>
-<td><p class="first">The algorithm to use. <code class="docutils literal"><span class="pre">consisten_hash</span></code>, <code class="docutils literal"><span class="pre">strict</span></code>, <code class="docutils literal"><span class="pre">true</span></code>, <code class="docutils literal"><span class="pre">false</span></code>, or <code class="docutils literal"><span class="pre">latched</span></code>.</p>
+<td><p class="first">The algorithm to use. <code class="docutils literal notranslate"><span class="pre">consisten_hash</span></code>, <code class="docutils literal notranslate"><span class="pre">strict</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>, or <code class="docutils literal notranslate"><span class="pre">latched</span></code>.</p>
 <ul class="last simple">
-<li><code class="docutils literal"><span class="pre">consisten_hash</span></code> - spreads requests across multiple parents simultaneously based on hash of content URL.</li>
-<li><code class="docutils literal"><span class="pre">strict</span></code> - strict Round Robin spreads requests across multiple parents simultaneously based on order of requests.</li>
-<li><code class="docutils literal"><span class="pre">true</span></code> - same as strict, but ensures that requests from the same IP always go to the same parent if available.</li>
-<li><code class="docutils literal"><span class="pre">false</span></code> - uses only a single parent at any given time and switches to a new parent only if the current parent fails.</li>
-<li><code class="docutils literal"><span class="pre">latched</span></code> - same as false, but now, a failed parent will not be retried.</li>
+<li><code class="docutils literal notranslate"><span class="pre">consisten_hash</span></code> - spreads requests across multiple parents simultaneously based on hash of content URL.</li>
+<li><code class="docutils literal notranslate"><span class="pre">strict</span></code> - strict Round Robin spreads requests across multiple parents simultaneously based on order of requests.</li>
+<li><code class="docutils literal notranslate"><span class="pre">true</span></code> - same as strict, but ensures that requests from the same IP always go to the same parent if available.</li>
+<li><code class="docutils literal notranslate"><span class="pre">false</span></code> - uses only a single parent at any given time and switches to a new parent only if the current parent fails.</li>
+<li><code class="docutils literal notranslate"><span class="pre">latched</span></code> - same as false, but now, a failed parent will not be retried.</li>
 </ul>
 </td>
 </tr>
 <tr class="row-even"><td>mso.unavailable_server_retry_response_codes</td>
 <td>parent.config</td>
-<td>&#8220;503&#8221;</td>
+<td>“503”</td>
 <td>Quoted, comma separated list of HTTP status codes that count as a unavailable_server_retry_response_code.</td>
 </tr>
 <tr class="row-odd"><td>mso.max_unavailable_server_retries</td>
@@ -1170,7 +1170,7 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 </tr>
 <tr class="row-even"><td>mso.simple_retry_response_codes</td>
 <td>parent.config</td>
-<td>&#8220;404&#8221;</td>
+<td>“404”</td>
 <td>Quoted, comma separated list of HTTP status codes that count as a simple retry response code.</td>
 </tr>
 <tr class="row-odd"><td>mso.max_simple_retries</td>
@@ -1295,7 +1295,7 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 </tr>
 <tr class="row-even"><td>api.cache-control.max-age</td>
 <td>CRConfig.json</td>
-<td>The value of the <code class="docutils literal"><span class="pre">Cache-Control:</span> <span class="pre">max-age=</span></code> header in the API responses of Traffic Router.</td>
+<td>The value of the <code class="docutils literal notranslate"><span class="pre">Cache-Control:</span> <span class="pre">max-age=</span></code> header in the API responses of Traffic Router.</td>
 </tr>
 <tr class="row-odd"><td>api.auth.url</td>
 <td>CRConfig.json</td>
@@ -1343,7 +1343,7 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 </tr>
 <tr class="row-even"><td>signaturemanager.expiration.multiplier</td>
 <td>CRConfig.json</td>
-<td>Multiplier used in conjunction with a zone&#8217;s maximum TTL to calculate DNSSEC signature durations; defaults to 5</td>
+<td>Multiplier used in conjunction with a zone’s maximum TTL to calculate DNSSEC signature durations; defaults to 5</td>
 </tr>
 <tr class="row-odd"><td>zonemanager.threadpool.scale</td>
 <td>CRConfig.json</td>
@@ -1371,13 +1371,13 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <div class="section" id="regex-remap-expression">
 <span id="rl-regex-remap"></span><span id="index-7"></span><h3>Regex Remap Expression<a class="headerlink" href="#regex-remap-expression" title="Permalink to this headline">¶</a></h3>
 <p>The regex remap expression allows to to use a regex and resulting match group(s) in order to modify the request URIs that are sent to origin. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre>^/original/(.*) http://origin.example.com/remapped/$1
+<div class="highlight-default notranslate"><div class="highlight"><pre>^/original/(.*) http://origin.example.com/remapped/$1
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>If <strong>Query String Handling</strong> is set to <code class="docutils literal"><span class="pre">2</span> <span class="pre">Drop</span> <span class="pre">at</span> <span class="pre">edge</span></code>, then you will not be allowed to save a regex remap expression, as dropping query strings actually relies on a regex remap of its own. However, if there is a need to both drop query strings <strong>and</strong> remap request URIs, this can be accomplished by setting <strong>Query String Handling</strong> to <code class="docutils literal"><span class="pre">1</span> <span class="pre">Do</span> <span class="pre">not</span> <span class="pre">use</span> <span class="pre">in</span> <span class="pre">cache</span> <span class="pre">key,</span> <span class="pre">but</span> <span class="pre">pass</span> <span class="pre">up</span> <span class="pre">to</span> <span class="pre">origin</span></code>, and then using a custom regex remap expression to do the necessary remapping, while simultaneously dropping query strings. The following example will capture the original request URI up to, but not including, the query string and then forward to a remapped URI:</p>
-<div class="last highlight-default"><div class="highlight"><pre>^/([^?]*).* http://origin.example.com/remapped/$1
+<p>If <strong>Query String Handling</strong> is set to <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">Drop</span> <span class="pre">at</span> <span class="pre">edge</span></code>, then you will not be allowed to save a regex remap expression, as dropping query strings actually relies on a regex remap of its own. However, if there is a need to both drop query strings <strong>and</strong> remap request URIs, this can be accomplished by setting <strong>Query String Handling</strong> to <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">Do</span> <span class="pre">not</span> <span class="pre">use</span> <span class="pre">in</span> <span class="pre">cache</span> <span class="pre">key,</span> <span class="pre">but</span> <span class="pre">pass</span> <span class="pre">up</span> <span class="pre">to</span> <span class="pre">origin</span></code>, and then using a custom regex remap expression to do the necessary remapping, while simultaneously dropping query strings. The following example will capture the original request URI up to, but not including, the query string and then forward to a remapped URI:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre>^/([^?]*).* http://origin.example.com/remapped/$1
 </pre></div>
 </div>
 </div>
@@ -1417,14 +1417,14 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 </tr>
 </tbody>
 </table>
-<p>The <strong>Order</strong> entry defines the order in which the regular expressions get evaluated. To support <code class="docutils literal"><span class="pre">CNAMES</span></code> from domains outside of the Traffic Control top level DNS domain, enter multiple <code class="docutils literal"><span class="pre">HOST_REGEXP</span></code> lines.</p>
+<p>The <strong>Order</strong> entry defines the order in which the regular expressions get evaluated. To support <code class="docutils literal notranslate"><span class="pre">CNAMES</span></code> from domains outside of the Traffic Control top level DNS domain, enter multiple <code class="docutils literal notranslate"><span class="pre">HOST_REGEXP</span></code> lines.</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>Example foo.</dd>
 </dl>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In most cases is is sufficient to have just one entry in this table that has a <code class="docutils literal"><span class="pre">HOST_REGEXP</span></code> Type, and Order <code class="docutils literal"><span class="pre">0</span></code>. For the <em>movies</em> delivery service in the Kabletown CDN, the entry is simply single <code class="docutils literal"><span class="pre">HOST_REGEXP</span></code> set to <code class="docutils literal"><span class="pre">.*\.movies\..*</span></code>. This will match every url that has a hostname that ends with <code class="docutils literal"><span class="pre">movies.cdn1.kabletown.net</span></code>, since <code class="docutils literal"><span class="pre">cdn1.kabletown.net</span></code> is the Kabletown CDN&#8217;s DNS domain.</p>
+<p class="last">In most cases is is sufficient to have just one entry in this table that has a <code class="docutils literal notranslate"><span class="pre">HOST_REGEXP</span></code> Type, and Order <code class="docutils literal notranslate"><span class="pre">0</span></code>. For the <em>movies</em> delivery service in the Kabletown CDN, the entry is simply single <code class="docutils literal notranslate"><span class="pre">HOST_REGEXP</span></code> set to <code class="docutils literal notranslate"><span class="pre">.*\.movies\..*</span></code>. This will match every url that has a hostname that ends with <code class="docutils literal notranslate"><span class="pre">movies.cdn1.kabletown.net</span></code>, since <code class="docutils literal notranslate"><span class="pre">cdn1.kabletown.net</span></code> is the Kabletown CDN’s DNS domain.</p>
 </div>
 </div>
 <div class="section" id="static-dns-entries">
@@ -1438,7 +1438,7 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <div class="section" id="the-coverage-zone-file-and-asn-table">
 <span id="rl-asn-czf"></span><h3>The Coverage Zone File and ASN Table<a class="headerlink" href="#the-coverage-zone-file-and-asn-table" title="Permalink to this headline">¶</a></h3>
 <p>The Coverage Zone File (CZF) should contain a cachegroup name to network prefix mapping in the form:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;coverageZones&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;cache-group-01&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1472,17 +1472,17 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The CZF is an input to the Traffic Control CDN, and as such does not get generated by Traffic Ops, but rather, it gets consumed by Traffic Router. Some popular IP management systems output a very similar file to the CZF but in stead of a cachegroup an ASN will be listed. Traffic Ops has the &#8220;Networks (ASNs)&#8221; view to aid with the conversion of files like that to a Traffic Control CZF file; this table is not used anywhere in Traffic Ops, but can be used to script the conversion using the API.</p>
+<p>The CZF is an input to the Traffic Control CDN, and as such does not get generated by Traffic Ops, but rather, it gets consumed by Traffic Router. Some popular IP management systems output a very similar file to the CZF but in stead of a cachegroup an ASN will be listed. Traffic Ops has the “Networks (ASNs)” view to aid with the conversion of files like that to a Traffic Control CZF file; this table is not used anywhere in Traffic Ops, but can be used to script the conversion using the API.</p>
 <p>The script that generates the CZF file is not part of Traffic Control, since it is different for each situation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal"><span class="pre">&quot;coordinates&quot;</span></code> section is optional and may be used by Traffic Router for localization in the case of a CZF &#8220;hit&#8221; where the zone name does not map to a Cache Group name in Traffic Ops (i.e. Traffic Router will route to the closest Cache Group(s) geographically).</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">&quot;coordinates&quot;</span></code> section is optional and may be used by Traffic Router for localization in the case of a CZF “hit” where the zone name does not map to a Cache Group name in Traffic Ops (i.e. Traffic Router will route to the closest Cache Group(s) geographically).</p>
 </div>
 </div>
 <div class="section" id="the-deep-coverage-zone-file">
 <span id="rl-deep-czf"></span><h3>The Deep Coverage Zone File<a class="headerlink" href="#the-deep-coverage-zone-file" title="Permalink to this headline">¶</a></h3>
-<p>The Deep Coverage Zone File (DCZF) format is similar to the CZF format but adds a <code class="docutils literal"><span class="pre">caches</span></code> list under each <code class="docutils literal"><span class="pre">deepCoverageZone</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<p>The Deep Coverage Zone File (DCZF) format is similar to the CZF format but adds a <code class="docutils literal notranslate"><span class="pre">caches</span></code> list under each <code class="docutils literal notranslate"><span class="pre">deepCoverageZone</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;deepCoverageZones&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;location-01&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1524,17 +1524,17 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Each entry in the <code class="docutils literal"><span class="pre">caches</span></code> list is the hostname of an edge cache registered in Traffic Ops which will be used for &#8220;deep&#8221; caching in that Deep Coverage Zone. Unlike a regular CZF, coverage zones in the DCZF do not map to a Cache Group in Traffic Ops, so currently the deep coverage zone name only needs to be unique.</p>
-<p>If the Traffic Router gets a DCZF &#8220;hit&#8221; for a requested Delivery Service that has Deep Caching enabled, the client will be routed to an available &#8220;deep&#8221; cache from that zone&#8217;s <code class="docutils literal"><span class="pre">caches</span></code> list.</p>
+<p>Each entry in the <code class="docutils literal notranslate"><span class="pre">caches</span></code> list is the hostname of an edge cache registered in Traffic Ops which will be used for “deep” caching in that Deep Coverage Zone. Unlike a regular CZF, coverage zones in the DCZF do not map to a Cache Group in Traffic Ops, so currently the deep coverage zone name only needs to be unique.</p>
+<p>If the Traffic Router gets a DCZF “hit” for a requested Delivery Service that has Deep Caching enabled, the client will be routed to an available “deep” cache from that zone’s <code class="docutils literal notranslate"><span class="pre">caches</span></code> list.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal"><span class="pre">&quot;coordinates&quot;</span></code> section is optional.</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">&quot;coordinates&quot;</span></code> section is optional.</p>
 </div>
 </div>
 </div>
 <div class="section" id="parameters-and-profiles">
 <span id="rl-working-with-profiles"></span><h2>Parameters and Profiles<a class="headerlink" href="#parameters-and-profiles" title="Permalink to this headline">¶</a></h2>
-<p>Parameters are shared between profiles if the set of <code class="docutils literal"><span class="pre">{</span> <span class="pre">name,</span> <span class="pre">config_file,</span> <span class="pre">value</span> <span class="pre">}</span></code> is the same. To change a value in one profile but not in others, the parameter has to be removed from the profile you want to change it in, and a new parameter entry has to be created (<strong>Add Parameter</strong> button at the bottom of the Parameters view), and assigned to that profile. It is easy to create new profiles from the <strong>Misc &gt; Profiles</strong> view - just use the <strong>Add/Copy Profile</strong> button at the bottom of the profile view to copy an existing profile to a new one. Profiles can be exported from one system and imported to another using the profile view as well. It makes no sense for a parameter to not be assigned to a single profile - in that case it really has no function. To find parameters like that use the <strong>Parameters &gt; Orphaned Parameters</strong> view. It is easy to create orphaned parameters by removing all profiles, or not assigning a profile directly after creating the parameter.</p>
+<p>Parameters are shared between profiles if the set of <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">name,</span> <span class="pre">config_file,</span> <span class="pre">value</span> <span class="pre">}</span></code> is the same. To change a value in one profile but not in others, the parameter has to be removed from the profile you want to change it in, and a new parameter entry has to be created (<strong>Add Parameter</strong> button at the bottom of the Parameters view), and assigned to that profile. It is easy to create new profiles from the <strong>Misc &gt; Profiles</strong> view - just use the <strong>Add/Copy Profile</strong> button at the bottom of the profile view to copy an existing profile to a new one. Profiles can be exported from one system and imported to another using the profile view as well. It makes no sense for a parameter to not be assigned to a single profile - in that case it really has no function. To find parameters like that use the <strong>Parameters &gt; Orphaned Parameters</strong> view. It is easy to create orphaned parameters by removing all profiles, or not assigning a profile directly after creating the parameter.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="configuration.html#rl-param-prof"><span class="std std-ref">Profile Parameters</span></a> in the <em>Configuring Traffic Ops</em> section.</p>
@@ -1544,8 +1544,8 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="generate-iso">
 <span id="rl-generate-iso"></span><span id="index-11"></span><h3>Generate ISO<a class="headerlink" href="#generate-iso" title="Permalink to this headline">¶</a></h3>
-<p>Generate ISO is a tool for building custom ISOs for building caches on remote hosts. Currently it only supports Centos 6, but if you&#8217;re brave and pure of heart you MIGHT be able to get it to work with other unix-like OS&#8217;s.</p>
-<p>The interface is <em>mostly</em> self explainatory as it&#8217;s got hints.</p>
+<p>Generate ISO is a tool for building custom ISOs for building caches on remote hosts. Currently it only supports Centos 6, but if you’re brave and pure of heart you MIGHT be able to get it to work with other unix-like OS’s.</p>
+<p>The interface is <em>mostly</em> self explainatory as it’s got hints.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="19%" />
@@ -1567,7 +1567,7 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <td>This is the FQDN of the server to be installed. It is required.</td>
 </tr>
 <tr class="row-odd"><td>Root password:</td>
-<td>If you don&#8217;t put anything here it will default to the salted MD5 of &#8220;Fred&#8221;. Whatever put is MD5 hashed and writte to disk.</td>
+<td>If you don’t put anything here it will default to the salted MD5 of “Fred”. Whatever put is MD5 hashed and writte to disk.</td>
 </tr>
 <tr class="row-even"><td>DHCP:</td>
 <td>if yes, other IP settings will be ignored</td>
@@ -1594,26 +1594,26 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <td>If unsure, set to 1500</td>
 </tr>
 <tr class="row-even"><td>Specify disk for OS install:</td>
-<td>Optional. Typical values are &#8220;sda&#8221;.</td>
+<td>Optional. Typical values are “sda”.</td>
 </tr>
 </tbody>
 </table>
 <p>When you click the <strong>Download ISO</strong> button the folling occurs (all paths relative to the top level of the directory specified in _osversions.cfg_):</p>
 <ol class="arabic simple">
 <li>Reads /etc/resolv.conf to get a list of nameservers. This is a rather ugly hack that is in place until we get a way of configuring it in the interface.</li>
-<li>Writes a file in the ks_scripts/state.out that contains directory from _osversions.cfg_ and the mkisofs string that we&#8217;ll call later.</li>
+<li>Writes a file in the ks_scripts/state.out that contains directory from _osversions.cfg_ and the mkisofs string that we’ll call later.</li>
 <li>Writes a file in the ks_scripts/network.cfg that is a bunch of key=value pairs that set up networking.</li>
-<li>Creates an MD5 hash of the password you specify and writes it to ks_scripts/password.cfg. Note that if you do not specify a password &#8220;Fred&#8221; is used. Also note that we have experienced some issues with webbrowsers autofilling that field.</li>
+<li>Creates an MD5 hash of the password you specify and writes it to ks_scripts/password.cfg. Note that if you do not specify a password “Fred” is used. Also note that we have experienced some issues with webbrowsers autofilling that field.</li>
 <li>Writes out a disk configuration file to ks_scripts/disk.cfg.</li>
 <li>mkisofs is called against the directory configured in _osversions.cfg_ and an ISO is generated in memory and delivered to your webbrowser.</li>
 </ol>
 <p>You now have a customized ISO that can be used to install Red Hat and derivative Linux installations with some modifications to your ks.cfg file.</p>
 <p>Kickstart/Anaconda will mount the ISO at /mnt/stage2 during the install process (at least with 6).</p>
 <p>You can directly include the password file anywhere in your ks.cfg file (usually in the top) by doing %include /mnt/stage2/ks_scripts/password.cfg</p>
-<p>What we currently do is have 2 scripts, one to do hard drive configuration and one to do network configuration. Both are relatively specific to the environment they were created in, and both are <em>probably</em> wrong for other organizations, however they are currently living in the &#8220;misc&#8221; directory as examples of how to do things.</p>
+<p>What we currently do is have 2 scripts, one to do hard drive configuration and one to do network configuration. Both are relatively specific to the environment they were created in, and both are <em>probably</em> wrong for other organizations, however they are currently living in the “misc” directory as examples of how to do things.</p>
 <p>We trigger those in a %pre section in ks.cfg and they will write config files to /tmp. We will then include those files in the appropriate places using  %pre.</p>
 <p>For example this is a section of our ks.cfg file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">packages</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">packages</span><span class="o">.</span><span class="n">txt</span>
 
 <span class="o">%</span><span class="n">pre</span>
   <span class="n">python</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">create_network_line</span><span class="o">.</span><span class="n">py</span>
@@ -1621,8 +1621,8 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <span class="o">%</span><span class="n">end</span>
 </pre></div>
 </div>
-<p>These two scripts will then run _before_ anaconda sets up it&#8217;s internal structures, then a bit further up in the ks.cfg file (outside of the %pre %end block) we do an</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">password</span><span class="o">.</span><span class="n">cfg</span>
+<p>These two scripts will then run _before_ anaconda sets up it’s internal structures, then a bit further up in the ks.cfg file (outside of the %pre %end block) we do an</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">password</span><span class="o">.</span><span class="n">cfg</span>
 <span class="o">...</span>
 <span class="o">%</span><span class="n">include</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">network_line</span>
 
@@ -1633,14 +1633,14 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <p>This snarfs up the contents and inlines them.</p>
 <p>If you only have one kind of hardware on your CDN it is probably best to just put the drive config right in the ks.cfg.</p>
 <p>If you have simple networking needs (we use bonded interfaces in most, but not all locations and we have several types of hardware meaning different ethernet interface names at the OS level etc.) then something like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="ch">#!/bin/bash</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="ch">#!/bin/bash</span>
 <span class="n">source</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">stage2</span><span class="o">/</span><span class="n">ks_scripts</span><span class="o">/</span><span class="n">network</span><span class="o">.</span><span class="n">cfg</span>
 <span class="n">echo</span> <span class="s2">&quot;network --bootproto=static --activate --ipv6=$IPV6ADDR --ip=$IPADDR --netmask=$NETMASK --gateway=$GATEWAY --ipv6gateway=$GATEWAY --nameserver=$NAMESERVER --mtu=$MTU --hostname=$HOSTNAME&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">network</span><span class="o">.</span><span class="n">cfg</span>
 <span class="c1"># Note that this is an example and may not work at all.</span>
 </pre></div>
 </div>
 <p>You could also put this in the %pre section. Lots of ways to solve it.</p>
-<p>We have included the two scripts we use in the &#8220;misc&#8221; directory of the git repo:</p>
+<p>We have included the two scripts we use in the “misc” directory of the git repo:</p>
 <ul class="simple">
 <li>kickstart_create_network_line.py</li>
 <li>kickstart_drive_config.sh</li>
@@ -1649,7 +1649,7 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 </div>
 <div class="section" id="queue-updates-and-snapshot-crconfig">
 <span id="rl-queue-updates"></span><h3>Queue Updates and Snapshot CRConfig<a class="headerlink" href="#queue-updates-and-snapshot-crconfig" title="Permalink to this headline">¶</a></h3>
-<p>When changing delivery services special care has to be taken so that Traffic Router will not send traffic to caches for delivery services that the cache doesn&#8217;t know about yet. In general, when adding delivery services, or adding servers to a delivery service, it is best to update the caches before updating Traffic Router and Traffic Monitor. When deleting delivery services, or deleting server assignments to delivery services, it is best to update Traffic Router and Traffic Monitor first and then the caches. Updating the cache configuration is done through the <em>Queue Updates</em> menu, and updating Traffic Monitor and  Traffic Router config is done through the <em>Snapshot CRConfig</em> menu.</p>
+<p>When changing delivery services special care has to be taken so that Traffic Router will not send traffic to caches for delivery services that the cache doesn’t know about yet. In general, when adding delivery services, or adding servers to a delivery service, it is best to update the caches before updating Traffic Router and Traffic Monitor. When deleting delivery services, or deleting server assignments to delivery services, it is best to update Traffic Router and Traffic Monitor first and then the caches. Updating the cache configuration is done through the <em>Queue Updates</em> menu, and updating Traffic Monitor and  Traffic Router config is done through the <em>Snapshot CRConfig</em> menu.</p>
 <div class="section" id="queue-updates">
 <span id="index-12"></span><h4>Queue Updates<a class="headerlink" href="#queue-updates" title="Permalink to this headline">¶</a></h4>
 <p>Every 15 minutes the caches should run a <em>syncds</em> to get all changes needed from Traffic Ops. The files that will be updated by the syncds job are:</p>
@@ -1674,7 +1674,7 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 <li>When the Queue Updates for this Server? (all) window opens, click <strong>OK</strong>.</li>
 </ol>
 </div></blockquote>
-<p>To schedule updates for just one cache, use the &#8220;Server Checks&#8221; page, and click the <img alt="checkmark" src="../../_images/good.png" /> in the <em>UPD</em> column. The UPD column of Server Checks page will change show a <img alt="clock" src="../../_images/clock-black.png" /> when updates are pending for that cache.</p>
+<p>To schedule updates for just one cache, use the “Server Checks” page, and click the <img alt="checkmark" src="../../_images/good.png" /> in the <em>UPD</em> column. The UPD column of Server Checks page will change show a <img alt="clock" src="../../_images/clock-black.png" /> when updates are pending for that cache.</p>
 </div>
 <div class="section" id="snapshot-crconfig">
 <span id="rl-snapshot-crconfig"></span><span id="index-13"></span><h4>Snapshot CRConfig<a class="headerlink" href="#snapshot-crconfig" title="Permalink to this headline">¶</a></h4>
@@ -1686,9 +1686,9 @@ for associated servers when assigned to a server profile. Value must be &#8220;c
 </li>
 <li><p class="first">Verify the selection of the correct CDN from the Choose CDN drop down and click <strong>Diff CRConfig</strong>.
 On initial selection of this, the CRConfig Diff window says the following:</p>
-<p>There is no existing CRConfig for [cdn] to diff against... Is this the first snapshot???
+<p>There is no existing CRConfig for [cdn] to diff against… Is this the first snapshot???
 If you are not sure why you are getting this message, please do not proceed!
-To proceed writing the snapshot anyway click the &#8216;Write CRConfig&#8217; button below.</p>
+To proceed writing the snapshot anyway click the ‘Write CRConfig’ button below.</p>
 <p>If there is an older version of the CRConfig, a window will pop up showing the differences
 between the active CRConfig and the CRConfig about to be written.</p>
 </li>
@@ -1708,7 +1708,7 @@ between the active CRConfig and the CRConfig about to be written.</p>
 <p>Invalidating content on the CDN is sometimes necessary when the origin was mis-configured and something is cached in the CDN  that needs to be removed. Given the size of a typical Traffic Control CDN and the amount of content that can be cached in it, removing the content from all the caches may take a long time. To speed up content invalidation, Traffic Ops will not try to remove the content from the caches, but it makes the content inaccessible using the <em>regex_revalidate</em> ATS plugin. This forces a <em>revalidation</em> of the content, rather than a new get.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This method forces a HTTP <em>revalidation</em> of the content, and not a new <em>GET</em> - the origin needs to support revalidation according to the HTTP/1.1 specification, and send a <code class="docutils literal"><span class="pre">200</span> <span class="pre">OK</span></code> or <code class="docutils literal"><span class="pre">304</span> <span class="pre">Not</span> <span class="pre">Modified</span></code> as applicable.</p>
+<p class="last">This method forces a HTTP <em>revalidation</em> of the content, and not a new <em>GET</em> - the origin needs to support revalidation according to the HTTP/1.1 specification, and send a <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> or <code class="docutils literal notranslate"><span class="pre">304</span> <span class="pre">Not</span> <span class="pre">Modified</span></code> as applicable.</p>
 </div>
 <p>To invalidate content:</p>
 <blockquote>
@@ -1719,8 +1719,8 @@ between the active CRConfig and the CRConfig about to be written.</p>
 <blockquote>
 <div><ul class="simple">
 <li>Select the <strong>Delivery Service</strong></li>
-<li>Enter the <strong>Path Regex</strong> - this should be a <a class="reference external" href="http://www.pcre.org/">PCRE</a> compatible regular expression for the path to match for forcing the revalidation. Be careful to only match on the content you need to remove - revalidation is an expensive operation for many origins, and a simple <code class="docutils literal"><span class="pre">/.*</span></code> can cause an overload condition of the origin.</li>
-<li>Enter the <strong>Time To Live</strong> - this is how long the revalidation rule will be active for. It usually makes sense to make this the same as the <code class="docutils literal"><span class="pre">Cache-Control</span></code> header from the origin which sets the object time to live in cache (by <code class="docutils literal"><span class="pre">max-age</span></code> or <code class="docutils literal"><span class="pre">Expires</span></code>). Entering a longer TTL here will make the caches do unnecessary work.</li>
+<li>Enter the <strong>Path Regex</strong> - this should be a <a class="reference external" href="http://www.pcre.org/">PCRE</a> compatible regular expression for the path to match for forcing the revalidation. Be careful to only match on the content you need to remove - revalidation is an expensive operation for many origins, and a simple <code class="docutils literal notranslate"><span class="pre">/.*</span></code> can cause an overload condition of the origin.</li>
+<li>Enter the <strong>Time To Live</strong> - this is how long the revalidation rule will be active for. It usually makes sense to make this the same as the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> header from the origin which sets the object time to live in cache (by <code class="docutils literal notranslate"><span class="pre">max-age</span></code> or <code class="docutils literal notranslate"><span class="pre">Expires</span></code>). Entering a longer TTL here will make the caches do unnecessary work.</li>
 <li>Enter the <strong>Start Time</strong> - this is the start time when the revalidation rule will be made active. It is pre-populated with the current time, leave as is to schedule ASAP.</li>
 </ul>
 </div></blockquote>

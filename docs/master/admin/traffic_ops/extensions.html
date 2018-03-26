@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Managing Traffic Ops Extensions</li>
       <li class="wy-breadcrumbs-aside">
@@ -198,11 +198,11 @@
             
   <div class="section" id="managing-traffic-ops-extensions">
 <span id="admin-to-ext-script"></span><h1>Managing Traffic Ops Extensions<a class="headerlink" href="#managing-traffic-ops-extensions" title="Permalink to this headline">¶</a></h1>
-<p>Each script is a separate bash script located in <code class="docutils literal"><span class="pre">$TO_HOME/bin/checks/</span></code>.</p>
-<p>The extensions must be registered with Traffic Ops in order to display a column on the Server Check page. The list of currently registered extensions can be listed by running <code class="docutils literal"><span class="pre">/opt/traffic_ops/app/bin/extensions</span> <span class="pre">-a</span></code>.</p>
-<p>The below extensions are automatically registered with the Traffic Ops database (<code class="docutils literal"><span class="pre">to_extension</span></code> table) at install time (see <code class="docutils literal"><span class="pre">traffic_ops/app/db/seeds.sql</span></code>). However, cron must still be configured to run these checks periodically.</p>
+<p>Each script is a separate bash script located in <code class="docutils literal notranslate"><span class="pre">$TO_HOME/bin/checks/</span></code>.</p>
+<p>The extensions must be registered with Traffic Ops in order to display a column on the Server Check page. The list of currently registered extensions can be listed by running <code class="docutils literal notranslate"><span class="pre">/opt/traffic_ops/app/bin/extensions</span> <span class="pre">-a</span></code>.</p>
+<p>The below extensions are automatically registered with the Traffic Ops database (<code class="docutils literal notranslate"><span class="pre">to_extension</span></code> table) at install time (see <code class="docutils literal notranslate"><span class="pre">traffic_ops/app/db/seeds.sql</span></code>). However, cron must still be configured to run these checks periodically.</p>
 <p>The scripts are called as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre>$TO_HOME/bin/checks/To&lt;name&gt;Check.pl  -c &quot;{\&quot;base_url\&quot;: \&quot;,https://\&quot;&lt;traffic_ops_ip&gt;\&quot;, \&quot;check_name\&quot;: \&quot;&lt;check_name&gt;\&quot;}&quot; -l &lt;log level&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre>$TO_HOME/bin/checks/To&lt;name&gt;Check.pl  -c &quot;{\&quot;base_url\&quot;: \&quot;,https://\&quot;&lt;traffic_ops_ip&gt;\&quot;, \&quot;check_name\&quot;: \&quot;&lt;check_name&gt;\&quot;}&quot; -l &lt;log level&gt;
 where:
 
 &lt;name&gt; is the type of check script
@@ -213,8 +213,8 @@ where:
 </div>
 <div class="section" id="example-cron-file">
 <h2>Example Cron File<a class="headerlink" href="#example-cron-file" title="Permalink to this headline">¶</a></h2>
-<p>Edit with <code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code>. You may need to adjust the path to your $TO_HOME to match your system.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">PERL5LIB</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">perl5</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">lib</span>
+<p>Edit with <code class="docutils literal notranslate"><span class="pre">crontab</span> <span class="pre">-e</span></code>. You may need to adjust the path to your $TO_HOME to match your system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">PERL5LIB</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">perl5</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">lib</span>
 
 <span class="c1"># IPv4 ping examples - The &#39;select: [&quot;hostName&quot;,&quot;domainName&quot;]&#39; works but, if you want to check DNS resolution use FQDN.</span>
 <span class="o">*/</span><span class="mi">15</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="n">root</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">checks</span><span class="o">/</span><span class="n">ToPingCheck</span><span class="o">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">base_url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://localhost</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">check_name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">10G</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">select</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\&quot;</span><span class="s2">hostName</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">domainName</span><span class="se">\&quot;</span><span class="s2">]}&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">traffic_ops</span><span class="o">/</span><span class="n">extensionCheck</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>

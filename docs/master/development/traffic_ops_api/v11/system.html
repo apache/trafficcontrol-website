@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../../index.html">Developer’s Guide</a> &raquo;</li>
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
@@ -220,51 +220,51 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">parameters</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">parameters</span></code></td>
 <td>hash</td>
 <td>This is a hash with the parameter names that describe the Traffic Ops installation as keys.
-These are all the parameters in the <code class="docutils literal"><span class="pre">GLOBAL</span></code> profile.</td>
+These are all the parameters in the <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> profile.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;tm.toolname</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;tm.toolname</span></code></td>
 <td>string</td>
-<td>The name of the Traffic Ops tool. Usually &#8220;Traffic Ops&#8221;. Used in the About screen and in the comments headers of the files generated
-(<code class="docutils literal"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&#160; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
+<td>The name of the Traffic Ops tool. Usually “Traffic Ops”. Used in the About screen and in the comments headers of the files generated
+(<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&#160; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;tm.instance_name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;tm.instance_name</span></code></td>
 <td>string</td>
 <td>The name of the Traffic Ops instance. Can be used when multiple instances are active. Visible in the About page.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;traffic_rtr_fwd_proxy</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;traffic_rtr_fwd_proxy</span></code></td>
 <td>string</td>
 <td>When collecting stats from Traffic Router, Traffic Ops uses this forward proxy to pull the stats through.
 This can be any of the MID tier caches, or a forward cache specifically deployed for this purpose. Setting
 this variable can significantly lighten the load on the Traffic Router stats system and it is recommended to
 set this parameter on a production system.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;tm.url</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;tm.url</span></code></td>
 <td>string</td>
 <td>The URL for this Traffic Ops instance. Used in the About screen and in the comments headers of the files generated
-(<code class="docutils literal"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&#160; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
+(<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">DO</span> <span class="pre">NOT</span> <span class="pre">EDIT</span> <span class="pre">-</span> <span class="pre">Generated</span> <span class="pre">for</span> <span class="pre">atsec-lax-04</span> <span class="pre">by</span> <span class="pre">Traffic</span> <span class="pre">Ops</span> <span class="pre">(https://traffops.kabletown.net/)</span> <span class="pre">on</span> <span class="pre">Fri</span> <span class="pre">Mar</span>&#160; <span class="pre">6</span> <span class="pre">05:15:15</span> <span class="pre">UTC</span> <span class="pre">2015</span></code>).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;traffic_mon_fwd_proxy</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;traffic_mon_fwd_proxy</span></code></td>
 <td>string</td>
 <td>When collecting stats from Traffic Monitor, Traffic Ops uses this forward proxy to pull the stats through.
 This can be any of the MID tier caches, or a forward cache specifically deployed for this purpose. Setting
 this variable can significantly lighten the load on the Traffic Monitor system and it is recommended to
 set this parameter on a production system.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;tm.logourl</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;tm.logourl</span></code></td>
 <td>string</td>
 <td>This is the URL of the logo for Traffic Ops and can be relative if the logo is under traffic_ops/app/public.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;tm.infourl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;tm.infourl</span></code></td>
 <td>string</td>
-<td>This is the &#8220;for more information go here&#8221; URL, which is visible in the About page.</td>
+<td>This is the “for more information go here” URL, which is visible in the About page.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="s2">&quot;tm.toolname&quot;</span><span class="p">:</span> <span class="s2">&quot;Traffic Ops&quot;</span><span class="p">,</span>

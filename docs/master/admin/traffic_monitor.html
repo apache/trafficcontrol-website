@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Monitor Administration (Legacy)</li>
       <li class="wy-breadcrumbs-aside">
@@ -216,27 +216,27 @@
 <li>perl-WWW-Curl</li>
 </ul>
 <ol class="arabic">
-<li><p class="first">Add the Traffic Monitor server into Traffic Ops using &#8216;Servers&#8217; -&gt; &#8216;Add Server&#8217;. Set the &#8216;Type&#8217; field to &#8216;RASCAL&#8217;.</p>
+<li><p class="first">Add the Traffic Monitor server into Traffic Ops using ‘Servers’ -&gt; ‘Add Server’. Set the ‘Type’ field to ‘RASCAL’.</p>
 </li>
 <li><p class="first">Make sure the FQDN of the Traffic Monitor is resolvable in DNS.</p>
 </li>
 <li><p class="first">Get the Traffic Monitor RPM.</p>
 <p>Sample command:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">traffic</span><span class="o">-</span><span class="n">control</span><span class="o">-</span><span class="n">cdn</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">RELEASE</span><span class="o">-</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">traffic_monitor</span><span class="o">-</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">3908.5</span><span class="n">b77f60f</span><span class="o">.</span><span class="n">el6</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">traffic</span><span class="o">-</span><span class="n">control</span><span class="o">-</span><span class="n">cdn</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">RELEASE</span><span class="o">-</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">traffic_monitor</span><span class="o">-</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">3908.5</span><span class="n">b77f60f</span><span class="o">.</span><span class="n">el6</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Install Traffic Monitor and Perl modules:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">traffic_monitor</span><span class="o">-*.</span><span class="n">rpm</span> <span class="n">perl</span><span class="o">-</span><span class="n">JSON</span> <span class="n">perl</span><span class="o">-</span><span class="n">WWW</span><span class="o">-</span><span class="n">Curl</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">traffic_monitor</span><span class="o">-*.</span><span class="n">rpm</span> <span class="n">perl</span><span class="o">-</span><span class="n">JSON</span> <span class="n">perl</span><span class="o">-</span><span class="n">WWW</span><span class="o">-</span><span class="n">Curl</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Take the config from Traffic Ops:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_monitor</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">traffic_monitor_config</span><span class="o">.</span><span class="n">pl</span> <span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">traffic</span><span class="o">-</span><span class="n">ops</span><span class="o">-</span><span class="n">URL</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">traffic</span><span class="o">-</span><span class="n">ops</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">traffic</span><span class="o">-</span><span class="n">ops</span><span class="o">-</span><span class="n">password</span><span class="o">&gt;</span> <span class="n">prompt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">traffic_monitor</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">traffic_monitor_config</span><span class="o">.</span><span class="n">pl</span> <span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">traffic</span><span class="o">-</span><span class="n">ops</span><span class="o">-</span><span class="n">URL</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">traffic</span><span class="o">-</span><span class="n">ops</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">traffic</span><span class="o">-</span><span class="n">ops</span><span class="o">-</span><span class="n">password</span><span class="o">&gt;</span> <span class="n">prompt</span>
 </pre></div>
 </div>
 <p>Sample session:</p>
-<div class="highlight-default"><div class="highlight"><pre>traffic_mon # /opt/traffic_monitor/bin/traffic_monitor_config.pl https://traffic-ops.cdn.kabletown.net admin:kl0tevax prompt
+<div class="highlight-default notranslate"><div class="highlight"><pre>traffic_mon # /opt/traffic_monitor/bin/traffic_monitor_config.pl https://traffic-ops.cdn.kabletown.net admin:kl0tevax prompt
 DEBUG: traffic_ops selected: https://traffic-ops.cdn.kabletown.net
 DEBUG: traffic_ops login: admin:kl0tevax
 DEBUG: Config write mode: prompt
@@ -317,13 +317,13 @@ traffic_mon #
 </pre></div>
 </div>
 </li>
-<li><p class="first">Update the &#8216;allow_ip&#8217; and &#8216;allow_ip6&#8217; parameters in the profiles of all caches defined in traffic ops, both edge and mid,
+<li><p class="first">Update the ‘allow_ip’ and ‘allow_ip6’ parameters in the profiles of all caches defined in traffic ops, both edge and mid,
 with the address of the traffic monitor being installed, so that the traffic servers will allow this Traffic Monitor
 to access the astats plugin.
 For details see <a class="reference internal" href="traffic_ops/configuration.html#rl-param-prof"><span class="std std-ref">Profile Parameters</span></a> in the <em>Configuring Traffic Ops</em> section.</p>
 </li>
-<li><p class="first">Start Tomcat: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">tomcat</span> <span class="pre">start</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">Using</span> <span class="n">CATALINA_BASE</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span>
+<li><p class="first">Start Tomcat: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">tomcat</span> <span class="pre">start</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">Using</span> <span class="n">CATALINA_BASE</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span>
 <span class="n">Using</span> <span class="n">CATALINA_HOME</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span>
 <span class="n">Using</span> <span class="n">CATALINA_TMPDIR</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="n">temp</span>
 <span class="n">Using</span> <span class="n">JRE_HOME</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span>
@@ -333,15 +333,15 @@ For details see <a class="reference internal" href="traffic_ops/configuration.ht
 </pre></div>
 </div>
 </li>
-<li><p class="first">Configure tomcat to start automatically: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">tomcat</span> <span class="pre">on</span></code></p>
+<li><p class="first">Configure tomcat to start automatically: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">tomcat</span> <span class="pre">on</span></code></p>
 </li>
 <li><p class="first">Verify Traffic Monitor is running by pointing your browser to port 80 on the Traffic Monitor host:</p>
 <ul class="simple">
-<li>The &#8216;Cache States&#8217; tab should display all Mid and Edge caches configured in Traffic Ops.</li>
-<li>The &#8216;DeliveryService States&#8217; tab should display all delivery services configured in Traffic Ops.</li>
+<li>The ‘Cache States’ tab should display all Mid and Edge caches configured in Traffic Ops.</li>
+<li>The ‘DeliveryService States’ tab should display all delivery services configured in Traffic Ops.</li>
 </ul>
 </li>
-<li><p class="first">In Traffic Ops servers table, click &#8216;Edit&#8217; for this server, then click &#8216;Online&#8217;.</p>
+<li><p class="first">In Traffic Ops servers table, click ‘Edit’ for this server, then click ‘Online’.</p>
 </li>
 </ol>
 </div>
@@ -349,8 +349,8 @@ For details see <a class="reference internal" href="traffic_ops/configuration.ht
 <h2>Configuring Traffic Monitor<a class="headerlink" href="#configuring-traffic-monitor" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configuration-overview">
 <h3>Configuration Overview<a class="headerlink" href="#configuration-overview" title="Permalink to this headline">¶</a></h3>
-<p>Traffic Monitor is configured using its JSON configuration file, <code class="docutils literal"><span class="pre">/opt/traffic_monitor/conf/traffic_monitor_config.js</span></code>.
-This file is created by <code class="docutils literal"><span class="pre">traffic_monitor_config.pl</span></code> script, and among other things, it contains the Traffic Ops URL and the user:password
+<p>Traffic Monitor is configured using its JSON configuration file, <code class="docutils literal notranslate"><span class="pre">/opt/traffic_monitor/conf/traffic_monitor_config.js</span></code>.
+This file is created by <code class="docutils literal notranslate"><span class="pre">traffic_monitor_config.pl</span></code> script, and among other things, it contains the Traffic Ops URL and the user:password
 specified during the invocation of that script.</p>
 <p>When started, Traffic Monitor uses this basic configuration to downloads its configuration from Traffic Ops, and begins polling caches.
 Once a configurable number of polling cycles completes, health protocol state is available via RESTful JSON endpoints.</p>
@@ -358,7 +358,7 @@ Once a configurable number of polling cycles completes, health protocol state is
 </div>
 <div class="section" id="troubleshooting-and-log-files">
 <h2>Troubleshooting and log files<a class="headerlink" href="#troubleshooting-and-log-files" title="Permalink to this headline">¶</a></h2>
-<p>Traffic Monitor log files are in <code class="docutils literal"><span class="pre">/opt/traffic_monitor/var/log/</span></code>, and tomcat log files are in <code class="docutils literal"><span class="pre">/opt/tomcat/logs/</span></code>.</p>
+<p>Traffic Monitor log files are in <code class="docutils literal notranslate"><span class="pre">/opt/traffic_monitor/var/log/</span></code>, and tomcat log files are in <code class="docutils literal notranslate"><span class="pre">/opt/tomcat/logs/</span></code>.</p>
 </div>
 </div>
 

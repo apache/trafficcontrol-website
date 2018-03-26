@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
           <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
       
@@ -204,7 +204,7 @@
 This allows users with higher level permissions (ops or admin) to review the changes for completeness and accuracy before deploying the changes.
 In addition, most delivery service changes require cache config updates (aka queue updates) and/or a cdn snapshot. Both of these actions are reserved for users with elevated permissions.</p>
 <p>A list of the delivery service requests associated with your tenant can be found here:</p>
-<p><code class="docutils literal"><span class="pre">https://traffic-portal.domain.com/#!/delivery-service-requests</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">https://traffic-portal.domain.com/#!/delivery-service-requests</span></code></p>
 <img alt="../../_images/tp_table_ds_requests.png" src="../../_images/tp_table_ds_requests.png" />
 <div class="section" id="who-can-create-a-delivery-service-request-and-how">
 <h2>Who Can Create a Delivery Service Request and How?<a class="headerlink" href="#who-can-create-a-delivery-service-request-and-how" title="Permalink to this headline">¶</a></h2>
@@ -221,7 +221,7 @@ In addition, most delivery service changes require cache config updates (aka que
 <p>Users with elevated permissions (Operations or above) can fulfill (apply the changes) or reject the delivery service request. In fact, they can do all of the following:</p>
 <div class="section" id="update-the-contents-of-the-delivery-service-request">
 <h3>Update the contents of the delivery service request<a class="headerlink" href="#update-the-contents-of-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
-<p>Optional. This will update the &#8220;Last Edited By&#8221; field to indicate who last updated the request.</p>
+<p>Optional. This will update the “Last Edited By” field to indicate who last updated the request.</p>
 </div>
 <div class="section" id="assign-or-unassign-the-delivery-service-request">
 <h3>Assign or unassign the delivery service request<a class="headerlink" href="#assign-or-unassign-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
@@ -229,16 +229,16 @@ In addition, most delivery service changes require cache config updates (aka que
 </div>
 <div class="section" id="reject-the-delivery-service-request">
 <h3>Reject the delivery service request<a class="headerlink" href="#reject-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
-<p>Rejecting a delivery service request will set status to <code class="docutils literal"><span class="pre">rejected</span></code> and the request can no longer be modified. This will auto-assign the request to the user doing the rejection.</p>
+<p>Rejecting a delivery service request will set status to <code class="docutils literal notranslate"><span class="pre">rejected</span></code> and the request can no longer be modified. This will auto-assign the request to the user doing the rejection.</p>
 </div>
 <div class="section" id="fulfill-the-delivery-service-request">
 <h3>Fulfill the delivery service request<a class="headerlink" href="#fulfill-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
-<p>Fulfilling a delivery service request will show the requested changes and, once committed, will apply the desired changes and set status to <code class="docutils literal"><span class="pre">pending</span></code>. The request is pending because many types of changes will require cache config updates (aka queue updates) and/or a cdn snapshot. Once queue updates and/or cdn snapshot is complete, the request should be marked <code class="docutils literal"><span class="pre">complete</span></code>.</p>
+<p>Fulfilling a delivery service request will show the requested changes and, once committed, will apply the desired changes and set status to <code class="docutils literal notranslate"><span class="pre">pending</span></code>. The request is pending because many types of changes will require cache config updates (aka queue updates) and/or a cdn snapshot. Once queue updates and/or cdn snapshot is complete, the request should be marked <code class="docutils literal notranslate"><span class="pre">complete</span></code>.</p>
 </div>
 <div class="section" id="complete-the-delivery-service-request">
 <h3>Complete the delivery service request<a class="headerlink" href="#complete-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>
 <p>Only after the delivery service request has been fulfilled and the changes have been applied can a delivery service request be marked as complete. Marking a delivery service as complete is currently a manual step because some changes require cache config updates (aka queue updates) and/or a cdn snapshot.
-Once that is done and the changes have been deployed, the request status should be changed from <code class="docutils literal"><span class="pre">pending</span></code> to <code class="docutils literal"><span class="pre">complete</span></code>.</p>
+Once that is done and the changes have been deployed, the request status should be changed from <code class="docutils literal notranslate"><span class="pre">pending</span></code> to <code class="docutils literal notranslate"><span class="pre">complete</span></code>.</p>
 </div>
 <div class="section" id="delete-the-delivery-service-request">
 <h3>Delete the delivery service request<a class="headerlink" href="#delete-the-delivery-service-request" title="Permalink to this headline">¶</a></h3>

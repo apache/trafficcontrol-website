@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Server Administration</li>
       <li class="wy-breadcrumbs-aside">
@@ -202,53 +202,59 @@
 <h2>Installing Traffic Server<a class="headerlink" href="#installing-traffic-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Build the Traffic Server RPM. The best way to do this is to follow the Traffic Server documents:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">trafficserver</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">getting</span><span class="o">-</span><span class="n">started</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">html</span><span class="c1">#installation</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">trafficserver</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">getting</span><span class="o">-</span><span class="n">started</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">html</span><span class="c1">#installation</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Build the astats RPM using the appropriate version number:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">/</span><span class="n">tree</span><span class="o">/&lt;</span><span class="n">version</span><span class="o">&gt;/</span><span class="n">traffic_server</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">/</span><span class="n">tree</span><span class="o">/&lt;</span><span class="n">version</span><span class="o">&gt;/</span><span class="n">traffic_server</span>
 </pre></div>
 </div>
 <p>Sample link:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">traffic_server</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">traffic_server</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Install Traffic Server and astats:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">trafficserver</span><span class="o">-*.</span><span class="n">rpm</span> <span class="n">astats_over_http</span><span class="o">*.</span><span class="n">rpm</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">trafficserver</span><span class="o">-*.</span><span class="n">rpm</span> <span class="n">astats_over_http</span><span class="o">*.</span><span class="n">rpm</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Add the server using the Traffic Ops web interface:</p>
-<ol class="arabic simple">
-<li>Select <strong>Servers</strong>.</li>
-<li>Scroll to the bottom of the page and click <strong>Add Server</strong>.</li>
+<ol class="arabic">
+<li><p class="first">Select <strong>Servers</strong>.</p>
+</li>
+<li><p class="first">Scroll to the bottom of the page and click <strong>Add Server</strong>.</p>
+</li>
 <li><dl class="first docutils">
-<dt>Complete the &#8220;Required Info:&#8221; section:</dt>
-<dd><ul class="first last">
-<li>Set &#8216;Interface Name&#8217; to the name of the interface from which traffic server delivers content.</li>
-<li>Set &#8216;Type&#8217; to &#8216;MID&#8217; or &#8216;EDGE&#8217;.</li>
+<dt>Complete the “Required Info:” section:</dt>
+<dd><ul class="first last simple">
+<li>Set ‘Interface Name’ to the name of the interface from which traffic server delivers content.</li>
+<li>Set ‘Type’ to ‘MID’ or ‘EDGE’.</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>Click <strong>Submit</strong>.</li>
-<li>Click <strong>Save</strong>.</li>
-<li>Click <strong>Online Server</strong>.</li>
-<li>Verify that the server status is now listed as <strong>Reported</strong></li>
+<li><p class="first">Click <strong>Submit</strong>.</p>
+</li>
+<li><p class="first">Click <strong>Save</strong>.</p>
+</li>
+<li><p class="first">Click <strong>Online Server</strong>.</p>
+</li>
+<li><p class="first">Verify that the server status is now listed as <strong>Reported</strong></p>
+</li>
 </ol>
 </li>
-<li><p class="first">Install the ORT script and run it in &#8216;badass&#8217; mode to create the initial configuration, see <a class="reference internal" href="#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a></p>
+<li><p class="first">Install the ORT script and run it in ‘badass’ mode to create the initial configuration, see <a class="reference internal" href="#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a></p>
 </li>
-<li><p class="first">Start the service: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">trafficserver</span> <span class="pre">start</span></code></p>
+<li><p class="first">Start the service: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">trafficserver</span> <span class="pre">start</span></code></p>
 </li>
-<li><p class="first">Configure traffic server to start automatically: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">trafficserver</span></code></p>
+<li><p class="first">Configure traffic server to start automatically: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">trafficserver</span></code></p>
 </li>
 <li><p class="first">Verify that the installation is good:</p>
 <ol class="arabic simple">
-<li>Make sure that the service is running: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">trafficserver</span></code></li>
-<li>Assuming a traffic monitor is already installed, browse to it, i.e. <a class="reference external" href="http:/">http:/</a>/&lt;trafficmonitorURL&gt;, and verify that the traffic server appears in the &#8220;Cache States&#8221; table, in white.</li>
+<li>Make sure that the service is running: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">trafficserver</span></code></li>
+<li>Assuming a traffic monitor is already installed, browse to it, i.e. <a class="reference external" href="http:/">http:/</a>/&lt;trafficmonitorURL&gt;, and verify that the traffic server appears in the “Cache States” table, in white.</li>
 </ol>
 </li>
 </ol>
@@ -257,7 +263,7 @@
 <span id="reference-traffic-ops-ort"></span><h2>Configuring Traffic Server<a class="headerlink" href="#configuring-traffic-server" title="Permalink to this headline">¶</a></h2>
 <p>All of the Traffic Server application configuration files are generated by Traffic Ops and installed by way of the traffic_ops_ort.pl script.
 The traffic_ops_ort.pl should be installed on all caches (by puppet or other non Traffic Ops means), usually in /opt/ort. It is used to do the initial install of the config files when the cache is being deployed, and to keep the config files up to date when the cache is already in service.  The usage message of the script is shown below:</p>
-<div class="highlight-default"><div class="highlight"><pre>$ sudo /opt/ort/traffic_ops_ort.pl
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ sudo /opt/ort/traffic_ops_ort.pl
 ====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-====
 Usage: ./traffic_ops_ort.pl &lt;Mode&gt; &lt;Log_Level&gt; &lt;Traffic_Ops_URL&gt; &lt;Traffic_Ops_Login&gt; [optional flags]
   &lt;Mode&gt; = interactive - asks questions during config process.
@@ -285,50 +291,50 @@ $
 <h3>Installing the ORT script<a class="headerlink" href="#installing-the-ort-script" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Build the ORT script RPM from the Apache Build Server and install it:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">builds</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">S</span><span class="o">-</span><span class="n">Z</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">TrafficControl</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">builds</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">S</span><span class="o">-</span><span class="n">Z</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">TrafficControl</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>Sample command:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">builds</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">S</span><span class="o">-</span><span class="n">Z</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">TrafficControl</span><span class="o">/</span><span class="n">job</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="n">build</span><span class="o">/</span><span class="n">lastSuccessfulBuild</span><span class="o">/</span><span class="n">artifact</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">6807.1</span><span class="n">dcd512f</span><span class="o">.</span><span class="n">el7</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">builds</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">S</span><span class="o">-</span><span class="n">Z</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">TrafficControl</span><span class="o">/</span><span class="n">job</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="n">build</span><span class="o">/</span><span class="n">lastSuccessfulBuild</span><span class="o">/</span><span class="n">artifact</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">6807.1</span><span class="n">dcd512f</span><span class="o">.</span><span class="n">el7</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
 <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">traffic_ops_ort</span><span class="o">*.</span><span class="n">rpm</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Install modules required by ORT if needed: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">perl-JSON</span> <span class="pre">perl-Crypt-SSLeay</span></code></p>
+<li><p class="first">Install modules required by ORT if needed: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">perl-JSON</span> <span class="pre">perl-Crypt-SSLeay</span></code></p>
 </li>
-<li><p class="first">For initial configuration or when major changes (like a Profile change) need to be made, run the script in &#8220;badass mode&#8221;. All required rpm packages
+<li><p class="first">For initial configuration or when major changes (like a Profile change) need to be made, run the script in “badass mode”. All required rpm packages
 will be installed, all Traffic Server config files will be fetched and installed, and (if needed) the Traffic Server application will be restarted.</p>
 <p>Example run below:</p>
-<div class="highlight-default"><div class="highlight"><pre>$ sudo /opt/ort/traffic_ops_ort.pl --dispersion=0 badass warn https://ops.$tcDomain admin:admin123
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ sudo /opt/ort/traffic_ops_ort.pl --dispersion=0 badass warn https://ops.$tcDomain admin:admin123
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">First run gives a lot of state errors that are expected. The &#8220;badass&#8221; mode fixes these issue s. Run it a second time, this should be cleaner.
+<p class="last">First run gives a lot of state errors that are expected. The “badass” mode fixes these issue s. Run it a second time, this should be cleaner.
 Also, note that many ERROR messages emitted by ORT are actually information messages. Do not panic.</p>
 </div>
 </li>
-<li><p class="first">Create a cron entry for running ort in &#8216;syncds&#8217; mode every 15 minutes.
-This makes traffic control check periodically if &#8216;Queue Updates&#8217; was run on Traffic Ops, and it so, get the updated configuration.</p>
-<p>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">crontab</span> <span class="pre">-e</span></code> and add the following line</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">*/</span><span class="mi">15</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">syncds</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">--</span><span class="n">login_dispersion</span><span class="o">=</span><span class="mi">30</span> <span class="o">--</span><span class="n">dispersion</span><span class="o">=</span><span class="mi">180</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+<li><p class="first">Create a cron entry for running ort in ‘syncds’ mode every 15 minutes.
+This makes traffic control check periodically if ‘Queue Updates’ was run on Traffic Ops, and it so, get the updated configuration.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">crontab</span> <span class="pre">-e</span></code> and add the following line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">*/</span><span class="mi">15</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">syncds</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">--</span><span class="n">login_dispersion</span><span class="o">=</span><span class="mi">30</span> <span class="o">--</span><span class="n">dispersion</span><span class="o">=</span><span class="mi">180</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>Changing <code class="docutils literal"><span class="pre">https://traffops.kabletown.net</span></code>, <code class="docutils literal"><span class="pre">admin</span></code>, and <code class="docutils literal"><span class="pre">password</span></code> to your CDN URL and credentials.</p>
+<p>Changing <code class="docutils literal notranslate"><span class="pre">https://traffops.kabletown.net</span></code>, <code class="docutils literal notranslate"><span class="pre">admin</span></code>, and <code class="docutils literal notranslate"><span class="pre">password</span></code> to your CDN URL and credentials.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">By default, running ort on an edge traffic server waits for it&#8217;s parent (mid) servers to download their configuration before
-it downloads it&#8217;s own configuration. Because of this, scheduling ort for running every 15 minutes (with 5 minutes default dispersion) means
-that it might take up to ~35 minutes for a &#8220;Queue Updates&#8221; operation to affect all traffic servers.  To customize this dispersion time, use
-the command line option &#8211;dispersion=x where x is the number of seconds for the dispersion period.  Servers will select a random number from
-within this dispersion period to being pulling down configuration files from Traffic Ops.  Another option, &#8211;login_dispersion=x can be used.
+<p class="last">By default, running ort on an edge traffic server waits for it’s parent (mid) servers to download their configuration before
+it downloads it’s own configuration. Because of this, scheduling ort for running every 15 minutes (with 5 minutes default dispersion) means
+that it might take up to ~35 minutes for a “Queue Updates” operation to affect all traffic servers.  To customize this dispersion time, use
+the command line option –dispersion=x where x is the number of seconds for the dispersion period.  Servers will select a random number from
+within this dispersion period to being pulling down configuration files from Traffic Ops.  Another option, –login_dispersion=x can be used.
 This option creates a dispersion period after the job begins during which ORT will wait before logging in and checking Traffic Ops for updates
 to the server.  This defaults to 0.  If use_reval_pending, a.k.a. Rapid Revalidate is enabled, edges will NOT wait for their parents to download
 their configuration before downloading their own.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>In &#8216;syncds&#8217; mode, the ort script updates only configurations that might be changed as part of normal operations, such as:</p>
+<p>In ‘syncds’ mode, the ort script updates only configurations that might be changed as part of normal operations, such as:</p>
 <ul class="last simple">
 <li>Delivery Services</li>
 <li>SSL certificates</li>
@@ -340,8 +346,8 @@ their configuration before downloading their own.</p>
 </li>
 <li><p class="first">If Rapid Revalidate is enabled in Traffic Ops, create a second cron job for revalidation checks.  ORT will not check revalidation files if Rapid Revalidate
 is enabled. This setting allows for a separate check to be performed every 60 seconds to verify if a revalidation update has been made.</p>
-<p>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">crontab</span> <span class="pre">-e</span></code> and add the following line</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">*/</span><span class="mi">1</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">revalidate</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">--</span><span class="n">login_dispersion</span><span class="o">=</span><span class="mi">30</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+<p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">crontab</span> <span class="pre">-e</span></code> and add the following line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">*/</span><span class="mi">1</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">revalidate</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">--</span><span class="n">login_dispersion</span><span class="o">=</span><span class="mi">30</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
 </pre></div>
 </div>
 </li>

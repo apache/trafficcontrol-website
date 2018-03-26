@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../../index.html">Developer’s Guide</a> &raquo;</li>
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
@@ -221,22 +221,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cname</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ttl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ttl</span></code></td>
 <td>int</td>
 <td>Time to live for the cname.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryService</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deliveryService</span></code></td>
 <td>string</td>
 <td>Unique string that describes the deliveryservice.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -272,22 +272,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryService</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deliveryService</span></code></td>
 <td>string</td>
 <td>Unique string that describes the deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">resolve4</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">resolve4</span></code></td>
 <td>array</td>
 <td>Array of IPv4 Addresses.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">resolve6</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">resolve6</span></code></td>
 <td>array</td>
 <td>Array of IPv6 Addresses.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
@@ -310,7 +310,7 @@
 </div>
 <p><strong>DELETE /api/1.2/federations.json</strong></p>
 <blockquote>
-<div><p>Deletes <strong>all</strong> federations associated with a user&#8217;s delivery service(s).</p>
+<div><p>Deletes <strong>all</strong> federations associated with a user’s delivery service(s).</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: Federation</p>
 </div></blockquote>
@@ -319,7 +319,7 @@
 </div>
 <p><strong>PUT /api/1.2/federations.json</strong></p>
 <blockquote>
-<div><p>Deletes <strong>all</strong> federations associated with a user&#8217;s delivery service(s) then adds the new federations.</p>
+<div><p>Deletes <strong>all</strong> federations associated with a user’s delivery service(s) then adds the new federations.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: Federation</p>
 <p><strong>Request Properties</strong></p>
@@ -336,22 +336,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryService</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deliveryService</span></code></td>
 <td>string</td>
 <td>Unique string that describes the deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">resolve4</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">resolve4</span></code></td>
 <td>array</td>
 <td>Array of IPv4 Addresses.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">resolve6</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">resolve6</span></code></td>
 <td>array</td>
 <td>Array of IPv6 Addresses.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;federations&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;deliveryService&quot;</span><span class="p">:</span> <span class="s2">&quot;ccp-omg-01&quot;</span><span class="p">,</span>
@@ -391,30 +391,30 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cname</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ttl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ttl</span></code></td>
 <td>int</td>
 <td>Time to live for the cname.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryService</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deliveryService</span></code></td>
 <td>hash</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;&gt;id</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;id</span></code></td>
 <td>int</td>
 <td>Delivery service ID</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;&gt;xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;xmlId</span></code></td>
 <td>string</td>
 <td>Delivery service xml id</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
                     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">41</span>
@@ -453,11 +453,11 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdn</span></code></td>
 <td>string</td>
 <td>CDN name.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">federation</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">federation</span></code></td>
 <td>string</td>
 <td>Federation ID.</td>
 </tr>
@@ -477,30 +477,30 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cname</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ttl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ttl</span></code></td>
 <td>int</td>
 <td>Time to live for the cname.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">deliveryService</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deliveryService</span></code></td>
 <td>hash</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;&gt;id</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;id</span></code></td>
 <td>int</td>
 <td>Delivery service ID</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;&gt;xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;xmlId</span></code></td>
 <td>string</td>
 <td>Delivery service xml id</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
                     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">41</span>
@@ -539,7 +539,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdn</span></code></td>
 <td>string</td>
 <td>CDN name.</td>
 </tr>
@@ -559,22 +559,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cname</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cname</span></code></td>
 <td>yes</td>
 <td>CNAME ending with a dot</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ttl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ttl</span></code></td>
 <td>yes</td>
 <td>TTL</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">description</span></code></td>
 <td>no</td>
 <td>Description</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="last highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;cname&quot;</span><span class="p">:</span> <span class="s2">&quot;the.cname.com.&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span>
     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;the description&quot;</span>
@@ -601,22 +601,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cname</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ttl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ttl</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">description</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
         <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                         <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -655,11 +655,11 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdn</span></code></td>
 <td>string</td>
 <td>CDN name.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">federation</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">federation</span></code></td>
 <td>string</td>
 <td>Federation ID.</td>
 </tr>
@@ -679,22 +679,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cname</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cname</span></code></td>
 <td>yes</td>
 <td>CNAME ending with a dot</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ttl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ttl</span></code></td>
 <td>yes</td>
 <td>TTL</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">description</span></code></td>
 <td>no</td>
 <td>Description</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="last highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;cname&quot;</span><span class="p">:</span> <span class="s2">&quot;the.cname.com.&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span>
     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;the description&quot;</span>
@@ -721,22 +721,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cname</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ttl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ttl</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">description</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">description</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
         <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                         <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -775,11 +775,11 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdn</span></code></td>
 <td>string</td>
 <td>CDN name.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">federation</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">federation</span></code></td>
 <td>string</td>
 <td>Federation ID.</td>
 </tr>
@@ -799,26 +799,26 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">alerts</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">alerts</span></code></td>
 <td>array</td>
 <td>A collection of alert messages.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;level</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></td>
 <td>string</td>
 <td>Success, info, warning or error.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;text</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></td>
 <td>string</td>
 <td>Alert message.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">version</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
       <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                         <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>

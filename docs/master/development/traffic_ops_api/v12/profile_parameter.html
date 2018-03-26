@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../../index.html">Developer’s Guide</a> &raquo;</li>
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
@@ -225,11 +225,11 @@ This accept two formats: single profile-parameter, profile-parameter array.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>yes</td>
 <td>profile id.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parameterId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">parameterId</span></code></td>
 <td>yes</td>
 <td>parameter id.</td>
 </tr>
@@ -253,11 +253,11 @@ This accept two formats: single profile-parameter, profile-parameter array.</p>
 <td>yes</td>
 <td>profile-parameter array.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;profileId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;profileId</span></code></td>
 <td>yes</td>
 <td>profile id.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;parameterId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;parameterId</span></code></td>
 <td>yes</td>
 <td>parameter id.</td>
 </tr>
@@ -266,7 +266,7 @@ This accept two formats: single profile-parameter, profile-parameter array.</p>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre>Single profile-parameter format:
+<div class="highlight-default notranslate"><div class="highlight"><pre>Single profile-parameter format:
 
 {
   &quot;profileId&quot;: 2,
@@ -312,7 +312,7 @@ Profile-parameter array format:
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
@@ -361,11 +361,11 @@ Profile-parameter array format:
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">profile_id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profile_id</span></code></td>
 <td>yes</td>
 <td>profile id.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">parameter_id</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">parameter_id</span></code></td>
 <td>yes</td>
 <td>parameter id.</td>
 </tr>
@@ -385,19 +385,19 @@ Profile-parameter array format:
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">alerts</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">alerts</span></code></td>
 <td>array</td>
 <td>A collection of alert messages.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;level</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></td>
 <td>string</td>
 <td>success, info, warning or error.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;text</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></td>
 <td>string</td>
 <td>Alert message.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">version</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">version</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
@@ -406,7 +406,7 @@ Profile-parameter array format:
 </div></blockquote>
 </div></blockquote>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;alerts&quot;</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -426,7 +426,7 @@ Profile-parameter array format:
 <div><p>Associate parameters to a profile. If the parameter does not exist, create it and associate to the profile. If the parameter already exists, associate it to the profile. If the parameter already associate the profile, keep the association.
 If the profile does not exist, the API returns fail.</p>
 <p>Authentication Required: Yes</p>
-<p>Role(s) Required:  admin or oper. If there is parameter&#8217;s secure equals 1 in the request properties, need admin role.</p>
+<p>Role(s) Required:  admin or oper. If there is parameter’s secure equals 1 in the request properties, need admin role.</p>
 <blockquote>
 <div><p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
@@ -442,7 +442,7 @@ If the profile does not exist, the API returns fail.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">name</span></code></td>
 <td>yes</td>
 <td>profile name.</td>
 </tr>
@@ -467,22 +467,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">name</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter name</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">configFile</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">configFile</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter config_file</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">value</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">value</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter value</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">secure</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">secure</span></code></td>
 <td>yes</td>
 <td>integer</td>
 <td>secure flag, when 1, the parameter is accessible only by admin users. Defaults to 0.</td>
@@ -510,22 +510,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 <td>array</td>
 <td>parameters array</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;name</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;name</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter name</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;configFile</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;configFile</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter config_file</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;value</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;value</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter value</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;secure</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;secure</span></code></td>
 <td>yes</td>
 <td>integer</td>
 <td>secure flag, when 1, the parameter is accessible only by admin users. Defaults to 0.</td>
@@ -534,7 +534,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </table>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
 <span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
@@ -560,7 +560,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Properties</strong></p>
-<div class="highlight-default"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
+<div class="highlight-default notranslate"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
 | Name             | Type    | Description                                                                          |
 +==================+=========+======================================================================================+
 | ``response``     |         | Parameters associated with the profile.                                              |
@@ -592,7 +592,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
     <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;profileId&quot;</span> <span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
@@ -630,7 +630,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 <div><p>Associate parameters to a profile. If the parameter does not exist, create it and associate to the profile. If the parameter already exists, associate it to the profile. If the parameter already associate the profile, keep the association.
 If the profile does not exist, the API returns fail.</p>
 <p>Authentication Required: Yes</p>
-<p>Role(s) Required:  admin or oper. If there is parameter&#8217;s secure equals 1 in the request properties, need admin role.</p>
+<p>Role(s) Required:  admin or oper. If there is parameter’s secure equals 1 in the request properties, need admin role.</p>
 <blockquote>
 <div><p><strong>Request Route Parameters</strong></p>
 <table border="1" class="docutils">
@@ -646,7 +646,7 @@ If the profile does not exist, the API returns fail.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
 <td>yes</td>
 <td>profile name.</td>
 </tr>
@@ -671,22 +671,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">name</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter name</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">configFile</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">configFile</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter config_file</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">value</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">value</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter value</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">secure</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">secure</span></code></td>
 <td>yes</td>
 <td>integer</td>
 <td>secure flag, when 1, the parameter is accessible only by admin users. Defaults to 0.</td>
@@ -714,22 +714,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 <td>array</td>
 <td>parameters array</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;name</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;name</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter name</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;configFile</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;configFile</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter config_file</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;value</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;value</span></code></td>
 <td>yes</td>
 <td>string</td>
 <td>parameter value</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;secure</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;secure</span></code></td>
 <td>yes</td>
 <td>integer</td>
 <td>secure flag, when 1, the parameter is accessible only by admin users. Defaults to 0.</td>
@@ -738,7 +738,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </table>
 </div></blockquote>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="mf">1.</span> <span class="n">single</span> <span class="n">parameter</span> <span class="nb">format</span> <span class="n">exampe</span><span class="p">:</span>
 <span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;configFile&quot;</span><span class="p">:</span><span class="s2">&quot;configFile1&quot;</span><span class="p">,</span>
@@ -764,7 +764,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Properties</strong></p>
-<div class="highlight-default"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
+<div class="highlight-default notranslate"><div class="highlight"><pre>+------------------+---------+--------------------------------------------------------------------------------------+
 | Name             | Type    | Description                                                                          |
 +==================+=========+======================================================================================+
 | ``response``     |         | Parameters associated with the profile.                                              |
@@ -796,7 +796,7 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </pre></div>
 </div>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;response&quot;</span><span class="p">:{</span>
     <span class="s2">&quot;profileName&quot;</span><span class="p">:</span> <span class="s2">&quot;CCR1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;profileId&quot;</span> <span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
@@ -847,22 +847,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>yes</td>
 <td>The ID of the profile.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">paramIds</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">paramIds</span></code></td>
 <td>yes</td>
 <td>An array of parameter IDs.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">replace</span></code></td>
 <td>no</td>
 <td>Replace existing profile/param assignments? (true|false)</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;profileId&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
     <span class="s2">&quot;paramIds&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">],</span>
     <span class="s2">&quot;replace&quot;</span><span class="p">:</span> <span class="n">true</span>
@@ -883,22 +883,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">profileId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>int</td>
 <td>The ID of the profile.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">paramIds</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">paramIds</span></code></td>
 <td>array</td>
 <td>An array of parameter IDs.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">replace</span></code></td>
 <td>bool</td>
 <td>Existing profile/param assignments replaced? (true|false).</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -936,22 +936,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">paramId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">paramId</span></code></td>
 <td>yes</td>
 <td>The ID of the parameter.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileIds</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileIds</span></code></td>
 <td>yes</td>
 <td>An array of profile IDs.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">replace</span></code></td>
 <td>no</td>
 <td>Replace existing param/profile assignments? (true|false)</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Request Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;paramId&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
     <span class="s2">&quot;profileIds&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span> <span class="p">],</span>
     <span class="s2">&quot;replace&quot;</span><span class="p">:</span> <span class="n">true</span>
@@ -972,22 +972,22 @@ The request properties accept 2 formats, both single paramter and parameters arr
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">paramId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">paramId</span></code></td>
 <td>int</td>
 <td>The ID of the parameter.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">profileIds</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileIds</span></code></td>
 <td>array</td>
 <td>An array of profile IDs.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">replace</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">replace</span></code></td>
 <td>bool</td>
 <td>Existing param/profile assignments replaced? (true|false).</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;alerts&quot;</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
                       <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>

@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Monitor Administration</li>
       <li class="wy-breadcrumbs-aside">
@@ -217,12 +217,12 @@
 </li>
 <li><p class="first">Make sure the FQDN of the Traffic Monitor is resolvable in DNS.</p>
 </li>
-<li><p class="first">Install Traffic Monitor: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">traffic_monitor</span></code></p>
+<li><p class="first">Install Traffic Monitor: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">traffic_monitor</span></code></p>
 </li>
 <li><p class="first">Configure Traffic Monitor. See <a class="reference internal" href="#rl-tm-configure"><span class="std std-ref">here</span></a></p>
 </li>
-<li><p class="first">Start the service: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">traffic_monitor</span> <span class="pre">start</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">Starting</span> <span class="n">traffic_monitor</span><span class="p">:</span>
+<li><p class="first">Start the service: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">traffic_monitor</span> <span class="pre">start</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">Starting</span> <span class="n">traffic_monitor</span><span class="p">:</span>
 </pre></div>
 </div>
 </li>
@@ -234,15 +234,15 @@
 <h2>Configuring Traffic Monitor<a class="headerlink" href="#configuring-traffic-monitor" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configuration-overview">
 <h3>Configuration Overview<a class="headerlink" href="#configuration-overview" title="Permalink to this headline">¶</a></h3>
-<p id="rl-tm-configure">Traffic Monitor is configured via two JSON configuration files, <code class="docutils literal"><span class="pre">traffic_ops.cfg</span></code> and <code class="docutils literal"><span class="pre">traffic_monitor.cfg</span></code>, by default located in the <code class="docutils literal"><span class="pre">conf</span></code> directory in the install location.</p>
-<p>The <code class="docutils literal"><span class="pre">traffic_ops.cfg</span></code> config contains Traffic Ops connection information. Specify the URL, username, and password for the instance of Traffic Ops for which this Traffic Monitor is a member.</p>
-<p>The <code class="docutils literal"><span class="pre">traffic_monitor.cfg</span></code> config contains log file locations, as well as detailed application configuration variables, such as processing flush times and initial poll intervals.</p>
+<p id="rl-tm-configure">Traffic Monitor is configured via two JSON configuration files, <code class="docutils literal notranslate"><span class="pre">traffic_ops.cfg</span></code> and <code class="docutils literal notranslate"><span class="pre">traffic_monitor.cfg</span></code>, by default located in the <code class="docutils literal notranslate"><span class="pre">conf</span></code> directory in the install location.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">traffic_ops.cfg</span></code> config contains Traffic Ops connection information. Specify the URL, username, and password for the instance of Traffic Ops for which this Traffic Monitor is a member.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">traffic_monitor.cfg</span></code> config contains log file locations, as well as detailed application configuration variables, such as processing flush times and initial poll intervals.</p>
 <p>Once started with the correct configuration, Traffic Monitor downloads its configuration from Traffic Ops and begins polling caches. Once every cache has been polled, health protocol state is available via RESTful JSON endpoints.</p>
 </div>
 </div>
 <div class="section" id="troubleshooting-and-log-files">
 <h2>Troubleshooting and log files<a class="headerlink" href="#troubleshooting-and-log-files" title="Permalink to this headline">¶</a></h2>
-<p>Traffic Monitor log files are in <code class="docutils literal"><span class="pre">/opt/traffic_monitor/var/log/</span></code>.</p>
+<p>Traffic Monitor log files are in <code class="docutils literal notranslate"><span class="pre">/opt/traffic_monitor/var/log/</span></code>.</p>
 </div>
 </div>
 

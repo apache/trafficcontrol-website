@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Administrator’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Developer&#8217;s Guide</a> &raquo;</li>
+          <li><a href="index.html">Developer’s Guide</a> &raquo;</li>
       
     <li>Building Traffic Control</li>
       <li class="wy-breadcrumbs-aside">
@@ -206,17 +206,17 @@ each component.</p>
 <div class="section" id="requirements">
 <h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">docker</span></code> (<a class="reference external" href="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</a>)</li>
-<li><code class="docutils literal"><span class="pre">docker-compose</span></code> (<a class="reference external" href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a>)
+<li><code class="docutils literal notranslate"><span class="pre">docker</span></code> (<a class="reference external" href="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> (<a class="reference external" href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a>)
 (optional, but recommended)</li>
 </ul>
-<p>If <code class="docutils literal"><span class="pre">docker-compose</span></code> is not available, the <code class="docutils literal"><span class="pre">pkg</span></code> script will
+<p>If <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> is not available, the <code class="docutils literal notranslate"><span class="pre">pkg</span></code> script will
 automatically download and run it in a container. This is noticeably
 slower than running it natively.</p>
 </div>
 <div class="section" id="usage">
 <h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre>$ ./pkg -?
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ ./pkg -?
 Usage: ./pkg [options] [projects]
     -q      Quiet mode. Supresses output.
     -v      Verbose mode. Lists all build output.
@@ -234,12 +234,12 @@ Usage: ./pkg [options] [projects]
 </div>
 <p>If any project names are provided on the command line, only those will be built.
 Otherwise, all projects are built.</p>
-<p>All artifacts (rpms, logs, source tar ball) are copied to <code class="docutils literal"><span class="pre">dist</span></code> at the top level of the
-<code class="docutils literal"><span class="pre">incubator-trafficcontrol</span></code> directory.</p>
+<p>All artifacts (rpms, logs, source tar ball) are copied to <code class="docutils literal notranslate"><span class="pre">dist</span></code> at the top level of the
+<code class="docutils literal notranslate"><span class="pre">incubator-trafficcontrol</span></code> directory.</p>
 </div>
 <div class="section" id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre>$ ./pkg -v source traffic_ops_build
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ ./pkg -v source traffic_ops_build
 Building source.
 Building traffic_ops_build.
 </pre></div>
@@ -248,10 +248,10 @@ Building traffic_ops_build.
 </div>
 <div class="section" id="build-using-docker-compose">
 <h2>Build using docker-compose<a class="headerlink" href="#build-using-docker-compose" title="Permalink to this headline">¶</a></h2>
-<p>If the <code class="docutils literal"><span class="pre">pkg</span></code> script fails, <code class="docutils literal"><span class="pre">docker-compose</span></code> can still be used directly.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">pkg</span></code> script fails, <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> can still be used directly.</p>
 <div class="section" id="id1">
 <h3>Usage<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre>$ docker-compose -f ./infrastructure/docker/build/docker-compose.yml down -v
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ docker-compose -f ./infrastructure/docker/build/docker-compose.yml down -v
 $ docker-compose -f ./infrastructure/docker/build/docker-compose.yml up --build source traffic_ops_build
 $ ls -1 dist/
 build-traffic_ops.log

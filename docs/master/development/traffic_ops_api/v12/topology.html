@@ -106,7 +106,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../admin/index.html">Administrator’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../admin/traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
@@ -127,7 +127,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developer’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../building.html">Building Traffic Control</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../traffic_portal.html">Traffic Portal</a></li>
@@ -173,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../../index.html">Developer&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../../index.html">Developer’s Guide</a> &raquo;</li>
       
           <li><a href="../../traffic_ops.html">Traffic Ops</a> &raquo;</li>
       
@@ -204,7 +204,7 @@
 <span id="to-api-v12-topology-route"></span><h2>/api/1.2/snapshot/{:cdn_name}<a class="headerlink" href="#api-1-2-snapshot-cdn-name" title="Permalink to this headline">¶</a></h2>
 <p><strong>GET /api/1.2/cdns/{:cdn_name}/snapshot</strong></p>
 <blockquote>
-<div><p>Retrieves the CURRENT snapshot for a CDN which doesn&#8217;t necessarily represent the current state of the CDN. The contents of this snapshot are currently used by Traffic Monitor and Traffic Router.</p>
+<div><p>Retrieves the CURRENT snapshot for a CDN which doesn’t necessarily represent the current state of the CDN. The contents of this snapshot are currently used by Traffic Monitor and Traffic Router.</p>
 <p>Authentication Required: Yes</p>
 <p>Role(s) Required: Admin or Operations</p>
 <p><strong>Request Route Parameters</strong></p>
@@ -221,7 +221,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn_name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdn_name</span></code></td>
 <td>yes</td>
 <td>CDN name.</td>
 </tr>
@@ -241,34 +241,34 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">config</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">config</span></code></td>
 <td>hash</td>
 <td>General CDN configuration settings.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">contentRouters</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">contentRouters</span></code></td>
 <td>hash</td>
 <td>A list of Traffic Routers.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">contentServers</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">contentServers</span></code></td>
 <td>hash</td>
 <td>A list of Traffic Servers and the delivery services associated with each.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryServices</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deliveryServices</span></code></td>
 <td>hash</td>
 <td>A list of delivery services.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">edgeLocations</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">edgeLocations</span></code></td>
 <td>hash</td>
 <td>A list of cache groups.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">stats</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">stats</span></code></td>
 <td>hash</td>
 <td>Snapshot properties.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
                     <span class="s2">&quot;contentRouters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
@@ -303,7 +303,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cdn_name</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdn_name</span></code></td>
 <td>yes</td>
 <td>CDN name.</td>
 </tr>
@@ -323,34 +323,34 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">config</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">config</span></code></td>
 <td>hash</td>
 <td>General CDN configuration settings.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">contentRouters</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">contentRouters</span></code></td>
 <td>hash</td>
 <td>A list of Traffic Routers.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">contentServers</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">contentServers</span></code></td>
 <td>hash</td>
 <td>A list of Traffic Servers and the delivery services associated with each.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">deliveryServices</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deliveryServices</span></code></td>
 <td>hash</td>
 <td>A list of delivery services.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">edgeLocations</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">edgeLocations</span></code></td>
 <td>hash</td>
 <td>A list of cache groups.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">stats</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">stats</span></code></td>
 <td>hash</td>
 <td>Snapshot properties.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
                     <span class="s2">&quot;contentRouters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
@@ -406,12 +406,12 @@
 <tbody valign="top">
 <tr class="row-even"><td>response</td>
 <td>string</td>
-<td>&#8220;SUCCESS&#8221;</td>
+<td>“SUCCESS”</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Response Example</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span>
 <span class="p">}</span>
 </pre></div>
