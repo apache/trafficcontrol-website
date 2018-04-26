@@ -132,8 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_server.html">Traffic Server</a></li>
 </ul>
@@ -563,66 +562,90 @@ must have an ssh key on the edge servers.</td>
 <p>The fields in the Delivery Service view are:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="19%" />
-<col width="81%" />
+<col width="7%" />
+<col width="93%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
 <tbody valign="top">
+<tr class="row-odd"><td>Name</td>
+<td>Description</td>
+</tr>
 <tr class="row-even"><td>Active</td>
-<td>When this is set to no Traffic Router will not serve DNS or HTTP responses for this delivery service.</td>
+<td>Whether or not this delivery service is active on the CDN and is capable of traffic.</td>
 </tr>
 <tr class="row-odd"><td>Content Routing Type</td>
-<td>The type of content routing this delivery service will use. See <a class="reference internal" href="#rl-ds-types"><span class="std std-ref">Delivery Service Types</span></a>.</td>
+<td>DNS is the standard routing type for most CDN services. HTTP Redirect is a specialty routing service that is primarily used for video and large file downloads where localization and latency are significant concerns.
+A “Live” routing type should be used for all live services. See <a class="reference internal" href="#rl-ds-types"><span class="std std-ref">Delivery Service Types</span></a>.</td>
 </tr>
-<tr class="row-even"><td>Key(XML ID)</td>
-<td>A unique string that identifies this delivery service.</td>
+<tr class="row-even"><td>Key (XML ID)</td>
+<td>This id becomes a part of the CDN service domain in the form <code class="docutils literal notranslate"><span class="pre">http://cdn.service-key.top.comcast.net/</span></code>. Must be all lowercase, no spaces or special characters. May contain dashes.</td>
 </tr>
 <tr class="row-odd"><td>Display Name</td>
-<td>Delivery Service Name.</td>
+<td>Name of the service that appears in the CDN portal. No character restrictions.</td>
 </tr>
 <tr class="row-even"><td>Tenant</td>
-<td>Dropdown to choose the appropriate tenant for your delivery service.</td>
+<td>Name of company or division of company who owns account. Allows you to group your services and control access. Tenants are setup as a simple hierarchy where you may create parent / child accounts.</td>
 </tr>
 <tr class="row-odd"><td>CDN</td>
-<td>Dropdown to choose the CDN that the delivery service will use.</td>
+<td>The CDN in which the delivery service belongs. Over-the-top is used to deliver video, web and software downloads over the data connection.</td>
 </tr>
-<tr class="row-even"><td>Origin Server Base URL</td>
-<td>The Origin Server’s base URL. This includes the protocol (http or https). Example: <code class="docutils literal notranslate"><span class="pre">http://movies.origin.com</span></code></td>
+<tr class="row-even"><td>Routing Name</td>
+<td>The routing name to use for the delivery FQDN, i.e. <code class="docutils literal notranslate"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>. It must be a valid hostname without periods. Typical values would be ccr, edge and cdn. <a class="footnote-reference" href="#id8" id="id1">[2]</a></td>
 </tr>
 <tr class="row-odd"><td>Protocol</td>
-<td><p class="first">The protocol to serve this delivery service to the clients with:</p>
+<td>Services that use “HTTP and HTTPS” will be able to deliver both types of traffic.</td>
+</tr>
+<tr class="row-even"><td>DSCP Tag</td>
+<td>The Differentiated Services Code Point (DSCP) value to mark IP packets to the client with.</td>
+</tr>
+<tr class="row-odd"><td>Signing Algorithm</td>
+<td><p class="first">Type of URL signing method to sign the URLs. See <a class="reference internal" href="#rl-signed-urls"><span class="std std-ref">Token Based Authentication</span></a>.</p>
 <ul class="last simple">
-<li>0 http</li>
-<li>1 https</li>
-<li>2 both http and https</li>
-<li>3 http to https</li>
+<li>null: token based auth is not enabled for this delivery service.</li>
+<li>“url_sig”: URL Sign token based auth is enabled for this delivery service.</li>
+<li>“uri_signing”: URI Signing token based auth is enabled for this delivery service.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>Long Description</td>
-<td>Long description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
+<tr class="row-even"><td>URL Signing bypass</td>
+<td>Regex value which determines files/folders to bypass during the signing process at the CDN</td>
 </tr>
-<tr class="row-odd"><td>Delivery Service URLs</td>
-<td>List of URLs derived from Protocol + Routing Name + XML ID + CDN Domain</td>
+<tr class="row-odd"><td>Query String Handling</td>
+<td><p class="first">How to treat query strings:</p>
+<ul class="simple">
+<li>0 use in cache key and hand up to origin -this means each unique query string Is treated as a unique URL.</li>
+<li>1 Do not use in cache key, but pass up to origin - this means a 2 URLs that are the same except for the query string will match, and cache HIT, while the origin still sees original query string in the request.</li>
+<li>2 Drop at edge - this means a 2 URLs that are the same except for, the query string will match, and cache HIT, while the origin will not see original query string in the request.</li>
+</ul>
+<p><strong>Note:</strong> Choosing to drop query strings at the edge will preclude the use of a Regex Remap Expression. See <a class="reference internal" href="#rl-regex-remap"><span class="std std-ref">Regex Remap Expression</span></a>.</p>
+<p class="last">To set the qstring without the use of regex remap, or for further options, see <a class="reference internal" href="#rl-qstring-handling"><span class="std std-ref">Qstring Handling</span></a>.</p>
+</td>
 </tr>
-<tr class="row-even"><td><strong>Advanced</strong></td>
-<td>&#160;</td>
+<tr class="row-even"><td>Geo Provider / Geolocation Provider</td>
+<td>Choose which Geo database provider, company that collects data on the location of IP addresses, to use</td>
 </tr>
-<tr class="row-odd"><td>Routing Name</td>
-<td>The routing name to use for the delivery FQDN, i.e. <code class="docutils literal notranslate"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>. It must be a valid hostname without periods. <a class="footnote-reference" href="#id8" id="id1">[2]</a></td>
+<tr class="row-odd"><td>Geo Limit</td>
+<td><p class="first">Some services are intended to be limited by geography. The possible settings are are:</p>
+<ul class="last simple">
+<li>None: Do not limit by geography.</li>
+<li>CZF only: If the requesting IP is not in the Coverage Zone File, do not serve the request.</li>
+<li>CZF + US: If the requesting IP is not in the Coverage Zone File or not in the United States, do not serve the request.</li>
+</ul>
+</td>
 </tr>
-<tr class="row-even"><td>DSCP Tag</td>
-<td>The DSCP value to mark IP packets to the client with.</td>
+<tr class="row-even"><td>Geo Limit Countries</td>
+<td>How (if at all) is this service to be limited by geography. Example: CA, IN, PR</td>
 </tr>
-<tr class="row-odd"><td>IPv6 Routing Enabled?</td>
-<td>When set to yes, the Traffic Router will respond to AAAA DNS requests for the routed name of this delivery service. Otherwise, only A records will be served.</td>
+<tr class="row-odd"><td>Geo Limit Redirect URL</td>
+<td>(For HTTP routed delivery services only) This is the URL, Traffic Router will redirect to when Geo Limit check fails. See <a class="reference internal" href="../traffic_router.html#rl-tr-ngb"><span class="std std-ref">GeoLimit Failure Redirect feature</span></a></td>
+</tr>
+<tr class="row-even"><td>Regional Geoblocking</td>
+<td>Define regional geo-blocking rules for delivery services.</td>
+</tr>
+<tr class="row-odd"><td>IPv6 Routing Enabled</td>
+<td>Default is yes, entering “No” allows you to turn off cdn response to IPv6 requests</td>
 </tr>
 <tr class="row-even"><td>Range Request Handling</td>
-<td><p class="first">(experimental)  How to treat range requests:</p>
+<td><p class="first">How to treat range requests:</p>
 <ul class="last simple">
 <li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
 <li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
@@ -630,129 +653,112 @@ must have an ssh key on the edge servers.</td>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Query String Handling</td>
-<td><p class="first">How to treat query strings:</p>
-<ul class="simple">
-<li>0 use in cache key and hand up to origin -this means each unique query string Is treated as a unique URL.</li>
-<li>1 Do not use in cache key, but pass up to origin - this means a 2 URLs that are the same except for the query string will match, and cache HIT, while the origin still sees original query string in the request.</li>
-<li>2 Drop at edge - this means a 2 URLs that are the same except for  the query string will match, and cache HIT, while the origin will not see original query string in the request.</li>
-</ul>
-<p class="last"><strong>Note:</strong> Choosing to drop query strings at the edge will preclude the use of a Regex Remap Expression. See <a class="reference internal" href="#rl-regex-remap"><span class="std std-ref">Regex Remap Expression</span></a>.
-To set the qstring without the use of regex remap, or for further options, see <a class="reference internal" href="#rl-qstring-handling"><span class="std std-ref">Qstring Handling</span></a>.</p>
-</td>
+<tr class="row-odd"><td>DNS Bypass IP</td>
+<td>(For DNS routed delivery services only) IPv4 address to overflow requests when the the max Bps or Max Tps for this delivery service are exceeded.</td>
 </tr>
-<tr class="row-even"><td>Use Multi Site Origin Feature</td>
-<td>Enable the Multi Site Origin feature for this delivery service. See <a class="reference internal" href="#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
-</tr>
-<tr class="row-odd"><td>Logs Enabled</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Geo Provider</td>
-<td>ip geolocation provider</td>
-</tr>
-<tr class="row-odd"><td>Geo Miss Default Latitude</td>
-<td>Default Latitude for this delivery service. When client localization fails for both Coverage Zone and Geo Lookup, this the client will be routed as if it was at this lat.</td>
-</tr>
-<tr class="row-even"><td>Geo Miss Default Longitude</td>
-<td>Default Longitude for this delivery service. When client localization fails for bot Coverage Zone and Geo Lookup, this the client will be routed as if it was at this long.</td>
-</tr>
-<tr class="row-odd"><td>Geo Limit?</td>
-<td><p class="first">Some services are intended to be limited by geography. The possible settings are are:</p>
-<ul class="last simple">
-<li>None - Do not limit by geography.</li>
-<li>CZF only - If the requesting IP is not in the Coverage Zone File, do not serve the request.</li>
-<li>CZF + US - If the requesting IP is not in the Coverage Zone File or not in the United States, do not serve the request.</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td>Geo Limit Countries</td>
-<td>(for HTTP routed delivery services only) Do not serve the request to specific countries.</td>
-</tr>
-<tr class="row-odd"><td>Geo Limit Redirect URL</td>
-<td>(for HTTP routed delivery services only) This is the URL Traffic Router will redirect to when Geo Limit Failure. See <a class="reference internal" href="../traffic_router.html#rl-tr-ngb"><span class="std std-ref">GeoLimit Failure Redirect feature</span></a></td>
-</tr>
-<tr class="row-even"><td>Signing Algorithm</td>
-<td>See <a class="reference internal" href="#rl-signed-urls"><span class="std std-ref">Token Based Authentication</span></a>.
-None
-URL Signature Keys
-URI Signing Keys</td>
-</tr>
-<tr class="row-odd"><td>Bypass Ipv4</td>
-<td>(For DNS routed delivery services only) This is the address to respond to A requests with when the the max Bps or Max Tps for this delivery service are exceeded.</td>
-</tr>
-<tr class="row-even"><td>Bypass IPv6</td>
-<td>(For DNS routed delivery services only) This is the address to respond to AAAA requests with when the the max Bps or Max Tps for this delivery service are exceeded.</td>
+<tr class="row-even"><td>DNS Bypass IPv6</td>
+<td>(For DNS routed delivery services only) IPv6 address to overflow requests when the the max Bps or Max Tps for this delivery service are exceeded.</td>
 </tr>
 <tr class="row-odd"><td>DNS Bypass Cname</td>
-<td>&#160;</td>
+<td>(For DNS routed delivery services only) Domain name to overflow requests when the the max Bps or Max Tps for this delivery service are exceeded.</td>
 </tr>
 <tr class="row-even"><td>DNS Bypass TTL</td>
-<td>&#160;</td>
+<td>TTL for the DNS bypass domain or IP when threshold exceeded.</td>
 </tr>
 <tr class="row-odd"><td>Maximum Bytes per Second allowed per session</td>
-<td>The maximum bytes per second a cache will delivery on any single TCP connection. This uses the Linux kernel’s Fair Queuing setsockopt(SO_MAX_PACING_RATE) to limit the rate of delivery. Traffic exceeding this
-speed will only be rate-limited and not diverted. This option <em>requires</em> <cite>net.core.default_qdisc = fq</cite> in <cite>/etc/sysctl.conf</cite>.</td>
-</tr>
-<tr class="row-even"><td>Long Description</td>
-<td>Long description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
-</tr>
-<tr class="row-odd"><td>Max DNS Answers</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Delivery Service DNS TTL</td>
-<td>The Time To Live on the DNS record for the Traffic Router A and AAAA records (<code class="docutils literal notranslate"><span class="pre">&lt;routing-name&gt;.&lt;deliveryservice&gt;.&lt;cdn-domain&gt;</span></code>).</td>
-</tr>
-<tr class="row-odd"><td>Delivery Service Profile</td>
-<td>The profile for this delivery service.</td>
+<td>The maximum bytes per second a cache will delivery on any single TCP connection. This uses the Linux kernel’s Fair Queuing setsockopt(SO_MAX_PACING_RATE) to limit the rate of delivery. Traffic exceeding this speed will only be rate-limited and not diverted. This option requires net.core.default_qdisc = fq in /etc/sysctl.conf.</td>
 </tr>
 <tr class="row-even"><td>Global Max Mbps</td>
-<td>The maximum bits per second this delivery service can serve across all EDGE caches before traffic will be diverted to the bypass destination. For a DNS delivery service, the Bypass Ipv4 or Ipv6  will be used
-(depending on whether this was a A or AAAA request), and for HTTP delivery services the Bypass FQDN will be used.</td>
+<td>The maximum bits per second this delivery service can serve across all EDGE caches before traffic will be diverted to the bypass destination. For a DNS delivery service, the Bypass Ipv4 or Ipv6 will be used (depending on whether this was a A or AAAA request), and for HTTP delivery services the Bypass FQDN will be used.</td>
 </tr>
 <tr class="row-odd"><td>Global Max TPS</td>
-<td>The maximum transactions per se this delivery service can serve across all EDGE caches before traffic will be diverted to the bypass destination. For a DNS delivery service, the Bypass Ipv4 or Ipv6  will be used
-(depending on whether this was a A or AAAA request), and for HTTP delivery services the Bypass FQDN will be used.</td>
+<td>The maximum transactions per se this delivery service can serve across all EDGE caches before traffic will be diverted to the bypass destination. For a DNS delivery service, the Bypass Ipv4 or Ipv6 will be used (depending on whether this was a A or AAAA request), and for HTTP delivery services the Bypass FQDN will be used.</td>
 </tr>
-<tr class="row-even"><td>Signed URLs</td>
-<td>Use Signed URLs? See <a class="reference internal" href="#rl-signed-urls"><span class="std std-ref">Token Based Authentication</span></a>.</td>
+<tr class="row-even"><td>Max DNS Answers</td>
+<td>This is available only for DNS Content Routing Types. It is used to restrict the number of cache IP addresses that the CCR will hand back. A numeric value from 1 to 15 which determines how many caches your content will be spread across in a particular site. When a customer requests your content they will get 1 to 15 IP addresses back they can use. These are rotated in each response. Ideally the number will reflect the amount of traffic. 1 = trial account with very little traffic, 2 = small production service. Add 1 more server for every 20 Gbps of traffic you expect at peak. So 20 Gbps = 3, 40 Gbps = 4, 60 Gbps = 5</td>
 </tr>
-<tr class="row-odd"><td>Edge Header Rewrite Rules</td>
-<td>Header Rewrite rules to apply for this delivery service at the EDGE tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id7" id="id2">[1]</a></td>
+<tr class="row-odd"><td>Delivery Service DNS TTL</td>
+<td>(For DNS routed delivery services only) The Time To Live on the DNS record for the Traffic Router A and AAAA records. Default value is 30 seconds. Setting too high or too low will result in poor caching performance.</td>
 </tr>
-<tr class="row-even"><td>Mid Header Rewrite Rules</td>
-<td>Header Rewrite rules to apply for this delivery service at the MID tier. See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id7" id="id3">[1]</a></td>
+<tr class="row-even"><td>Initial Dispersion</td>
+<td>This is available only for HTTP Content Routing Types. Determines number of machines content will be placed on within a cache group. Default is 1, Setting too high will result in poor caching performance.</td>
 </tr>
-<tr class="row-odd"><td>Traffic Router Additional Response Headers</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>Origin Server Base URL</td>
+<td>The Origin Server’s base URL. This includes the protocol (http or https). Example: <code class="docutils literal notranslate"><span class="pre">http://movies.origin.com</span></code>
+Must be a domain only, no directories or IP addresses</td>
 </tr>
-<tr class="row-even"><td>Traffic Router Log Request Headers</td>
-<td>&#160;</td>
+<tr class="row-even"><td>Use Multi Site Origin Feature</td>
+<td>Enable the Multi Site Origin feature for this delivery service. Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
-<tr class="row-odd"><td>Regex Remap Expression</td>
-<td><p class="first">Regex Remap rule to apply to this delivery service at the Edge tier. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_remap.en.html">ATS documentation on regex_remap</a>. <a class="footnote-reference" href="#id7" id="id4">[1]</a></p>
+<tr class="row-odd"><td>Delivery Service Profile</td>
+<td>Only used if a delivery service uses configurations that specifically require a profile.</td>
+</tr>
+<tr class="row-even"><td>Geo Miss Default Latitude</td>
+<td>Default Latitude for this delivery service. When client localization fails for both Coverage Zone and Geo Lookup, this the client will be routed as if it was at this lat.</td>
+</tr>
+<tr class="row-odd"><td>Geo Miss Default Longitude</td>
+<td>Default Longitude for this delivery service. When client localization fails for bot Coverage Zone and Geo Lookup, this the client will be routed as if it was at this long.</td>
+</tr>
+<tr class="row-even"><td>Edge Header Rewrite Rules</td>
+<td><p class="first">Headers can be added or altered at each layer of the CDN. You must tell us four things: the action, the header name, the header value, and the direction to apply. The action will tell us whether we are adding, removing, or replacing headers. The header name and header value will determine the full header text. The direction will determine whether we add it before we respond to a request or before we make a request further up the chain in the server hierarchy. Examples include:</p>
+<ul class="simple">
+<li>Action: Set</li>
+<li>Header Name: X-CDN</li>
+<li>Header Value: Foo</li>
+<li>Direction: Edge Response to Client</li>
+</ul>
+<p class="last">See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id7" id="id2">[1]</a></p>
+</td>
+</tr>
+<tr class="row-odd"><td>Mid Header Rewrite Rules</td>
+<td><p class="first">Headers can be added or altered at each layer of the CDN. You must tell us four things: the action, the header name, the header value, and the direction to apply. The action will tell us whether we are adding, removing, or replacing headers. The header name and header value will determine the full header text. The direction will determine whether we add it before we respond to a request or before we make a request further up the chain in the server hierarchy. Examples include:</p>
+<ul class="simple">
+<li>Action: Set</li>
+<li>Header Name: Host</li>
+<li>Header Value: code_abc123</li>
+<li>Direction: Mid Request to Origin</li>
+</ul>
+<p class="last">See <a class="reference internal" href="#rl-header-rewrite"><span class="std std-ref">Header Rewrite Options and DSCP</span></a>. <a class="footnote-reference" href="#id7" id="id3">[1]</a></p>
+</td>
+</tr>
+<tr class="row-even"><td>Traffic Router Additional Response Headers</td>
+<td>List of header name:value pairs separated by __RETURN__. Listed pairs will be included in all TR HTTP responses.</td>
+</tr>
+<tr class="row-odd"><td>Traffic Router Log Request Headers</td>
+<td>List of header keys separated by __RETURN__. Listed headers will be included in TR access log entries under the “rh=” token.</td>
+</tr>
+<tr class="row-even"><td>Regex remap expression</td>
+<td><p class="first">Allows remapping of incoming requests URL using regex pattern matching to search/replace text. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_remap.en.html">ATS documentation on regex_remap</a>. <a class="footnote-reference" href="#id7" id="id4">[1]</a></p>
 <p class="last"><strong>Note:</strong> you will not be able to save a Regex Remap Expression if you have Query String Handling set to drop query strings at the edge. See <a class="reference internal" href="#rl-regex-remap"><span class="std std-ref">Regex Remap Expression</span></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td>Cache URL expression</td>
-<td>Cache URL rule to apply to this delivery service. See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/cacheurl.en.html">ATS documentation on cacheurl</a>. <a class="footnote-reference" href="#id7" id="id5">[1]</a></td>
+<tr class="row-odd"><td>Cache key expression</td>
+<td>Allows you to manipulate the cache key of the incoming requests. Normally, the cache key is the origin domain. This can be changed so that multiple services can share a cache key, can also be used to preserve cached content if service origin is changed.
+See <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/cachekey.en.html">ATS documentation on cachekey</a>. <a class="footnote-reference" href="#id7" id="id5">[1]</a></td>
 </tr>
-<tr class="row-odd"><td>Raw remap text</td>
-<td>For HTTP and DNS deliveryservices, this will get added to the end of the remap line on the cache verbatim. For ANY_MAP deliveryservices this is the remap line. <a class="footnote-reference" href="#id7" id="id6">[1]</a></td>
+<tr class="row-even"><td>Raw remap text</td>
+<td>For HTTP and DNS delivery services, this will get added to the end of the remap line on the cache verbatim. For ANY_MAP delivery services this is the remap line. <a class="footnote-reference" href="#id7" id="id6">[1]</a></td>
 </tr>
-<tr class="row-even"><td>Long Description 2</td>
-<td>Customer description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
+<tr class="row-odd"><td>Long Description</td>
+<td>A short text field that describes the purpose of the delivery service and will be displayed in the portal as a description field. For example, you can use this field to describe your service. To be consumed from the APIs by downstream tools (Portal)</td>
 </tr>
-<tr class="row-odd"><td>Long Description 3</td>
-<td>Service description for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
+<tr class="row-even"><td>Long Description 1</td>
+<td>Free text field not currently used in configuration. For example, you can use this field to describe your customer type. To be consumed from the APIs by downstream tools (Portal)</td>
+</tr>
+<tr class="row-odd"><td>Long Description 2</td>
+<td>Free text field not currently used in configuration. To be consumed from the APIs by downstream tools (Portal)</td>
 </tr>
 <tr class="row-even"><td>Info URL</td>
-<td>Info URL  for this delivery service. To be consumed from the APIs by downstream tools (Portal).</td>
+<td>Free text field allowing you to enter a URL which provides information about the service. To be consumed from the APIs by downstream tools (Portal)</td>
 </tr>
 <tr class="row-odd"><td>Check Path</td>
 <td>A path (ex: /crossdomain.xml) to verify the connection to the origin server with. This can be used by Check Extension scripts to do periodic health checks against the delivery service.</td>
 </tr>
 <tr class="row-even"><td>Origin Shield (Pipe Delimited String)</td>
-<td>Experimental. Origin Shield string.</td>
+<td>Add another forward proxy upstream of the mid caches. Example: go_direct=true will allow the Mid to hit the origin directly instead of failing if the origin shield is down. Experimental Feature.</td>
+</tr>
+<tr class="row-odd"><td>Logs Enabled</td>
+<td>Allows you to turn on/off logging for the service</td>
 </tr>
 </tbody>
 </table>
