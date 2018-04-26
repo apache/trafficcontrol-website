@@ -40,7 +40,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Traffic Control 2.2-dev documentation" href="../index.html"/>
         <link rel="up" title="Developer’s Guide" href="index.html"/>
-        <link rel="next" title="API Routes" href="traffic_ops_api/routes.html"/>
+        <link rel="next" title="Traffic Portal" href="traffic_portal.html"/>
         <link rel="prev" title="Building Traffic Control" href="building.html"/> 
 
   
@@ -132,10 +132,18 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_server.html">Traffic Server</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/routes.html">API Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v11/index.html">API 1.1 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v12/index.html">API 1.2 Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -187,7 +195,7 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="traffic_ops_api/routes.html" class="btn btn-neutral float-right" title="API Routes">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="traffic_portal.html" class="btn btn-neutral float-right" title="Traffic Portal">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
         		  <a href="building.html" class="btn btn-neutral" title="Building Traffic Control"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -556,283 +564,6 @@ Extensions::YourCustomExtension</p>
 <p>To incorporate any custom Extensions during development set your PERL5LIB with any number of directories with the understanding that the PERL5LIB search order will come into play, so keep in mind that top-down is how your code will be located.  Once Perl locates your custom route or Perl package/class it ‘pins’ on that class or Mojo Route and doesn’t look any further, which allows for the developer to <em>override</em> Traffic Ops functionality.</p>
 </div>
 </div>
-<div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<p>The Traffic Ops API provides programmatic access to read and write CDN data providing authorized API consumers with the ability to monitor CDN performance and configure CDN settings and parameters.</p>
-<div class="section" id="response-structure">
-<h3>Response Structure<a class="headerlink" href="#response-structure" title="Permalink to this headline">¶</a></h3>
-<p>All successful responses have the following structure:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">JSON</span> <span class="nb">object</span> <span class="k">with</span> <span class="n">main</span> <span class="n">response</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>To make the documentation easier to read, only the <code class="docutils literal notranslate"><span class="pre">&lt;JSON</span> <span class="pre">object</span> <span class="pre">with</span> <span class="pre">main</span> <span class="pre">response&gt;</span></code> is documented, even though the response and version fields are always present.</p>
-</div>
-<div class="section" id="using-api-endpoints">
-<h3>Using API Endpoints<a class="headerlink" href="#using-api-endpoints" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Authenticate with your Traffic Portal or Traffic Ops user account credentials.</li>
-<li>Upon successful user authentication, note the mojolicious cookie value in the response headers.</li>
-<li>Pass the mojolicious cookie value, along with any subsequent calls to an authenticated API endpoint.</li>
-</ol>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre>[jvd@laika ~]$ curl -H &quot;Accept: application/json&quot; http://localhost:3000/api/1.1/usage/asns.json
-{&quot;alerts&quot;:[{&quot;level&quot;:&quot;error&quot;,&quot;text&quot;:&quot;Unauthorized, please log in.&quot;}]}
-[jvd@laika ~]$
-[jvd@laika ~]$ curl -v -H &quot;Accept: application/json&quot; -v -X POST --data &#39;{ &quot;u&quot;:&quot;admin&quot;, &quot;p&quot;:&quot;secret_passwd&quot; }&#39; http://localhost:3000/api/1.1/user/login
-* Hostname was NOT found in DNS cache
-*   Trying ::1...
-* connect to ::1 port 3000 failed: Connection refused
-*   Trying 127.0.0.1...
-* Connected to localhost (127.0.0.1) port 3000 (#0)
-&gt; POST /api/1.1/user/login HTTP/1.1
-&gt; User-Agent: curl/7.37.1
-&gt; Host: localhost:3000
-&gt; Accept: application/json
-&gt; Content-Length: 32
-&gt; Content-Type: application/x-www-form-urlencoded
-&gt;
-* upload completely sent off: 32 out of 32 bytes
-&lt; HTTP/1.1 200 OK
-&lt; Connection: keep-alive
-&lt; Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE
-&lt; Access-Control-Allow-Origin: http://localhost:8080
-&lt; Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-&lt; Set-Cookie: mojolicious=eyJleHBpcmVzIjoxNDI5NDAyMjAxLCJhdXRoX2RhdGEiOiJhZG1pbiJ9--f990d03b7180b1ece97c3bb5ca69803cd6a79862; expires=Sun, 19 Apr 2015 00:10:01 GMT; path=/; HttpOnly
-&lt; Content-Type: application/json
-&lt; Date: Sat, 18 Apr 2015 20:10:01 GMT
-&lt; Access-Control-Allow-Credentials: true
-&lt; Content-Length: 81
-&lt; Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-* Server Mojolicious (Perl) is not blacklisted
-&lt; Server: Mojolicious (Perl)
-&lt;
-* Connection #0 to host localhost left intact
-{&quot;alerts&quot;:[{&quot;level&quot;:&quot;success&quot;,&quot;text&quot;:&quot;Successfully logged in.&quot;}]}
-[jvd@laika ~]$
-
-[jvd@laika ~]$ curl -H&#39;Cookie: mojolicious=eyJleHBpcmVzIjoxNDI5NDAyMjAxLCJhdXRoX2RhdGEiOiJhZG1pbiJ9--f990d03b7180b1ece97c3bb5ca69803cd6a79862;&#39; -H &quot;Accept: application/json&quot; http://localhost:3000/api/1.1/asns.json
-{&quot;response&quot;:{&quot;asns&quot;:[{&quot;lastUpdated&quot;:&quot;2012-09-17 15:41:22&quot;, .. asn data deleted ..   ,}
-[jvd@laika ~]$
-</pre></div>
-</div>
-</div>
-<div class="section" id="api-errors">
-<h3>API Errors<a class="headerlink" href="#api-errors" title="Permalink to this headline">¶</a></h3>
-<p><strong>Response Properties</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="28%" />
-<col width="10%" />
-<col width="62%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">alerts</span></code></td>
-<td>array</td>
-<td>A collection of alert messages.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;level</span></code></td>
-<td>string</td>
-<td>Success, info, warning or error.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;text</span></code></td>
-<td>string</td>
-<td>Alert message.</td>
-</tr>
-</tbody>
-</table>
-<p>The 3 most common errors returned by Traffic Ops are:</p>
-<dl class="docutils">
-<dt>401 Unauthorized</dt>
-<dd><p class="first">When you don’t supply the right cookie, this is the response.</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre>[jvd@laika ~]$ curl -v -H &quot;Accept: application/json&quot; http://localhost:3000/api/1.1/usage/asns.json
-* Hostname was NOT found in DNS cache
-*   Trying ::1...
-* connect to ::1 port 3000 failed: Connection refused
-*   Trying 127.0.0.1...
-* Connected to localhost (127.0.0.1) port 3000 (#0)
-&gt; GET /api/1.1/usage/asns.json HTTP/1.1
-&gt; User-Agent: curl/7.37.1
-&gt; Host: localhost:3000
-&gt; Accept: application/json
-&gt;
-&lt; HTTP/1.1 401 Unauthorized
-&lt; Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-&lt; Content-Length: 84
-* Server Mojolicious (Perl) is not blacklisted
-&lt; Server: Mojolicious (Perl)
-&lt; Connection: keep-alive
-&lt; Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE
-&lt; Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-&lt; Access-Control-Allow-Origin: http://localhost:8080
-&lt; Date: Sat, 18 Apr 2015 20:36:12 GMT
-&lt; Content-Type: application/json
-&lt; Access-Control-Allow-Credentials: true
-&lt;
-* Connection #0 to host localhost left intact
-{&quot;alerts&quot;:[{&quot;level&quot;:&quot;error&quot;,&quot;text&quot;:&quot;Unauthorized, please log in.&quot;}]}
-[jvd@laika ~]$
-</pre></div>
-</div>
-</dd>
-<dt>404 Not Found</dt>
-<dd><p class="first">When the resource (path) is non existent Traffic Ops returns a 404:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre>[jvd@laika ~]$ curl -v -H&#39;Cookie: mojolicious=eyJleHBpcmVzIjoxNDI5NDAyMjAxLCJhdXRoX2RhdGEiOiJhZG1pbiJ9--f990d03b7180b1ece97c3bb5ca69803cd6a79862;&#39; -H &quot;Accept: application/json&quot; http://localhost:3000/api/1.1/asnsjj.json
-* Hostname was NOT found in DNS cache
-*   Trying ::1...
-* connect to ::1 port 3000 failed: Connection refused
-*   Trying 127.0.0.1...
-* Connected to localhost (127.0.0.1) port 3000 (#0)
-&gt; GET /api/1.1/asnsjj.json HTTP/1.1
-&gt; User-Agent: curl/7.37.1
-&gt; Host: localhost:3000
-&gt; Cookie: mojolicious=eyJleHBpcmVzIjoxNDI5NDAyMjAxLCJhdXRoX2RhdGEiOiJhZG1pbiJ9--f990d03b7180b1ece97c3bb5ca69803cd6a79862;
-&gt; Accept: application/json
-&gt;
-&lt; HTTP/1.1 404 Not Found
-* Server Mojolicious (Perl) is not blacklisted
-&lt; Server: Mojolicious (Perl)
-&lt; Content-Length: 75
-&lt; Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-&lt; Content-Type: application/json
-&lt; Date: Sat, 18 Apr 2015 20:37:43 GMT
-&lt; Access-Control-Allow-Credentials: true
-&lt; Set-Cookie: mojolicious=eyJleHBpcmVzIjoxNDI5NDAzODYzLCJhdXRoX2RhdGEiOiJhZG1pbiJ9--8a5a61b91473bc785d4073fe711de8d2c63f02dd; expires=Sun, 19 Apr 2015 00:37:43 GMT; path=/; HttpOnly
-&lt; Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE
-&lt; Connection: keep-alive
-&lt; Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-&lt; Access-Control-Allow-Origin: http://localhost:8080
-&lt;
-* Connection #0 to host localhost left intact
-{&quot;alerts&quot;:[{&quot;text&quot;:&quot;Resource not found.&quot;,&quot;level&quot;:&quot;error&quot;}]}
-[jvd@laika ~]$
-</pre></div>
-</div>
-</dd>
-<dt>500 Internal Server Error</dt>
-<dd><p class="first">When you are asking for a correct path, but the database doesn’t match, it returns a 500:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre>[jvd@laika ~]$ curl -v -H&#39;Cookie: mojolicious=eyJleHBpcmVzIjoxNDI5NDAyMjAxLCJhdXRoX2RhdGEiOiJhZG1pbiJ9--f990d03b7180b1ece97c3bb5ca69803cd6a79862;&#39; -H &quot;Accept: application/json&quot; http://localhost:3000/api/1.1/servers/hostname/jj/details.json
-* Hostname was NOT found in DNS cache
-*   Trying ::1...
-* connect to ::1 port 3000 failed: Connection refused
-*   Trying 127.0.0.1...
-* Connected to localhost (127.0.0.1) port 3000 (#0)
-&gt; GET /api/1.1/servers/hostname/jj/details.json HTTP/1.1
-&gt; User-Agent: curl/7.37.1
-&gt; Host: localhost:3000
-&gt; Cookie: mojolicious=eyJleHBpcmVzIjoxNDI5NDAyMjAxLCJhdXRoX2RhdGEiOiJhZG1pbiJ9--f990d03b7180b1ece97c3bb5ca69803cd6a79862;
-&gt; Accept: application/json
-&gt;
-&lt; HTTP/1.1 500 Internal Server Error
-* Server Mojolicious (Perl) is not blacklisted
-&lt; Server: Mojolicious (Perl)
-&lt; Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-&lt; Content-Length: 93
-&lt; Set-Cookie: mojolicious=eyJhdXRoX2RhdGEiOiJhZG1pbiIsImV4cGlyZXMiOjE0Mjk0MDQzMDZ9--1b08977e91f8f68b0ff5d5e5f6481c76ddfd0853; expires=Sun, 19 Apr 2015 00:45:06 GMT; path=/; HttpOnly
-&lt; Content-Type: application/json
-&lt; Date: Sat, 18 Apr 2015 20:45:06 GMT
-&lt; Access-Control-Allow-Credentials: true
-&lt; Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE
-&lt; Connection: keep-alive
-&lt; Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-&lt; Access-Control-Allow-Origin: http://localhost:8080
-&lt;
-* Connection #0 to host localhost left intact
-{&quot;alerts&quot;:[{&quot;level&quot;:&quot;error&quot;,&quot;text&quot;:&quot;An error occurred. Please contact your administrator.&quot;}]}
-[jvd@laika ~]$
-</pre></div>
-</div>
-<p class="last">The rest of the API documentation will only document the <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> case, where no errors have occured.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="traffic-ops-api-routes">
-<h3>Traffic Ops API Routes<a class="headerlink" href="#traffic-ops-api-routes" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/routes.html">API Routes</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="api-1-1-reference">
-<h3>API 1.1 Reference<a class="headerlink" href="#api-1-1-reference" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/asn.html">ASN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/cachegroup.html">Cache Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/cdn.html">CDN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/changelog.html">Change Logs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/deliveryservice.html">Delivery Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/hwinfo.html">Hardware Info</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/parameter.html">Parameter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/phys_location.html">Physical Location</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/profile.html">Profiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/region.html">Regions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/role.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/server.html">Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/static_dns.html">Static DNS Entries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/status.html">Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/system.html">System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/to_extension.html">TO Extensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/type.html">Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v11/user.html">Users</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="api-1-2-reference">
-<h3>API 1.2 Reference<a class="headerlink" href="#api-1-2-reference" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/api_capability.html">API-Capabilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/asn.html">ASN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/cache.html">Cache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/cachegroup.html">Cache Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/cachegroup_parameter.html">Cache Group parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/cache_stats.html">Cache Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/capability.html">Capabilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/cdn.html">CDN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/changelog.html">Change Logs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/configfiles_ats.html">Config Files and Config File Metadata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/deliveryservice.html">Delivery Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/deliveryservice_regex.html">Delivery Service Regexes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/deliveryservice_stats.html">Delivery Service Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/division.html">Divisions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/federation.html">Federation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/federation_deliveryservice.html">Federation Delivery Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/federation_federationresolver.html">Federation Federation Resolver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/federation_resolver.html">Federation Resolver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/federation_user.html">Federation User</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/hwinfo.html">Hardware Info</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/iso.html">ISO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/job.html">Jobs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/parameter.html">Parameter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/phys_location.html">Physical Location</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/profile.html">Profiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/profile_parameter.html">Profile parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/influxdb.html">InfluxDB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/region.html">Regions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/role.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/server.html">Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/static_dns.html">Static DNS Entries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/status.html">Status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/steering_target.html">Steering Targets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/system.html">System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/tenant.html">Tenants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/to_extension.html">TO Extensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/type.html">Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/user.html">Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_ops_api/v12/topology.html">Snapshot CRConfig</a></li>
-</ul>
-</div>
-</div>
-</div>
 </div>
 
 
@@ -841,7 +572,7 @@ Extensions::YourCustomExtension</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="traffic_ops_api/routes.html" class="btn btn-neutral float-right" title="API Routes">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="traffic_portal.html" class="btn btn-neutral float-right" title="Traffic Portal">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="building.html" class="btn btn-neutral" title="Building Traffic Control"><span class="fa fa-arrow-circle-left"></span> Previous</a>
