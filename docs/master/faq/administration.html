@@ -100,7 +100,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_monitor.html">Traffic Monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_server.html">Traffic Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_vault.html">Traffic Vault</a></li>
 </ul>
 </li>
@@ -132,10 +131,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/routes.html">API Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v11/index.html">API 1.1 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v12/index.html">API 1.2 Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -198,8 +204,28 @@
             
   <div class="section" id="running-a-traffic-control-cdn">
 <h1>Running a Traffic Control CDN<a class="headerlink" href="#running-a-traffic-control-cdn" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cache-group">
+<span id="rl-cachegroup"></span><h2>Cache Group<a class="headerlink" href="#cache-group" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>A cache group is a logical group of caches that Traffic Router tries to use as a combined cache. Traffic Router treats all servers in a cache group as though they are in the same physical location, though they are in fact only in the same region (network). A cache group has one single set of geographical coordinates even if the caches that make up the cache group are in different physical locations. The caches in a cache group are not aware of the other caches in the group - there is no clustering software or communications between caches in a cache group.</p>
+<p>There are two types of cache groups: EDGE and MID. Traffic Control is a two tier system, where the clients get directed to the EDGE cache group. On cache miss, the cache in the EDGE cache group obtains content from a MID cache group, rather than the origin, which is shared with multiple EDGEs. EDGE cache groups are configured to have one single parent cache group.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Often the EDGE to MID relationship is based on network distance, and does not necessarily match the geographic distance.</p>
+</div>
+<p>A cache group serves a particular part of the network as defined in the coverage zone file. See <a class="reference internal" href="../admin/traffic_ops/using.html#rl-asn-czf"><span class="std std-ref">The Coverage Zone File and ASN Table</span></a>.</p>
+<p>Consider the example CDN below:</p>
+<img alt="../_images/cache_groups_1.png" class="align-center" src="../_images/cache_groups_1.png" />
+<p>There are two MID tier cache groups, each assigned with three EDGEs. The lax, den and chi EDGE locations are configured with the West MID as their parent, and the nyc, phl, and hou EDGEs, are configured with the East MID as their parent. On a cache miss, the EDGEs use their assigned parent.</p>
+</div></blockquote>
+<p>All caches (and other servers) are assigned a Profile in Traffic Ops.</p>
+</div>
+<div class="section" id="profile">
+<span id="rl-profile"></span><h2>Profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>A Profile is a set of configuration settings and parameters, applied to a server or deliveryservice. For a typical cache there are hundreds of configuration settings to apply. The Traffic Ops parameter view contains the defined settings, and bundled into groups using Profiles. Traffic Ops allows for duplication, comparison, import and export of Profiles.</div></blockquote>
 <div class="section" id="why-is-my-crconfig-json-rejected">
-<h2>Why is my CRConfig.json rejected?<a class="headerlink" href="#why-is-my-crconfig-json-rejected" title="Permalink to this headline">¶</a></h2>
+<h3>Why is my CRConfig.json rejected?<a class="headerlink" href="#why-is-my-crconfig-json-rejected" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>Especially in version 1.1.0, there’s a number of manual steps that need to be done after the initial install. Make sure that after the initial install, you perform these steps in order:</p>
 <div class="admonition note">
@@ -288,6 +314,7 @@
 </ul>
 <p>Now you are ready to install the sw on Traffic Monitor and then Traffic Router.</p>
 </div></blockquote>
+</div>
 </div>
 </div>
 
