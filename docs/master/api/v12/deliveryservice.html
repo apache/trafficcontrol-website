@@ -100,7 +100,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_monitor.html">Traffic Monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_server.html">Traffic Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_vault.html">Traffic Vault</a></li>
 </ul>
 </li>
@@ -134,7 +133,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_server.html">Traffic Server</a></li>
 </ul>
 </li>
 </ul>
@@ -144,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../routes.html">API Routes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../v11/index.html">API 1.1 Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../v13/index.html">API 1.3 Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -254,9 +253,9 @@
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
+<col width="17%" />
 <col width="5%" />
-<col width="80%" />
+<col width="78%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -269,27 +268,35 @@
 <td>bool</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">anonymousBlockingEnabled</span></code></td>
+<td>bool</td>
+<td><ul class="first last simple">
+<li>true: enable blocking clients with anonymous ips</li>
+<li>false: disabled</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
 <td>string</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr. host.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
 <td>int</td>
 <td>Id of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
 <td>string</td>
 <td>Name of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
 <td>string</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
 <td>string</td>
 <td><p class="first">When to do Deep Caching for this Delivery Service:</p>
 <ul class="last simple">
@@ -298,45 +305,45 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
 <td>string</td>
 <td>The display name of the delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
 <td>string</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice  - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
 <td>string</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
 <td>int</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt;  customer) traffic.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The EDGE header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
 <td>array</td>
 <td>Entry points into the CDN for this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoLimitRedirectUrl</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">geoLimitRedirectUrl</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">geoLimit</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoLimit</span></code></td>
 <td>int</td>
 <td><ul class="first simple">
 <li>0: None - no limitations</li>
@@ -347,122 +354,116 @@ globalMaxMbps traffic on this deliveryservice.</td>
 routing to the content by Traffic Router.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoLimitCountries</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">geoLimitCountries</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">geoProvider</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoProvider</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">globalMaxMbps</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">globalMaxMbps</span></code></td>
 <td>int</td>
 <td>The maximum global bandwidth allowed on this deliveryservice. If exceeded, the traffic routes to the
 dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliveryservices.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">globalMaxTps</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">globalMaxTps</span></code></td>
 <td>int</td>
 <td>The maximum global transactions per second allowed on this deliveryservice. When this is exceeded
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
 <td>int</td>
 <td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
 will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
 <td>string</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
 <td>int</td>
 <td>The deliveryservice id (database row number).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
 <td>string</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
 <td>bool</td>
 <td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
 <td>bool</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
 <td>string</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
 <td>string</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
 <td>string</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
 <td>int</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
 <td>float</td>
-<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. 39.7391500 or null</li>
-</ul>
-</td>
+<td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. 39.7391500 or null</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
 <td>float</td>
-<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. -104.9847000 or null</li>
-</ul>
-</td>
+<td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. -104.9847000 or null</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
 <td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
 <td>string</td>
 <td>The description of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>int</td>
 <td>The id of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
 <td>string</td>
 <td>The name of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
@@ -471,7 +472,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
@@ -480,33 +481,30 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
 <td>int</td>
-<td><p class="first">How to treat range requests:</p>
-<ul class="last simple">
-<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
-<li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
-<li>2 Use the cache_range_requests plugin.</li>
-</ul>
-</td>
+<td>How to treat range requests:
+- 0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)
+- 1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.
+- 2 Use the cache_range_requests plugin.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
 <td>string</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
 <td>bool</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
 <td>string</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -514,7 +512,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
 <td>string</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -523,31 +521,31 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">tenant</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tenant</span></code></td>
 <td>string</td>
 <td>Owning tenant name</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tenantId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">tenantId</span></code></td>
 <td>int</td>
 <td>Owning tenant ID</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
-<td>List of header keys separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed headers will be included in TR access log entries under the “rh=” token.</td>
+<td>List of header keys separated by __RETURN__. Listed headers will be included in TR access log entries under the “rh=” token.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
-<td>List of header <code class="docutils literal notranslate"><span class="pre">name:value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed pairs will be included in all TR HTTP responses.</td>
+<td>List of header name:value pairs separated by __RETURN__. Listed pairs will be included in all TR HTTP responses.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -558,6 +556,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;anonymousBlockingEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;cacheurl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;ccrDnsTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
         <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
@@ -657,9 +656,9 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
+<col width="17%" />
 <col width="5%" />
-<col width="80%" />
+<col width="78%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -672,27 +671,35 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>bool</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">anonymousBlockingEnabled</span></code></td>
+<td>bool</td>
+<td><ul class="first last simple">
+<li>true: enable blocking clients with anonymous ips</li>
+<li>false: disabled</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
 <td>string</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr. host.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
 <td>int</td>
 <td>Id of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
 <td>string</td>
 <td>Name of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
 <td>string</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
 <td>string</td>
 <td><p class="first">When to do Deep Caching for this Delivery Service:</p>
 <ul class="last simple">
@@ -701,39 +708,44 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
 <td>string</td>
 <td>The display name of the delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
 <td>string</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice  - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
 <td>string</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
 <td>int</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt;  customer) traffic.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The EDGE header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
 <td>array</td>
 <td>Entry points into the CDN for this deliveryservice.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
+<td>int</td>
+<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
+will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoLimitRedirectUrl</span></code></td>
 <td>string</td>
@@ -769,119 +781,108 @@ dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliver
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
-<td>int</td>
-<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
-will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
 <td>string</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
 <td>int</td>
 <td>The deliveryservice id (database row number).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
 <td>string</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
 <td>bool</td>
 <td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
 <td>bool</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
 <td>string</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
 <td>string</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
 <td>string</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
 <td>array</td>
 <td>Array of matchList hashes.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
 <td>string</td>
 <td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=’regex’).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
 <td>string</td>
 <td>The set Number of the matchList.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
 <td>string</td>
 <td>The regexp for the matchList.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
 <td>int</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
 <td>float</td>
-<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. 39.7391500 or null</li>
-</ul>
-</td>
+<td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. 39.7391500 or null</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
 <td>float</td>
-<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. -104.9847000 or null</li>
-</ul>
-</td>
+<td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. -104.9847000 or null</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
 <td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
 <td>string</td>
 <td>The description of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>int</td>
 <td>The id of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
 <td>string</td>
 <td>The name of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
@@ -890,7 +891,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
@@ -899,33 +900,30 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
 <td>int</td>
-<td><p class="first">How to treat range requests:</p>
-<ul class="last simple">
-<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
-<li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
-<li>2 Use the cache_range_requests plugin.</li>
-</ul>
-</td>
+<td>How to treat range requests:
+- 0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)
+- 1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.
+- 2 Use the cache_range_requests plugin.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
 <td>string</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
 <td>bool</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
 <td>string</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -933,7 +931,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
 <td>string</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -942,31 +940,31 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">tenant</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tenant</span></code></td>
 <td>string</td>
 <td>Owning tenant name</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tenantId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">tenantId</span></code></td>
 <td>int</td>
 <td>Owning tenant ID</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
-<td>List of header keys separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed headers will be included in TR access log entries under the “rh=” token.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
-<td>List of header <code class="docutils literal notranslate"><span class="pre">name:value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed pairs will be included in all TR HTTP responses.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -977,6 +975,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;anonymousBlockingEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;cacheurl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;ccrDnsTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
         <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
@@ -3565,9 +3564,9 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="17%" />
+<col width="21%" />
 <col width="7%" />
-<col width="76%" />
+<col width="72%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -3580,23 +3579,31 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 <td>yes</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td>cacheurl</td>
+<tr class="row-odd"><td>anonymousBlockingEnabled</td>
+<td>no</td>
+<td><ul class="first last simple">
+<li>true: enable blocking clients with anonymous ips</li>
+<li>false: disabled</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>cacheurl</td>
 <td>no</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-even"><td>ccrDnsTtl</td>
+<tr class="row-odd"><td>ccrDnsTtl</td>
 <td>no</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr.host.</td>
 </tr>
-<tr class="row-odd"><td>cdnId</td>
+<tr class="row-even"><td>cdnId</td>
 <td>yes</td>
 <td>cdn id</td>
 </tr>
-<tr class="row-even"><td>checkPath</td>
+<tr class="row-odd"><td>checkPath</td>
 <td>no</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-odd"><td>deepCachingType</td>
+<tr class="row-even"><td>deepCachingType</td>
 <td>no</td>
 <td><p class="first">When to do Deep Caching for this Delivery Service:</p>
 <ul class="last simple">
@@ -3605,35 +3612,40 @@ This will be a FQDN for DNS delivery services and a wildcard URL for HTTP delive
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>displayName</td>
+<tr class="row-odd"><td>displayName</td>
 <td>yes</td>
 <td>Display name</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassCname</td>
+<tr class="row-even"><td>dnsBypassCname</td>
 <td>no</td>
 <td>Bypass CNAME</td>
 </tr>
-<tr class="row-even"><td>dnsBypassIp</td>
+<tr class="row-odd"><td>dnsBypassIp</td>
 <td>no</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassIp6</td>
+<tr class="row-even"><td>dnsBypassIp6</td>
 <td>no</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>dnsBypassTtl</td>
+<tr class="row-odd"><td>dnsBypassTtl</td>
 <td>no</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-odd"><td>dscp</td>
+<tr class="row-even"><td>dscp</td>
 <td>yes</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt; customer) traffic.</td>
 </tr>
-<tr class="row-even"><td>edgeHeaderRewrite</td>
+<tr class="row-odd"><td>edgeHeaderRewrite</td>
 <td>no</td>
 <td>The EDGE header rewrite actions to perform.</td>
+</tr>
+<tr class="row-even"><td>fqPacingRate</td>
+<td>no</td>
+<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
+will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
 </tr>
 <tr class="row-odd"><td>geoLimitRedirectURL</td>
 <td>no</td>
@@ -3673,30 +3685,25 @@ dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliver
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td>fqPacingRate</td>
-<td>no</td>
-<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
-will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
-</tr>
-<tr class="row-even"><td>httpBypassFqdn</td>
+<tr class="row-odd"><td>httpBypassFqdn</td>
 <td>no</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more
 than the globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>infoUrl</td>
+<tr class="row-even"><td>infoUrl</td>
 <td>no</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>initialDispersion</td>
+<tr class="row-odd"><td>initialDispersion</td>
 <td>yes|no</td>
 <td>Initial dispersion. Required for HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>ipv6RoutingEnabled</td>
+<tr class="row-even"><td>ipv6RoutingEnabled</td>
 <td>yes|no</td>
 <td>false: send IPv4 address of Traffic Router to client on HTTP type del.
 Required for DNS*, HTTP* and STEERING* delivery services.</td>
 </tr>
-<tr class="row-even"><td>logsEnabled</td>
+<tr class="row-odd"><td>logsEnabled</td>
 <td>yes</td>
 <td><ul class="first last simple">
 <li>false: No</li>
@@ -3704,56 +3711,56 @@ Required for DNS*, HTTP* and STEERING* delivery services.</td>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>longDesc</td>
+<tr class="row-even"><td>longDesc</td>
 <td>no</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-even"><td>longDesc1</td>
+<tr class="row-odd"><td>longDesc1</td>
 <td>no</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-odd"><td>longDesc2</td>
+<tr class="row-even"><td>longDesc2</td>
 <td>no</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-even"><td>maxDnsAnswers</td>
+<tr class="row-odd"><td>maxDnsAnswers</td>
 <td>no</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-odd"><td>midHeaderRewrite</td>
+<tr class="row-even"><td>midHeaderRewrite</td>
 <td>no</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td>missLat</td>
+<tr class="row-odd"><td>missLat</td>
 <td>yes|no</td>
 <td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
 e.g. 39.7391500 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>missLong</td>
+<tr class="row-even"><td>missLong</td>
 <td>yes|no</td>
 <td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
 e.g. -104.9847000 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>multiSiteOrigin</td>
+<tr class="row-odd"><td>multiSiteOrigin</td>
 <td>yes|no</td>
 <td>true if enabled, false if disabled. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>orgServerFqdn</td>
+<tr class="row-even"><td>orgServerFqdn</td>
 <td>yes|no</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server. This field is
 required if type is DNS* or HTTP*.</td>
 </tr>
-<tr class="row-even"><td>originShield</td>
+<tr class="row-odd"><td>originShield</td>
 <td>no</td>
 <td>Origin shield</td>
 </tr>
-<tr class="row-odd"><td>profileId</td>
+<tr class="row-even"><td>profileId</td>
 <td>no</td>
 <td>DS profile ID</td>
 </tr>
-<tr class="row-even"><td>protocol</td>
+<tr class="row-odd"><td>protocol</td>
 <td>yes|no</td>
 <td><ul class="first simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
@@ -3763,7 +3770,7 @@ required if type is DNS* or HTTP*.</td>
 <p class="last">Required for DNS*, HTTP* or <em>STEERING</em> delivery services.</p>
 </td>
 </tr>
-<tr class="row-odd"><td>qstringIgnore</td>
+<tr class="row-even"><td>qstringIgnore</td>
 <td>yes|no</td>
 <td><ul class="first simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
@@ -3773,34 +3780,31 @@ required if type is DNS* or HTTP*.</td>
 <p class="last">Required for DNS* and HTTP* delivery services.</p>
 </td>
 </tr>
-<tr class="row-even"><td>rangeRequestHandling</td>
+<tr class="row-odd"><td>rangeRequestHandling</td>
 <td>yes|no</td>
-<td><p class="first">How to treat range requests (required for DNS* and HTTP* delivery services):</p>
-<ul class="last simple">
-<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will
-be a HIT)</li>
-<li>1 Use the background_fetch plugin.</li>
-<li>2 Use the cache_range_requests plugin.</li>
-</ul>
-</td>
+<td>How to treat range requests (required for DNS* and HTTP* delivery services):
+- 0 Do not cache (ranges requested from files taht are already cached due to a non range request will
+be a HIT)
+- 1 Use the background_fetch plugin.
+- 2 Use the cache_range_requests plugin.</td>
 </tr>
-<tr class="row-odd"><td>regexRemap</td>
+<tr class="row-even"><td>regexRemap</td>
 <td>no</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-even"><td>regionalGeoBlocking</td>
+<tr class="row-odd"><td>regionalGeoBlocking</td>
 <td>yes</td>
 <td>Is the Regional Geo Blocking feature enabled.</td>
 </tr>
-<tr class="row-odd"><td>remapText</td>
+<tr class="row-even"><td>remapText</td>
 <td>no</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td>routingName</td>
+<tr class="row-odd"><td>routingName</td>
 <td>yes</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-odd"><td>signed</td>
+<tr class="row-even"><td>signed</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -3808,7 +3812,7 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>signingAlgorithm</td>
+<tr class="row-odd"><td>signingAlgorithm</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -3817,29 +3821,27 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>sslKeyVersion</td>
+<tr class="row-even"><td>sslKeyVersion</td>
 <td>no</td>
 <td>SSL key version</td>
 </tr>
-<tr class="row-even"><td>tenantId</td>
+<tr class="row-odd"><td>tenantId</td>
 <td>No</td>
 <td>Owning tenant ID</td>
 </tr>
-<tr class="row-odd"><td>trRequestHeaders</td>
+<tr class="row-even"><td>trRequestHeaders</td>
 <td>no</td>
-<td>List of header keys separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed headers will be included in TR access log
-entries under the “rh=” token.</td>
+<td>Traffic router log request headers</td>
 </tr>
-<tr class="row-even"><td>trResponseHeaders</td>
+<tr class="row-odd"><td>trResponseHeaders</td>
 <td>no</td>
-<td>List of header <code class="docutils literal notranslate"><span class="pre">name:value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed pairs will be included in all
-TR HTTP responses.</td>
+<td>Traffic router additional response headers</td>
 </tr>
-<tr class="row-odd"><td>typeId</td>
+<tr class="row-even"><td>typeId</td>
 <td>yes</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=’deliveryservice’).</td>
 </tr>
-<tr class="row-even"><td>xmlId</td>
+<tr class="row-odd"><td>xmlId</td>
 <td>yes</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -3867,6 +3869,7 @@ TR HTTP responses.</td>
     <span class="s2">&quot;qstringIgnore&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;rangeRequestHandling&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;anonymousBlockingEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
     <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
     <span class="s2">&quot;signingAlgorithm&quot;</span><span class="p">:</span> <span class="n">null</span>
 <span class="p">}</span>
@@ -3875,9 +3878,9 @@ TR HTTP responses.</td>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
+<col width="17%" />
 <col width="5%" />
-<col width="80%" />
+<col width="78%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -3890,27 +3893,35 @@ TR HTTP responses.</td>
 <td>bool</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">anonymousBlockingEnabled</span></code></td>
+<td>bool</td>
+<td><ul class="first last simple">
+<li>true: enable blocking clients with anonymous ips</li>
+<li>false: disabled</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
 <td>string</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr. host.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
 <td>int</td>
 <td>Id of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
 <td>string</td>
 <td>Name of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
 <td>string</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
 <td>string</td>
 <td><p class="first">When to do Deep Caching for this Delivery Service:</p>
 <ul class="last simple">
@@ -3919,39 +3930,44 @@ TR HTTP responses.</td>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
 <td>string</td>
 <td>The display name of the delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
 <td>string</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice  - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
 <td>string</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
 <td>int</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt;  customer) traffic.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The EDGE header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
 <td>array</td>
 <td>Entry points into the CDN for this deliveryservice.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
+<td>int</td>
+<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
+will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoLimitRedirectUrl</span></code></td>
 <td>string</td>
@@ -3992,114 +4008,103 @@ HTTP deliveryservices</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
-<td>int</td>
-<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
-will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
 <td>int</td>
 <td>The deliveryservice id (database row number).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
 <td>string</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
 <td>bool</td>
 <td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
 <td>bool</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
 <td>string</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
 <td>string</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
 <td>string</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
 <td>array</td>
 <td>Array of matchList hashes.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
 <td>string</td>
 <td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=’regex’).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
 <td>string</td>
 <td>The set Number of the matchList.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
 <td>string</td>
 <td>The regexp for the matchList.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
 <td>int</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
 <td>float</td>
-<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. 39.7391500 or null</li>
-</ul>
-</td>
+<td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. 39.7391500 or null</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
 <td>float</td>
-<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. -104.9847000 or null</li>
-</ul>
-</td>
+<td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. -104.9847000 or null</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
 <td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
 <td>string</td>
 <td>The description of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>int</td>
 <td>The id of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
 <td>string</td>
 <td>The name of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
@@ -4108,7 +4113,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
@@ -4117,33 +4122,30 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
 <td>int</td>
-<td><p class="first">How to treat range requests:</p>
-<ul class="last simple">
-<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
-<li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
-<li>2 Use the cache_range_requests plugin.</li>
-</ul>
-</td>
+<td>How to treat range requests:
+- 0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)
+- 1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.
+- 2 Use the cache_range_requests plugin.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
 <td>string</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
 <td>bool</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
 <td>string</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4151,7 +4153,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
 <td>string</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4160,23 +4162,23 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
-<td>List of header keys separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed headers will be included in TR access log entries under the “rh=” token.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
-<td>List of header <code class="docutils literal notranslate"><span class="pre">name:value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed pairs will be included in all TR HTTP responses.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -4187,6 +4189,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;anonymousBlockingEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;cacheurl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;ccrDnsTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
         <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
@@ -4290,9 +4293,9 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <p><strong>Request Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="17%" />
+<col width="18%" />
 <col width="7%" />
-<col width="76%" />
+<col width="74%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -4305,23 +4308,31 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>yes</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td>cacheurl</td>
+<tr class="row-odd"><td>anonymousBlockingEnabled</td>
+<td>no</td>
+<td><ul class="first last simple">
+<li>true: enable blocking clients with anonymous ips</li>
+<li>false: disabled</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>cacheurl</td>
 <td>no</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-even"><td>ccrDnsTtl</td>
+<tr class="row-odd"><td>ccrDnsTtl</td>
 <td>no</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr.host.</td>
 </tr>
-<tr class="row-odd"><td>cdnId</td>
+<tr class="row-even"><td>cdnId</td>
 <td>yes</td>
 <td>cdn id</td>
 </tr>
-<tr class="row-even"><td>checkPath</td>
+<tr class="row-odd"><td>checkPath</td>
 <td>no</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-odd"><td>deepCachingType</td>
+<tr class="row-even"><td>deepCachingType</td>
 <td>no</td>
 <td><p class="first">When to do Deep Caching for this Delivery Service:</p>
 <ul class="last simple">
@@ -4330,35 +4341,40 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>displayName</td>
+<tr class="row-odd"><td>displayName</td>
 <td>yes</td>
 <td>Display name</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassCname</td>
+<tr class="row-even"><td>dnsBypassCname</td>
 <td>no</td>
 <td>Bypass CNAME</td>
 </tr>
-<tr class="row-even"><td>dnsBypassIp</td>
+<tr class="row-odd"><td>dnsBypassIp</td>
 <td>no</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>dnsBypassIp6</td>
+<tr class="row-even"><td>dnsBypassIp6</td>
 <td>no</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>dnsBypassTtl</td>
+<tr class="row-odd"><td>dnsBypassTtl</td>
 <td>no</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-odd"><td>dscp</td>
+<tr class="row-even"><td>dscp</td>
 <td>yes</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt; customer) traffic.</td>
 </tr>
-<tr class="row-even"><td>edgeHeaderRewrite</td>
+<tr class="row-odd"><td>edgeHeaderRewrite</td>
 <td>no</td>
 <td>The EDGE header rewrite actions to perform.</td>
+</tr>
+<tr class="row-even"><td>fqPacingRate</td>
+<td>no</td>
+<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
+will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
 </tr>
 <tr class="row-odd"><td>geoLimitRedirectURL</td>
 <td>no</td>
@@ -4398,30 +4414,25 @@ dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliver
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td>fqPacingRate</td>
-<td>no</td>
-<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
-will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
-</tr>
-<tr class="row-even"><td>httpBypassFqdn</td>
+<tr class="row-odd"><td>httpBypassFqdn</td>
 <td>no</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more
 than the globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td>infoUrl</td>
+<tr class="row-even"><td>infoUrl</td>
 <td>no</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-even"><td>initialDispersion</td>
+<tr class="row-odd"><td>initialDispersion</td>
 <td>yes|no</td>
 <td>Initial dispersion. Required for HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>ipv6RoutingEnabled</td>
+<tr class="row-even"><td>ipv6RoutingEnabled</td>
 <td>yes|no</td>
 <td>false: send IPv4 address of Traffic Router to client on HTTP type del.
 Required for DNS*, HTTP* and STEERING* delivery services.</td>
 </tr>
-<tr class="row-even"><td>logsEnabled</td>
+<tr class="row-odd"><td>logsEnabled</td>
 <td>yes</td>
 <td><ul class="first last simple">
 <li>false: No</li>
@@ -4429,56 +4440,56 @@ Required for DNS*, HTTP* and STEERING* delivery services.</td>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>longDesc</td>
+<tr class="row-even"><td>longDesc</td>
 <td>no</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-even"><td>longDesc1</td>
+<tr class="row-odd"><td>longDesc1</td>
 <td>no</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-odd"><td>longDesc2</td>
+<tr class="row-even"><td>longDesc2</td>
 <td>no</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-even"><td>maxDnsAnswers</td>
+<tr class="row-odd"><td>maxDnsAnswers</td>
 <td>no</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-odd"><td>midHeaderRewrite</td>
+<tr class="row-even"><td>midHeaderRewrite</td>
 <td>no</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td>missLat</td>
+<tr class="row-odd"><td>missLat</td>
 <td>yes|no</td>
 <td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
 e.g. 39.7391500 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>missLong</td>
+<tr class="row-even"><td>missLong</td>
 <td>yes|no</td>
 <td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
 e.g. -104.9847000 or null. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-even"><td>multiSiteOrigin</td>
+<tr class="row-odd"><td>multiSiteOrigin</td>
 <td>yes|no</td>
 <td>true if enabled, false if disabled. Required for DNS* and HTTP* delivery services.</td>
 </tr>
-<tr class="row-odd"><td>orgServerFqdn</td>
+<tr class="row-even"><td>orgServerFqdn</td>
 <td>yes|no</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server. This field is
 required if type is DNS* or HTTP*.</td>
 </tr>
-<tr class="row-even"><td>originShield</td>
+<tr class="row-odd"><td>originShield</td>
 <td>no</td>
 <td>Origin shield</td>
 </tr>
-<tr class="row-odd"><td>profileId</td>
+<tr class="row-even"><td>profileId</td>
 <td>no</td>
 <td>DS profile ID</td>
 </tr>
-<tr class="row-even"><td>protocol</td>
+<tr class="row-odd"><td>protocol</td>
 <td>yes|no</td>
 <td><ul class="first simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
@@ -4488,7 +4499,7 @@ required if type is DNS* or HTTP*.</td>
 <p class="last">Required for DNS*, HTTP* or <em>STEERING</em> delivery services.</p>
 </td>
 </tr>
-<tr class="row-odd"><td>qstringIgnore</td>
+<tr class="row-even"><td>qstringIgnore</td>
 <td>yes|no</td>
 <td><ul class="first simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
@@ -4498,34 +4509,31 @@ required if type is DNS* or HTTP*.</td>
 <p class="last">Required for DNS* and HTTP* delivery services.</p>
 </td>
 </tr>
-<tr class="row-even"><td>rangeRequestHandling</td>
+<tr class="row-odd"><td>rangeRequestHandling</td>
 <td>yes|no</td>
-<td><p class="first">How to treat range requests (required for DNS* and HTTP* delivery services):</p>
-<ul class="last simple">
-<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will
-be a HIT)</li>
-<li>1 Use the background_fetch plugin.</li>
-<li>2 Use the cache_range_requests plugin.</li>
-</ul>
-</td>
+<td>How to treat range requests (required for DNS* and HTTP* delivery services):
+- 0 Do not cache (ranges requested from files taht are already cached due to a non range request will
+be a HIT)
+- 1 Use the background_fetch plugin.
+- 2 Use the cache_range_requests plugin.</td>
 </tr>
-<tr class="row-odd"><td>regexRemap</td>
+<tr class="row-even"><td>regexRemap</td>
 <td>no</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-even"><td>regionalGeoBlocking</td>
+<tr class="row-odd"><td>regionalGeoBlocking</td>
 <td>yes</td>
 <td>Is the Regional Geo Blocking feature enabled.</td>
 </tr>
-<tr class="row-odd"><td>remapText</td>
+<tr class="row-even"><td>remapText</td>
 <td>no</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td>routingName</td>
+<tr class="row-odd"><td>routingName</td>
 <td>yes</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-odd"><td>signed</td>
+<tr class="row-even"><td>signed</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4533,7 +4541,7 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>signingAlgorithm</td>
+<tr class="row-odd"><td>signingAlgorithm</td>
 <td>no</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4542,29 +4550,27 @@ be a HIT)</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>sslKeyVersion</td>
+<tr class="row-even"><td>sslKeyVersion</td>
 <td>no</td>
 <td>SSL key version</td>
 </tr>
-<tr class="row-even"><td>tenantId</td>
+<tr class="row-odd"><td>tenantId</td>
 <td>No</td>
 <td>Owning tenant ID</td>
 </tr>
-<tr class="row-odd"><td>trRequestHeaders</td>
+<tr class="row-even"><td>trRequestHeaders</td>
 <td>no</td>
-<td>List of header keys separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed headers will be included in TR access log
-entries under the “rh=” token.</td>
+<td>Traffic router log request headers</td>
 </tr>
-<tr class="row-even"><td>trResponseHeaders</td>
+<tr class="row-odd"><td>trResponseHeaders</td>
 <td>no</td>
-<td>List of header <code class="docutils literal notranslate"><span class="pre">name:value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed pairs will be included in all
-TR HTTP responses.</td>
+<td>Traffic router additional response headers</td>
 </tr>
-<tr class="row-odd"><td>typeId</td>
+<tr class="row-even"><td>typeId</td>
 <td>yes</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v12-types use_in_table=’deliveryservice’).</td>
 </tr>
-<tr class="row-even"><td>xmlId</td>
+<tr class="row-odd"><td>xmlId</td>
 <td>yes</td>
 <td>Unique string that describes this deliveryservice. This value cannot be changed on update.</td>
 </tr>
@@ -4592,6 +4598,7 @@ TR HTTP responses.</td>
     <span class="s2">&quot;qstringIgnore&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;rangeRequestHandling&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;regionalGeoBlocking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;anonymousBlockingEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
     <span class="s2">&quot;signed&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
     <span class="s2">&quot;signingAlgorithm&quot;</span><span class="p">:</span> <span class="n">null</span>
 <span class="p">}</span>
@@ -4600,9 +4607,9 @@ TR HTTP responses.</td>
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
+<col width="17%" />
 <col width="5%" />
-<col width="80%" />
+<col width="78%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -4615,27 +4622,35 @@ TR HTTP responses.</td>
 <td>bool</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">anonymousBlockingEnabled</span></code></td>
+<td>bool</td>
+<td><ul class="first last simple">
+<li>true: enable blocking clients with anonymous ips</li>
+<li>false: disabled</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
 <td>string</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr. host.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
 <td>int</td>
 <td>Id of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
 <td>string</td>
 <td>Name of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
 <td>string</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
 <td>string</td>
 <td><p class="first">When to do Deep Caching for this Delivery Service:</p>
 <ul class="last simple">
@@ -4644,39 +4659,44 @@ TR HTTP responses.</td>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
 <td>string</td>
 <td>The display name of the delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
 <td>string</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice  - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
 <td>string</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
 <td>int</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt;  customer) traffic.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The EDGE header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
 <td>array</td>
 <td>Entry points into the CDN for this deliveryservice.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
+<td>int</td>
+<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
+will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoLimitRedirectUrl</span></code></td>
 <td>string</td>
@@ -4712,119 +4732,108 @@ dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliver
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
-<td>int</td>
-<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
-will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
 <td>string</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
 <td>int</td>
 <td>The deliveryservice id (database row number).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
 <td>string</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
 <td>bool</td>
 <td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
 <td>bool</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
 <td>string</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
 <td>string</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
 <td>string</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
 <td>array</td>
 <td>Array of matchList hashes.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
 <td>string</td>
 <td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=’regex’).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
 <td>string</td>
 <td>The set Number of the matchList.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
 <td>string</td>
 <td>The regexp for the matchList.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
 <td>int</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
 <td>float</td>
-<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. 39.7391500 or null</li>
-</ul>
-</td>
+<td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. 39.7391500 or null</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
 <td>float</td>
-<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. -104.9847000 or null</li>
-</ul>
-</td>
+<td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. -104.9847000 or null</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
 <td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
 <td>string</td>
 <td>The description of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>int</td>
 <td>The id of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
 <td>string</td>
 <td>The name of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
@@ -4833,7 +4842,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
@@ -4842,33 +4851,30 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
 <td>int</td>
-<td><p class="first">How to treat range requests:</p>
-<ul class="last simple">
-<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
-<li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
-<li>2 Use the cache_range_requests plugin.</li>
-</ul>
-</td>
+<td>How to treat range requests:
+- 0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)
+- 1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.
+- 2 Use the cache_range_requests plugin.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
 <td>string</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
 <td>bool</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
 <td>string</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4876,7 +4882,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
 <td>string</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -4885,23 +4891,23 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
-<td>List of header keys separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed headers will be included in TR access log entries under the “rh=” token.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
-<td>List of header <code class="docutils literal notranslate"><span class="pre">name:value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed pairs will be included in all TR HTTP responses.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -4912,6 +4918,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;anonymousBlockingEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;cacheurl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;ccrDnsTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
         <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
@@ -5060,9 +5067,9 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <p><strong>Response Properties</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
+<col width="17%" />
 <col width="5%" />
-<col width="80%" />
+<col width="78%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -5075,27 +5082,35 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 <td>bool</td>
 <td>true if active, false if inactive.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">anonymousBlockingEnabled</span></code></td>
+<td>bool</td>
+<td><ul class="first last simple">
+<li>true: enable blocking clients with anonymous ips</li>
+<li>false: disabled</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cacheurl</span></code></td>
 <td>string</td>
 <td>Cache URL rule to apply to this delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ccrDnsTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS response for A or AAAA queries requesting the IP address of the tr. host.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnId</span></code></td>
 <td>int</td>
 <td>Id of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cdnName</span></code></td>
 <td>string</td>
 <td>Name of the CDN to which the delivery service belongs to.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">checkPath</span></code></td>
 <td>string</td>
 <td>The path portion of the URL to check this deliveryservice for health.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deepCachingType</span></code></td>
 <td>string</td>
 <td><p class="first">When to do Deep Caching for this Delivery Service:</p>
 <ul class="last simple">
@@ -5104,39 +5119,44 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">displayName</span></code></td>
 <td>string</td>
 <td>The display name of the delivery service.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassCname</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp</span></code></td>
 <td>string</td>
 <td>The IPv4 IP to use for bypass on a DNS deliveryservice  - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassIp6</span></code></td>
 <td>string</td>
 <td>The IPv6 IP to use for bypass on a DNS deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dnsBypassTtl</span></code></td>
 <td>int</td>
 <td>The TTL of the DNS bypass response.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">dscp</span></code></td>
 <td>int</td>
 <td>The Differentiated Services Code Point (DSCP) with which to mark downstream (EDGE -&gt;  customer) traffic.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">edgeHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The EDGE header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">exampleURLs</span></code></td>
 <td>array</td>
 <td>Entry points into the CDN for this deliveryservice.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
+<td>int</td>
+<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
+will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">geoLimitRedirectUrl</span></code></td>
 <td>string</td>
@@ -5172,119 +5192,108 @@ dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for HTTP deliver
 traffic will be sent to the dnsByPassIp* for DNS deliveryservices and to the httpBypassFqdn for
 HTTP deliveryservices</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">fqPacingRate</span></code></td>
-<td>int</td>
-<td>The maximum rate in bytes per second for each TCP connection in this delivery service. If exceeded,
-will be rate limited by the Linux kernel. A default value of 0 disables this feature</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">httpBypassFqdn</span></code></td>
 <td>string</td>
 <td>The HTTP destination to use for bypass on an HTTP deliveryservice - bypass starts when serving more than the
 globalMaxMbps traffic on this deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">id</span></code></td>
 <td>int</td>
 <td>The deliveryservice id (database row number).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">infoUrl</span></code></td>
 <td>string</td>
 <td>Use this to add a URL that points to more information about that deliveryservice.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">initialDispersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ipv6RoutingEnabled</span></code></td>
 <td>bool</td>
 <td>false: send IPv4 address of Traffic Router to client on HTTP type del.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">lastUpdated</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">logsEnabled</span></code></td>
 <td>bool</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc</span></code></td>
 <td>string</td>
 <td>Description field.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc1</span></code></td>
 <td>string</td>
 <td>Description field 1.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">longDesc2</span></code></td>
 <td>string</td>
 <td>Description field 2.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">matchList</span></code></td>
 <td>array</td>
 <td>Array of matchList hashes.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;type</span></code></td>
 <td>string</td>
 <td>The type of MatchList (one of :ref:to-api-v11-types use_in_table=’regex’).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;setNumber</span></code></td>
 <td>string</td>
 <td>The set Number of the matchList.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&gt;&gt;pattern</span></code></td>
 <td>string</td>
 <td>The regexp for the matchList.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">maxDnsAnswers</span></code></td>
 <td>int</td>
 <td>The maximum number of IPs to put in a A/AAAA response for a DNS deliveryservice (0 means all
 available).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">midHeaderRewrite</span></code></td>
 <td>string</td>
 <td>The MID header rewrite actions to perform.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLat</span></code></td>
 <td>float</td>
-<td><p class="first">The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. 39.7391500 or null</li>
-</ul>
-</td>
+<td>The latitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. 39.7391500 or null</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">missLong</span></code></td>
 <td>float</td>
-<td><p class="first">The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.</p>
-<ul class="last simple">
-<li>e.g. -104.9847000 or null</li>
-</ul>
-</td>
+<td>The longitude as decimal degrees to use when the client cannot be found in the CZF or the Geo lookup.
+- e.g. -104.9847000 or null</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">multiSiteOrigin</span></code></td>
 <td>bool</td>
 <td>Is the Multi Site Origin feature enabled for this delivery service (0=false, 1=true). See <a class="reference internal" href="../../admin/traffic_ops/using.html#rl-multi-site-origin"><span class="std std-ref">Multi Site Origin</span></a></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">orgServerFqdn</span></code></td>
 <td>string</td>
 <td>The origin server base URL (FQDN when used in this instance, includes the
 protocol (<a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>) for use in retrieving content from the origin server.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">originShield</span></code></td>
 <td>string</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileDescription</span></code></td>
 <td>string</td>
 <td>The description of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileId</span></code></td>
 <td>int</td>
 <td>The id of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">profileName</span></code></td>
 <td>string</td>
 <td>The name of the Traffic Router Profile with which this deliveryservice is associated.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">protocol</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: serve with <a class="reference external" href="http://">http://</a> at EDGE</li>
@@ -5293,7 +5302,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">qstringIgnore</span></code></td>
 <td>int</td>
 <td><ul class="first last simple">
 <li>0: no special query string handling; it is for use in the cache-key and pass up to origin.</li>
@@ -5302,33 +5311,30 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">rangeRequestHandling</span></code></td>
 <td>int</td>
-<td><p class="first">How to treat range requests:</p>
-<ul class="last simple">
-<li>0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)</li>
-<li>1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.</li>
-<li>2 Use the cache_range_requests plugin.</li>
-</ul>
-</td>
+<td>How to treat range requests:
+- 0 Do not cache (ranges requested from files taht are already cached due to a non range request will be a HIT)
+- 1 Use the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/reference/plugins/background_fetch.en.html">background_fetch</a> plugin.
+- 2 Use the cache_range_requests plugin.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regexRemap</span></code></td>
 <td>string</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">regionalGeoBlocking</span></code></td>
 <td>bool</td>
 <td>Regex Remap rule to apply to this delivery service at the Edge tier.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">remapText</span></code></td>
 <td>string</td>
 <td>Additional raw remap line text.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">routingName</span></code></td>
 <td>string</td>
 <td>The routing name of this deliveryservice, e.g. &lt;routingName&gt;.&lt;xmlId&gt;.cdn.com.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signed</span></code></td>
 <td>bool</td>
 <td><ul class="first last simple">
 <li>false: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -5336,7 +5342,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">signingAlgorithm</span></code></td>
 <td>string</td>
 <td><ul class="first last simple">
 <li>null: token based auth (see :ref:token-based-auth) is not enabled for this deliveryservice.</li>
@@ -5345,23 +5351,23 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sslKeyVersion</span></code></td>
 <td>int</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trRequestHeaders</span></code></td>
 <td>string</td>
-<td>List of header keys separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed headers will be included in TR access log entries under the “rh=” token.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">trResponseHeaders</span></code></td>
 <td>string</td>
-<td>List of header <code class="docutils literal notranslate"><span class="pre">name:value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">__RETURN__</span></code>. Listed pairs will be included in all TR HTTP responses.</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">typeId</span></code></td>
 <td>int</td>
 <td>The type of this deliveryservice (one of :ref:to-api-v11-types use_in_table=’deliveryservice’).</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">xmlId</span></code></td>
 <td>string</td>
 <td>Unique string that describes this deliveryservice.</td>
 </tr>
@@ -5372,6 +5378,7 @@ protocol (<a class="reference external" href="http://">http://</a> or <a class="
   <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;anonymousBlockingEnabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
         <span class="s2">&quot;cacheurl&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
         <span class="s2">&quot;ccrDnsTtl&quot;</span><span class="p">:</span> <span class="s2">&quot;3600&quot;</span><span class="p">,</span>
         <span class="s2">&quot;cdnId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>

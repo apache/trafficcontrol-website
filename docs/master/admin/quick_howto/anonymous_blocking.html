@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick How To Guides &mdash; Traffic Control 2.2-dev documentation </title>
+  <title>Configure Anonymous Blocking &mdash; Traffic Control 2.2-dev documentation </title>
   
 
   
@@ -39,9 +39,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Traffic Control 2.2-dev documentation" href="../../index.html"/>
-        <link rel="up" title="Administrator’s Guide" href="../index.html"/>
-        <link rel="next" title="Configure Multi Site Origin" href="multi_site.html"/>
-        <link rel="prev" title="Traffic Vault Administration" href="../traffic_vault.html"/> 
+        <link rel="up" title="Quick How To Guides" href="index.html"/>
+        <link rel="next" title="Configure Delivery Service Steering" href="steering.html"/>
+        <link rel="prev" title="Configure Regional Geo-blocking (RGB)" href="regionalgeo.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -121,7 +121,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_server.html">Traffic Server Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_vault.html">Traffic Vault Administration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Quick How To Guides</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Quick How To Guides</a></li>
 </ul>
 </li>
 </ul>
@@ -182,10 +182,12 @@
       
           <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
-    <li>Quick How To Guides</li>
+          <li><a href="index.html">Quick How To Guides</a> &raquo;</li>
+      
+    <li>Configure Anonymous Blocking</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/admin/quick_howto/index.rst.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/admin/quick_howto/anonymous_blocking.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -194,51 +196,74 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="multi_site.html" class="btn btn-neutral float-right" title="Configure Multi Site Origin">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="steering.html" class="btn btn-neutral float-right" title="Configure Delivery Service Steering">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="../traffic_vault.html" class="btn btn-neutral" title="Traffic Vault Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="regionalgeo.html" class="btn btn-neutral" title="Configure Regional Geo-blocking (RGB)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
           <div role="main" class="document">
             
-  <div class="section" id="quick-how-to-guides">
-<h1>Quick How To Guides<a class="headerlink" href="#quick-how-to-guides" title="Permalink to this headline">¶</a></h1>
-<p>Traffic Control is a complicated system, and documenting it is not trivial. Sometimes a picture says more than a thousand words, so here are some screen shot based tutorials on how to use some of the more involved features.</p>
-<div class="section" id="traffic-ops">
-<h2>Traffic Ops<a class="headerlink" href="#traffic-ops" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="multi_site.html">Configure Multi Site Origin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dnssec.html">Configure DNSSEC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="federations.html">Configure Federations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regionalgeo.html">Configure Regional Geo-blocking (RGB)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anonymous_blocking.html">Configure Anonymous Blocking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="steering.html">Configure Delivery Service Steering</a></li>
-</ul>
+  <div class="section" id="configure-anonymous-blocking">
+<span id="rl-anonymous-blocking-qht"></span><h1>Configure Anonymous Blocking<a class="headerlink" href="#configure-anonymous-blocking" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Anonymous Blocking is only supported for HTTP delivery services.</p>
 </div>
+<ol class="arabic simple">
+<li>Prepare the Anonymous Blocking configuration file</li>
+</ol>
+<p>Anonymous Blocking uses a configuration file in JSON format to define blocking rules for delivery services. The file needs to be put on an HTTP server accessible to Traffic Router. An example of the JSON is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
+
+   <span class="s2">&quot;customer&quot;</span><span class="p">:</span> <span class="s2">&quot;YourCompany&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;date&quot;</span> <span class="p">:</span> <span class="s2">&quot;2017-05-23 03:28:25&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anonymous IP Blocking Policy&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;anonymousIp&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;blockAnonymousVPN&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;blockHostingProvider&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;blockPublicProxy&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;blockTorExitNode&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
+
+   <span class="s2">&quot;ip4Whitelist&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;192.168.30.0/24&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.2.0/24&quot;</span><span class="p">,</span> <span class="s2">&quot;10.1.1.1/32&quot;</span><span class="p">],</span>
+
+   <span class="s2">&quot;ip6Whitelist&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;2001:550:90a::/48&quot;</span><span class="p">,</span> <span class="s2">&quot;::1/128&quot;</span><span class="p">],</span>
+
+   <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://youvebeenblocked.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="traffic-portal">
-<h2>Traffic Portal<a class="headerlink" href="#traffic-portal" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ds_requests.html">Delivery Service Requests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ds_requests.html#who-can-create-a-delivery-service-request-and-how">Who Can Create a Delivery Service Request and How?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ds_requests.html#who-can-fulfill-a-delivery-service-request-and-how">Who Can Fulfill a Delivery Service Request and How?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#update-the-contents-of-the-delivery-service-request">Update the contents of the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#assign-or-unassign-the-delivery-service-request">Assign or unassign the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#reject-the-delivery-service-request">Reject the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#fulfill-the-delivery-service-request">Fulfill the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#complete-the-delivery-service-request">Complete the delivery service request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ds_requests.html#delete-the-delivery-service-request">Delete the delivery service request</a></li>
+<ul class="simple">
+<li>“anonymousIp” contains the types of IPs which can be checked against the Anonymous IP Database. There are 4 types of IPs which can be checked: VPNs, Hosting Providers, Public Proxies, and Tor Exit Nodes. Each type of IP can be enabled or disabled. If the value is true, IPs which match this type will be blocked when the feature is enabled in the delivery service. If the value is false, IPs which match this type will not be blocked. If an IP matches more than 1 type and any type is enabled, the IP will be blocked.</li>
+<li>“redirectUrl” is the URL that will be returned to the blocked clients. Without a redirectUrl, the clients will receive an HTTP response code 403. With a redirectUrl, the clients will be redirected with an HTTP response code 302.</li>
+<li>“ipWhiteList” is an optional element. It includes a list of CIDR (Classless Inter-Domain Routing) blocks indicating the IPv4 and IPv6 subnets that are allowed by the rule. If this list exists and the value is not empty, client IP will be matched against the CIDR list, and if there is any match, the request will be allowed. If there is no match in the white list, further anonymous blocking logic will continue.</li>
 </ul>
-</li>
+<ol class="arabic simple" start="2">
+<li>Add Anonymous Blocking parameters on Traffic Ops</li>
+</ol>
+<p>The following three new parameters are required to be added into CRConfig.json:</p>
+<ul class="simple">
+<li>“anonymousip.policy.configuration”: the HTTP URL of the Anonymous Blocking configuration file. Traffic Router will fetch the file from this URL.</li>
+<li>“anonymousip.polling.url”: the HTTP URL of the Anonymous IP Database. Traffic Router will fetch the file from this URL.</li>
+<li>“anonymousip.polling.interval”: the interval that Traffic Router polls the Anonymous Blocking configuration file and Anonymous IP Database.</li>
 </ul>
-</li>
-</ul>
-</div>
-</div>
+<a class="reference internal image-reference" href="../../_images/anonymous_blocking01.png"><img alt="../../_images/anonymous_blocking01.png" class="align-center" src="../../_images/anonymous_blocking01.png" style="width: 1720.0px; height: 374.0px;" /></a>
+<ol class="arabic simple" start="3">
+<li>Enable Anonmyous Blocking for a delivery service</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/anonymous_blocking02.png"><img alt="../../_images/anonymous_blocking02.png" class="align-center" src="../../_images/anonymous_blocking02.png" style="width: 1058.0px; height: 220.0px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Make configuration effective</li>
+</ol>
+<p>Go to Tools-&gt;Snapshot CRConfig, perform “Diff CRConfig” and click “Write CRConfig”.</p>
+<a class="reference internal image-reference" href="../../_images/regionalgeo03.png"><img alt="../../_images/regionalgeo03.png" class="align-center" src="../../_images/regionalgeo03.png" style="width: 464.8px; height: 128.8px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Traffic Router access log with Anonymous Blocking</li>
+</ol>
+<p>Anonymous Blocking extends the field of “rtype” and adds a new field “ANON_BLOCK” in Traffic Router access.log to help to monitor the working of this feature.</p>
+<p>If rtype=ANON_BLOCK then the client’s IP was found in the Anonymous IP Database and was blocked.</p>
 </div>
 
 
@@ -247,10 +272,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="multi_site.html" class="btn btn-neutral float-right" title="Configure Multi Site Origin">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="steering.html" class="btn btn-neutral float-right" title="Configure Delivery Service Steering">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../traffic_vault.html" class="btn btn-neutral" title="Traffic Vault Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="regionalgeo.html" class="btn btn-neutral" title="Configure Regional Geo-blocking (RGB)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
