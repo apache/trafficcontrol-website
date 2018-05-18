@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>Apache Traffic Control</title>
+    <title>Apache Traffic Control Releases</title>
 
     <!-- Boostrap -->
     <link rel="stylesheet"
@@ -19,7 +19,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
 	<img id="fluo-img" height="40px" src="./resources/tc_logo_c_only.png" alt="Apache Traffic Control">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,8 @@
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	  <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
 	  </li>
 	  <li class="nav-item">
 	    <a class="nav-link" href="/releases/">Releases</a>	    
@@ -46,8 +46,8 @@
           <li class="nav-item">
 	    <a class="nav-link" href="https://github.com/apache/incubator-trafficcontrol">Repo</a>
 	  </li>
-          <li class="nav-item">
-	    <a class="nav-link" href="/security/">Security</a>
+          <li class="nav-item active">
+	    <a class="nav-link" href="#">Security<span class="sr-only">(current)</span></a>
 	  </li>
 	  <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,132 +84,29 @@
     </nav>
     
     <div class="container">
-      <div class="jumbotron" style="text-align: center;">
-	<div class="mx-auto"><img src="./resources/Traffic-Control-Logo-FINAL-Black-Text.png" alt="Apache Traffic Control" height="200px"/></div>
-	<p class="lead">Apache Traffic Control &trade; allows you to build a large scale content delivery network using open source. Built around Apache Traffic Server as the caching software, Traffic Control implements all the core functions of a modern CDN.</p>
-	<a style="margin-right: 20px" href="/releases/" class="btn btn-success btn-sm navbar-btn"><i class="fa fa-download fa-lg"></i> Download</a>
-	<a style="margin-right: 20px" href="https://github.com/apache/incubator-trafficcontrol" target="_blank" class="btn btn-dark btn-sm navbar-btn"><i class="fab fa-github fa-lg"></i> GitHub</a>
-	<a href="https://twitter.com/apachetrafficcontrol" target="_blank" class="btn btn-primary btn-sm navbar-btn"><i class="fab fa-twitter fa-lg"></i> Follow</a>
-      </div> <!-- End Jumbotron -->
 
-      <div class="row">
-	<div class="col">
-	  <p class="lead">With Apache Traffic Control, operators can setup a Content Delivery Network to quickly and efficiently deliver high quality Live and VOD streaming video to their users. Traffic Control is a highly distributed, scalable and redundant solution meeting the needs of operators from small to large.
-	</div>
-      </div>
+      <h1>Apache Traffic Control - Security Updates</h1>
 
-      <h3>News</h3>
-      <div class="row">
-	<div class="col-sm-12">
-	  <div class="card">
-	    <div class="card-body">
-	      <span class="far fa-newspaper fa-7x float-right" style="color: #343a40;"></span>	      
-              <ul><li><strong>May 16, 2018</strong> - Apache Traffic Control graduates to TLP</li></ul>
-	      <ul>
-		<li><strong>May 3, 2018</strong> - New Website!</li>
-	      </ul>
-	      
-
-	    </div>	      
-	  </div>
-	</div>
-      </div>
-      <br/>
-
-      <h3>Features</h3>
-      <div class="row">
-	
+      <div class="row">	
 	<div class="col-sm-12">
 	  <div class="card-deck">
-	    <div class="card border-light">
-	      <span class="fas fa-bolt fa-7x mx-auto" style="color: #343a40; margin-top: 5px;"></span>
+	    <div class="card">
 	      <div class="card-body">
-		<h5 class="card-title">Reduced Latency</h5>	    	      
-		<p class="card-text">Locating caches and content closer to users decreases the round trip time needed to deliver content. </p>
+		<h4 class="card-title">Past Vulnerabilities</h4>
+		<ul>
+		<li><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-7670">CVE-2017-7670: Apache Traffic Control Traffic Router Slowloris Denial of Service Vulnerability</a></li>
+		</ul>
+		</p>
 	      </div>
 	    </div>
-	    
-	    <div class="card border-light">
-	      <span class="fas fa-cloud-download-alt fa-7x mx-auto" style="color:#343a40;"></span>	    
-	      <div class="card-body">	    
-		<h5 class="card-title">Reduced Bandwidth Costs</h5>
-		<p class="card-text">Caching content in memory and on disk reduces the load on origin servers and across bottleneck links.</p>
-	      </div>
-	    </div>
-
-	    <div class="card border-light">
-	      <span class="fas fa-heart fa-7x mx-auto" style="color: #343a40;"></span>	    	    
-	      <div class="card-body">
-		<h5 class="card-title">Improved Quality of Experience</h5>
-		<p class="card-text">Reducing round trip time and increasing delivery bandwidth improves end user quality of experience</p>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-      </div> <!-- End Features Row -->
-      <hr/>
-      
-      <h4>Modules</h4>
-      <div class="row">
-	<div class="col-sm-12">
-	  <div class="card-deck">
-	    <div class="card border-light">
-	      <div class="card-body">
-		<h5 class="card-title">Traffic Ops</h5>
-		<p class="card-text">Traffic Ops is the RESTful API service for management and monitoring of all servers in the CDN.</p>
-	      </div>
-	    </div>
-	
-	    <div class="card border-light">
-	      <div class="card-body">
-		<h4 class="card-title">Traffic Router</h4>
-		<p class="card-text">Traffic Router uses DNS and HTTP302 to redirect clients to the closest available cache on the CDN. </p>
-	      </div>
-	    </div>
-	  
-	    <div class="card border-light">
-	      <div class="card-body">
-		<h4 class="card-title">Traffic Stats</h4>
-		<p class="card-text">Traffic Stats acquires and stores real-time metrics and statistics into an InfluxDB for charting and alerting.</p>
-	      </div>
-	    </div>
-	  </div>
+  	  </div>
 	</div>
       </div>
-      <br/>
 
-      <!-- Modules Row 2-->
-      <div class="row">
-	<div class="col-sm-4">
-	  <div class="card border-light">
-	    <div class="card-body">
-	      <h4 class="card-title">Traffic Portal</h4>
-	      <p class="card-text">Traffic Portal is the web GUI for managing and monitoring the CDN via the Traffic Ops API.</p>
-	    </div>
-	  </div>
-	</div>
-	
-	<div class="col-sm-4">
-	  <div class="card border-light">
-	    <div class="card-body">
-	      <h4 class="card-title">Traffic Monitor</h4>
-	      <p class="card-text">Traffic Monitor uses HTTP to poll the health of caches and provide this information to Traffic Router. </p>
-	    </div>
-	  </div>
-	</div>
-	
-	<div class="col-sm-4">
-	  <div class="card border-light">
-	    <div class="card-body">
-	      <h4 class="card-title">Grove</h4>
-	      <p class="card-text">Grove is an experimental high performance, live-focused HTTP cache written in entirely in Go.</p>
-	    </div>
-	  </div>
-	</div>
-      </div>    
-      <br/>
+      <br/><br/>
+      <h2>Reporting Vulnerabilities</h2>
+      <p>Please use our private security mailing list, <a href="mailto:security@trafficcontrol.apache.org">security@trafficcontrol.apache.org</a>, to disclose any new vulnerability. Disclosing vulnerabilities privately will allow our project team to analyze the report, identify a fix, and begin the full disclosure process. Please include all relevant information to reproduce the issue, and any known workaround or fix.</p>
 
-	
       
       <!-- Start Footer -->
       <div class="row">

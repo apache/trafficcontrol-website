@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>Apache Traffic Control Releases</title>
+
+    <!-- Boostrap -->
+    <link rel="stylesheet"
+	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	  integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	  crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+	    integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+	    crossorigin="anonymous"></script>    
+    <link rel="icon" type="image/png" href="/resources/favicon.png">
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">
+	<img id="fluo-img" height="40px" src="./resources/tc_logo_c_only.png" alt="Apache Traffic Control">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto">
+	  <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+	  </li>
+	  <li class="nav-item active">
+	    <a class="nav-link" href="#">Releases<span class="sr-only">(current)</span></a>	    
+	  </li>	  
+	  <li class="nav-item">
+	    <a class="nav-link" href="https://traffic-control-cdn.readthedocs.io/en/latest/index.html">Docs</a>	    
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="https://traffic-control-cdn.readthedocs.io/en/latest/api/index.html">API</a>
+	  </li>
+          <li class="nav-item"> 
+	    <a class="nav-link" href="https://github.com/apache/incubator-trafficcontrol/issues">Issues</a>
+	  </li>
+          <li class="nav-item">
+	    <a class="nav-link" href="https://github.com/apache/incubator-trafficcontrol">Repo</a>
+	  </li>
+          <li class="nav-item">
+	    <a class="nav-link" href="/security/">Security</a>
+	  </li>
+	  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Community
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="http://traffic-control-cdn.slack.com/" target="_blank">Slack</a>	      	      	      
+              <a class="dropdown-item" href="/contributing">Contributing</a>	      	      
+              <a class="dropdown-item" href="/mailing_lists/">Mailing Lists</a>
+              <a class="dropdown-item" href="https://cwiki.apache.org/confluence/display/TC/">Wiki</a>
+              <a class="dropdown-item" href="https://www.youtube.com/channel/UC2zEj6sERinzx8w8uvyRBYg">YouTube</a>
+              <a class="dropdown-item" href="https://www.twitter.com/">Twitter</a>
+            </div>
+	  </li>
+	</ul>
+
+	<ul class="navbar-nav navbar-right">
+	      
+	  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Apache Software Foundation<span class="caret"></span>          
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="https://www.apache.org">Apache Homepage</a>
+              <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
+              <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship">Sponsorship</a>
+              <a class="dropdown-item" href="https://www.apache.org/security">ASF Security</a>
+              <a class="dropdown-item" href="https://www.apache.org/foundation/thanks">Thanks</a>
+              <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct">Code of Conduct</a>	  
+            </div>
+	  </li>
+	</ul>
+      </div>
+    </nav>
+    
+    <div class="container">
+
+      <h1>Apache Traffic Control - Current Release</h1>
+
+      <!-- Release 2.1 -->
+      <div class="row">	
+	<div class="col-sm-12">
+	  <div class="card-deck">
+	    <div class="card">
+	      <div class="card-body">
+		<h4 class="card-title">Apache Traffic Control 2.1.0-incubating</h4>	    	      
+		<h5>Release Notes</h5>
+                <h6>Building</h6>
+		<p class="card-text">Selinux has to be something other than "enforcing" in order for the build to work, otherwise it fails on permissions errors.
+		  This can be accomplished by running <kbd>setenforce 0</kbd> as root.
+		</p>
+
+		<h6>Traffic Stats</h6>
+		<p class="card-text">Traffic Stats works best with influxdb version &lt; 1.3.x. As of 1.3.x InfluxDB now returns a 400 response when the client attempts to write points that are outside of the retention policy. When this happens, Traffic Stats seems to hold on to the "old" points and attempts to write them again on the next POST. This causes what is essentially a memory leak in Traffic Stats since it continues to hold onto and tries to write stats that are outside of the retention policy. This may or may not affect a user, depending upon which stats they are trying to write to influxdb. For example, we write the wrap_count to influxdb, this is a stat that does not often change within 24 hours, so we see the memory leak with stats not written on each poll of traffic stats.<br/><br/>
+
+                In versions < 1.3.x InfluxDB would still not write the point, but it would accept the write request and just drop the points outside of the retention policy on the floor.
+                </p>
+		<p class="card-text">Apache Traffic Control 2.1.0 is available here:		
+		<ul>
+		<li><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz">Tarball</a></li>
+		<li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.md5">MD5</a></li>
+		<li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.sha512">SHA-512</a></li>
+		<li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.asc">ASC</a></li>
+		<li><a href="http://trafficcontrol.apache.org/downloads/profiles/2.1.x/">Default Profiles</a></li>
+		</ul>
+		</p>
+	      </div>
+	    </div>
+  	  </div>
+	</div>
+      </div>
+
+      <br/><br/>
+      <h2>Signing Keys</h2>
+      <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
+
+      <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file for the relevant distribution. Make sure you get these files from the main distribution directory, rather than from a mirror. Then verify the signatures using:
+
+<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+% pgpk -a KEYS % pgpv apache-trafficcontrol-2.0.0-incubating.tar.gz.asc
+</code>
+or 
+<code>
+% pgp -ka KEYS
+% pgp apache-trafficcontrol-2.0.0-incubating.tar.gz.asc
+</code>
+or
+<code>
+% gpg --import KEYS
+% gpg --verify apache-trafficcontrol-2.0.0-incubating.tar.gz.asc apache-trafficcontrol-2.0.0-incubating.tar.gz
+</code></pre>
+
+<ul>
+  <li>apache-trafficcontrol-2.1.0-incubating.tar.* are signed by Hank Beatty 4E0CC77C</li>
+  <li>apache-trafficcontrol-2.0.0-incubating.tar.* are signed by Eric Friedrich 9AB7BDD5</li>
+</ul>
+      </p>
+
+      <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your generated signature string matches the signature string published in the files above.
+	</p>
+
+      <br/><br/>
+      <h2>Past Releases</h2>
+      <!-- Release 2.0 -->
+      <div class="row">	
+	<div class="col-sm-12">
+	  <div class="card-deck">
+	    <div class="card">
+	      <div class="card-body">
+		<h4 class="card-title">Apache Traffic Control 2.0.0-incubating</h4>	    	      
+		<h5>Release Notes</h5>
+		<h6>Traffic Ops DB</h6>
+		<p class="card-text">Starting in Traffic Control 2.0.0, Postgres replaces MySQL as the Traffic Ops Database. The change in database server now provides a more friendly open source license for Traffic Control users.<br/></br>
+
+		  To begin using Postgres, see traffic_ops_db/pg-migration/README.md for the MANDATORY migration steps. This upgrade must be performed using a Traffic Control 1.8.x database. If currently using a version of Traffic Control prior to 1.8.0, you must upgrade to 1.8.1 first before upgrading to 2.0.0.
+		</p>
+		
+		<p class="card-text">Apache Traffic Control 2.0.0 is available here:		
+		<ul>
+		<li><a href="https://archive.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz">Tarball</a></li>
+		<li><a href="https://archive.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.md5">MD5</a></li>
+		<li><a href="https://archive.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.sha512">SHA-512</a></li>
+		<li><a href="https://archive.apache.org/dist/incubator/trafficcontrol/2.0.0-incubating/apache-trafficcontrol-2.0.0-incubating.tar.gz.asc">ASC</a></li>
+		<li><a href="http://trafficcontrol.apache.org/downloads/profiles/2.0.x/default/">Default Profiles</a></li>
+		</ul>
+		</p>
+	      </div>
+	    </div>
+  	  </div>
+	</div>
+      </div>      
+	
+	
+      
+      <!-- Start Footer -->
+      <div class="row">
+	<div class="col-sm-12 center-block">
+          <footer>
+            <hr/>
+            <p>
+              <a href="https://www.apache.org/foundation/contributing">
+		<img src="https://www.apache.org/images/SupportApache-small.png"
+		     id="asf-logo"
+		     height="100"
+		     alt="Apache"
+		     class="float-left"
+		     style="margin-right: 15px;"></a>
+
+              Copyright &copy; 2018 <a href="https://www.apache.org">The&nbsp;Apache&nbsp;Software&nbsp;Foundation</a>.
+              Licensed under the <a href="https://www.apache.org/licenses/">Apache&nbsp;License,&nbsp;Version&nbsp;2.0</a>
+            </p>
+            <p>
+              Apache®, the names of Apache projects and their logos, and the multicolor feather
+              logo are registered trademarks or trademarks of The Apache Software Foundation
+              in the United States and/or other countries.
+            </p>
+          </footer>
+        </div>
+      </div>      
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>    
+  </body>
+</html>
