@@ -1,61 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="https://trafficcontrol.apache.org/private/">    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Traffic Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>Apache Traffic Control Releases</title>
 
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/home.css" rel="stylesheet">
-
+    <!-- Boostrap -->
+    <link rel="stylesheet"
+	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	  integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	  crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+	    integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+	    crossorigin="anonymous"></script>    
+    <link rel="icon" type="image/png" href="/resources/favicon.png">
+    
   </head>
   <body>
-    <div class="bkgdWrapper">
-    </div>
-    <div class="appWrapper">
-      <div class="appHeader">
-        <div class="applogo"></div>
-          <div class="navWrapper">
-            <ul>
-              <li class="selected">SECURITY</li>
-              <li class="navMain"><a href="../downloads/index.html">DOWNLOADS</a></li>
-              <li class="navMain"><a href="https://github.com/apache/incubator-trafficcontrol">GIT</a></li>
-              <li class="navMain"><a href="http://traffic-control-cdn.readthedocs.io/en/latest/index.html">DOCS</a></li>
-              <li class="navMain"><a href="../ask/index.html">INFO</a></li>
-              <li class="navMain"><a href="../index.html">HOME</a></li></ul>
-            </ul>
-          </div>
-        </div>
-      <hr/>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">
+	<img id="fluo-img" height="40px" src="./resources/tc_logo_c_only.png" alt="Apache Traffic Control">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto">
+	  <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/releases/">Releases</a>	    
+	  </li>	  
+	  <li class="nav-item">
+	    <a class="nav-link" href="https://traffic-control-cdn.readthedocs.io/en/latest/index.html">Docs</a>	    
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="https://traffic-control-cdn.readthedocs.io/en/latest/api/index.html">API</a>
+	  </li>
+          <li class="nav-item"> 
+	    <a class="nav-link" href="https://github.com/apache/incubator-trafficcontrol/issues">Issues</a>
+	  </li>
+          <li class="nav-item">
+	    <a class="nav-link" href="https://github.com/apache/incubator-trafficcontrol">Repo</a>
+	  </li>
+          <li class="nav-item active">
+	    <a class="nav-link" href="#">Security<span class="sr-only">(current)</span></a>
+	  </li>
+	  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Community
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="http://traffic-control-cdn.slack.com/" target="_blank">Slack</a>	      	      	      
+              <a class="dropdown-item" href="https://github.com/apache/incubator-trafficcontrol/blob/master/CONTRIBUTING.md">Contributing</a>	      	      
+              <a class="dropdown-item" href="/mailing_lists/">Mailing Lists</a>
+              <a class="dropdown-item" href="https://cwiki.apache.org/confluence/display/TC/">Wiki</a>
+              <a class="dropdown-item" href="https://www.youtube.com/channel/UC2zEj6sERinzx8w8uvyRBYg">YouTube</a>
+              <a class="dropdown-item" href="https://www.twitter.com/">Twitter</a>
+            </div>
+	  </li>
+	</ul>
 
-	  <div class="sectionContainer">
-	  <h2>Apache Traffic Control Security Updates</h2>
-      <h3>Traffic Router</h3>
-      <ul>
-        <li><a href="CVE-2017-7670.html">CVE-2017-7670</a></li>
-      </ul>
+	<ul class="navbar-nav navbar-right">
+	      
+	  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Apache Software Foundation<span class="caret"></span>          
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="https://www.apache.org">Apache Homepage</a>
+              <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
+              <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship">Sponsorship</a>
+              <a class="dropdown-item" href="https://www.apache.org/security">ASF Security</a>
+              <a class="dropdown-item" href="https://www.apache.org/foundation/thanks">Thanks</a>
+              <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct">Code of Conduct</a>	  
+            </div>
+	  </li>
+	</ul>
+      </div>
+    </nav>
+    
+    <div class="container">
+
+      <h1>Apache Traffic Control - Security Updates</h1>
+
+      <div class="row">	
+	<div class="col-sm-12">
+	  <div class="card-deck">
+	    <div class="card">
+	      <div class="card-body">
+		<h4 class="card-title">Past Vulnerabilities</h4>
+		<ul>
+		<li><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-7670">CVE-2017-7670: Apache Traffic Control Traffic Router Slowloris Denial of Service Vulnerability</a></li>
+		</ul>
+		</p>
+	      </div>
+	    </div>
+  	  </div>
+	</div>
+      </div>
+
+      <br/><br/>
       <h2>Reporting Vulnerabilities</h2>
-Please use our private security mailing list, <a href="mailto:security@trafficcontrol.incubator.apache.org">security@trafficcontrol.incubator.apache.org</a>, to disclose any new vulnerability. Disclosing vulnerabilities privately will allow our project team to analyze the report, identify a fix, and begin the full disclosure process. Please include all relevant information to reproduce the issue, and any known workaround or fix.
-	  </div>
+      <p>Please use our private security mailing list, <a href="mailto:security@trafficcontrol.apache.org">security@trafficcontrol.apache.org</a>, to disclose any new vulnerability. Disclosing vulnerabilities privately will allow our project team to analyze the report, identify a fix, and begin the full disclosure process. Please include all relevant information to reproduce the issue, and any known workaround or fix.</p>
 
-    <br><hr>
-      <div id='footer' class='footer'>
-    <a href="http://incubator.apache.org/" target="_blank"><img src="../images/incubator_logo_bw.png" alt="" height=120/></a>
-    <br/>
-      <p>
-        Apache Traffic Control is an effort undergoing Incubation at The Apache Software Foundation (ASF), sponsored by the Incubator.
-        Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects.
-        While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
-        <br>
-      </p>
-      <p>
-        Copyright &copy; 2016-2018 <a href='http://www.apache.org/'>The Apache Software Foundation</a>
-        <br>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
-      </p>
-  </div>
+      
+      <!-- Start Footer -->
+      <div class="row">
+	<div class="col-sm-12 center-block">
+          <footer>
+            <hr/>
+            <p>
+              <a href="https://www.apache.org/foundation/contributing">
+		<img src="https://www.apache.org/images/SupportApache-small.png"
+		     id="asf-logo"
+		     height="100"
+		     alt="Apache"
+		     class="float-left"
+		     style="margin-right: 15px;"></a>
 
+              Copyright &copy; 2018 <a href="https://www.apache.org">The&nbsp;Apache&nbsp;Software&nbsp;Foundation</a>.
+              Licensed under the <a href="https://www.apache.org/licenses/">Apache&nbsp;License,&nbsp;Version&nbsp;2.0</a>
+            </p>
+            <p>
+              Apache®, the names of Apache projects and their logos, and the multicolor feather
+              logo are registered trademarks or trademarks of The Apache Software Foundation
+              in the United States and/or other countries.
+            </p>
+          </footer>
+        </div>
+      </div>      
     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>    
   </body>
 </html>
