@@ -1,0 +1,2299 @@
+{
+   "parameters":[
+      {
+         "value":"/dev/sd",
+         "name":"Drive_Prefix",
+         "config_file":"storage.config"
+      },
+      {
+         "value":"b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y",
+         "name":"Drive_Letters",
+         "config_file":"storage.config"
+      },
+      {
+         "value":"STRING __HOSTNAME__",
+         "name":"CONFIG proxy.config.proxy_name",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver",
+         "name":"CONFIG proxy.config.config_dir",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING -M",
+         "name":"CONFIG proxy.config.proxy_binary_opts",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING example_prep.sh",
+         "name":"CONFIG proxy.config.env_prep",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING ats",
+         "name":"CONFIG proxy.config.alarm_email",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING LOG_DAEMON",
+         "name":"CONFIG proxy.config.syslog_facility",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING traffic.out",
+         "name":"CONFIG proxy.config.output.logfile",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING snapshots",
+         "name":"CONFIG proxy.config.snapshot_dir",
+         "config_file":"records.config"
+      },
+      {
+         "value":"FLOAT 1.5",
+         "name":"CONFIG proxy.config.exec_thread.autoconfig.scale",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING admin",
+         "name":"CONFIG proxy.config.admin.admin_user",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"CONFIG proxy.config.admin.number_config_bak",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING ats",
+         "name":"CONFIG proxy.config.admin.user_id",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 8084",
+         "name":"CONFIG proxy.config.process_manager.mgmt_port",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING example_alarm_bin.sh",
+         "name":"CONFIG proxy.config.alarm.bin",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.alarm.abs_path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING 443 563",
+         "name":"CONFIG proxy.config.http.connect_ports",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.insert_request_via_str",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"CONFIG proxy.config.http.insert_response_via_str",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.response_server_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.insert_age_in_response",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.no_dns_just_forward_to_parent",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.uncacheable_requests_bypass_parent",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.keep_alive_enabled_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.keep_alive_enabled_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.chunking_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.send_http11_requests",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.referer_filter",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.referer_format_redirect",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING http://www.example.com/",
+         "name":"CONFIG proxy.config.http.referer_default_redirect",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.parent_proxy_routing_enable",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 60",
+         "name":"CONFIG proxy.config.http.parent_proxy.retry_time",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.http.parent_proxy.fail_threshold",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.forward.proxy_auth_to_parent",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 115",
+         "name":"CONFIG proxy.config.http.keep_alive_no_activity_timeout_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 120",
+         "name":"CONFIG proxy.config.http.keep_alive_no_activity_timeout_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 30",
+         "name":"CONFIG proxy.config.http.transaction_no_activity_timeout_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 30",
+         "name":"CONFIG proxy.config.http.transaction_no_activity_timeout_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 900",
+         "name":"CONFIG proxy.config.http.transaction_active_timeout_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.transaction_active_timeout_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 120",
+         "name":"CONFIG proxy.config.http.accept_no_activity_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 6",
+         "name":"CONFIG proxy.config.http.connect_attempts_max_retries",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"CONFIG proxy.config.http.connect_attempts_max_retries_dead_server",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"CONFIG proxy.config.http.connect_attempts_rr_retries",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.http.connect_attempts_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1800",
+         "name":"CONFIG proxy.config.http.post_connect_attempts_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 300",
+         "name":"CONFIG proxy.config.http.down_server.cache_time",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.http.down_server.abort_threshold",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.congestion_control.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.anonymize_remove_from",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.anonymize_remove_referer",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.anonymize_remove_user_agent",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.anonymize_remove_cookie",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.anonymize_remove_client_ip",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.http.anonymize_other_header_list",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.insert_squid_x_forwarded_for",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.push_method_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.http",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.ignore_client_no_cache",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.ims_on_client_no_cache",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.ignore_server_no_cache",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.ignore_client_cc_max_age",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.normalize_ae_gzip",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.cache_responses_to_cookies",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.ignore_authentication",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.cache_urls_that_look_dynamic",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.enable_default_vary_headers",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.when_to_revalidate",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.required_headers",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 604800",
+         "name":"CONFIG proxy.config.http.cache.max_stale_age",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.range.lookup",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3600",
+         "name":"CONFIG proxy.config.http.cache.heuristic_min_lifetime",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 86400",
+         "name":"CONFIG proxy.config.http.cache.heuristic_max_lifetime",
+         "config_file":"records.config"
+      },
+      {
+         "value":"FLOAT 0.10",
+         "name":"CONFIG proxy.config.http.cache.heuristic_lm_factor",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 240",
+         "name":"CONFIG proxy.config.http.cache.fuzz.time",
+         "config_file":"records.config"
+      },
+      {
+         "value":"FLOAT 0.005",
+         "name":"CONFIG proxy.config.http.cache.fuzz.probability",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.http.cache.vary_default_text",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.http.cache.vary_default_images",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.http.cache.vary_default_other",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.enable_http_stats",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.body_factory.enable_logging",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.body_factory.response_suppression_mode",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 500000",
+         "name":"CONFIG proxy.config.net.connections_throttle",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 45",
+         "name":"CONFIG proxy.config.net.defer_accept",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"LOCAL proxy.local.cluster.type",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 8086",
+         "name":"CONFIG proxy.config.cluster.cluster_port",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 8088",
+         "name":"CONFIG proxy.config.cluster.rsport",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 8089",
+         "name":"CONFIG proxy.config.cluster.mcport",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING 224.0.1.37",
+         "name":"CONFIG proxy.config.cluster.mc_group_addr",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.cluster.mc_ttl",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.cluster.log_bogus_mc_msgs",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING lo",
+         "name":"CONFIG proxy.config.cluster.ethernet_interface",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.permit.pinning",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.cache.ram_cache.algorithm",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.cache.ram_cache.use_seen_filter",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.ram_cache.compress",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.cache.limits.http.max_alts",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1048576",
+         "name":"CONFIG proxy.config.cache.target_fragment_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.max_doc_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 131072",
+         "name":"CONFIG proxy.config.cache.min_average_object_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 8",
+         "name":"CONFIG proxy.config.cache.threads_per_disk",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.cache.mutex_retry_delay",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.dns.search_default_domains",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.dns.splitDNS.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2048",
+         "name":"CONFIG proxy.config.dns.max_dns_in_flight",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.dns.round_robin_nameservers",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.dns.nameservers",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING /etc/resolv.conf",
+         "name":"CONFIG proxy.config.dns.resolv_conf",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.dns.validate_query_name",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1440",
+         "name":"CONFIG proxy.config.hostdb.timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.hostdb.strict_round_robin",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"CONFIG proxy.config.log.logging_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.log.max_secs_per_buffer",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 25000",
+         "name":"CONFIG proxy.config.log.max_space_mb_for_logs",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 25",
+         "name":"CONFIG proxy.config.log.max_space_mb_for_orphan_logs",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1000",
+         "name":"CONFIG proxy.config.log.max_space_mb_headroom",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING localhost",
+         "name":"CONFIG proxy.config.log.hostname",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING var/log/trafficserver",
+         "name":"CONFIG proxy.config.log.logfile_dir",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING rw-r--r--",
+         "name":"CONFIG proxy.config.log.logfile_perm",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"LOCAL proxy.local.log.collation_mode",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.log.collation_host",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 8085",
+         "name":"CONFIG proxy.config.log.collation_port",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING foobar",
+         "name":"CONFIG proxy.config.log.collation_secret",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.log.collation_host_tagged",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.log.collation_retry_sec",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.log.rolling_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 86400",
+         "name":"CONFIG proxy.config.log.rolling_interval_sec",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.log.rolling_offset_hr",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.log.rolling_size_mb",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.log.auto_delete_rolled_files",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.log.sampling_frequency",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.reverse_proxy.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.header.parse.no_host_url_redirect",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.url_remap.remap_required",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.url_remap.pristine_host_hdr",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.ssl.TLSv1",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.client.certification_level",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.server.cert_chain.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.CA.cert.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.client.verify.server",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.client.cert.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.client.private_key.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.client.CA.cert.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 262144",
+         "name":"CONFIG proxy.config.net.sock_send_buffer_size_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_recv_buffer_size_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_send_buffer_size_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_recv_buffer_size_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.core_limit",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.diags.debug.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING http.*|dns.*",
+         "name":"CONFIG proxy.config.diags.debug.tags",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.dump_mem_info_frequency",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.slow.log.threshold",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.task_threads",
+         "config_file":"records.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"cache.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"hosting.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"parent.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"plugin.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"records.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"remap.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"storage.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/",
+         "name":"location",
+         "config_file":"volume.config"
+      },
+      {
+         "value":"/etc/udev/rules.d/",
+         "name":"location",
+         "config_file":"50-ats.rules"
+      },
+      {
+         "value":"STRING parent.config",
+         "name":"CONFIG proxy.config.http.parent_proxy.file",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING remap.config",
+         "name":"CONFIG proxy.config.url_remap.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"ip_allow.config"
+      },
+      {
+         "value":"STRING cluster.config",
+         "name":"CONFIG proxy.config.cluster.cluster_configuration ",
+         "config_file":"records.config"
+      },
+      {
+         "value":"ramdisk_size=16777216",
+         "name":"ramdisk_size",
+         "config_file":"grub.conf"
+      },
+      {
+         "value":">1750000",
+         "name":"health.threshold.availableBandwidthInKbps",
+         "config_file":"rascal.properties"
+      },
+      {
+         "value":"30",
+         "name":"history.count",
+         "config_file":"rascal.properties"
+      },
+      {
+         "value":"STRING cache.config",
+         "name":"CONFIG proxy.config.cache.control.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"1000",
+         "name":"health.threshold.queryTime",
+         "config_file":"rascal.properties"
+      },
+      {
+         "value":"http://${hostname}/_astats?application=&inf.name=${interface_name}",
+         "name":"health.polling.url",
+         "config_file":"rascal.properties"
+      },
+      {
+         "value":"/dev/ram",
+         "name":"RAM_Drive_Prefix",
+         "config_file":"storage.config"
+      },
+      {
+         "value":"0,1,2,3,4,5,6,7",
+         "name":"RAM_Drive_Letters",
+         "config_file":"storage.config"
+      },
+      {
+         "value":"2",
+         "name":"RAM_Volume",
+         "config_file":"storage.config"
+      },
+      {
+         "value":"1",
+         "name":"Disk_Volume",
+         "config_file":"storage.config"
+      },
+      {
+         "value":"STRING hosting.config",
+         "name":"CONFIG proxy.config.cache.hosting_filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"2000",
+         "name":"health.connection.timeout",
+         "config_file":"rascal.properties"
+      },
+      {
+         "value":"/opt/ort",
+         "name":"location",
+         "config_file":"12M_facts"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.ignore_accept_encoding_mismatch",
+         "config_file":"records.config"
+      },
+      {
+         "value":"0:off\t1:off\t2:on\t3:on\t4:on\t5:on\t6:off",
+         "name":"trafficserver",
+         "config_file":"chkconfig"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.allow_empty_doc",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"LOCAL proxy.config.cache.interim.storage",
+         "config_file":"records.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"regex_revalidate.config"
+      },
+      {
+         "value":"",
+         "name":"remap_stats.so",
+         "config_file":"plugin.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"drop_qstring.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.hostdb.ttl_mode",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.cache.enable_read_while_writer",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.background_fill_active_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"FLOAT 0.0",
+         "name":"CONFIG proxy.config.http.background_fill_completed_threshold",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.exec_thread.affinity",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.exec_thread.autoconfig",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 32",
+         "name":"CONFIG proxy.config.exec_thread.limit",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1024",
+         "name":"CONFIG proxy.config.allocator.thread_freelist_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.mlock_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 34359738368",
+         "name":"CONFIG proxy.config.cache.ram_cache.size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"",
+         "name":"astats_over_http.so",
+         "config_file":"plugin.config"
+      },
+      {
+         "value":"127.0.0.1,10.0.0.0/8",
+         "name":"allow_ip",
+         "config_file":"astats.config"
+      },
+      {
+         "value":"::1/128",
+         "name":"allow_ip6",
+         "config_file":"astats.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"astats.config"
+      },
+      {
+         "value":"_astats",
+         "name":"path",
+         "config_file":"astats.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.http.compatibility.4-2-0-fixup",
+         "config_file":"records.config"
+      },
+      {
+         "value":"consistent_hash",
+         "name":"algorithm",
+         "config_file":"parent.config"
+      },
+      {
+         "value":"INT 1073741824",
+         "name":"CONFIG proxy.config.cache.ram_cache_cutoff",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!RC4:!SRP:!DSS:!PSK:!aNULL:!eNULL:!SSLv2:@STRENGTH",
+         "name":"CONFIG proxy.config.ssl.server.cipher_suite",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.ssl.server.honor_cipher_order",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver/ssl",
+         "name":"CONFIG proxy.config.ssl.server.cert.path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver/ssl",
+         "name":"CONFIG proxy.config.ssl.server.private_key.path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver/ssl",
+         "name":"CONFIG proxy.config.ssl.client.CA.cert.path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver/ssl",
+         "name":"CONFIG proxy.config.ssl.client.private_key.path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver/ssl",
+         "name":"CONFIG proxy.config.ssl.client.cert.path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver/ssl",
+         "name":"CONFIG proxy.config.ssl.CA.cert.path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING ssl_multicert.config",
+         "name":"CONFIG proxy.config.ssl.server.multicert.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.allocator.hugepages",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.negative_caching_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"122",
+         "name":"record_types",
+         "config_file":"astats.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.body_factory.enable_customizations",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.negative_caching_lifetime",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING etc/trafficserver/body_factory",
+         "name":"CONFIG proxy.config.body_factory.template_sets_dir",
+         "config_file":"records.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_0.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_10.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_12.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_14.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_18.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_20.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_22.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_26.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_28.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_30.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_34.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_36.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_38.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_8.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_16.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_24.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_32.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_40.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_48.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_56.config"
+      },
+      {
+         "value":"STRING 80 80:ipv6 443:proto=http:ssl 443:ipv6:proto=http:ssl",
+         "name":"CONFIG proxy.config.http.server_ports",
+         "config_file":"records.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"ssl_multicert.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"bg_fetch.config"
+      },
+      {
+         "value":"ignore",
+         "name":"qstring",
+         "config_file":"parent.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"cacheurl_qstring.config"
+      },
+      {
+         "value":"1.0",
+         "name":"weight",
+         "config_file":"CRConfig.json"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.hit_evacuate_size_limit",
+         "config_file":"records.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver/dscp",
+         "name":"location",
+         "config_file":"set_dscp_37.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.parent_proxy.connect_attempts_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.parent_proxy.per_parent_connect_attempts",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"CONFIG proxy.config.http.parent_proxy.connect_attempts_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.http.parent_proxy.total_connect_attempts",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.hostdb.sync_frequency",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2592000",
+         "name":"CONFIG proxy.config.http.cache.guaranteed_max_lifetime",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.allocator.dontdump_iobuffers",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 180",
+         "name":"CONFIG proxy.config.net.default_inactivity_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"40",
+         "name":"coalesce_masklen_v6",
+         "config_file":"ip_allow.config"
+      },
+      {
+         "value":"5",
+         "name":"coalesce_number_v6",
+         "config_file":"ip_allow.config"
+      },
+      {
+         "value":"5",
+         "name":"coalesce_number_v4",
+         "config_file":"ip_allow.config"
+      },
+      {
+         "value":"16",
+         "name":"coalesce_masklen_v4",
+         "config_file":"ip_allow.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.parent_proxy.mark_down_hostdb",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.accept_threads",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.cache.enable_checksum",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING /tmp/backtrace/invoker.sh",
+         "name":"CONFIG proxy.config.crash_log_helper",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.hostdb.max_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"custom_ats_2",
+         "name":"LogObject.Filename",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"custom_ats_2",
+         "name":"LogObject.Format",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"custom_ats_2",
+         "name":"LogFormat.Name",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"%<cqtq> chi=%<chi> phn=%<phn> php=%<php> shn=%<shn> url=%<cquuc> cqhm=%<cqhm> cqhv=%<cqhv> pssc=%<pssc> ttms=%<ttms> b=%<pscl> sssc=%<sssc> sscl=%<sscl> cfsc=%<cfsc> pfsc=%<pfsc> crc=%<crc> phr=%<phr> pqsn=%<pqsn> uas=\"%<{User-Agent}cqh>\" ",
+         "name":"LogFormat.Format",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"1024",
+         "name":"LogObject.RollingSizeMb",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"11",
+         "name":"LogObject.RollingOffsetHr",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"86400",
+         "name":"LogObject.RollingIntervalSec",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"3",
+         "name":"LogObject.RollingEnabled",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"/opt/trafficserver/etc/trafficserver",
+         "name":"location",
+         "config_file":"logging.config"
+      },
+      {
+         "value":"INT 8083",
+         "name":"CONFIG proxy.config.admin.synthetic_port",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.hostdb.max_count",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.insert_client_ip",
+         "config_file":"records.config"
+      },
+      {
+         "value":"--disable-timed-updates --config regex_revalidate.config",
+         "name":"regex_revalidate.so",
+         "config_file":"plugin.config"
+      },
+      {
+         "value":"STRING both",
+         "name":"CONFIG proxy.config.http.server_session_sharing.match",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.origin_max_connections",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.hit_evacuate_percent",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.range.write",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.ssl.ocsp.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.redirect_use_orig_cache_key",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.alarm.script_runtime",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.cache.read_while_writer.max_retries",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.strict_uri_parsing",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.ssl.hsts_max_age",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.redirection_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.dns.dedicated_thread",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cop.core_signal",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 300",
+         "name":"CONFIG proxy.config.socks.server_retry_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING logging.config",
+         "name":"CONFIG proxy.config.log.config.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING L",
+         "name":"CONFIG proxy.config.diags.output.error",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.wire_trace_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.doc_in_cache_skip_dns",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.hostdb.host_file.path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.guaranteed_min_lifetime",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.post.check.content_length.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 100",
+         "name":"CONFIG proxy.config.socks.socks_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.cluster_cache_local",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 720",
+         "name":"CONFIG proxy.config.hostdb.verify_after",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING Apache",
+         "name":"CONFIG proxy.config.product_company",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 131072",
+         "name":"CONFIG proxy.config.http.response_header_max_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.use_client_target_addr",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.socks.per_server_connection_attempts",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.errors.log_error_pages",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING L",
+         "name":"CONFIG proxy.config.diags.output.status",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING thread",
+         "name":"CONFIG proxy.config.http.server_session_sharing.pool",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.session_cache.skip_cache_on_bucket_contention",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.http.origin_max_connections_queue",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 30",
+         "name":"CONFIG proxy.config.hostdb.lookup_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING L",
+         "name":"CONFIG proxy.config.diags.output.alert",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 256",
+         "name":"CONFIG proxy.config.ssl.session_cache.num_buckets",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.hostdb.fail.timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.disable_configuration_modification",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.session_cache.timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_mss_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3600",
+         "name":"CONFIG proxy.config.diags.logfile.rolling_interval_sec",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.wire_trace_addr",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.net.poll_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.net.listen_backlog",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3600",
+         "name":"CONFIG proxy.config.websocket.active_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.http.cache.open_read_retry_time",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 50",
+         "name":"CONFIG proxy.config.cache.read_while_writer_retry.delay",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.ssl.TLSv1_1",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING SL",
+         "name":"CONFIG proxy.config.diags.output.emergency",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.admin.api.restricted",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 32",
+         "name":"CONFIG proxy.config.allocator.thread_freelist_low_watermark",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.log.periodic_tasks_interval",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.open_write_fail_action",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.flow_control.enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.hostdb.ip_resolve",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http2.max_active_streams_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.restart.active_client_threshold",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.keep_alive_post_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 8",
+         "name":"CONFIG proxy.config.http.default_buffer_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 4",
+         "name":"CONFIG proxy.config.socks.socks_version",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.handshake_timeout_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1048576",
+         "name":"CONFIG proxy.config.thread.default.stacksize",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.cert.load_elevated",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.http.cache.ignore_accept_language_mismatch",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.safe_requests_retryable",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.record_heartbeat",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 256",
+         "name":"CONFIG proxy.config.http2.push_diary_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.ssl.session_cache",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.http2.min_concurrent_streams_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.http.cache.generation",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.ssl.session_cache.auto_clear",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 86390",
+         "name":"CONFIG proxy.config.log.collation_host_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 50",
+         "name":"CONFIG proxy.config.net.throttle_delay",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_packet_tos_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING socks.config",
+         "name":"CONFIG proxy.config.socks.socks_config_file",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.auth_server_session_private",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 600",
+         "name":"CONFIG proxy.config.websocket.no_activity_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING Apache",
+         "name":"CONFIG proxy.config.product_vendor",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 86400",
+         "name":"CONFIG proxy.config.hostdb.host_file.interval",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 32768",
+         "name":"CONFIG proxy.config.http.default_buffer_water_mark",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING traffic_server_jemalloc",
+         "name":"CONFIG proxy.config.proxy_binary",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.hsts_include_subdomains",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.socks.server_fail_threshold",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.local.http.parent_proxy.disable_connect_tunneling",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1024",
+         "name":"CONFIG proxy.config.diags.logfile.rolling_size_mb",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.srv_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.server_max_connections",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.ssl.ocsp.request_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.diags.logfile.rolling_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.server.ticket_key.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.disallow_post_100_continue",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cop.linux_min_memfree_kb",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 4",
+         "name":"CONFIG proxy.config.socks.connection_attempts",
+         "config_file":"records.config"
+      },
+      {
+         "value":"FLOAT 0.9",
+         "name":"CONFIG proxy.config.system.file_max_pct",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING L",
+         "name":"CONFIG proxy.config.diags.output.warning",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 100",
+         "name":"CONFIG proxy.config.http2.max_concurrent_streams_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 131072",
+         "name":"CONFIG proxy.config.http.request_header_max_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.enable_http_info",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.flow_control.high_water",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_packet_mark_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http2.stream_priority_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cache.force_sector_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cop.linux_min_swapfree_kb",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.http.cache.ignore_accept_mismatch",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.socks.server_connect_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING L",
+         "name":"CONFIG proxy.config.diags.output.note",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.output.logfile.rolling_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1800",
+         "name":"CONFIG proxy.config.http.negative_revalidating_lifetime",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 4294967295",
+         "name":"CONFIG proxy.config.http2.max_header_list_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.remap.num_remap_threads",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.net.sock_option_flag_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 100",
+         "name":"CONFIG proxy.config.output.logfile.rolling_size_mb",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.cluster.threads",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING Traffic",
+         "name":"CONFIG proxy.config.product_name",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.cache.max_open_write_retries",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.net.event_period",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 86400",
+         "name":"CONFIG proxy.config.log.collation_client_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.server_tcp_init_cwnd",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 4096",
+         "name":"CONFIG proxy.config.http.chunking.size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.negative_revalidating_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3",
+         "name":"CONFIG proxy.config.cop.active_health_checks",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 300",
+         "name":"CONFIG proxy.config.socks.server_retry_time",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 4096",
+         "name":"CONFIG proxy.config.cache.alt_rewrite_max_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 16384",
+         "name":"CONFIG proxy.config.http2.max_frame_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.net.inactivity_check_frequency",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.net.sock_option_flag_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.attach_server_session_to_client",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.cop.init_sleep_time",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.number_of_redirections",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_packet_tos_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.socks.accept_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http_ui_enabled",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.send_100_continue_response",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.net.sock_packet_mark_out",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 80",
+         "name":"CONFIG proxy.config.socks.http_port",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.ssl.TLSv1_2",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING E",
+         "name":"CONFIG proxy.config.diags.output.debug",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3600",
+         "name":"CONFIG proxy.config.ssl.ocsp.cache_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1048576",
+         "name":"CONFIG proxy.config.http2.initial_window_size_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING bin",
+         "name":"CONFIG proxy.config.bin_path",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 3600",
+         "name":"CONFIG proxy.config.output.logfile.rolling_interval_sec",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.socks.socks_needed",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.forward_connect_method",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.flow_control.low_water",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.cluster.startup_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 102400",
+         "name":"CONFIG proxy.config.ssl.session_cache.size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING host.db",
+         "name":"CONFIG proxy.config.hostdb.filename",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT -1",
+         "name":"CONFIG proxy.config.http.websocket.max_number_of_connections",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.max_record_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING traffic_manager",
+         "name":"CONFIG proxy.config.manager_binary",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.net.retry_delay",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 64",
+         "name":"CONFIG proxy.config.hostdb.partitions",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.wire_trace_percentage",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING L",
+         "name":"CONFIG proxy.config.diags.output.fatal",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.ssl.allow_client_renegotiation",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.server.dhparams_file",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.wait_for_cache",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 4096",
+         "name":"CONFIG proxy.config.http2.header_table_size",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING NULL",
+         "name":"CONFIG proxy.config.ssl.wire_trace_server_name",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.hostdb.timed_round_robin",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1080",
+         "name":"CONFIG proxy.config.socks.accept_port",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.cache.fuzz.min_time",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 10",
+         "name":"CONFIG proxy.config.net.accept_period",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.http.cache.ignore_accept_charset_mismatch",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 0",
+         "name":"CONFIG proxy.config.http.origin_min_keep_alive_connections",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 60",
+         "name":"CONFIG proxy.config.ssl.ocsp.update_period",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.http.redirect_host_no_port",
+         "config_file":"records.config"
+      },
+      {
+         "value":"STRING E",
+         "name":"CONFIG proxy.config.diags.output.diag",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 2",
+         "name":"CONFIG proxy.config.diags.show_location",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 500000",
+         "name":"CONFIG proxy.config.net.max_connections_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 500000",
+         "name":"CONFIG proxy.config.net.max_connections_active_in",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 1",
+         "name":"CONFIG proxy.config.ssl.server.session_ticket.enable",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 20",
+         "name":"CONFIG proxy.config.hostdb.serve_stale_for",
+         "config_file":"records.config"
+      },
+      {
+         "value":"INT 20",
+         "name":"CONFIG proxy.config.dns.lookup_timeout",
+         "config_file":"records.config"
+      },
+      {
+         "value":"30.0",
+         "name":"health.threshold.loadavg",
+         "config_file":"rascal.properties"
+      },
+      {
+         "value":"4.5.0-3.x86_64",
+         "name":"jemalloc-comcast-prof",
+         "config_file":"package"
+      },
+      {
+         "value":"7.1.2-114.e76b2fe.el7.centos.x86_64",
+         "name":"trafficserver",
+         "config_file":"package"
+      },
+      {
+         "value":"7.1.2-114.e76b2fe.el7.centos.x86_64",
+         "name":"trafficserver-debuginfo",
+         "config_file":"package"
+      },
+      {
+         "value":"INT 5",
+         "name":"CONFIG proxy.config.http.cache.max_open_read_retries",
+         "config_file":"records.config"
+      }
+   ],
+   "profile":{
+      "name":"EDGE_ATS_712_CENTOS_721",
+      "type":"ATS_PROFILE",
+      "description":"Edge Cache - Apache Traffic Server v7.1.2"
+   }
+}
