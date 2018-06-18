@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -7,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Ops - Configuring &mdash; Traffic Control 2.1-dev documentation </title>
+  <title>Traffic Ops - Configuring &mdash; Traffic Control 2.2-dev documentation </title>
   
 
   
@@ -33,10 +35,13 @@
   
 
   
-    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../index.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Traffic Control 2.2-dev documentation" href="../../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../index.html"/>
         <link rel="next" title="Traffic Ops - Using" href="using.html"/>
-        <link rel="prev" title="Traffic Ops - Migrating from 1.x to 2.x" href="migration_from_10_to_20.html"/> 
+        <link rel="prev" title="Traffic Ops - Migrating from 2.0 to 2.2" href="migration_from_20_to_22.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -95,21 +100,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_monitor.html">Traffic Monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_server.html">Traffic Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_vault.html">Traffic Vault</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_from_20_to_22.html">Traffic Ops - Migrating from 2.0 to 2.2</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Ops - Configuring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using.html">Traffic Ops - Using</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extensions.html">Managing Traffic Ops Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_portal.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/installation.html">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/usingtrafficportal.html">Traffic Portal - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration (Legacy)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
@@ -120,15 +126,23 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_server.html">Traffic Server</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/routes.html">API Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/v11/index.html">API 1.1 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/v12/index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/v13/index.html">API 1.3 Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -164,14 +178,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
+    <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Ops - Configuring</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/admin/traffic_ops/configuration.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/admin/traffic_ops/configuration.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -183,7 +197,7 @@
         		  <a href="using.html" class="btn btn-neutral float-right" title="Traffic Ops - Using">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
-        		  <a href="migration_from_10_to_20.html" class="btn btn-neutral" title="Traffic Ops - Migrating from 1.x to 2.x"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        		  <a href="migration_from_20_to_22.html" class="btn btn-neutral" title="Traffic Ops - Migrating from 2.0 to 2.2"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       		  
     		  </div>
   		  
@@ -199,7 +213,7 @@
 <h3>Self-signed Certificate (Development)<a class="headerlink" href="#self-signed-certificate-development" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>Example Procedure:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ openssl genrsa -des3 -passout pass:x -out localhost.pass.key 2048
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ openssl genrsa -des3 -passout pass:x -out localhost.pass.key 2048
 Generating RSA private key, 2048 bit long modulus
 ...
 $ openssl rsa -passin pass:x -in localhost.pass.key -out localhost.key
@@ -245,7 +259,7 @@ $ sudo chown trafops:trafops /etc/pki/tls/private/localhost.key
 <p class="last">You will need to know the appropriate answers when generating the certificate request file <cite>trafficopss.csr</cite> below.</p>
 </div>
 <p>Example Procedure:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ openssl genrsa -des3 -passout pass:x -out trafficops.pass.key 2048
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ openssl genrsa -des3 -passout pass:x -out trafficops.pass.key 2048
 Generating RSA private key, 2048 bit long modulus
 ...
 $ openssl rsa -passin pass:x -in trafficops.pass.key -out trafficops.key
@@ -300,7 +314,7 @@ You will need to update the file /opt/traffic_ops/app/conf/cdn.conf with the fol
 </div>
 <div class="section" id="profile-parameters">
 <span id="rl-param-prof"></span><h2>Profile Parameters<a class="headerlink" href="#profile-parameters" title="Permalink to this headline">¶</a></h2>
-<p>Many of the settings for the different servers in a Traffic Control CDN are controlled by parameters in the parameter view of Traffic Ops. Parameters are grouped in profiles and profiles are assigned to a server or a deliveryservice. For a typical cache there are hundreds of configuration settings to apply. The Traffic Ops parameter view contains the defined settings. To make life easier, Traffic Ops allows for duplication, comparison, import and export of Profiles. Traffic Ops also has a &#8220;Global profile&#8221; - the parameters in this profile are going to be applied to all servers in the Traffic Ops instance, or apply to Traffic Ops themselves. These parameters are:</p>
+<p>Many of the settings for the different servers in a Traffic Control CDN are controlled by parameters in the parameter view of Traffic Ops. Parameters are grouped in profiles and profiles are assigned to a server or a deliveryservice. For a typical cache there are hundreds of configuration settings to apply. The Traffic Ops parameter view contains the defined settings. To make life easier, Traffic Ops allows for duplication, comparison, import and export of Profiles. Traffic Ops also has a “Global profile” - the parameters in this profile are going to be applied to all servers in the Traffic Ops instance, or apply to Traffic Ops themselves. These parameters are:</p>
 <table border="1" class="docutils" id="index-0">
 <colgroup>
 <col width="15%" />
@@ -327,11 +341,11 @@ maintained by Traffic Ops by caching configuration files of profile and cdn scop
 </tr>
 <tr class="row-even"><td>tm.toolname</td>
 <td>global</td>
-<td>The name of the Traffic Ops tool. Usually &#8220;Traffic Ops&#8221;. Used in the About screen and in the comments headers of the files generated.</td>
+<td>The name of the Traffic Ops tool. Usually “Traffic Ops”. Used in the About screen and in the comments headers of the files generated.</td>
 </tr>
 <tr class="row-odd"><td>tm.infourl</td>
 <td>global</td>
-<td>This is the &#8220;for more information go here&#8221; URL, which is visible in the About page.</td>
+<td>This is the “for more information go here” URL, which is visible in the About page.</td>
 </tr>
 <tr class="row-even"><td>tm.logourl</td>
 <td>global</td>
@@ -355,6 +369,12 @@ set this parameter on a production system.</td>
 <tr class="row-even"><td>geolocation6.polling.url</td>
 <td>CRConfig.json</td>
 <td>The location to get the IPv6 GeoLiteCity database from.</td>
+</tr>
+<tr class="row-odd"><td>maxmind.default.override</td>
+<td>CRConfig.json</td>
+<td>The destination geo coordinates to use for client location when maxmind returns a default location that matches the country code.
+This parameter can be specified multiple times with different values to support default overrides for multiple countries.
+Format: &lt;CountryCode&gt;;&lt;Lat&gt;,&lt;Long&gt;   Ex: US;37.751,-97.822</td>
 </tr>
 </tbody>
 </table>
@@ -390,7 +410,7 @@ set this parameter on a production system.</td>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The Traffic Server profiles contain some information that is specific to the hardware being used (most notably the disk configuration), so some parameters will have to be changed to reflect your configuration. Future releases of Traffic Control will separate the hardware and software profiles so it is easier to &#8220;mix-and-match&#8221; different hardware configurations.</p>
+<p class="last">The Traffic Server profiles contain some information that is specific to the hardware being used (most notably the disk configuration), so some parameters will have to be changed to reflect your configuration. Future releases of Traffic Control will separate the hardware and software profiles so it is easier to “mix-and-match” different hardware configurations.</p>
 </div>
 <p>Below is a list of cache parameters that are likely to need changes from the default profiles shipped with Traffic Ops:</p>
 <table border="1" class="docutils">
@@ -418,11 +438,11 @@ The Traffic Monitor IP addresses have to be included in this, if they are using 
 </tr>
 <tr class="row-even"><td>Drive_Prefix</td>
 <td>storage.config</td>
-<td>The device path start of the disks. For example, if you have <code class="docutils literal"><span class="pre">/dev/sda</span></code> through <code class="docutils literal"><span class="pre">/dev/sdf</span></code> set this to <code class="docutils literal"><span class="pre">/dev/sd</span></code></td>
+<td>The device path start of the disks. For example, if you have <code class="docutils literal notranslate"><span class="pre">/dev/sda</span></code> through <code class="docutils literal notranslate"><span class="pre">/dev/sdf</span></code> set this to <code class="docutils literal notranslate"><span class="pre">/dev/sd</span></code></td>
 </tr>
 <tr class="row-odd"><td>Drive_Letters</td>
 <td>storage.config</td>
-<td>The letter part of the disks, in the same example as above set this to <code class="docutils literal"><span class="pre">a,b,c,d,e,f</span></code></td>
+<td>The letter part of the disks, in the same example as above set this to <code class="docutils literal notranslate"><span class="pre">a,b,c,d,e,f</span></code></td>
 </tr>
 <tr class="row-even"><td>purge_allow_ip</td>
 <td>ip_allow.config</td>
@@ -452,7 +472,7 @@ The Traffic Monitor IP addresses have to be included in this, if they are using 
 availableBandwidthInKbps</td>
 <td>rascal.properties</td>
 <td>The amount of bandwidth that Traffic Router will try to keep available on the cache.
-For example: &#8220;&#8221;&gt;1500000&#8221; means stop sending new traffic to this cache when traffic is at 8.5Gbps on a 10Gbps interface.</td>
+For example: “”&gt;1500000” means stop sending new traffic to this cache when traffic is at 8.5Gbps on a 10Gbps interface.</td>
 </tr>
 </tbody>
 </table>
@@ -485,7 +505,7 @@ For example: &#8220;&#8221;&gt;1500000&#8221; means stop sending new traffic to 
 <tr class="row-even"><td>regex_revalidate</td>
 <td>plugin.config</td>
 <td>The config to be used for regex_revalidate.
-For example: &#8211;config regex_revalidate.config</td>
+For example: –config regex_revalidate.config</td>
 <td><a class="reference external" href="https://docs.trafficserver.apache.org/en/5.3.x/reference/plugins/regex_remap.en.html">regex_revalidate</a></td>
 </tr>
 <tr class="row-odd"><td>remap_stats</td>
@@ -496,15 +516,42 @@ Value is left blank.</td>
 </tr>
 </tbody>
 </table>
+<p>Below is a list of cache parameters for special configuration, which are unlikely to need changes, but may be useful in particular circumstances:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="11%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Config file</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>not_a_parent</td>
+<td>parent.config</td>
+<td>This is a boolean flag and is considered true if it exists and has any value except ‘false’.
+This prevents servers with this parameter in their profile from being inserted into the parent.config generated for
+servers with this server’s cachegroup as a parent of their cachegroup. This is primarily useful for when edge caches
+are configured to have a cachegroup of other edge caches as parents (a highly unusual configuration), and it is
+necessary to exclude some, but not all, edges in the parent cachegroup from the parent.config (for example, because they
+lack necessary capabilities), but still have all edges in the same cachegroup in order to take traffic from ordinary
+delivery services at that cachegroup’s geo location. Once again, this is a highly unusual scenario, and under ordinary
+circumstances this parameter should not exist.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="regions-locations-and-cache-groups">
 <h2>Regions, Locations and Cache Groups<a class="headerlink" href="#regions-locations-and-cache-groups" title="Permalink to this headline">¶</a></h2>
-<p>All servers have to have a <cite>location</cite>, which is their physical location. Each location is part of a <cite>region</cite>, and each region is part of a <cite>division</cite>. For Example, <code class="docutils literal"><span class="pre">Denver</span></code> could be a location in the <code class="docutils literal"><span class="pre">Mile</span> <span class="pre">High</span></code> region and that region could be part of the <code class="docutils literal"><span class="pre">West</span></code> division. Enter your divisions first in  <cite>Misc-&gt;Divisions</cite>, then enter the regions in <cite>Misc-&gt;Regions</cite>, referencing the divisions entered, and finally, enter the physical locations in <cite>Misc-&gt;Locations</cite>, referencing the regions entered.</p>
-<p>All servers also have to be part of a <cite>cache group</cite>. A cache group is a logical grouping of caches, that don&#8217;t have to be in the same physical location (in fact, usually a cache group is spread across minimally 2 physical Locations for redundancy purposes), but share geo coordinates for content routing purposes. JvD to add more.</p>
+<p>All servers have to have a <cite>location</cite>, which is their physical location. Each location is part of a <cite>region</cite>, and each region is part of a <cite>division</cite>. For Example, <code class="docutils literal notranslate"><span class="pre">Denver</span></code> could be a location in the <code class="docutils literal notranslate"><span class="pre">Mile</span> <span class="pre">High</span></code> region and that region could be part of the <code class="docutils literal notranslate"><span class="pre">West</span></code> division. Enter your divisions first in  <cite>Misc-&gt;Divisions</cite>, then enter the regions in <cite>Misc-&gt;Regions</cite>, referencing the divisions entered, and finally, enter the physical locations in <cite>Misc-&gt;Locations</cite>, referencing the regions entered.</p>
+<p>All servers also have to be part of a <cite>cache group</cite>. A cache group is a logical grouping of caches, that don’t have to be in the same physical location (in fact, usually a cache group is spread across minimally 2 physical Locations for redundancy purposes), but share geo coordinates for content routing purposes. JvD to add more.</p>
 </div>
 <div class="section" id="configuring-content-purge">
 <h2>Configuring Content Purge<a class="headerlink" href="#configuring-content-purge" title="Permalink to this headline">¶</a></h2>
-<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don&#8217;t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it&#8217;s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="../traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
+<p>Content purge using ATS is not simple; there is no file system to delete files/directories from, and in large caches it can be hard to delete a simple regular expression from the cache. This is why Traffic Control uses the <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/regex_revalidate.en.html">Regex Revalidate Plugin</a> to purge content from the system. We don’t actually remove the content, we have a check that gets run before each request on each cache to see if this request matches a list of regular expressions, and if it does, we force a revalidation to the origin, making the original content inaccessible. The regex_revalidate plugin will monitor it’s config file, and will pick up changes to it without a <cite>traffic_line -x</cite> signal to ATS. Changes to this file need to be distributed to the highest tier (MID) caches in the CDN before they are distributed to the lower tiers, to prevent filling the lower tiers with the content that should be purged from the higher tiers without hitting the origin. This is why the ort script (see <a class="reference internal" href="../traffic_server.html#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a>) will by default push out config changes to MID first, confirm that they have all been updated, and then push out the changes to the lower tiers. In large CDNs, this can make the distribution and time to activation of the purge too long, and because of that there is the option to not distribute the <cite>regex_revalidate.config</cite> file using the ort script, but to do this using other means. By default, Traffic Ops will use ort to distribute the <cite>regex_revalidate.config</cite> file.</p>
 <p>Content Purge is controlled by the following parameters in the profile of the cache:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -534,7 +581,7 @@ Value is left blank.</td>
 <tr class="row-even"><td>regex_revalidate</td>
 <td>plugin.config</td>
 <td>The config to be used for regex_revalidate.
-For example: &#8211;config regex_revalidate.config</td>
+For example: –config regex_revalidate.config</td>
 <td><a class="reference external" href="https://docs.trafficserver.apache.org/en/5.3.x/reference/plugins/regex_remap.en.html">regex_revalidate</a></td>
 </tr>
 <tr class="row-odd"><td>use_reval_pending</td>
@@ -550,7 +597,7 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
 <p>Note that the TTL the adminstrator enters in the purge request should be longer than the TTL of the content to ensure the bad content will not be used. If the CDN is serving content of unknown, or unlimited TTL, the administrator should consider using <a class="reference external" href="https://docs.trafficserver.apache.org/en/latest/admin-guide/files/records.config.en.html#proxy-config-http-cache-guaranteed-min-lifetime">proxy-config-http-cache-guaranteed-min-lifetime</a> to limit the maximum time an object can be in the cache before it is considered stale, and set that to the same value as <cite>maxRevalDurationDays</cite> (Note that the former is in seconds and the latter is in days, so convert appropriately).</p>
 <div class="section" id="creating-the-centos-kickstart-file">
 <span id="creating-centos-kickstart"></span><h3>Creating the CentOS Kickstart File<a class="headerlink" href="#creating-the-centos-kickstart-file" title="Permalink to this headline">¶</a></h3>
-<p>The kickstart file is a text file, containing a list of items, each identified by a keyword. You can create it by using the Kickstart Configurator application, or writing it from scratch. The Red Hat Enterprise Linux installation program also creates a sample kickstart file based on the options that you selected during installation. It is written to the file <code class="docutils literal"><span class="pre">/root/anaconda-ks.cfg</span></code>. This file is editable using most text editors that can save files as ASCII text.</p>
+<p>The kickstart file is a text file, containing a list of items, each identified by a keyword. You can create it by using the Kickstart Configurator application, or writing it from scratch. The Red Hat Enterprise Linux installation program also creates a sample kickstart file based on the options that you selected during installation. It is written to the file <code class="docutils literal notranslate"><span class="pre">/root/anaconda-ks.cfg</span></code>. This file is editable using most text editors that can save files as ASCII text.</p>
 <p>To generate ISO, the CentOS Kickstart is necessary:</p>
 <ol class="arabic simple">
 <li>Create a kickstart file.</li>
@@ -559,7 +606,7 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
 <li>Start the kickstart installation.</li>
 </ol>
 <p>Create a ks.src file in the root of the selection location. See the example below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">newdir</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">newdir</span>
 <span class="n">cd</span> <span class="n">newdir</span><span class="o">/</span>
 <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">centos65</span><span class="o">/*</span> <span class="o">.</span>
 <span class="n">vim</span> <span class="n">ks</span><span class="o">.</span><span class="n">src</span>
@@ -579,6 +626,11 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
 </div>
 </div>
 </div>
+<div class="section" id="configuring-the-go-application">
+<h2>Configuring the Go Application<a class="headerlink" href="#configuring-the-go-application" title="Permalink to this headline">¶</a></h2>
+<p>Traffic Ops is in the process of migrating from Perl to Go, and currently runs as two applications. The Go application serves all endpoints which have been rewritten in the Go language, and transparently proxies all other requests to the old Perl application. Both applications are installed by the RPM, and both run as a single service. When the project has fully migrated to Go, the Perl application will be removed, and the RPM and service will consist solely of the Go application.</p>
+<p>By default, the postinstall script configures the Go application to behave and transparently serve as the old Perl Traffic Ops did in previous versions. This includes reading the old <code class="docutils literal notranslate"><span class="pre">cdn.conf</span></code> and <code class="docutils literal notranslate"><span class="pre">database.conf</span></code> config files, and logging to the old <code class="docutils literal notranslate"><span class="pre">access.log</span></code> location. However, if you wish to customize the Go Traffic Ops application, you can do so by running it with the <code class="docutils literal notranslate"><span class="pre">-oldcfg=false</span></code> argument. By default, it will then look for a config file in <code class="docutils literal notranslate"><span class="pre">/opt/traffic_ops/conf/traffic_ops_golang.config</span></code>. The new config file location may also be customized via the <code class="docutils literal notranslate"><span class="pre">-cfg</span></code> flag. A sample config file is installed by the RPM at <code class="docutils literal notranslate"><span class="pre">/opt/traffic_ops/conf/traffic_ops_golang.config</span></code>. If you wish to run the new Go Traffic Ops application as a service with a new config file, the <code class="docutils literal notranslate"><span class="pre">-oldcfg=false</span></code> and  <code class="docutils literal notranslate"><span class="pre">-cfg</span></code> flags may be added to the <code class="docutils literal notranslate"><span class="pre">start</span></code> function in the service file, located by default at <code class="docutils literal notranslate"><span class="pre">etc/init.d/traffic_ops</span></code>.</p>
+</div>
 </div>
 
 
@@ -590,7 +642,7 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
         <a href="using.html" class="btn btn-neutral float-right" title="Traffic Ops - Using">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="migration_from_10_to_20.html" class="btn btn-neutral" title="Traffic Ops - Migrating from 1.x to 2.x"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="migration_from_20_to_22.html" class="btn btn-neutral" title="Traffic Ops - Migrating from 2.0 to 2.2"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -614,16 +666,36 @@ Enable with a value of 1.  Use of this feature requires Traffic Ops 2.1 and abov
   
 
 
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">Apache Traffic Control (Incubating)</span>
+      v: 
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        <dd><a href="/docs/master/">latest</a></dd>
+        <dd><a href="/docs/2.0/">2.0</a></dd>
+        <dd><a href="/docs/1.8.1/">1.8</a></dd>
+        <dd><a href="/docs/1.7.0/">1.7</a></dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
   
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'2.1-dev',
+            VERSION:'2.2-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

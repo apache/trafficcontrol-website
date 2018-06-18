@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -7,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Ops - Migrating from 1.x to 2.x &mdash; Traffic Control 2.1-dev documentation </title>
+  <title>Traffic Ops - Migrating from 1.x to 2.x &mdash; Traffic Control 2.2-dev documentation </title>
   
 
   
@@ -33,9 +35,12 @@
   
 
   
-    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../../index.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Traffic Control 2.2-dev documentation" href="../../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../index.html"/>
-        <link rel="next" title="Traffic Ops - Configuring" href="configuration.html"/>
+        <link rel="next" title="Traffic Ops - Migrating from 2.0 to 2.2" href="migration_from_20_to_22.html"/>
         <link rel="prev" title="Traffic Ops - Default Profiles" href="default_profiles.html"/> 
 
   
@@ -95,21 +100,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_monitor.html">Traffic Monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_server.html">Traffic Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../overview/traffic_vault.html">Traffic Vault</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_from_20_to_22.html">Traffic Ops - Migrating from 2.0 to 2.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">Traffic Ops - Configuring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using.html">Traffic Ops - Using</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extensions.html">Managing Traffic Ops Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_portal.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/installation.html">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_portal/usingtrafficportal.html">Traffic Portal - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_monitor.html">Traffic Monitor Administration (Legacy)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../traffic_stats.html">Traffic Stats Administration</a></li>
@@ -120,15 +126,23 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_monitor.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../development/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../development/traffic_server.html">Traffic Server</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/routes.html">API Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/v11/index.html">API 1.1 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/v12/index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/v13/index.html">API 1.3 Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -164,14 +178,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
+    <li><a href="../../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="../index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="../index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Ops - Migrating from 1.x to 2.x</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/admin/traffic_ops/migration_from_10_to_20.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/admin/traffic_ops/migration_from_10_to_20.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -180,7 +194,7 @@
  		  
     		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       		  
-        		  <a href="configuration.html" class="btn btn-neutral float-right" title="Traffic Ops - Configuring">Next <span class="fa fa-arrow-circle-right"></span></a>
+        		  <a href="migration_from_20_to_22.html" class="btn btn-neutral float-right" title="Traffic Ops - Migrating from 2.0 to 2.2">Next <span class="fa fa-arrow-circle-right"></span></a>
       		  
       		  
         		  <a href="default_profiles.html" class="btn btn-neutral" title="Traffic Ops - Default Profiles"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -206,16 +220,16 @@ help with that conversion using an open source Postgres tool called <a class="re
 <h2>Setup the traffic_ops_db directory<a class="headerlink" href="#setup-the-traffic-ops-db-directory" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Modify /opt dir permission to make it writable and owned by postgres:postgres</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo chmod 755 /opt
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo chmod 755 /opt
 </pre></div>
 </div>
 <p>Download the Traffic Control tarball for 2.0.0</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd /opt
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /opt
 $ wget https://dist.apache.org/repos/dist/release/incubator/trafficcontrol/&lt;tarball_version&gt;
 </pre></div>
 </div>
 <p>Extract the <strong>traffic_ops_db</strong> dir to <strong>/opt/traffic_ops_db</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ tar -zxvf trafficcontrol-incubating-&lt;version&gt;.tar.gz --strip=1 trafficcontrol-incubating-&lt;version&gt;/traffic_ops_db
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tar -zxvf trafficcontrol-incubating-&lt;version&gt;.tar.gz --strip=1 trafficcontrol-incubating-&lt;version&gt;/traffic_ops_db
 $ sudo chown -R postgres:postgres /opt/traffic_ops_db
 </pre></div>
 </div>
@@ -223,14 +237,14 @@ $ sudo chown -R postgres:postgres /opt/traffic_ops_db
 </div>
 <div class="section" id="migration-preparation">
 <h2>Migration Preparation<a class="headerlink" href="#migration-preparation" title="Permalink to this headline">¶</a></h2>
-<p>Be sure there is connectivity between your MySQL server&#8217;s IP address/port and your Postgres server&#8217;s IP address/port.</p>
+<p>Be sure there is connectivity between your MySQL server’s IP address/port and your Postgres server’s IP address/port.</p>
 </div>
 <div class="section" id="navigating-the-database-migration">
 <h2>Navigating the Database Migration<a class="headerlink" href="#navigating-the-database-migration" title="Permalink to this headline">¶</a></h2>
 <p>Begin the database migration after settings up the <strong>/opt/traffic_ops_db</strong> directory</p>
 <blockquote>
 <div><p>Switch to the postgres user so permissions stay intact.</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>$ su - postgres
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ su - postgres
 $ cd /opt/traffic_ops_db/
 </pre></div>
 </div>
@@ -239,7 +253,7 @@ $ cd /opt/traffic_ops_db/
 <li><p class="first">Configure the <strong>/opt/traffic_ops_db/pg-migration/mysql-to-postgres.env</strong> migration for your source MySQL and target Postgres settings</p>
 </li>
 <li><p class="first">Run the migration, watch the console output for any errors (it may take some time)</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>$ ./migrate.sh
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./migrate.sh
 </pre></div>
 </div>
 </li>
@@ -255,7 +269,7 @@ $ cd /opt/traffic_ops_db/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="configuration.html" class="btn btn-neutral float-right" title="Traffic Ops - Configuring">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="migration_from_20_to_22.html" class="btn btn-neutral float-right" title="Traffic Ops - Migrating from 2.0 to 2.2">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="default_profiles.html" class="btn btn-neutral" title="Traffic Ops - Default Profiles"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -282,16 +296,36 @@ $ cd /opt/traffic_ops_db/
   
 
 
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">Apache Traffic Control (Incubating)</span>
+      v: 
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        <dd><a href="/docs/master/">latest</a></dd>
+        <dd><a href="/docs/2.0/">2.0</a></dd>
+        <dd><a href="/docs/1.8.1/">1.8</a></dd>
+        <dd><a href="/docs/1.7.0/">1.7</a></dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
   
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'2.1-dev',
+            VERSION:'2.2-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
