@@ -88,37 +88,42 @@
 
       <h1>Apache Traffic Control - Current Release</h1>
 
-      <!-- Release 2.1 -->
-      <div class="row">	
-	<div class="col-sm-12">
-	  <div class="card-deck">
-	    <div class="card">
-	      <div class="card-body">
-		<h4 class="card-title">Apache Traffic Control 2.1.0-incubating</h4>	    	      
-		<h5>Release Notes</h5>
-                <h6>Building</h6>
-		<p class="card-text">Selinux has to be something other than "enforcing" in order for the build to work, otherwise it fails on permissions errors.
-		  This can be accomplished by running <kbd>setenforce 0</kbd> as root.
-		</p>
-
-		<h6>Traffic Stats</h6>
-		<p class="card-text">Traffic Stats works best with influxdb version &lt; 1.3.x. As of 1.3.x InfluxDB now returns a 400 response when the client attempts to write points that are outside of the retention policy. When this happens, Traffic Stats seems to hold on to the "old" points and attempts to write them again on the next POST. This causes what is essentially a memory leak in Traffic Stats since it continues to hold onto and tries to write stats that are outside of the retention policy. This may or may not affect a user, depending upon which stats they are trying to write to influxdb. For example, we write the wrap_count to influxdb, this is a stat that does not often change within 24 hours, so we see the memory leak with stats not written on each poll of traffic stats.<br/><br/>
-
-                In versions < 1.3.x InfluxDB would still not write the point, but it would accept the write request and just drop the points outside of the retention policy on the floor.
+      <!-- Release 2.2 -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Apache Traffic Control 2.2.0</h4>
+                <h5>Release Notes</h5>
+                <h6>Per–Delivery Service Routing Names</h6>
+                <p class="card-text">
+                  You can now choose a Delivery Service's Routing Name (rather than a hardcoded "tr" or "edge" name). This might require a few pre-upgrade steps detailed <a href="http://traffic-control-cdn.readthedocs.io/en/latest/admin/traffic_ops/migration_from_20_to_22.html#per-deliveryservice-routing-names">here</a>.
                 </p>
-		<p class="card-text">Apache Traffic Control 2.1.0 is available here:		
-		<ul>
-		<li><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz">Tarball</a></li>
-		<li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.md5">MD5</a></li>
-		<li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.sha512">SHA-512</a></li>
-		<li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.asc">ASC</a></li>
-		<li><a href="http://trafficcontrol.apache.org/downloads/profiles/2.1.x/">Default Profiles</a></li>
-		</ul>
-		</p>
-	      </div>
-	    </div>
-  	  </div>
-	</div>
+                <h6>Delivery Service Requests</h6>
+                <p class="card-text">
+                  When enabled, delivery service requests are created when ALL users attempt to create, update or delete a delivery service. This allows users with higher level permissions to review delivery service changes for completeness and accuracy before deploying the changes. See <a href="https://traffic-control-cdn.readthedocs.io/en/latest/admin/quick_howto/ds_requests.html#ds-requests">here</a>.
+                </p>
+                <h6>Fair Queuing Pacing</h6>
+                <p class="card-text">
+                  Using the FQ Pacing Rate parameter in Delivery Services allows operators to limit the rate of individual sessions to the edge cache. This feature requires a Trafficserver RPM containing the fq_pacing experimental plugin AND setting 'fq' as the default Linux qdisc in sysctl.
+                </p>
+                <h6>Backup Edge Cache Group</h6>
+                <p class="card-text">
+                  If the matched group in the CZF is not available, this list of backup edge cache group configured via Traffic Ops API can be used as backup. In the event of all backup edge cache groups not available, GEO location can be optionally used as further backup. APIs detailed <a href="http://traffic-control-cdn.readthedocs.io/en/latest/development/traffic_ops_api/v12/cachegroup_fallbacks.html">here</a>.
+                </p>
+                <p class="card-text">Apache Traffic Control 2.2.0 is available here:
+                  <ul>
+                    <li><a href="https://www.apache.org/dyn/closer.cgi/trafficcontrol/2.2.0/apache-trafficcontrol-2.2.0.tar.gz">Tarball</a></li>
+                    <li><a href="https://www.apache.org/dist/trafficcontrol/2.2.0/apache-trafficcontrol-2.2.0.tar.gz.sha512">SHA-512</a></li>
+                    <li><a href="https://www.apache.org/dist/trafficcontrol/2.2.0/apache-trafficcontrol-2.2.0.tar.gz.asc">ASC</a></li>
+                    <li><a href="http://trafficcontrol.apache.org/downloads/profiles/2.2.x/">Default Profiles</a></li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <br/><br/>
@@ -152,6 +157,40 @@ or
 
       <br/><br/>
       <h2>Past Releases</h2>
+
+      <!-- Release 2.1 -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Apache Traffic Control 2.1.0-incubating</h4>
+                <h5>Release Notes</h5>
+                <h6>Building</h6>
+                <p class="card-text">Selinux has to be something other than "enforcing" in order for the build to work, otherwise it fails on permissions errors.
+                  This can be accomplished by running <kbd>setenforce 0</kbd> as root.
+                </p>
+
+                <h6>Traffic Stats</h6>
+                <p class="card-text">Traffic Stats works best with influxdb version &lt; 1.3.x. As of 1.3.x InfluxDB now returns a 400 response when the client attempts to write points that are outside of the retention policy. When this happens, Traffic Stats seems to hold on to the "old" points and attempts to write them again on the next POST. This causes what is essentially a memory leak in Traffic Stats since it continues to hold onto and tries to write stats that are outside of the retention policy. This may or may not affect a user, depending upon which stats they are trying to write to influxdb. For example, we write the wrap_count to influxdb, this is a stat that does not often change within 24 hours, so we see the memory leak with stats not written on each poll of traffic stats.<br/><br/>
+
+                  In versions < 1.3.x InfluxDB would still not write the point, but it would accept the write request and just drop the points outside of the retention policy on the floor.
+                </p>
+                <p class="card-text">Apache Traffic Control 2.1.0 is available here:
+                  <ul>
+                    <li><a href="https://www.apache.org/dyn/closer.cgi/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz">Tarball</a></li>
+                    <li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.md5">MD5</a></li>
+                    <li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.sha512">SHA-512</a></li>
+                    <li><a href="https://www.apache.org/dist/incubator/trafficcontrol/2.1.0-incubating/apache-trafficcontrol-2.1.0-incubating.tar.gz.asc">ASC</a></li>
+                    <li><a href="http://trafficcontrol.apache.org/downloads/profiles/2.1.x/">Default Profiles</a></li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Release 2.0 -->
       <div class="row">	
 	<div class="col-sm-12">
