@@ -1,0 +1,446 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Traffic Server Administration &mdash; Traffic Control 2.2-dev documentation </title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Traffic Control 2.2-dev documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="index.html"/>
+        <link rel="next" title="Traffic Vault Administration" href="traffic_vault.html"/>
+        <link rel="prev" title="Traffic Stats Administration" href="traffic_stats.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="/" class="icon icon-home"> Traffic Control
+        
+
+        
+          
+          <img src="../_static/tc_logo_c_only.png" class="logo" />
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">CDN Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/content_delivery_networks.html">Content Delivery Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/http_11.html">HTTP 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/caching_proxies.html">Caching Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/cache_revalidation.html">Cache Control Headers and Revalidation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Traffic Control Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_ops.html">Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_portal.html">Traffic Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_router.html">Traffic Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_monitor.html">Traffic Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_stats.html">Traffic Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_vault.html">Traffic Vault</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_20_to_22.html">Traffic Ops - Migrating from 2.0 to 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/using.html">Traffic Ops - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_portal/installation.html">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_portal/usingtrafficportal.html">Traffic Portal - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_stats.html">Traffic Stats Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Server Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_vault.html">Traffic Vault Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_howto/index.html">Quick How To Guides</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/routes.html">API Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v11/index.html">API 1.1 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v12/index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v13/index.html">API 1.3 Reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq/general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq/development.html">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq/administration.html">Running a Traffic Control CDN</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Traffic Control</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
+      
+          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
+      
+    <li>Traffic Server Administration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/admin/traffic_server.rst.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+ 		  
+    		  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      		  
+        		  <a href="traffic_vault.html" class="btn btn-neutral float-right" title="Traffic Vault Administration">Next <span class="fa fa-arrow-circle-right"></span></a>
+      		  
+      		  
+        		  <a href="traffic_stats.html" class="btn btn-neutral" title="Traffic Stats Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      		  
+    		  </div>
+  		  
+          <div role="main" class="document">
+            
+  <div class="section" id="traffic-server-administration">
+<h1>Traffic Server Administration<a class="headerlink" href="#traffic-server-administration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-traffic-server">
+<h2>Installing Traffic Server<a class="headerlink" href="#installing-traffic-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Build the Traffic Server RPM. The best way to do this is to follow the Traffic Server documents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">trafficserver</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">getting</span><span class="o">-</span><span class="n">started</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">html</span><span class="c1">#installation</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build the astats RPM using the appropriate version number:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">/</span><span class="n">tree</span><span class="o">/&lt;</span><span class="n">version</span><span class="o">&gt;/</span><span class="n">traffic_server</span>
+</pre></div>
+</div>
+<p>Sample link:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">traffic_server</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install Traffic Server and astats:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">trafficserver</span><span class="o">-*.</span><span class="n">rpm</span> <span class="n">astats_over_http</span><span class="o">*.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the server using the Traffic Ops web interface:</p>
+<ol class="arabic simple">
+<li>Select <strong>Servers</strong>.</li>
+<li>Scroll to the bottom of the page and click <strong>Add Server</strong>.</li>
+<li><dl class="first docutils">
+<dt>Complete the “Required Info:” section:</dt>
+<dd><ul class="first last">
+<li>Set ‘Interface Name’ to the name of the interface from which traffic server delivers content.</li>
+<li>Set ‘Type’ to ‘MID’ or ‘EDGE’.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Click <strong>Submit</strong>.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Click <strong>Online Server</strong>.</li>
+<li>Verify that the server status is now listed as <strong>Reported</strong></li>
+</ol>
+</li>
+<li><p class="first">Install the ORT script and run it in ‘badass’ mode to create the initial configuration, see <a class="reference internal" href="#reference-traffic-ops-ort"><span class="std std-ref">Configuring Traffic Server</span></a></p>
+</li>
+<li><p class="first">Start the service: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">trafficserver</span> <span class="pre">start</span></code></p>
+</li>
+<li><p class="first">Configure traffic server to start automatically: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">trafficserver</span></code></p>
+</li>
+<li><p class="first">Verify that the installation is good:</p>
+<ol class="arabic simple">
+<li>Make sure that the service is running: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">trafficserver</span></code></li>
+<li>Assuming a traffic monitor is already installed, browse to it, i.e. <a class="reference external" href="http:/">http:/</a>/&lt;trafficmonitorURL&gt;, and verify that the traffic server appears in the “Cache States” table, in white.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="configuring-traffic-server">
+<span id="reference-traffic-ops-ort"></span><h2>Configuring Traffic Server<a class="headerlink" href="#configuring-traffic-server" title="Permalink to this headline">¶</a></h2>
+<p>All of the Traffic Server application configuration files are generated by Traffic Ops and installed by way of the traffic_ops_ort.pl script.
+The traffic_ops_ort.pl should be installed on all caches (by puppet or other non Traffic Ops means), usually in /opt/ort. It is used to do the initial install of the config files when the cache is being deployed, and to keep the config files up to date when the cache is already in service.  The usage message of the script is shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo /opt/ort/traffic_ops_ort.pl
+====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-====
+Usage: ./traffic_ops_ort.pl &lt;Mode&gt; &lt;Log_Level&gt; &lt;Traffic_Ops_URL&gt; &lt;Traffic_Ops_Login&gt; [optional flags]
+  &lt;Mode&gt; = interactive - asks questions during config process.
+  &lt;Mode&gt; = report - prints config differences and exits.
+  &lt;Mode&gt; = badass - attempts to fix all config differences that it can.
+  &lt;Mode&gt; = syncds - syncs delivery services with what is configured in Traffic Ops.
+  &lt;Mode&gt; = revalidate - checks for updated revalidations in Traffic Ops and applies them.  Requires Traffic Ops 2.1.
+
+  &lt;Log_Level&gt; =&gt; ALL, TRACE, DEBUG, INFO, WARN, ERROR, FATAL, NONE
+
+  &lt;Traffic_Ops_URL&gt; = URL to Traffic Ops host. Example: https://trafficops.company.net
+
+  &lt;Traffic_Ops_Login&gt; =&gt; Example: &#39;username:password&#39;
+
+  [optional flags]:
+    dispersion=&lt;time&gt;      =&gt; wait a random number between 0 and &lt;time&gt; before starting. Default = 300.
+    login_dispersion=&lt;time&gt;  =&gt; wait a random number between 0 and &lt;time&gt; before login. Default = 0.
+    retries=&lt;number&gt;       =&gt; retry connection to Traffic Ops URL &lt;number&gt; times. Default = 3.
+    wait_for_parents=&lt;0|1&gt; =&gt; do not update if parent_pending = 1 in the update json. Default = 1, wait for parents.
+====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-====
+$
+</pre></div>
+</div>
+<div class="section" id="installing-the-ort-script">
+<h3>Installing the ORT script<a class="headerlink" href="#installing-the-ort-script" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Build the ORT script RPM from the Apache Build Server and install it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">builds</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">S</span><span class="o">-</span><span class="n">Z</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">TrafficControl</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Sample command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">builds</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">S</span><span class="o">-</span><span class="n">Z</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">TrafficControl</span><span class="o">/</span><span class="n">job</span><span class="o">/</span><span class="n">incubator</span><span class="o">-</span><span class="n">trafficcontrol</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="n">build</span><span class="o">/</span><span class="n">lastSuccessfulBuild</span><span class="o">/</span><span class="n">artifact</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">6807.1</span><span class="n">dcd512f</span><span class="o">.</span><span class="n">el7</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">traffic_ops_ort</span><span class="o">*.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install modules required by ORT if needed: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">perl-JSON</span> <span class="pre">perl-Crypt-SSLeay</span></code></p>
+</li>
+<li><p class="first">For initial configuration or when major changes (like a Profile change) need to be made, run the script in “badass mode”. All required rpm packages
+will be installed, all Traffic Server config files will be fetched and installed, and (if needed) the Traffic Server application will be restarted.</p>
+<p>Example run below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo /opt/ort/traffic_ops_ort.pl --dispersion=0 badass warn https://ops.$tcDomain admin:admin123
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">First run gives a lot of state errors that are expected. The “badass” mode fixes these issue s. Run it a second time, this should be cleaner.
+Also, note that many ERROR messages emitted by ORT are actually information messages. Do not panic.</p>
+</div>
+</li>
+<li><p class="first">Create a cron entry for running ort in ‘syncds’ mode every 15 minutes.
+This makes traffic control check periodically if ‘Queue Updates’ was run on Traffic Ops, and it so, get the updated configuration.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">crontab</span> <span class="pre">-e</span></code> and add the following line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*/</span><span class="mi">15</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">syncds</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">--</span><span class="n">login_dispersion</span><span class="o">=</span><span class="mi">30</span> <span class="o">--</span><span class="n">dispersion</span><span class="o">=</span><span class="mi">180</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Changing <code class="docutils literal notranslate"><span class="pre">https://traffops.kabletown.net</span></code>, <code class="docutils literal notranslate"><span class="pre">admin</span></code>, and <code class="docutils literal notranslate"><span class="pre">password</span></code> to your CDN URL and credentials.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default, running ort on an edge traffic server waits for it’s parent (mid) servers to download their configuration before
+it downloads it’s own configuration. Because of this, scheduling ort for running every 15 minutes (with 5 minutes default dispersion) means
+that it might take up to ~35 minutes for a “Queue Updates” operation to affect all traffic servers.  To customize this dispersion time, use
+the command line option –dispersion=x where x is the number of seconds for the dispersion period.  Servers will select a random number from
+within this dispersion period to being pulling down configuration files from Traffic Ops.  Another option, –login_dispersion=x can be used.
+This option creates a dispersion period after the job begins during which ORT will wait before logging in and checking Traffic Ops for updates
+to the server.  This defaults to 0.  If use_reval_pending, a.k.a. Rapid Revalidate is enabled, edges will NOT wait for their parents to download
+their configuration before downloading their own.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In ‘syncds’ mode, the ort script updates only configurations that might be changed as part of normal operations, such as:</p>
+<ul class="last simple">
+<li>Delivery Services</li>
+<li>SSL certificates</li>
+<li>Traffic Monitor IP addresses</li>
+<li>Logging configuration</li>
+<li>Revalidation requests (By default. If Rapid Revalidate is enabled, this will only be checked by using a separate revalidate command in ORT.)</li>
+</ul>
+</div>
+</li>
+<li><p class="first">If Rapid Revalidate is enabled in Traffic Ops, create a second cron job for revalidation checks.  ORT will not check revalidation files if Rapid Revalidate
+is enabled. This setting allows for a separate check to be performed every 60 seconds to verify if a revalidation update has been made.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">crontab</span> <span class="pre">-e</span></code> and add the following line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*/</span><span class="mi">1</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">traffic_ops_ort</span><span class="o">.</span><span class="n">pl</span> <span class="n">revalidate</span> <span class="n">warn</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">traffops</span><span class="o">.</span><span class="n">kabletown</span><span class="o">.</span><span class="n">net</span> <span class="n">admin</span><span class="p">:</span><span class="n">password</span> <span class="o">--</span><span class="n">login_dispersion</span><span class="o">=</span><span class="mi">30</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ort</span><span class="o">/</span><span class="n">syncds</span><span class="o">.</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="traffic_vault.html" class="btn btn-neutral float-right" title="Traffic Vault Administration">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="traffic_stats.html" class="btn btn-neutral" title="Traffic Stats Administration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">Apache Traffic Control (Incubating)</span>
+      v: 
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        <dd><a href="/docs/master/">latest</a></dd>
+        <dd><a href="/docs/2.0/">2.0</a></dd>
+        <dd><a href="/docs/1.8.1/">1.8</a></dd>
+        <dd><a href="/docs/1.7.0/">1.7</a></dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.2-dev',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
