@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -7,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Stats Administration &mdash; Traffic Control 2.1-dev documentation </title>
+  <title>Traffic Stats Administration &mdash; Traffic Control 2.2-dev documentation </title>
   
 
   
@@ -33,7 +35,10 @@
   
 
   
-    <link rel="top" title="Traffic Control 2.1-dev documentation" href="../index.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Traffic Control 2.2-dev documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="index.html"/>
         <link rel="next" title="Traffic Server Administration" href="traffic_server.html"/>
         <link rel="prev" title="Traffic Router Administration" href="traffic_router.html"/> 
@@ -95,21 +100,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_router.html">Traffic Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_monitor.html">Traffic Monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/traffic_server.html">Traffic Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/traffic_vault.html">Traffic Vault</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrator’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/installation.html">Traffic Ops - Installing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/default_profiles.html">Traffic Ops - Default Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_10_to_20.html">Traffic Ops - Migrating from 1.x to 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_ops/migration_from_20_to_22.html">Traffic Ops - Migrating from 2.0 to 2.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/configuration.html">Traffic Ops - Configuring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/using.html">Traffic Ops - Using</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_ops/extensions.html">Managing Traffic Ops Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_portal.html">Traffic Portal Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_portal/installation.html">Traffic Portal Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_portal/usingtrafficportal.html">Traffic Portal - Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_monitor.html">Traffic Monitor Administration (Legacy)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_monitor_golang.html">Traffic Monitor Administration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_router.html">Traffic Router Administration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic Stats Administration</a></li>
@@ -120,15 +126,23 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/building.html">Building Traffic Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_ops.html">Traffic Ops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_portal.html">Traffic Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_router.html">Traffic Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor_golang.html">Traffic Monitor Golang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/traffic_monitor.html">Traffic Monitor Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/traffic_stats.html">Traffic Stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development/traffic_server.html">Traffic Server</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/traffic_ops_api.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/routes.html">API Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v11/index.html">API 1.1 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v12/index.html">API 1.2 Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/v13/index.html">API 1.3 Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -164,14 +178,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Traffic Control 2.1-dev</a> &raquo;</li>
+    <li><a href="../index.html">Traffic Control 2.2-dev</a> &raquo;</li>
       
-          <li><a href="index.html">Administrator&#8217;s Guide</a> &raquo;</li>
+          <li><a href="index.html">Administrator’s Guide</a> &raquo;</li>
       
     <li>Traffic Stats Administration</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/admin/traffic_stats.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/admin/traffic_stats.rst.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -197,10 +211,10 @@
 <p><strong>Installing Traffic Stats:</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li>See the <a class="reference external" href="https://trafficcontrol.apache.org/downloads/index.html">downloads</a> page for Traffic Control to get the lastest release.</li>
+<li>See the <a class="reference external" href="https://trafficcontrol.apache.org/downloads/index.html">downloads</a> page for Traffic Control to get the latest release.</li>
 <li>Follow our build <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/tree/master/build">intructions</a> to generate an RPM.</li>
 <li>Copy the RPM to your server</li>
-<li>perform the following command: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">rpm</span> <span class="pre">-ivh</span> <span class="pre">&lt;traffic_stats</span> <span class="pre">rpm&gt;</span></code></li>
+<li>perform the following command: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rpm</span> <span class="pre">-ivh</span> <span class="pre">&lt;traffic_stats</span> <span class="pre">rpm&gt;</span></code></li>
 </ul>
 </div></blockquote>
 <p><strong>Installing InfluxDB:</strong></p>
@@ -216,7 +230,7 @@
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p><strong>Configuring Traffic Stats:</strong></p>
 <blockquote>
-<div><p>Traffic Stats&#8217; configuration file can be found in /opt/traffic_stats/conf/traffic_stats.cfg.
+<div><p>Traffic Stats’ configuration file can be found in /opt/traffic_stats/conf/traffic_stats.cfg.
 The following values need to be configured:</p>
 <blockquote>
 <div><ul class="simple">
@@ -253,27 +267,27 @@ The following values need to be configured:</p>
 </li>
 <li><p class="first">Enter the necessary information to configure your data source</p>
 </li>
-<li><p class="first">Click on the &#8216;Home&#8217; dropdown at the top of the screen and choose New at the bottom</p>
+<li><p class="first">Click on the ‘Home’ dropdown at the top of the screen and choose New at the bottom</p>
 </li>
 <li><p class="first">Click on the green menu bar (with 3 lines) at the top and choose Add Panel -&gt; Graph</p>
 </li>
-<li><p class="first">Where it says &#8216;No Title (click here)&#8217; click and choose edit</p>
+<li><p class="first">Where it says ‘No Title (click here)’ click and choose edit</p>
 </li>
 <li><p class="first">Choose your data source at the bottom</p>
 </li>
 <li><p class="first">You can have grafana help you create a query, or you can create your own.  Here is a sample query:</p>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">sum(value)*1000</span> <span class="pre">FROM</span> <span class="pre">&quot;monthly&quot;.&quot;bandwidth.cdn.1min&quot;</span> <span class="pre">WHERE</span> <span class="pre">$timeFilter</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">time(60s),</span> <span class="pre">cdn</span></code></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">sum(value)*1000</span> <span class="pre">FROM</span> <span class="pre">&quot;monthly&quot;.&quot;bandwidth.cdn.1min&quot;</span> <span class="pre">WHERE</span> <span class="pre">$timeFilter</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">time(60s),</span> <span class="pre">cdn</span></code></p>
 </div></blockquote>
 </li>
-<li><p class="first">Once you have the graph the way you want it, click the &#8216;Save Dashboard&#8217; button at the top</p>
+<li><p class="first">Once you have the graph the way you want it, click the ‘Save Dashboard’ button at the top</p>
 </li>
 <li><p class="first">You should now have a new saved graph</p>
 </li>
 </ul>
 </div></blockquote>
 <p>In order for Traffic Ops users to see Grafana graphs, Grafana will need to allow anonymous access.  Information on how to configure anonymous access can be found on the configuration page of the <a class="reference external" href="http://docs.grafana.org/installation/configuration/#authanonymous">Grafana Website</a>.</p>
-<p>Traffic Ops uses custom dashboards to display information about individual delivery services or cache groups.  In order for the custom graphs to display correctly, the <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/blob/master/traffic_stats/grafana/">traffic_ops_*.js</a> files need to be in the <code class="docutils literal"><span class="pre">/usr/share/grafana/public/dashboards/</span></code> directory on the grafana server.  If your Grafana server is the same as your Traffic Stats server the RPM install process will take care of putting the files in place.  If your grafana server is different from your Traffic Stats server, you will need to manually copy the files to the correct directory.</p>
+<p>Traffic Ops uses custom dashboards to display information about individual delivery services or cache groups.  In order for the custom graphs to display correctly, the <a class="reference external" href="https://github.com/apache/incubator-trafficcontrol/blob/master/traffic_stats/grafana/">traffic_ops_*.js</a> files need to be in the <code class="docutils literal notranslate"><span class="pre">/usr/share/grafana/public/dashboards/</span></code> directory on the grafana server.  If your Grafana server is the same as your Traffic Stats server the RPM install process will take care of putting the files in place.  If your grafana server is different from your Traffic Stats server, you will need to manually copy the files to the correct directory.</p>
 <p>More information on custom scripted graphs can be found in the <a class="reference external" href="http://docs.grafana.org/reference/scripting/">scripted dashboards</a> section of the Grafana documentation.</p>
 </div></blockquote>
 <p><strong>Configuring Traffic Ops for Traffic Stats:</strong></p>
@@ -286,7 +300,7 @@ The following values need to be configured:</p>
 </div></blockquote>
 <p><strong>Configuring Traffic Ops to use Grafana Dashboards</strong></p>
 <blockquote>
-<div><p>To configure Traffic Ops to use Grafana Dashboards, you need to enter the following parameters and assign them to the GLOBAL profile.  This assumes you followed the above instructions to install and configure InfluxDB and Grafana.  You will need to place &#8216;cdn-stats&#8217;,&#8217;deliveryservice-stats&#8217;, and &#8216;daily-summary&#8217; with the name of your dashboards.</p>
+<div><p>To configure Traffic Ops to use Grafana Dashboards, you need to enter the following parameters and assign them to the GLOBAL profile.  This assumes you followed the above instructions to install and configure InfluxDB and Grafana.  You will need to place ‘cdn-stats’,’deliveryservice-stats’, and ‘daily-summary’ with the name of your dashboards.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -343,19 +357,16 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 </div></blockquote>
 <p>Using create_ts_databases.go</p>
 <blockquote class="last">
-<div><ol class="arabic">
-<li><p class="first">go to the traffic_stats/influxdb_tools/create directory</p>
-</li>
-<li><p class="first">build it by running <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span> <span class="pre">create_ts_databases.go</span></code> or simply <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span></code></p>
-</li>
+<div><ol class="arabic simple">
+<li>go to the traffic_stats/influxdb_tools/create directory</li>
+<li>build it by running <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">build</span> <span class="pre">create_ts_databases.go</span></code> or simply <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">build</span></code></li>
 <li><dl class="first docutils">
 <dt>Run it:</dt>
 <dd><ul class="first last">
-<li><p class="first"><code class="docutils literal"><span class="pre">./create_ts_databases</span> <span class="pre">-help</span></code> or <code class="docutils literal"><span class="pre">./create</span> <span class="pre">-help</span></code></p>
-</li>
+<li><code class="docutils literal notranslate"><span class="pre">./create_ts_databases</span> <span class="pre">-help</span></code> or <code class="docutils literal notranslate"><span class="pre">./create</span> <span class="pre">-help</span></code></li>
 <li><dl class="first docutils">
 <dt>optional flags:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>url -  The influxdb url and port</li>
 <li>replication -  The number of nodes in the cluster</li>
 <li>user - The user to use</li>
@@ -364,8 +375,7 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 </dd>
 </dl>
 </li>
-<li><p class="first">example: <code class="docutils literal"><span class="pre">./create_ts_databases</span> <span class="pre">-url=localhost:8086</span> <span class="pre">-replication=3</span> <span class="pre">-user=joe</span> <span class="pre">-password=mysecret</span></code> or <code class="docutils literal"><span class="pre">./create</span> <span class="pre">-url=localhost:8086</span> <span class="pre">-replication=3</span> <span class="pre">-user=joe</span> <span class="pre">-password=mysecret</span></code></p>
-</li>
+<li>example: <code class="docutils literal notranslate"><span class="pre">./create_ts_databases</span> <span class="pre">-url=localhost:8086</span> <span class="pre">-replication=3</span> <span class="pre">-user=joe</span> <span class="pre">-password=mysecret</span></code> or <code class="docutils literal notranslate"><span class="pre">./create</span> <span class="pre">-url=localhost:8086</span> <span class="pre">-replication=3</span> <span class="pre">-user=joe</span> <span class="pre">-password=mysecret</span></code></li>
 </ul>
 </dd>
 </dl>
@@ -388,16 +398,15 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
 <div><ol class="arabic">
 <li><p class="first">go to the traffic_stats/influxdb_tools/create directory</p>
 </li>
-<li><p class="first">build it by running <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span> <span class="pre">sync_ts_databases.go</span></code> or simply <code class="docutils literal"><span class="pre">go</span> <span class="pre">build</span></code></p>
+<li><p class="first">build it by running <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">build</span> <span class="pre">sync_ts_databases.go</span></code> or simply <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">build</span></code></p>
 </li>
 <li><dl class="first docutils">
 <dt>Run it</dt>
-<dd><ul class="first">
-<li><p class="first"><code class="docutils literal"><span class="pre">./sync_ts_databases</span> <span class="pre">-help</span></code> or <code class="docutils literal"><span class="pre">./sync</span> <span class="pre">-help</span></code></p>
-</li>
+<dd><ul class="first simple">
+<li><code class="docutils literal notranslate"><span class="pre">./sync_ts_databases</span> <span class="pre">-help</span></code> or <code class="docutils literal notranslate"><span class="pre">./sync</span> <span class="pre">-help</span></code></li>
 <li><dl class="first docutils">
 <dt>required flags:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>source-url - The URL of the source database</li>
 <li>target-url - The URL of the target database</li>
 </ul>
@@ -463,16 +472,36 @@ They are specific for traffic stats and are not meant to be generic to influxdb.
   
 
 
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">Apache Traffic Control (Incubating)</span>
+      v: 
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        <dd><a href="/docs/master/">latest</a></dd>
+        <dd><a href="/docs/2.0/">2.0</a></dd>
+        <dd><a href="/docs/1.8.1/">1.8</a></dd>
+        <dd><a href="/docs/1.7.0/">1.7</a></dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
   
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'2.1-dev',
+            VERSION:'2.2-dev',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
