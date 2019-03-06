@@ -1,0 +1,159 @@
+{
+  "parameters": [
+    {
+      "config_file": "CRConfig.json",
+      "name": "edge.http.routing",
+      "value": "true"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "edge.dns.routing",
+      "value": "true"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "edge.http.limit",
+      "value": "6"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "edge.dns.limit",
+      "value": "6"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "coveragezone.polling.url",
+      "value": "http://{{enter your czf location here}}"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "steeringmapping.polling.interval",
+      "value": "60000"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "certificates.polling.interval",
+      "value": "300000"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "consistent.dns.routing",
+      "value": "true"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "zonemanager.threadpool.scale",
+      "value": "0.50"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "dnssec.dynamic.response.expiration",
+      "value": "300s"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "keystore.maintenance.interval",
+      "value": "300"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "zonemanager.cache.maintenance.interval",
+      "value": "300"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.ttls.DS",
+      "value": "30"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.ttls.DNSKEY",
+      "value": "30"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "federationmapping.polling.interval",
+      "value": "60000"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "federationmapping.polling.url",
+      "value": "https://${toHostname}/internal/api/1.2/federations.json"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "api.cache-control.max-age",
+      "value": "10"
+    },
+    {
+      "config_file": "server.xml",
+      "name": "api.port",
+      "value": "3333"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.ttls.NS",
+      "value": "30"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.soa.refresh",
+      "value": "28800"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.soa.retry",
+      "value": "7200"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.soa.admin",
+      "value": "admin"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.soa.minimum",
+      "value": "30"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.soa.expire",
+      "value": "604800"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.ttls.A",
+      "value": "300"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.ttls.AAAA",
+      "value": "300"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "coveragezone.polling.interval",
+      "value": "1800000"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "geolocation.polling.interval",
+      "value": "86400000"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "tld.ttls.SOA",
+      "value": "86400"
+    },
+    {
+      "config_file": "CRConfig.json",
+      "name": "geolocation.polling.url",
+      "value": "https://{{enter your traffic ops url here}}/routing/GeoIP2-City.mmdb.gz"
+    }
+  ],
+  "profile": {
+    "description": "Traffic Router profile",
+    "name": "TRAFFIC_ROUTER",
+    "type": "TR_PROFILE"
+  }
+}
