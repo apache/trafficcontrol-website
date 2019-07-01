@@ -41,12 +41,13 @@
 			"config_file": "global"
 		},
 		{
-			"value": "https://trafficstats.url/dashboard/db/cache-group-stats?refresh=1m&orgId=1&var-CDN=rogers&var-DS=All&var-CG=",
+			"value": "https://trafficstats.url/dashboard/db/cache-group-stats?refresh=1m&orgId=1&var-CDN=var-DS=All&var-CG=",
+
 			"name": "cachegroup_graph_url",
 			"config_file": "global"
 		},
 		{
-			"value": "https://trafficstats.url/dashboard/db/deliveryservice-stats?refresh=1m&orgId=1&var-CDN=rogers&var-DS=",
+			"value": "https://trafficstats.url/dashboard/db/deliveryservice-stats?refresh=1m&orgId=1&var-CDN=foo&var-DS=",
 			"name": "deliveryservice_graph_url",
 			"config_file": "global"
 		},
