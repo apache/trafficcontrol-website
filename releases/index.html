@@ -90,6 +90,83 @@
       <h1>Apache Traffic Control - Current Release</h1>
       <br/>
 
+      <!-- Release 3.1.0 -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title"><b>Apache Traffic Control 3.1.0 - October 31st, 2019</b></h3>
+                <h4>Release Notes</h4>
+                <h5>Added</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Added logging.yaml support</li>
+                  </ul>
+                </p>
+                <h5>Changed</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Fix TO Servers validation to allow "" ipv6</li>
+                  </ul>
+                </p>
+                <h5>Fixed</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Fixed a bug where TM crashes when PostgreSQL is unavailable</li>
+                  </ul>
+                </p>
+                
+
+                <p class="card-text">Apache Traffic Control 3.1.0 is available here:
+                  <ul>
+                    <li><a href="https://www.apache.org/dyn/closer.cgi/trafficcontrol/3.1.0/apache-trafficcontrol-3.1.0.tar.gz">Tarball</a></li>
+                    <li><a href="https://www.apache.org/dist/trafficcontrol/3.1.0/apache-trafficcontrol-3.1.0.tar.gz.sha512">SHA-512</a></li>
+                    <li><a href="https://www.apache.org/dist/trafficcontrol/3.1.0/apache-trafficcontrol-3.1.0.tar.gz.asc">ASC</a></li>
+                    <li><a href="http://trafficcontrol.apache.org/downloads/profiles/3.0.x/">Default Profiles</a></li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+      <h2>Signing Keys</h2>
+      <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
+
+      <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file for the relevant distribution. Make sure you get these files from the main distribution directory, rather than from a mirror. Then verify the signatures using:
+
+<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+% pgpk -a KEYS % pgpv apache-trafficcontrol-3.1.0.tar.gz.asc
+</code>
+or 
+<code>
+% pgp -ka KEYS
+% pgp apache-trafficcontrol-3.1.0.tar.gz.asc
+</code>
+or
+<code>
+% gpg --import KEYS
+% gpg --verify apache-trafficcontrol-3.1.0.tar.gz.asc apache-trafficcontrol-3.1.0.tar.gz
+</code> </pre>
+
+
+<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+$ gpg --verify apache-trafficcontrol-3.1.0.tar.gz.asc apache-trafficcontrol-3.1.0.tar.gz
+gpg: Signature made Tue Apr  9 15:52:40 2019 EDT
+gpg:                using RSA key FE2B6AD8A1A214D9FF0AE5D6209FA95905BE71D9
+gpg: Good signature from "Derek Gelinas <derek_gelinas@cable.comcast.com>" [ultimate]</code></pre>
+
+      </p>
+
+      <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your generated signature string matches the signature string published in the files above.
+	</p>
+
+      <br/>
+      <h2>Past Releases</h2>
+
       <!-- Release 3.0.2 -->
       <div class="row">
         <div class="col-sm-12">
@@ -127,42 +204,7 @@
           </div>
         </div>
       </div>
-
-      <br/>
-      <h2>Signing Keys</h2>
-      <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
-
-      <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file for the relevant distribution. Make sure you get these files from the main distribution directory, rather than from a mirror. Then verify the signatures using:
-
-<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-% pgpk -a KEYS % pgpv apache-trafficcontrol-3.0.1.tar.gz.asc
-</code>
-or 
-<code>
-% pgp -ka KEYS
-% pgp apache-trafficcontrol-3.0.1.tar.gz.asc
-</code>
-or
-<code>
-% gpg --import KEYS
-% gpg --verify apache-trafficcontrol-3.0.1.tar.gz.asc apache-trafficcontrol-3.0.1.tar.gz
-</code> </pre>
-
-
-<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-$ gpg --verify apache-trafficcontrol-3.0.1.tar.gz.asc apache-trafficcontrol-3.0.1.tar.gz
-gpg: Signature made Tue Apr  9 15:52:40 2019 EDT
-gpg:                using RSA key FE2B6AD8A1A214D9FF0AE5D6209FA95905BE71D9
-gpg: Good signature from "Derek Gelinas <derek_gelinas@cable.comcast.com>" [ultimate]</code></pre>
-
-      </p>
-
-      <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your generated signature string matches the signature string published in the files above.
-	</p>
-
-      <br/>
-      <h2>Past Releases</h2>
-
+    </br>
             <!-- Release 3.0.1 -->
       <div class="row">
         <div class="col-sm-12">
