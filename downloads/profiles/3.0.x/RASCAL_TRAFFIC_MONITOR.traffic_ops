@@ -63,7 +63,7 @@
   ],
   "profile": {
     "description": "Traffic Monitor",
-    "name": "TRAFFIC_MONITOR",
+    "name": "RASCAL_TRAFFIC_MONITOR",
     "type": "TM_PROFILE"
   }
 }
