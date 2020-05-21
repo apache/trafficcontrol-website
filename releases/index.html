@@ -138,6 +138,7 @@
                 <p class="card-text">
                   <ul>
                     <li>The deprecated Traffic Ops UI has been removed in favor of the Traffic Portal UI</li>
+                    <li>The location of the Traffic Ops <code>influxdb.conf</code> config file has changed from <code>traffic_ops/app/conf/production/influxdb.conf</code> to <code>traffic_ops/app/conf/influxdb.conf</code>. Please move any existing <code>influxdb.conf</code> to the new location.</li>
                     <li>The <code>/api/1.1/osversions</code> endpoint (used for ISO generation) now expects the Perl <code>osversions.cfg</code> configuration file to be JSON. Added a <code>traffic_ops/app/bin/osversions-convert.pl</code> script to convert the <code>osversions.cfg</code> file from Perl to JSON as part of the <code>/osversions</code> endpoint rewrite.</li>
                     <li>traffic_ops/app/bin/checks/ToDnssecRefresh.pl now requires "user" and "pass" parameters of an operations-level user! Update your scripts accordingly! This was necessary to move to an API endpoint with proper authentication, which may be safely exposed.</li>
                   </ul>
