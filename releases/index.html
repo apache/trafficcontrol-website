@@ -90,6 +90,100 @@
       <h1>Apache Traffic Control - Current Release</h1>
       <br/>
 
+      <!-- Release 4.1.0 -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title"><b>Apache Traffic Control 4.1.0 - June 17th, 2020</b></h3>
+                <p class="card-text">Apache Traffic Control 4.1.0 is available here:
+                  <ul>
+                    <li><a href="https://downloads.apache.org/trafficcontrol/4.1.0/apache-trafficcontrol-4.1.0.tar.gz">Tarball</a></li>
+                    <li><a href="https://downloads.apache.org/trafficcontrol/4.1.0/apache-trafficcontrol-4.1.0.tar.gz.sha512">SHA-512</a></li>
+                    <li><a href="https://downloads.apache.org/trafficcontrol/4.1.0/apache-trafficcontrol-4.1.0.tar.gz.asc">ASC</a></li>
+                    <li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
+                    <li><a href="http://trafficcontrol.apache.org/downloads/profiles/4.1.x/">Default Profiles</a></li>
+                  </ul>
+                </p>
+                <h4>Release Notes</h4>
+                <h5>New Features</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Added support for Let's Encrypt</li>
+                    <li>Support for ATS Slice plugin in Traffic Ops, including new Delivery Service Raw Remap <code>__RANGE_DIRECTIVE__</code> directive</li>
+                    <li>Ability to enable EDNS0 client subnet at the delivery service level</li>
+                    <li>New IPv6 changes:
+                    <ul>
+                    <li>Traffic Portal and Traffic Ops now accept IPv6-only servers</li>
+                    <li>Traffic Monitor now polls caches over IPv6 in addition to IPv4, separating the availability status of each (make sure to update the <code>allow_ip6</code> profile parameter to include the IPv6 addresses of your Traffic Monitors, otherwise they will fail to poll over IPv6 and consider those caches to be unavailable over IPv6)</li>
+                    <li>Traffic Router will route IPv4 clients to caches with IPv4 availability and route IPv6 clients to caches with IPv6 availability</li>
+                    </ul>
+                    </li>
+                    <li>Traffic Router DNSSEC zone diffing performance enhancement</li>
+                    <li>Traffic Monitor optimistic quorum</li>
+                    <li>Traffic Ops API 2.0. This new major API version contains several new routes but does not contain many deprecated routes from API 1.x (which will be available until the ATC 5.0 release). API clients should begin migrating to API 2.0 as soon as possible. For the full lists of new or deprecated routes, please see the <a href="https://github.com/apache/trafficcontrol/blob/master/CHANGELOG.md#410---2020-04-23">changelog</a>.</li>
+                    <li>Ability to choose the TLS version used for Traffic Ops to make requests to Traffic Vault. Note: the default is now TLSv1.1, which may require configuration changes to Riak. See <a href="https://traffic-control-cdn.readthedocs.io/en/latest/admin/traffic_vault.html#tv-admin-enable-tlsv1-1" rel="nofollow">Enabling TLS 1.1</a></li>
+                  </ul>
+                </p>
+                <h5>Bug Fixes</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>This release contains many new bug fixes. For the full list, please see the <a href="https://github.com/apache/trafficcontrol/blob/master/CHANGELOG.md#410---2020-04-23">changelog</a>.</li>
+                  </ul>
+                </p>
+                <h5>Removals</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>The Traffic Ops <code>db/admin.pl</code> script has now been removed. Please use the <code>db/admin</code> binary instead.</li>
+                    <li>Removed from Traffic Portal the ability to view cache server config files as the contents are no longer reliable through the TO API due to the introduction of <code>atstccfg</code>.</li>
+                    <li>Traffic Ops Python client no longer supports Python 2.</li>
+                  </ul>
+                </p>
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+      <h2>Signing Keys</h2>
+      <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
+
+      <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file for the relevant distribution. Make sure you get these files from the main distribution directory, rather than from a mirror. Then verify the signatures using:
+
+<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+% pgpk -a KEYS % pgpv apache-trafficcontrol-4.1.0.tar.gz.asc
+</code>
+or 
+<code>
+% pgp -ka KEYS
+% pgp apache-trafficcontrol-4.1.0.tar.gz.asc
+</code>
+or
+<code>
+% gpg --import KEYS
+% gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
+</code> </pre>
+
+
+<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+$ gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
+gpg: Signature made Tue Feb 11 09:38:30 2020 MST
+gpg:                using RSA key BF4A8D7307B8EEC7BFB4D8CB8A0712500C70C06E
+gpg: Good signature from "Rawlin Peters (apache signing key) <rawlin@apache.org>" [ultimate]
+</code></pre>
+
+      </p>
+
+      <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your generated signature string matches the signature string published in the files above.
+	</p>
+
+      <br/>
+      <h2>Past Releases</h2>
+
       <!-- Release 4.0.0 -->
       <div class="row">
         <div class="col-sm-12">
@@ -209,84 +303,6 @@
         </div>
       </div>
 
-      <br/>
-      <h2>Signing Keys</h2>
-      <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
-
-      <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file for the relevant distribution. Make sure you get these files from the main distribution directory, rather than from a mirror. Then verify the signatures using:
-
-<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-% pgpk -a KEYS % pgpv apache-trafficcontrol-4.0.0.tar.gz.asc
-</code>
-or 
-<code>
-% pgp -ka KEYS
-% pgp apache-trafficcontrol-4.0.0.tar.gz.asc
-</code>
-or
-<code>
-% gpg --import KEYS
-% gpg --verify apache-trafficcontrol-4.0.0.tar.gz.asc apache-trafficcontrol-4.0.0.tar.gz
-</code> </pre>
-
-
-<pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-$ gpg --verify apache-trafficcontrol-4.0.0.tar.gz.asc apache-trafficcontrol-4.0.0.tar.gz
-gpg: Signature made Tue Feb 11 09:38:30 2020 MST
-gpg:                using RSA key BF4A8D7307B8EEC7BFB4D8CB8A0712500C70C06E
-gpg: Good signature from "Rawlin Peters (apache signing key) <rawlin@apache.org>" [ultimate]
-</code></pre>
-
-      </p>
-
-      <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your generated signature string matches the signature string published in the files above.
-	</p>
-
-      <br/>
-      <h2>Past Releases</h2>
-
-      <!-- Release 3.1.0 -->
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="card-deck">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title"><b>Apache Traffic Control 3.1.0 - October 31st, 2019</b></h3>
-                <h4>Release Notes</h4>
-                <h5>Added</h5>
-                <p class="card-text">
-                  <ul>
-                    <li>Added logging.yaml support</li>
-                  </ul>
-                </p>
-                <h5>Changed</h5>
-                <p class="card-text">
-                  <ul>
-                    <li>Fix TO Servers validation to allow "" ipv6</li>
-                  </ul>
-                </p>
-                <h5>Fixed</h5>
-                <p class="card-text">
-                  <ul>
-                    <li>Fixed a bug where TM crashes when PostgreSQL is unavailable</li>
-                  </ul>
-                </p>
-                
-
-                <p class="card-text">Apache Traffic Control 3.1.0 is available here:
-                  <ul>
-                    <li><a href="https://downloads.apache.org/trafficcontrol/3.1.0/apache-trafficcontrol-3.1.0.tar.gz">Tarball</a></li>
-                    <li><a href="https://downloads.apache.org/trafficcontrol/3.1.0/apache-trafficcontrol-3.1.0.tar.gz.sha512">SHA-512</a></li>
-                    <li><a href="https://downloads.apache.org/trafficcontrol/3.1.0/apache-trafficcontrol-3.1.0.tar.gz.asc">ASC</a></li>
-                    <li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
-                    <li><a href="http://trafficcontrol.apache.org/downloads/profiles/3.0.x/">Default Profiles</a></li>
-                  </ul>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <br/>
 
       
