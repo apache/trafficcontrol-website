@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,237 +8,274 @@
 
     <!-- Boostrap -->
     <link rel="stylesheet"
-	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-	  integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-	  crossorigin="anonymous">
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
-	    integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
-	    crossorigin="anonymous"></script>
+            integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+            crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="/resources/favicon.png">
 
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
-	<img id="fluo-img" height="40px" src="./resources/tc_logo_c_only.png" alt="Apache Traffic Control">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-      </button>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img id="fluo-img" height="40px" src="./resources/tc_logo_c_only.png" alt="Apache Traffic Control">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="/releases/">Releases</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="docs//latest/index.html">Docs</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="docs/latest/api/index.html">API</a>
-	  </li>
-          <li class="nav-item">
-	    <a class="nav-link" href="https://github.com/apache/trafficcontrol/issues">Issues</a>
-	  </li>
-          <li class="nav-item">
-	    <a class="nav-link" href="https://github.com/apache/trafficcontrol">Repo</a>
-	  </li>
-          <li class="nav-item">
-	    <a class="nav-link" href="/security/">Security</a>
-	  </li>
-	  <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	      Community
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="https://traffic-control-cdn.slack.com/" target="_blank">Slack</a>
-              <a class="dropdown-item" href="https://github.com/apache/trafficcontrol/blob/master/CONTRIBUTING.md">Contributing</a>
-              <a class="dropdown-item" href="/mailing_lists/">Mailing Lists</a>
-              <a class="dropdown-item" href="https://cwiki.apache.org/confluence/display/TC/">Wiki</a>
-              <a class="dropdown-item" href="https://www.youtube.com/channel/UC2zEj6sERinzx8w8uvyRBYg">YouTube</a>
-              <a class="dropdown-item" href="https://twitter.com/trafficctrlcdn">Twitter</a>
-            </div>
-	  </li>
-	</ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/releases/">Releases</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="docs//latest/index.html">Docs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="docs/latest/api/index.html">API</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/apache/trafficcontrol/issues">Issues</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/apache/trafficcontrol">Repo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/security/">Security</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Community
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://traffic-control-cdn.slack.com/" target="_blank">Slack</a>
+                    <a class="dropdown-item"
+                       href="https://github.com/apache/trafficcontrol/blob/master/CONTRIBUTING.md">Contributing</a>
+                    <a class="dropdown-item" href="/mailing_lists/">Mailing Lists</a>
+                    <a class="dropdown-item" href="https://cwiki.apache.org/confluence/display/TC/">Wiki</a>
+                    <a class="dropdown-item" href="https://www.youtube.com/channel/UC2zEj6sERinzx8w8uvyRBYg">YouTube</a>
+                    <a class="dropdown-item" href="https://twitter.com/trafficctrlcdn">Twitter</a>
+                </div>
+            </li>
+        </ul>
 
-	<ul class="navbar-nav navbar-right">
+        <ul class="navbar-nav navbar-right">
 
-	  <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	      Apache Software Foundation<span class="caret"></span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="https://www.apache.org">Apache Homepage</a>
-              <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-	      <a class="dropdown-item" href="https://www.apache.org/events/current-event">Events</a>
-              <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
-              <a class="dropdown-item" href="https://www.apache.org/security">ASF Security</a>
-              <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-              <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct">Code of Conduct</a>
-            </div>
-	  </li>
-	</ul>
-      </div>
-    </nav>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Apache Software Foundation<span class="caret"></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://www.apache.org">Apache Homepage</a>
+                    <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
+                    <a class="dropdown-item" href="https://www.apache.org/events/current-event">Events</a>
+                    <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+                    <a class="dropdown-item" href="https://www.apache.org/security">ASF Security</a>
+                    <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
+                    <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct">Code of
+                        Conduct</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <div class="container">
-      <div class="jumbotron" style="text-align: center;">
-	<div class="mx-auto"><img src="./resources/Traffic-Control-Logo-FINAL-Black-Text.png" alt="Apache Traffic Control" height="200px"/></div>
-	<p class="lead">Apache Traffic Control allows you to build a large scale content delivery network using open source. Built around Apache Traffic Server as the caching software, Traffic Control implements all the core functions of a modern CDN.</p>
-	<a style="margin-right: 20px" href="/releases/" class="btn btn-success btn-sm navbar-btn"><i class="fa fa-download fa-lg"></i> Download</a>
-	<a style="margin-right: 20px" href="https://github.com/apache/trafficcontrol" target="_blank" class="btn btn-dark btn-sm navbar-btn"><i class="fab fa-github fa-lg"></i> GitHub</a>
-	<a href="https://twitter.com/trafficctrlcdn" target="_blank" class="btn btn-primary btn-sm navbar-btn"><i class="fab fa-twitter fa-lg"></i> Follow</a>
-      </div> <!-- End Jumbotron -->
+<div class="container">
+    <div class="jumbotron" style="text-align: center;">
+        <div class="mx-auto"><img src="./resources/Traffic-Control-Logo-FINAL-Black-Text.png"
+                                  alt="Apache Traffic Control" height="200px"/></div>
+        <p class="lead">Apache Traffic Control allows you to build a large scale content delivery network using open
+            source. Built around Apache Traffic Server as the caching software, Traffic Control implements all the core
+            functions of a modern CDN.</p>
+        <a style="margin-right: 20px" href="/releases/" class="btn btn-success btn-sm navbar-btn"><i
+                class="fa fa-download fa-lg"></i> Download</a>
+        <a style="margin-right: 20px" href="https://github.com/apache/trafficcontrol" target="_blank"
+           class="btn btn-dark btn-sm navbar-btn"><i class="fab fa-github fa-lg"></i> GitHub</a>
+        <a href="https://twitter.com/trafficctrlcdn" target="_blank" class="btn btn-primary btn-sm navbar-btn"><i
+                class="fab fa-twitter fa-lg"></i> Follow</a>
+    </div> <!-- End Jumbotron -->
 
-      <div class="row">
-	<div class="col">
-	  <p class="lead">With Apache Traffic Control, operators can setup a Content Delivery Network to quickly and efficiently deliver content to their users. Traffic Control is a highly distributed, scalable and redundant solution meeting the needs of operators from small to large.
-	</div>
-      </div>
-
-      <h3>News</h3>
-      <div class="row">
-	<div class="col-sm-12">
-	  <div class="card">
-	    <div class="card-body">
-	      <span class="far fa-newspaper fa-7x float-right" style="color: #343a40;"></span>
-			<ul><li><strong>June 17, 2020</strong> - Apache Traffic Control 4.1.0 Released</li></ul>
-			<ul><li><strong>March 26, 2020</strong> - Apache Traffic Control 4.0.0 Released</li></ul>
-
-
-	    </div>
-	  </div>
-	</div>
-      </div>
-      <br/>
-
-      <h3>Features</h3>
-      <div class="row">
-
-	<div class="col-sm-12">
-	  <div class="card-deck">
-	    <div class="card border-light">
-	      <span class="fas fa-bolt fa-7x mx-auto" style="color: #343a40; margin-top: 5px;"></span>
-	      <div class="card-body">
-		<h5 class="card-title">Reduced Latency</h5>
-		<p class="card-text">Locating caches and content closer to users decreases the round trip time needed to deliver content. </p>
-	      </div>
-	    </div>
-
-	    <div class="card border-light">
-	      <span class="fas fa-cloud-download-alt fa-7x mx-auto" style="color:#343a40;"></span>
-	      <div class="card-body">
-		<h5 class="card-title">Reduced Bandwidth Costs</h5>
-		<p class="card-text">Caching content in memory and on disk reduces the load on origin servers and across bottleneck links.</p>
-	      </div>
-	    </div>
-
-	    <div class="card border-light">
-	      <span class="fas fa-heart fa-7x mx-auto" style="color: #343a40;"></span>
-	      <div class="card-body">
-		<h5 class="card-title">Improved Quality of Experience</h5>
-		<p class="card-text">Reducing round trip time and increasing delivery bandwidth improves end user quality of experience</p>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-      </div> <!-- End Features Row -->
-      <hr/>
-
-      <h4>Modules</h4>
-      <div class="row">
-	<div class="col-sm-12">
-	  <div class="card-deck">
-	    <div class="card border-light">
-	      <div class="card-body">
-		<h4 class="card-title"><a href="docs/latest/overview/traffic_ops.html" style="color: black;">Traffic Ops</a></h4>
-		<p class="card-text">Traffic Ops is the RESTful API service for management and monitoring of all servers in the CDN.</p>
-	      </div>
-	    </div>
-
-	    <div class="card border-light">
-	      <div class="card-body">
-		<h4 class="card-title"><a href="docs//latest/overview/traffic_router.html" style="color: black;">Traffic Router</a></h4>
-		<p class="card-text">Traffic Router uses DNS and HTTP302 to redirect clients to the closest available cache on the CDN. </p>
-	      </div>
-	    </div>
-
-	    <div class="card border-light">
-	      <div class="card-body">
-		<h4 class="card-title"><a href="docs/latest/overview/traffic_stats.html" style="color: black;">Traffic Stats</a></h4>
-		<p class="card-text">Traffic Stats acquires and stores real-time metrics and statistics into an InfluxDB for charting and alerting.</p>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-      </div>
-      <br/>
-
-      <!-- Modules Row 2-->
-      <div class="row">
-	<div class="col-sm-4">
-	  <div class="card border-light">
-	    <div class="card-body">
-	      <h4 class="card-title"><a href="docs/latest/overview/traffic_portal.html" style="color: black;">Traffic Portal</a></h4>
-	      <p class="card-text">Traffic Portal is the web GUI for managing and monitoring the CDN via the Traffic Ops API.</p>
-	    </div>
-	  </div>
-	</div>
-
-	<div class="col-sm-4">
-	  <div class="card border-light">
-	    <div class="card-body">
-	      <h4 class="card-title"><a href="docs/latest/overview/traffic_monitor.html" style="color: black;">Traffic Monitor</a></h4>
-	      <p class="card-text">Traffic Monitor uses HTTP to poll the health of caches and provide this information to Traffic Router. </p>
-	    </div>
-	  </div>
-	</div>
-
-	<div class="col-sm-4">
-	  <div class="card border-light">
-	    <div class="card-body">
-	      <h4 class="card-title">Grove</h4>
-	      <p class="card-text">Grove is an experimental high performance, live-focused HTTP cache written entirely in Go.</p>
-	    </div>
-	  </div>
-	</div>
-      </div>
-      <br/>
-
-
-
-      <!-- Start Footer -->
-      <div class="row">
-	<div class="col-sm-12 center-block">
-          <footer>
-            <hr/>
-            <p>
-              <a href="https://www.apache.org/foundation/contributing">
-		<img src="https://www.apache.org/images/SupportApache-small.png"
-		     id="asf-logo"
-		     height="100"
-		     alt="Apache"
-		     class="float-left"
-		     style="margin-right: 15px;"></a>
-
-              Copyright &copy; 2020 <a href="https://www.apache.org">The&nbsp;Apache&nbsp;Software&nbsp;Foundation</a>.
-              Licensed under the <a href="https://www.apache.org/licenses/">Apache&nbsp;License,&nbsp;Version&nbsp;2.0</a>
-            </p>
-            <p>
-              Apache®, the names of Apache projects and their logos, and the multicolor feather
-              logo are registered trademarks or trademarks of The Apache Software Foundation
-              in the United States and/or other countries.
-            </p>
-          </footer>
+    <div class="row">
+        <div class="col">
+            <p class="lead">With Apache Traffic Control, operators can setup a Content Delivery Network to quickly and
+                efficiently deliver content to their users. Traffic Control is a highly distributed, scalable and
+                redundant solution meeting the needs of operators from small to large.
         </div>
-      </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  </body>
+    <h3>News</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <span class="far fa-newspaper fa-7x float-right" style="color: #343a40;"></span>
+                    <ul>
+                        <li><strong>June 17, 2020</strong> - Apache Traffic Control 4.1.0 Released</li>
+                    </ul>
+                    <ul>
+                        <li><strong>March 26, 2020</strong> - Apache Traffic Control 4.0.0 Released</li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <h3>Features</h3>
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="card-deck">
+                <div class="card border-light">
+                    <span class="fas fa-bolt fa-7x mx-auto" style="color: #343a40; margin-top: 5px;"></span>
+                    <div class="card-body">
+                        <h5 class="card-title">Reduced Latency</h5>
+                        <p class="card-text">Locating caches and content closer to users decreases the round trip time
+                            needed to deliver content. </p>
+                    </div>
+                </div>
+
+                <div class="card border-light">
+                    <span class="fas fa-cloud-download-alt fa-7x mx-auto" style="color:#343a40;"></span>
+                    <div class="card-body">
+                        <h5 class="card-title">Reduced Bandwidth Costs</h5>
+                        <p class="card-text">Caching content in memory and on disk reduces the load on origin servers
+                            and across bottleneck links.</p>
+                    </div>
+                </div>
+
+                <div class="card border-light">
+                    <span class="fas fa-heart fa-7x mx-auto" style="color: #343a40;"></span>
+                    <div class="card-body">
+                        <h5 class="card-title">Improved Quality of Experience</h5>
+                        <p class="card-text">Reducing round trip time and increasing delivery bandwidth improves end
+                            user quality of experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Features Row -->
+    <hr/>
+
+    <h4>Modules</h4>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-deck">
+                <div class="card border-light">
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="docs/latest/overview/traffic_ops.html" style="color: black;">Traffic
+                            Ops</a></h4>
+                        <p class="card-text">Traffic Ops is the RESTful API service for management and monitoring of all
+                            servers in the CDN.</p>
+                    </div>
+                </div>
+
+                <div class="card border-light">
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="docs//latest/overview/traffic_router.html"
+                                                  style="color: black;">Traffic Router</a></h4>
+                        <p class="card-text">Traffic Router uses DNS and HTTP302 to redirect clients to the closest
+                            available cache on the CDN. </p>
+                    </div>
+                </div>
+
+                <div class="card border-light">
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="docs/latest/overview/traffic_stats.html" style="color: black;">Traffic
+                            Stats</a></h4>
+                        <p class="card-text">Traffic Stats acquires and stores real-time metrics and statistics into an
+                            InfluxDB for charting and alerting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <!-- Modules Row 2-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card border-light">
+                <div class="card-body">
+                    <h4 class="card-title"><a href="docs/latest/overview/traffic_portal.html" style="color: black;">Traffic
+                        Portal</a></h4>
+                    <p class="card-text">Traffic Portal is the web GUI for managing and monitoring the CDN via the
+                        Traffic Ops API.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card border-light">
+                <div class="card-body">
+                    <h4 class="card-title"><a href="docs/latest/overview/traffic_monitor.html" style="color: black;">Traffic
+                        Monitor</a></h4>
+                    <p class="card-text">Traffic Monitor uses HTTP to poll the health of caches and provide this
+                        information to Traffic Router. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card border-light">
+                <div class="card-body">
+                    <h4 class="card-title">Grove</h4>
+                    <p class="card-text">Grove is an experimental high performance, live-focused HTTP cache written
+                        entirely in Go.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+
+    <!-- Start Footer -->
+    <div class="row">
+        <div class="col-sm-12 center-block">
+            <footer>
+                <hr/>
+                <p>
+                    <a href="https://www.apache.org/foundation/contributing">
+                        <img src="https://www.apache.org/images/SupportApache-small.png"
+                             id="asf-logo"
+                             height="100"
+                             alt="Apache"
+                             class="float-left"
+                             style="margin-right: 15px;"></a>
+
+                    Copyright &copy; 2020 <a
+                        href="https://www.apache.org">The&nbsp;Apache&nbsp;Software&nbsp;Foundation</a>.
+                    Licensed under the <a href="https://www.apache.org/licenses/">Apache&nbsp;License,&nbsp;Version&nbsp;2.0</a>
+                </p>
+                <p>
+                    Apache®, the names of Apache projects and their logos, and the multicolor feather
+                    logo are registered trademarks or trademarks of The Apache Software Foundation
+                    in the United States and/or other countries.
+                </p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</body>
 </html>
