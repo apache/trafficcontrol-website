@@ -94,7 +94,206 @@
     <h1>Apache Traffic Control - Current Release</h1>
     <br/>
 
-    <!-- Release 4.1.0 -->
+    <br/>
+
+	<!-- Release 5.0.0 -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card-deck">
+				<div class="card">
+					<div class="card-body">
+						<h3 class="card-title"><b>Apache Traffic Control 5.0.0 - January 21<sup>st</sup>, 2021</b></h3>
+						<p class="card-text">Apache Traffic Control 5.0.0 is available here:
+						<ul>
+							<li>
+								<a href="https://www.apache.org/dyn/closer.lua/trafficcontrol/5.0.0/apache-trafficcontrol-5.0.0.tar.gz">Tarball</a>
+							</li>
+							<li>
+								<a href="https://downloads.apache.org/trafficcontrol/5.0.0/apache-trafficcontrol-5.0.0.tar.gz.sha512">SHA-512</a>
+							</li>
+							<li>
+								<a href="https://downloads.apache.org/trafficcontrol/5.0.0/apache-trafficcontrol-5.0.0.tar.gz.asc">ASC</a>
+							</li>
+							<li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
+							<li><a href="https://trafficcontrol.apache.org/downloads/profiles/5.0.x/">Default Profiles</a></li>
+						</ul>
+						</p>
+						<h4>Release Notes</h4>
+						<h5>Added</h5>
+						<p class="card-text">
+						<ul>
+							<li>A transliteration of the <code>traffic_ops_ort.pl</code> Perl script to the Go language. See <a href="https://github.com/apache/trafficcontrol/blob/5.0.x/traffic_ops_ort/t3c/README.md"><code>traffic_ops_ort/t3c/README.md</code></a>.</li>
+							<li>Traffic Ops API v3</li>
+							<li><details>
+								<summary>Flexible Topologies</summary>
+								For full details, refer to <a href="https://github.com/apache/trafficcontrol/blob/5.0.x/blueprints/flexible-topologies.md">the blueprint</a>.
+								<ul>
+									<li>Added a Traffic Ops API v3.0 endpoint: <code>/topologies</code>, to create, read, update and delete flexible topologies.</li>
+									<li>Added the ability to queue or dequeue updates for all servers assigned to the Cachegroups in a given Topology.</li>
+									<li>Added new "Topology" property to Delivery Services as an alternative to direct server assignments</li>
+									<li>Added "Topology" section to CDN Snapshot Comparison page</li>
+									<li>The <abbr title="CDN-in-a-Box">CiaB</abbr> default Delivery Service is now "Topology-based"</li>
+								</ul>
+							</details></li>
+							<li><a href="https://traffic-control-cdn.readthedocs.io/en/release-4.1.1/admin/traffic_router.html#edge-traffic-routing">Edge Traffic Routing</a> - a feature which allows Traffic Router to localize more DNS record types than just the routing name for DNS Delivery Services</li>
+
+							<li>
+								<details>
+									<summary>Traffic Portal table performance improvements</summary>
+									We've begun the process of shifting away from jQuery-plugin-based "data tables" to the much more performant <a href="https://www.ag-grid.com/">AG-Grid table system</a>.
+									So far the following tables have been improved:
+									<ul>
+										<li>Servers - including when viewing the servers assigned to a Delivery Service etc.</li>
+										<li>The API Change Log table</li>
+										<li><abbr title="Delivery Service Request">DSR</abbr>s</li>
+									</ul>
+								</details>
+							</li>
+
+							<li>
+								<details>
+									<summary><code>astats_over_http</code> plugin CSV support</summary>
+									The <code>astats_over_http</code> plugin for <abbr title="Apache Traffic Server">ATS</abbr> now supports outputting data in CSV format when
+									given the <code>text/csv</code> MIME-Type in the <code>Accept</code> header. Traffic Monitor is capable of requesting this new format (which
+									is faster to parse than the JSON format) in its Profile's <code>http_polling_format</code> Parameter.<br/>
+									As 5.0.0 also adds support to Traffic Monitor for the more standard <code>stats_over_http</code> plugin, CSV format using that
+									<code>health.polling.format</code> value is also supported - but note that one must also install the <code>system_stats</code> plugin to
+									provide all of the data necessary for Traffic Monitor's evaluations. Note also that this usage requires
+									<abbr title="Apache Traffic Server">ATS</abbr> version 9 or higher.
+								</details>
+							</li>
+
+							<li>
+								<details>
+									<summary>Multi-Interface Servers</summary>
+									Servers are now allowed to have multiple network interfaces specified. For full details, refer to <a href="https://github.com/apache/trafficcontrol/blob/5.0.x/blueprints/multi-interface-servers.md">the blueprint</a>.
+									<ul>
+										<li>Traffic Portal allows editing of a server's interfaces</li>
+										<li>Traffic Ops exposes server interface data in response payloads</li>
+										<li>Traffic Monitor is capable of evaluating a set of network interfaces, optionally with some limited thresholds set on any, all, or none of them</li>
+									</ul>
+								</details>
+							</li>
+							<li>The ability to view Hash ID field (aka <code>xmppId</code>) on Traffic Portals' server summary page</li>
+							<li>The ability to delete invalidation requests, accessible in Traffic Portal</li>
+							<li>A UI indiciator to the Traffic Monitor when using a disk backup of configuration from Traffic Ops.</li>
+							<li>Support for the <code>If-Match</code> and <code>If-Unmodified-Since</code> HTTP headers to Traffic Ops and its native Go client</li>
+							<li>The "Status Last Updated" field to servers, which makes visible the time when the last status change took place for a server</li>
+							<li>TR using the default miss location of a Delivery Service in case the location (for the client's IP address) returned was the default location for the country</li>
+							<li>Traffic Ops, Traffic Ops ORT, Traffic Monitor, Traffic Stats, and Grove are now compiled using Go version 1.15</li>
+							<li><code>User-Agent</code> string to Traffic Router log output</li>
+							<li><code>locationByDeepCoverageZone</code> to the <code>crs/stats/ip/{ip}</code> endpoint in the Traffic Router API</li>
+							<li>The number of days of API change logs to fetch is now configurable in <code>traffic_portal_properties.json</code> (default is 7 days) and can be overridden by the user in Traffic Portal</li>
+							<li>Support for building RPMs that target CentOS version 8</li>
+						</ul>
+						</p>
+
+						<h5>Fixed</h5>
+						<p class="card-text">
+						<ul>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/3455">#3455</a> - Alphabetically sorting CDN Read API call</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5010">#5010</a> - Fixed Reference urls for Cache Config on Delivery service pages (HTTP, DNS) in Traffic Portal</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5147">#5147</a> - GET /servers?dsId={id} should only return mid servers (in addition to edge servers) for the CDN of the Delivery Service if the mid-tier is employed</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4981">#4981</a> - Cannot create routing regular expression with a blank pattern param in Delivery Service</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4979">#4979</a> - Returns a Bad Request error during server creation with missing profileId</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4237">#4237</a> - Do not return an internal server error when Delivery Service's capacity is zero.</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/2712">#2712</a> - Invalid TM logrotate configuration permissions causing TM logs to be ignored by logrotate</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/3400">#3400</a> - Allow "0" as a TTL value for Static DNS entries</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5050">#5050</a> - Allows the TP administrator to name a TP instance (production, staging, etc) and flag whether it is production or not in traffic_portal_properties.json</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4743">#4743</a> - Validate absolute DNS name requirement on Static DNS entry for CNAME type</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4848">#4848</a> - <code>GET /api/x/cdns/capacity</code> gives back 500, with the message <samp>capacity was zero</samp></li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/2156">#2156</a> - Renaming a host in TC, does not impact xmpp_id and thereby hashid [Related github issue](https://github.com/apache/trafficcontrol/issues/2156)</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/3661">#3661</a> - Anonymous Proxy ipv4 whitelist does not work</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/1847">#1847</a> - Delivery Service with SSL keys are no longer allowed to be updated when the fields changed are relevant to the SSL Keys validity.</li>
+							<li>Fixed the <code>/jobs</code> and <code>/jobs/:id</code> Traffic Ops API routes to allow falling back to Perl via the routing blacklist</li>
+							<li>Fixed ORT config generation not using the <code>coalesce_number_v6</code> Parameter.</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4735">#4735</a> - Fixed <code>POST deliveryservices/request</code> (designed to simple send an email) regression which erroneously required deep caching type and routing name</li>
+							<li>Fixed an issue that caused Traffic Monitor to poll caches that did not have the status ONLINE/REPORTED/ADMIN_DOWN</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4740">#4740</a> - Fixed <code>/deliveryservice_stats</code> regression restricting metric type to a predefined set of values</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4116">#4116</a> - Fixed update procedure of servers, so that if a server is linked to one or more delivery services, you cannot change its CDN</li>
+							<li>Fixed ORT bug miscalculating Mid Max Origin Connections as all servers, usually resulting in 1</li>
+							<li>Added Delivery Service Raw Remap <code>__RANGE_DIRECTIVE__</code> directive to allow inserting the Range Directive after the Raw Remap text. This allows Raw Remaps which manipulate the Range</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/4984">#4984</a> - Lets <code>create_tables.sql</code> be run concurrently without issue</li>
+						</ul>
+						</p>
+
+						<h5>Changed</h5>
+						<p class="card-text">
+						<ul>
+							<li>When creating invalidation jobs through TO/TP, if an identical regex is detected that overlaps its time, then warnings will be returned indicating that overlap exists.</li>
+							<li>Changed Traffic Portal to disable browser caching on GETs until it utilizes the If-Modified-Since functionality that the TO API now provides.</li>
+							<li>Changed Traffic Portal to use Traffic Ops API v3</li>
+							<li>Changed ORT to find the local ATS config directory and use it when location Parameters don't exist for many required configs, including all Delivery Service files (Header Rewrites, Regex Remap, URL Sig, URI Signing).</li>
+							<li>Changed the access logs in Traffic Ops to now show the route ID with every API endpoint call. The Route ID is appended to the end of the access log line.</li>
+							<li>Changed the format of Traffic Monitor's <code>tmconfig.backup</code> to that of a <code>GET</code> request to <code>/cdns/{{name}}/configs/monitoring</code> instead of a transformed map</li>
+							<li>Changed Tomcat Java dependency to 8.5.57.</li>
+							<li>Changed Spring Framework Java dependency to 4.2.5.</li>
+							<li>Updated <abbr title="CDN-in-a-Box">CiaB</abbr> to CentOS 8</li>
+						</ul>
+						</p>
+
+						<h5>Deprecated</h5>
+						<p class="card-text">
+						<ul>
+							<li>Importing Traffic Ops Go clients via the un-versioned <code>github.com/apache/trafficcontrol/traffic_ops/client</code> is now deprecated in favor of versioned import paths e.g. <code>github.com/apache/trafficcontrol/traffic_ops/v3-client</code>.</li>
+						</ul>
+						</p>
+
+						<h5>Removed</h5>
+						<p class="card-text">
+						<ul>
+							<li>Removed deprecated Traffic Ops Go Client methods.</li>
+							<li>Configuration generation logic in the TO API (v1) for all files and the "meta" route - this means that versions of Traffic Ops ORT earlier than 4.0.0 <em><em>will not work any longer</em></em> with versions of Traffic Ops moving forward.</li>
+							<li>Removed from Traffic Portal the ability to view cache server config files as the contents are no longer reliable through the TO API due to the introduction of <code>atstccfg</code>.</li>
+						</ul>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <h2>Signing Keys</h2>
+    <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
+
+    <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file
+        for the relevant distribution. Make sure you get these files from the main distribution directory, rather than
+        from a mirror. Then verify the signatures using:
+
+    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+% pgpk -a KEYS % pgpv apache-trafficcontrol-4.1.0.tar.gz.asc
+</code>
+or
+<code>
+% pgp -ka KEYS
+% pgp apache-trafficcontrol-4.1.0.tar.gz.asc
+</code>
+or
+<code>
+% gpg --import KEYS
+% gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
+</code> </pre>
+
+
+    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+$ gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
+gpg: Signature made Tue Feb 11 09:38:30 2020 MST
+gpg:                using RSA key BF4A8D7307B8EEC7BFB4D8CB8A0712500C70C06E
+gpg: Good signature from "Rawlin Peters (apache signing key) <rawlin@apache.org>" [ultimate]
+</code></pre>
+
+    </p>
+
+    <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is
+        included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature
+        (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your
+        generated signature string matches the signature string published in the files above.
+    </p>
+
+    <br/>
+    <h2>Past Releases</h2>
+
+    <!-- Release 4.1.1 -->
     <div class="row">
         <div class="col-sm-12">
             <div class="card-deck">
@@ -167,136 +366,6 @@
                             <li>Reminder: as of Apache Traffic Control 4.0, an IPv6-capable astats_over_http plugin (available since ATC 2.2+) is required for Apache Traffic Server in order to do IPv6 routing.</li>
                         </ul>
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br/>
-
-    <h2>Signing Keys</h2>
-    <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
-
-    <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file
-        for the relevant distribution. Make sure you get these files from the main distribution directory, rather than
-        from a mirror. Then verify the signatures using:
-
-    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-% pgpk -a KEYS % pgpv apache-trafficcontrol-4.1.0.tar.gz.asc
-</code>
-or 
-<code>
-% pgp -ka KEYS
-% pgp apache-trafficcontrol-4.1.0.tar.gz.asc
-</code>
-or
-<code>
-% gpg --import KEYS
-% gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
-</code> </pre>
-
-
-    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-$ gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
-gpg: Signature made Tue Feb 11 09:38:30 2020 MST
-gpg:                using RSA key BF4A8D7307B8EEC7BFB4D8CB8A0712500C70C06E
-gpg: Good signature from "Rawlin Peters (apache signing key) <rawlin@apache.org>" [ultimate]
-</code></pre>
-
-    </p>
-
-    <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is
-        included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature
-        (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your
-        generated signature string matches the signature string published in the files above.
-    </p>
-
-    <br/>
-    <h2>Past Releases</h2>
-
-    <!-- Release 4.1.0 -->
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title"><b>Apache Traffic Control 4.1.0 - June 17th, 2020</b></h3>
-                        <p class="card-text">Apache Traffic Control 4.1.0 is available here:
-                        <ul>
-                            <li>
-                                <a href="https://www.apache.org/dyn/closer.lua/trafficcontrol/4.1.0/apache-trafficcontrol-4.1.0.tar.gz">Tarball</a>
-                            </li>
-                            <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/4.1.0/apache-trafficcontrol-4.1.0.tar.gz.sha512">SHA-512</a>
-                            </li>
-                            <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/4.1.0/apache-trafficcontrol-4.1.0.tar.gz.asc">ASC</a>
-                            </li>
-                            <li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
-                            <li><a href="https://trafficcontrol.apache.org/downloads/profiles/4.1.x/">Default
-                                Profiles</a></li>
-                        </ul>
-                        </p>
-                        <h4>Release Notes</h4>
-                        <h5>New Features</h5>
-                        <p class="card-text">
-                        <ul>
-                            <li>Added support for Let's Encrypt</li>
-                            <li>Support for ATS Slice plugin in Traffic Ops, including new Delivery Service Raw Remap
-                                <code>__RANGE_DIRECTIVE__</code> directive
-                            </li>
-                            <li>Ability to enable EDNS0 client subnet at the delivery service level</li>
-                            <li>New IPv6 changes:
-                                <ul>
-                                    <li>Traffic Portal and Traffic Ops now accept IPv6-only servers</li>
-                                    <li>Traffic Monitor now polls caches over IPv6 in addition to IPv4, separating the
-                                        availability status of each (make sure to update the <code>allow_ip6</code>
-                                        profile parameter to include the IPv6 addresses of your Traffic Monitors,
-                                        otherwise they will fail to poll over IPv6 and consider those caches to be
-                                        unavailable over IPv6)
-                                    </li>
-                                    <li>Traffic Router will route IPv4 clients to caches with IPv4 availability and
-                                        route IPv6 clients to caches with IPv6 availability
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>Traffic Router DNSSEC zone diffing performance enhancement</li>
-                            <li>Traffic Monitor optimistic quorum</li>
-                            <li>Traffic Ops API 2.0. This new major API version contains several new routes but does not
-                                contain many deprecated routes from API 1.x (which will be available until the ATC 5.0
-                                release). API clients should begin migrating to API 2.0 as soon as possible. For the
-                                full lists of new or deprecated routes, please see the <a
-                                        href="https://github.com/apache/trafficcontrol/blob/master/CHANGELOG.md#410---2020-04-23">changelog</a>.
-                            </li>
-                            <li>Ability to choose the TLS version used for Traffic Ops to make requests to Traffic
-                                Vault. Note: the default is now TLSv1.1, which may require configuration changes to
-                                Riak. See <a
-                                        href="https://traffic-control-cdn.readthedocs.io/en/latest/admin/traffic_vault.html#tv-admin-enable-tlsv1-1"
-                                        rel="nofollow">Enabling TLS 1.1</a></li>
-                        </ul>
-                        </p>
-                        <h5>Bug Fixes</h5>
-                        <p class="card-text">
-                        <ul>
-                            <li>This release contains many new bug fixes. For the full list, please see the <a
-                                    href="https://github.com/apache/trafficcontrol/blob/master/CHANGELOG.md#410---2020-04-23">changelog</a>.
-                            </li>
-                        </ul>
-                        </p>
-                        <h5>Removals</h5>
-                        <p class="card-text">
-                        <ul>
-                            <li>The Traffic Ops <code>db/admin.pl</code> script has now been removed. Please use the
-                                <code>db/admin</code> binary instead.
-                            </li>
-                            <li>Removed from Traffic Portal the ability to view cache server config files as the
-                                contents are no longer reliable through the TO API due to the introduction of <code>atstccfg</code>.
-                            </li>
-                            <li>Traffic Ops Python client no longer supports Python 2.</li>
-                        </ul>
-                        </p>
-
-
                     </div>
                 </div>
             </div>
