@@ -395,6 +395,84 @@ gpg: Good signature from "Rawlin Peters (apache signing key) <rawlin@apache.org>
 		</div>
 	</div>
 
+	<!-- Release 4.1.1 -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card-deck">
+				<div class="card">
+					<div class="card-body">
+						<h3 class="card-title"><b>Apache Traffic Control 4.1.1 - December 4th, 2020</b></h3>
+						<p class="card-text">Apache Traffic Control 4.1.1 is available here:
+						<ul>
+							<li>
+								<a href="https://www.apache.org/dyn/closer.lua/trafficcontrol/4.1.1/apache-trafficcontrol-4.1.1.tar.gz">Tarball</a>
+							</li>
+							<li>
+								<a href="https://downloads.apache.org/trafficcontrol/4.1.1/apache-trafficcontrol-4.1.1.tar.gz.sha512">SHA-512</a>
+							</li>
+							<li>
+								<a href="https://downloads.apache.org/trafficcontrol/4.1.1/apache-trafficcontrol-4.1.1.tar.gz.asc">ASC</a>
+							</li>
+							<li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
+							<li><a href="https://trafficcontrol.apache.org/downloads/profiles/4.1.x/">Default Profiles</a></li>
+						</ul>
+						</p>
+						<h4>Release Notes</h4>
+						<h5>Added</h5>
+						<p class="card-text">
+						<ul>
+							<li>Added the ability to set TLS config provided here: <a href="https://golang.org/pkg/crypto/tls/#Config" rel="nofollow">https://golang.org/pkg/crypto/tls/#Config</a> in Traffic Ops</li>
+							<li>Added <code>--traffic_ops_insecure=&lt;0|1&gt;</code> optional option to traffic_ops_ort.pl</li>
+							<li>Added ORT CentOS 8 support</li>
+						</ul>
+						</p>
+						<h5>Fixed</h5>
+						<ul>
+							<li>Fixed #5188 - DSR (delivery service request) incorrectly marked as complete and error message not displaying when DSR fulfilled and DS update fails in Traffic Portal. <a href="https://github.com/apache/trafficcontrol/issues/5188">Related Github issues</a></li>
+							<li>Fixed #5006 - Traffic Ops now generates the Monitoring on-the-fly if the snapshot doesn't exist, and logs an error. This fixes upgrading to 4.x to not break the CDN until a Snapshot is done.</li>
+							<li>Fixed #5180 - Global Max Mbps and Tps is not send to TM</li>
+							<li>Fixed #3528 - Fix Traffic Ops monitoring.json missing DeliveryServices</li>
+							<li>Fixed #5074 - Traffic Monitor logging "CreateStats not adding availability data for server: not found in DeliveryServices" for MID caches</li>
+							<li>Fixed #5274 - CDN in a Box's Traffic Vault image failed to build due to Basho's repo responding with 402 Payment Required. The repo has been removed from the image.</li>
+							<li>Fixed an issue that causes Traffic Router to mistakenly route to caches that had recently been set from ADMIN_DOWN to OFFLINE</li>
+							<li>Fixed a NullPointerException in Traffic Router that prevented it from properly updating cache health states</li>
+							<li>Fixed an issue where Traffic Router would erroneously return 503s or NXDOMAINs if the caches in a cachegroup were all unavailable for a client's requested IP version, rather than selecting caches from the next closest available cachegroup.</li>
+							<li>Traffic Ops Ort: Disabled ntpd verification (ntpd is deprecated in CentOS)</li>
+							<li>Fixed #5005: Traffic Monitor cannot be upgraded independently of Traffic Ops</li>
+							<li>Fixed an issue with Traffic Router failing to authenticate if secrets are changed</li>
+							<li>Fixed #4825 - Traffic Monitor error log spamming "incomparable stat type int"</li>
+							<li>Fixed #4899 - Traffic Monitor Web UI showing incorrect delivery service availability states</li>
+							<li>Fixed Traffic Monitor Web UI styling for unavailable caches</li>
+							<li>Fixed an issue with Traffic Monitor to fix peer polling to work as expected</li>
+							<li>Fixed #4845 - issue with ATS logging.yaml generation (missing newlines when filters are used)</li>
+							<li>Fixed ORT atstccfg to use log appending and log rotation</li>
+							<li>Fixed a bug in ATS remap.config generation that caused a double range directive if there was a <code>__RANGE_DIRECTIVE__</code> override</li>
+							<li>Fixed ORT to be backwards compatible with Traffic Ops 3.x</li>
+						</ul>
+						<h5>Changed</h5>
+						<p class="card-text">
+						<ul>
+							<li>Changed ORT/atstccfg ATS configuration generation to be deterministic in order to simplify diff checking</li>
+							<li>Changed ORT to not update ip_allow.config on <code>SYNCDS</code> runs by default</li>
+						</ul>
+						</p>
+						<h5>Deprecated</h5>
+						<p class="card-text">
+						<ul>
+							<li>Deprecated the <code>insecure</code> option in <code>traffic_ops_golang</code> in favor of <code>"tls_config": { "InsecureSkipVerify": &lt;bool&gt; }</code></li>
+						</ul>
+						</p>
+						<h5>Upgrade Requirements</h5>
+						<p class="card-text">
+						<ul>
+							<li>Reminder: as of Apache Traffic Control 4.0, an IPv6-capable astats_over_http plugin (available since ATC 2.2+) is required for Apache Traffic Server in order to do IPv6 routing.</li>
+						</ul>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
     <!-- Start Footer -->
     <div class="row">
