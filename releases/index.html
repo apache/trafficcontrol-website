@@ -96,23 +96,23 @@
 
     <br/>
 
-	<!-- Release 5.1.0 -->
+	<!-- Release 5.1.1 -->
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="card-deck">
 				<div class="card">
 					<div class="card-body">
-						<h3 class="card-title"><b>Apache Traffic Control 5.1.0 - March 11<sup>th</sup>, 2021</b></h3>
-						<p class="card-text">Apache Traffic Control 5.1.0 is available here:
+						<h3 class="card-title"><b>Apache Traffic Control 5.1.1 - April 1<sup>st</sup>, 2021</b></h3>
+						<p class="card-text">Apache Traffic Control 5.1.1 is available here:
 						<ul>
 							<li>
-								<a href="https://www.apache.org/dyn/closer.lua/trafficcontrol/5.1.0/apache-trafficcontrol-5.1.0.tar.gz">Tarball</a>
+								<a href="https://www.apache.org/dyn/closer.lua/trafficcontrol/5.1.1/apache-trafficcontrol-5.1.1.tar.gz">Tarball</a>
 							</li>
 							<li>
-								<a href="https://downloads.apache.org/trafficcontrol/5.1.0/apache-trafficcontrol-5.1.0.tar.gz.sha512">SHA-512</a>
+								<a href="https://downloads.apache.org/trafficcontrol/5.1.1/apache-trafficcontrol-5.1.1.tar.gz.sha512">SHA-512</a>
 							</li>
 							<li>
-								<a href="https://downloads.apache.org/trafficcontrol/5.1.0/apache-trafficcontrol-5.1.0.tar.gz.asc">ASC</a>
+								<a href="https://downloads.apache.org/trafficcontrol/5.1.1/apache-trafficcontrol-5.1.1.tar.gz.asc">ASC</a>
 							</li>
 							<li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
 							<li><a href="https://trafficcontrol.apache.org/downloads/profiles/5.1.x/">Default Profiles</a></li>
@@ -131,6 +131,7 @@
                             <li>Traffic Ops Client: New Login function with more options, including falling back to previous minor versions. See <code>traffic_ops/v3-client</code> documentation for details.</li>
                             <li><a href="https://github.com/apache/trafficcontrol/issues/5395">#5395</a> - Added validation to prevent changing the Type any Cache Group that is in use by a Topology</li>
                             <li>Added license files to the RPMs</li>
+							<li>Atscfg: Added a rule to <code>ip_allow.config</code> such that PURGE requests are allowed over localhost</li>
 						</ul>
                     </p>
 
@@ -165,6 +166,14 @@
                             <li>Fix for public schema in <code>2020062923101648_add_deleted_tables.sql</code></li>
                             <li>Moved <code>move_lets_encrypt_to_acme.sql</code>, <code>add_max_request_header_size_delivery_service.sql</code>, and <code>server_interface_ip_address_cascade.sql</code> past last migration in 5.0.0</li>
                             <li><a href="https://github.com/apache/trafficcontrol/issues/5505">#5505</a> - Make <code>parent_reval_pending</code> for servers in a Flexible Topology CDN-specific on <code>GET /servers/{{name}}/update_status</code></li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5565">#5565</a> - TO GET /caches/stats panic converting string to uint64</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5558">#5558</a> - Fixed `TM UI` and `/api/cache-statuses` to report aggregate `bandwidth_kbps` correctly.</li>
+							<li>Fix for config gen missing max_origin_connections on mids in certain scenarios</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5192">#5192</a> - Fixed TO log warnings when generating snapshots for topology-based delivery services.</li>
+							<li>Fixed Invalid TS logrotate configuration permissions causing TS logs to be ignored by logrotate.</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5604">#5604</a> - traffic_monitor.log is no longer truncated when restarting Traffic Monitor</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/1624">#1624</a> - Fixed ORT to reload Traffic Server if LUA scripts are added or changed.</li>
+							<li><a href="https://github.com/apache/trafficcontrol/issues/5554">#5554</a> - TM UI overflows screen width and hides table data</li>
 						</ul>
                     </p>
 
