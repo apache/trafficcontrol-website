@@ -16,8 +16,14 @@
 			crossorigin="anonymous"></script>
 	<link rel="icon" type="image/png" href="/resources/favicon.png">
 	<style type="text/css">
-		img {
-			max-width: 100%;
+		img, table {
+			min-width: 100%;
+		}
+		td, th {
+			border: 1px solid #C1C7D0;
+		}
+		th {
+			background: #f4f5f7 center right no-repeat;
 		}
 
 		#hotel-split {
@@ -203,7 +209,139 @@
 	</section>
 	<section>
 		<h2>Schedule</h2>
-		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRKnNOuJzlzS6VRX4QECsogys36f-p-SUip5tUse855rNCTB5XX4QVTbZoUUA-H2u0UDEYoH4HSQhCB/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="800" height="800"></iframe>
+		<hr/>
+		<h3>First Day</h3>
+		<time datetime="2018-04-24">Tuesday, April 24<sup>th</sup></time>
+		<table>
+			<thead>
+				<tr>
+					<th>Time (EST)</th>
+					<th>Topic</th>
+					<th>Presenter</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td><time datetime="2018-04-24T8:00">8:00 - 9:00</time></td>
+				<td>Breakfast (Provided)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T9:00">9:00 - 9:30</time></td>
+				<td><a href="./ATCSummit-Spring2018-Opening.pptx" download="ATCSummit-Spring2018-Opening.pptx">Opening and Graduation Update</a></td>
+				<td>Dave Neuman</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T9:30">9:30 - 10:15</time></td>
+				<td><a href="./2018-04-TC_Summit-Golang Proxy.pdf" download="2018-04-TC_Summit-Golang Proxy.pdf">Golang Proxy Progress</a></td>
+				<td>Dewayne Richardson</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T10:15">10:15 - 11:00</time></td>
+				<td><a href="./TC-Summit-2018-CDN-in-a-box.pptx" download="TC-Summit-2018-CDN-in-a-box.pptx">Progress of CDN components in Docker</a></td>
+				<td>Dan Kirkwood</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T11:00">11:00 - 11:45</time></td>
+				<td><a href="./Traffic_Ops_CRUD_Framework_Overview.pptx" download="Traffic_Ops_CRUD_Framework_Overview.pptx">Evolution of golang CRUD framework</a></td>
+				<td>Dylan Volz</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T11:45">11:45 - 12:30</time></td>
+				<td>Lunch (Provided)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T12:30">12:30- 12:45</time></td>
+				<td>GPG Key signing party</td>
+				<td>Dave Neuman</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T12:45">12:45 - 1:30</time></td>
+				<td><a href="./Operational_Challenges_in_Traffic_Control.pptx" download="Operational_Challenges_in_Traffic_Control.pptx">Operational Challenges for Traffic Control</a></td>
+				<td>Mike Sandman</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T13:30">1:30 - 2:15</time></td>
+				<td>Traffic Monitor Upgrade</td>
+				<td>Steve Malenfant</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T14:15">2:15 - 2:30</time></td>
+				<td>Break</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T14:30">2:30 - 3:15</time></td>
+				<td><a href="./TC_summit_2018_ATS@comcast.pptx" download="TC_summit_2018_ATS@comcast.pptx">ATS 7.x and Traffic Control</a></td>
+				<td>Evan Zelkowitz</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T15:15">3:15 - 4:00</time></td>
+				<td><a href="./ATCSummit-Spring2018-TP_Architecture.pptx" download="ATCSummit-Spring2018-TP_Architecture.pptx">Traffic Portal Architecture</a></td>
+				<td>Jeremy Mitchell</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-24T16:00">4:00 - 4:45</time></td>
+				<td>Traffic Control Self Service</td>
+				<td>Rob Butts</td>
+			</tr>
+			</tbody>
+		</table>
+		<hr/>
+		<h3>Second Day</h3>
+		<time datetime="2018-04-25">Wednesday, April 25<sup>th</sup></time>
+		<table>
+			<thead>
+				<tr>
+					<th>Time (EST)</th>
+					<th>Topic</th>
+					<th>Presenter</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td><time datetime="2018-04-25T8:00">8:00 - 9:00</time></td>
+				<td>Breakfast (Provided)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-25T9:00">9:00 - 9:45</time></td>
+				<td>Grove Cache for ATC</td>
+				<td>Rob Butts</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-25T9:45">9:45 - 10:30</time></td>
+				<td>Elasticsearch and logs at Cox</td>
+				<td>Steve Malenfant</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-25T10:30">10:30 - 11:15</time></td>
+				<td><a href="./Traffic Control - Config Distribution.pptx" download="Traffic Control - Config Distribution.pptx">Configuration Distribution</a></td>
+				<td>Eric Friedrich</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-25T11:15">11:15 - 12:00</time></td>
+				<td><a href="./tr_update_and_tomcat85.pptx" download="tr_update_and_tomcat85.pptx">Tomcat 8.5 migration</a></td>
+				<td>Jeff Elsloo</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-25T12:00">12:00 - 1:00</time></td>
+				<td>Lunch (Provided)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-25T13:00">1:00 - 1:45</time></td>
+				<td>Documentation Update party</td>
+				<td>Jan Van Doorn</td>
+			</tr>
+			<tr>
+				<td><time datetime="2018-04-25T13:45">1:45 - 2:30</time></td>
+				<td>Catchup, Lightening Talks, Q&amp;A, etc</td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
 	</section>
 	<section>
 		<h2>Confirmed Attendees</h2>
