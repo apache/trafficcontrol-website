@@ -1,0 +1,24 @@
+# Editor/IDE configuration files
+*.sublime-project
+*.sublime-workspace
+.vscode/
+__debug_bin
+*.code-workspace
+*.pydevproject
+.idea/
+.project
+.*.swp
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.elc
+.projectile
+*.bak
+*.iml
+.anjuta/
+.anjuta_sym_db.db
+*.anjuta
+*.kateproject
+
+# Misc.
+.DS_Store
