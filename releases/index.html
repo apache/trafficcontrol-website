@@ -99,23 +99,23 @@
 
     <br/>
 
-	<!-- Release 5.1.2 -->
+	<!-- Release 5.1.3 -->
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="card-deck">
 				<div class="card">
 					<div class="card-body">
-						<h3 class="card-title"><b>Apache Traffic Control 5.1.2 - May 17<sup>th</sup>, 2021</b></h3>
-						<p class="card-text">Apache Traffic Control 5.1.2 is available here:
+						<h3 class="card-title"><b>Apache Traffic Control 5.1.3 - October 11<sup>th</sup>, 2021</b></h3>
+						<p class="card-text">Apache Traffic Control 5.1.3 is available here:
 						<ul>
 							<li>
-								<a href="https://www.apache.org/dyn/closer.lua/trafficcontrol/5.1.2/apache-trafficcontrol-5.1.2.tar.gz">Tarball</a>
+								<a href="https://www.apache.org/dyn/closer.lua/trafficcontrol/5.1.3/apache-trafficcontrol-5.1.3.tar.gz">Tarball</a>
 							</li>
 							<li>
-								<a href="https://downloads.apache.org/trafficcontrol/5.1.2/apache-trafficcontrol-5.1.2.tar.gz.sha512">SHA-512</a>
+								<a href="https://downloads.apache.org/trafficcontrol/5.1.3/apache-trafficcontrol-5.1.3.tar.gz.sha512">SHA-512</a>
 							</li>
 							<li>
-								<a href="https://downloads.apache.org/trafficcontrol/5.1.2/apache-trafficcontrol-5.1.2.tar.gz.asc">ASC</a>
+								<a href="https://downloads.apache.org/trafficcontrol/5.1.3/apache-trafficcontrol-5.1.3.tar.gz.asc">ASC</a>
 							</li>
 							<li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
 							<li><a href="https://trafficcontrol.apache.org/downloads/profiles/5.1.x/">Default Profiles</a></li>
@@ -188,6 +188,7 @@
 							<li><a href="https://github.com/apache/trafficcontrol/issues/5744">#5744</a> - Sort TM Delivery Service States page by DS name</li>
 							<li><a href="https://github.com/apache/trafficcontrol/issues/5724">#5724</a> - Set XMPPID to hostname if the server had none, don't error on server update when XMPPID is empty</li>
 							<li><a href="https://github.com/apache/trafficcontrol/issues/5739">#5739</a> - Prevent looping in case of a failed login attempt</li>
+                            <li>Customer names in payloads sent to the <code>/deliveryservices/request</code> Traffic Ops API endpoint can no longer contain characters besides alphanumerics, @, !, #, $, %, ^, &amp;, \*, (, ), [, ], '.', ' ', and '-'. This fixes a vulnerability that allowed email content injection.</li>
 						</ul>
                     </p>
 
