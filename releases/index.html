@@ -99,53 +99,36 @@
 
     <br/>
 
-    <!-- Release 6.0.0 -->
+    <!-- Release 6.0.2 -->
     <div class="row">
         <div class="col-sm-12">
             <div class="card-deck">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title"><b>Apache Traffic Control 6.0.1 - November 8<sup>th</sup>, 2021</b></h3>
-                        <p class="card-text">Apache Traffic Control 6.0.1 is available here:
+                        <h3 class="card-title"><b>Apache Traffic Control 6.0.2 - December 22<sup>nd</sup>, 2021</b></h3>
+                        <p class="card-text">Apache Traffic Control 6.0.2 is available here:
                         <ul>
                             <li>
-                                <a href="https://dlcdn.apache.org/trafficcontrol/6.0.1/apache-trafficcontrol-6.0.1.tar.gz">Tarball</a>
+                                <a href="https://dlcdn.apache.org/trafficcontrol/6.0.2/apache-trafficcontrol-6.0.2.tar.gz">Tarball</a>
                             </li>
                             <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/6.0.1/apache-trafficcontrol-6.0.1.tar.gz.sha512">SHA-512</a>
+                                <a href="https://downloads.apache.org/trafficcontrol/6.0.2/apache-trafficcontrol-6.0.2.tar.gz.sha512">SHA-512</a>
                             </li>
                             <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/6.0.1/apache-trafficcontrol-6.0.1.tar.gz.b2">BLAKE2</a>
+                                <a href="https://downloads.apache.org/trafficcontrol/6.0.2/apache-trafficcontrol-6.0.2.tar.gz.b2">BLAKE2</a>
                             </li>
                             <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/6.0.1/apache-trafficcontrol-6.0.1.tar.gz.asc">ASC</a>
+                                <a href="https://downloads.apache.org/trafficcontrol/6.0.2/apache-trafficcontrol-6.0.2.tar.gz.asc">ASC</a>
                             </li>
                             <li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
                             <li><a href="/downloads/profiles/6.0.x/">Default Profiles</a></li>
                         </ul>
                         </p>
                         <h4>Release Notes</h4>
-                        <h5>Traffic Ops</h5>
-                        <p class="card-text"><h6>Added</h6>
                         <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/2770">#2770</a> Added validation for httpBypassFqdn as hostname in Traffic Ops</li>
+                            <li>Updated <code>log4j</code> module in Traffic Router from version 1.2.17 to 2.17.0</li>
+                            <li>Update github.com/lestrrat-go/jwx to v1.2.12</li>
                         </ul>
-                        </p>
-                        <p class="card-text"><h6>Fixed</h6>
-                        <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6125">#6125</a> - Fix <code>/cdns/{name}/federations?id=#</code> to search for CDN.</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6285">#6285</a> - The Traffic Ops Postinstall script will work in CentOS 7, even if Python 3 is installed</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/5373">#5373</a> - Traffic Monitor logs not consistent</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6197">#6197</a> - TO <code>/deliveryservices/:id/routing</code> makes requests to all TRs instead of by CDN.</li>
-                            <li>Traffic Ops: Sanitize username before executing LDAP query</li>
-                        </ul>
-                        </p>
-                        <p class="card-text"><h6>Changed</h6>
-                        <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/5927">#5927</a> Updated CDN-in-a-Box to not run a Riak container by default but instead only run it if the optional flag is provided.</li>
-                            <li>Changed the DNSSEC refresh Traffic Ops API to only create a new change log entry if any keys were actually refreshed or an error occurred (in order to reduce changelog noise)</li>
-                        </ul>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -161,25 +144,25 @@
         from a mirror. Then verify the signatures using:
 
     <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-% pgpk -a KEYS % pgpv apache-trafficcontrol-4.1.0.tar.gz.asc
+% pgpk -a KEYS % pgpv apache-trafficcontrol-6.0.2.tar.gz.asc
 </code>
 or
 <code>
 % pgp -ka KEYS
-% pgp apache-trafficcontrol-4.1.0.tar.gz.asc
+% pgp apache-trafficcontrol-6.0.2.tar.gz.asc
 </code>
 or
 <code>
 % gpg --import KEYS
-% gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
+% gpg --verify apache-trafficcontrol-6.0.2.tar.gz.asc apache-trafficcontrol-6.0.2.tar.gz
 </code> </pre>
 
 
     <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-$ gpg --verify apache-trafficcontrol-4.1.0.tar.gz.asc apache-trafficcontrol-4.1.0.tar.gz
-gpg: Signature made Tue Feb 11 09:38:30 2020 MST
-gpg:                using RSA key BF4A8D7307B8EEC7BFB4D8CB8A0712500C70C06E
-gpg: Good signature from "Rawlin Peters (apache signing key) &lt;rawlin@apache.org&gt;" [ultimate]
+$ gpg --verify apache-trafficcontrol-6.0.2.tar.gz.asc apache-trafficcontrol-6.0.2.tar.gz
+gpg: Signature made Mon 20 Dec 2021 11:30:29 AM MST
+gpg:                using RSA key F12D1112EAF1CE16575CD8A4C7EA2D46A15CDAE6
+gpg: Good signature from "Zach Hoffman &lt;zrhoffman@apache.org&gt;" [ultimate]
 </code></pre>
 
     </p>
