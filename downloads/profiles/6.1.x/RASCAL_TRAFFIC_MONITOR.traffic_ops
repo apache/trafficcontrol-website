@@ -1,0 +1,29 @@
+{
+  "parameters": [
+    {
+      "config_file": "rascal-config.txt",
+      "name": "health.polling.interval",
+      "value": "6000"
+    },
+    {
+      "config_file": "rascal-config.txt",
+      "name": "heartbeat.polling.interval",
+      "value": "2000"
+    },
+    {
+      "config_file": "rascal-config.txt",
+      "name": "peers.polling.interval",
+      "value": "1000"
+    },
+    {
+      "config_file": "rascal-config.txt",
+      "name": "tm.polling.interval",
+      "value": "60000"
+    }
+  ],
+  "profile": {
+    "description": "Traffic Monitor",
+    "name": "RASCAL_TRAFFIC_MONITOR",
+    "type": "TM_PROFILE"
+  }
+}
