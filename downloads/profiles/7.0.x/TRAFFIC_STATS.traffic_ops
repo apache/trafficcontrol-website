@@ -1,0 +1,74 @@
+{
+  "parameters": [
+    {
+      "config_file": "traffic_stats.config",
+      "name": "CacheStats",
+      "value": "bandwidth"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "CacheStats",
+      "value": "maxKbps"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "CacheStats",
+      "value": "ats.proxy.process.http.current_client_connections"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "kbps"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "tps_2xx"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "status_4xx"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "status_5xx"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "tps_3xx"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "tps_4xx"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "tps_5xx"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "DsStats",
+      "value": "tps_total"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "CacheStats",
+      "value": "ats.proxy.process.cache.volume_1.wrap_count"
+    },
+    {
+      "config_file": "traffic_stats.config",
+      "name": "CacheStats",
+      "value": "ats.proxy.process.cache.volume_2.wrap_count"
+    }
+  ],
+  "profile": {
+    "description": "Traffic Stats profile",
+    "name": "TRAFFIC_STATS",
+    "type": "TS_PROFILE"
+  }
+}
