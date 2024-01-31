@@ -98,6 +98,241 @@
     <br/>
 
     <br/>
+    <!-- Release 8.0.0 -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title"><b>Apache Traffic Control 8.0.0 - January 30<sup>th</sup>, 2024</b></h3>
+                        <p class="card-text">Apache Traffic Control 8.0.0 is available here:
+                        <ul>
+                            <li>
+                                <a href="https://dlcdn.apache.org/trafficcontrol/8.0.0/apache-trafficcontrol-8.0.0.tar.gz">Tarball</a>
+                            </li>
+                            <li>
+                                <a href="https://downloads.apache.org/trafficcontrol/8.0.0/apache-trafficcontrol-8.0.0.tar.gz.sha512">SHA-512</a>
+                            </li>
+                            <li>
+                                <a href="https://downloads.apache.org/trafficcontrol/8.0.0/apache-trafficcontrol-8.0.0.tar.gz.asc">ASC</a>
+                            </li>
+                            <li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
+                            <li><a href="/downloads/profiles/8.0.x/">Default Profiles</a></li>
+                        </ul>
+                        </p>
+
+                        <h4>Release Notes</h4>
+                        <h5><u>Traffic Ops</u></h5>
+                        <p class="card-text">
+                        <ul>
+                            <li><strong>Client Certificate Authentication</strong>: The ability for a Traffic Ops (TO) instance to accept TLS certificates from a client request and verify them against specified Root CA’s certificate as a form of login. This is not to be confused with mTLS, albeit a similar design. Should a client not send a TLS certificate as part of the request login functionality will default to standard form authentication.</li>
+                            <li>Assignment of multiple Server Capabilities to a Server and vice-versa: Previous releases only allowed 1:1 assignment of server to a capability and vice-versa. This release now supports multiple assignments (1:many).</li>
+                            <li>Simplification of CDN configs by removing hypnotoad section (used in deploying TO locally or in CIAB) was no longer being used.</li>
+                            <li><strong>Layered Profile</strong>: Aggregation of parameters based on profile priority.</li>
+                            <li><strong>Delivery Services</strong>: Regional field added to aid <code>maxOriginConnections</code></li>
+                            <li><strong>Permission and Roles</strong>: Added new permissions (e.g.: <code>SSL-KEY_EXPIRATION:READ</code>, <code>ACME:READ</code>, etc.) to various roles. Also created a new role (<code>trouter</code>) to monitor Traffic Ops resources. Return empty array when no permission are given for a roles API (PUT, POST)</li>
+                            <li><strong>Reporting</strong>: Added a feature to indicate success and failure during server upgrade.</li>
+                            <li><strong>OAuth</strong> Added OAuth security when using Microsoft Authenticator and an optional field <code>oauth_user_attribute</code> for OAuth login credentials along with usage of ID token instead of Access Token for authentication.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/7674">#7674</a> Added the ability to indicate if a server failed its revalidate/config update.</li>
+                            <li>Python Client uses APIv5</li>
+                            <li>
+                                Fixed the following issues/bugs:
+                                <ul>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7891">#7891</a> Created clause to distinguish api versions &lt; 5 when handling 403 in middleware wrappers and updated job routes for v4 and v5.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7890">#7890</a> Fixed missing changelog entries to v5 routes.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7887">#7887</a> Limit Delivery Services returned for GET /servers/{id}/deliveryservices to ones in the same CDN</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7878">#7878</a> Fixed the case where TO was failing to assign delivery services to a server, due to a bug in the way the list of preexisting delivery services was being returned.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/4428">#4428</a> Fixed Internal Server Error with POST to <code>profileparameters</code> when POST body is empty</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7047">#7047</a> Allow <code>apply_time</code> query parameters on the <code>servers/{id-name}/update</code> when the CDN is locked.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7046">#7046</a> API <code>deliveryservices/sslkeys/add</code> now checks that each cert in the chain is related.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/6340">#6340</a> Fixed alert messages for POST and PUT invalidation job APIs.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7519">#7519</a> Fixed TO API <code>/servers/{id}/deliveryservices</code> endpoint to responding with all DS’s on cache that are directly assigned and inherited through topology.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7130">#7130</a> Fixed service_categories response to POST API.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/6229">#6229</a> Fixed error message for assignment of non-existent parameters to a profile.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/6775">#6775</a> Invalid “orgServerFqdn” in Delivery Service creation/update causes Internal Server Error</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/6385">#6385</a> Fixed reserved consistentHashQueryParameters from causing internal server error to a client error</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/4393">#4393</a> Fixed the error code and alert structure when TO is queried for a delivery service with no ssl keys.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7762">#7762</a> Fixed <code>/phys_locations</code> PUT API to remove error related to mismatching region name and ID.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7511">#7511</a> Fixed the changelog registration message to include the username instead of duplicate email entry.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7441">#7441</a> Fixed the invalidation jobs endpoint to respect CDN locks.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7282">#7282</a> Fixed issue with user getting correctly logged when using an access or bearer token authentication.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7231">#7231</a> Fixed <code>sharedUserNames</code> display while retrieving CDN locks.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7628">#7628</a> Fixed an issue where certificate chain validation failed based on leading or trailing whitespace.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7688">#7688</a> Fixed ability to view secured parameters when role has correct permissions.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7697">#7697</a> Fixed display of <code>iloPassword</code> and <code>xmppPassword</code>, now based on permissions and instead of priv-level.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <h6>Breaking changes:</h6>
+                        <ul>
+                            <li>Fixed DS “ACTIVE” flag (<a href="https://github.com/apache/trafficcontrol/pull/4654">Blueprint</a>): Previously setting a Delivery Service (DS) to “Inactive” actually only sets it to “not routed”. There is no way to create a Delivery Service (with assigned servers) that will not be distributed to cache server configuration. This fix changes the <code>Active</code> property of Delivery Services from a boolean to an enumerated string constant that can represent three different “Activity States” for a Delivery Service.</li>
+                            <li>Updated <code>LastUpdated</code> field across multiple APIs to use <code>RFC3339</code> instead of deprecated <code>time.Time</code>.</li>
+                            <li>Capabilities are now part of DS structure instead of a separate struct.</li>
+                        </ul>
+                        </p>
+
+                        <h5><u>Traffic Portal</u></h5>
+                        <p class="card-text">
+                        <p><strong>Delivery Service (DS)</strong>:</p>
+                        <ul>
+                            <li>Added server capability (removed from DS context menu), lastUpdated fields to the DS forms.</li>
+                            <li>Added the ability to tell if a DS has the target of another steering DS.</li>
+                            <li>New config options in traffic_portal_properties.json for DS active flag feature.</li>
+                        </ul>
+                        <p><strong>Certs</strong>: Added visuals to DS cert expiration grid rows and the the ability to inspect a user provider cert, or the cert chain on DS SSL keys, and to delete a cert. Also added a revert certificate functionality.</p>
+                        <p><strong>Servers</strong>: Improved information about profile priorities with respect to layered profile.</p>
+                        <p><strong>Change Log</strong>: Ability to view entire log message by clicking on it.</p>
+                        <p><strong>CDN</strong>: Added <code>TTLOverride</code> field to allow a quick turnaround time when performing TR maintenance that involves restarts.</p>
+                        <p><strong>UI Beautification</strong>: Added better labels for widgets, simplifying DS button bar by moving DS changes/ DSRs under More menu, obscure sensitive text in <code>raw remap</code> fields, private SSL keys, “Header Rewrite” rules, and ILO interface passwords.</p>
+                        <ul>
+                            <li>Dependent on NodeJS version 16 or later</li>
+                            <li>
+                                Fixed the following issues/bugs:
+                                <ul>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7885">#7885</a> Fixed the issue where Compare Profiles page was not being displayed.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/7879">#7879</a> Fixed broken capability links for delivery service and added required capability as a column in DS table.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7049">#7049</a>, <a href="https://github.com/apache/trafficcontrol/issues/7052">#7052</a> Fixed server table’s quick search and filter option for multiple profiles.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7080">#7080</a>, <a href="https://github.com/apache/trafficcontrol/issues/6335">#6335</a> Fixed redirect links for server capability.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7414">#7414</a> Fixed DSR difference for DS required capability.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/5557">#5557</a> Moved <code>Fair Queueing Pacing Rate Bps</code> DS field to <code>Cache Configuration Settings</code> section.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7216">#7216</a> Fixed sort for Server’s Capabilities Table</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7179">#7179</a> Fixed search filter for Delivery Service Table</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7174">#7174</a> Fixed topologies sort (table and Delivery Service’s form)</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/5970">#5970</a> Fixed numeric sort in Delivery Service’s form for DSCP</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/5971">#5971</a> Fixed Max DNS Tool Top link to open in a new page</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        </p>
+
+                        <h5><u>Traffic Router</u></h5>
+                        <p class="card-text">
+                        <ul>
+                            <li>Optimized TR’s logic in zone detection and ability to handle DDOS attack by increasing TTL value.</li>
+                            <li>Logging improved for a better connection and user experience.</li>
+                            <li>Removed <code>dnssec.zone.diffing.enabled</code> and <code>dnssec.rrsig.cache.enabled</code> parameters</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/7808">#7808</a> Set SOA <code>minimum</code> field to a custom value defined in the <code>tld.soa.minimum</code> param, and remove the previously added <code>dns.negative.caching.ttl</code> property.</li>
+                            <li>
+                                Fixed the following issues/bugs:
+                                <ul>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7340">#7340</a> Fixed TR logging for the <code>cqhv</code> field when absent.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7252">#7252</a> Fixed integer overflow for <code>czCount</code>, by resetting the count to max value when it overflows.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7093">#7093</a> Updated Apache Tomcat from 9.0.43 to 9.0.67</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/3965">#3965</a> TR now always includes a <code>Content-Length</code> header in the response.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/6533">#6533</a> TR should not rename/recreate log files on rollover</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        </p>
+
+                        <h5><u>Traffic Stats</u></h5>
+                        <p class="card-text">
+                        <ul>
+                            <li>Improved logic to handle connection leaks and client requests timeout to Traffic Ops</li>
+                        </ul>
+                        </p>
+
+                        <h5><u>Traffic Monitor</u></h5>
+                        <p class="card-text">
+                        <ul>
+                            <li>Added anycast routing ability</li>
+                            <li>Improved logging with respect to ip availability for both, v4 and v6</li>
+                            <li>Fixed the bandwidth doubling issue per cache.</li>
+                        </ul>
+                        </p>
+
+                        <h5><u>Traffic Control Cache Config (T3C) (formerly ORT)</u></h5>
+                        <p class="card-text">
+                        <ul>
+                            <li>Config Generation: Addition of t3c-apply flag to allow ease of usage locally and a descriptive exit error message on failure.</li>
+                            <li>RPM Checks added to keep cache config up to date in case of RPM failures.</li>
+                            <li>Added support for anycast</li>
+                            <li>Decreased the amount of commits to the repo by removing timestamp from metadata file.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/7719">#7719</a> Added automatic self-healing when using slice plugin.</li>
+                            <li>
+                                Fixed the following:
+                                <ul>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7817">#7817</a> Fixed issue that would cause null ptr panic on client fallback.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7866">#7866</a> Fixed rpm db check to work with rocky linux 9.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7021">#7021</a> Fixed cache config for Delivery Services with IP Origins.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7043">#7043</a> Fixed cache config missing retry parameters for non-topology MSO Delivery Services going direct from edge to origin.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7163">#7163</a> Fix cache config for multiple profiles</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/6695">#6695</a> Directory creation was erroneously reporting an error when actually succeeding.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/issues/7590">#7590</a> Fixed issue with git detected dubious ownership in repository.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7137">#7137</a> parent.config simulate topology for non topo delivery services.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7153">#7153</a> Adds an extra T3C check for validity of an ssl cert (crash fix).</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7182">#7182</a> Sort peers used in strategy.yaml to prevent false positive for reload.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7204">#7204</a> strategies.yaml hash_key only for consistent_hash</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7277">#7277</a> remapdotconfig: remove skip check at mids for nocache/live</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7346">#7346</a> Fixed issue with stale lock file when using git to track changes.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7352">#7352</a> Fixed issue with application locking which would allow multiple instances of <code>t3c apply</code> to run concurrently.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7411">#7411</a> Fixed issue with wrong parent ordering with MSO non-topology delivery services.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7425">#7425</a> Fixed issue with layered profile iteration being done in the wrong order.</li>
+                                    <li><a href="https://github.com/apache/trafficcontrol/pull/7471">#7471</a> Fixed issue with MSO non topo origins from multiple cache groups.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        </p>
+
+                        <h5><u>TC Health Client</u></h5>
+                        <p class="card-text">
+                            Added a peer monitoring flag in strategies.yaml<br>
+                            Added three health mechanisms: L4 health (a TCP syn-ack-rst), L7 health (a successful HTTP response), and a meta-parent poll which polls the parent’s own health client parent health and uses a heuristic of unavailable parents on the parent.<br>
+                            <em>T3C Traffic Control Health Client</em> upgraded to Apache Traffic Server (ATS) 9.2.
+                        </p>
+
+                        <h5><u>Other Components</u></h5>
+                        <p class="card-text">
+                            CDN in a Box, the t3c integration tests, and the tc health client integration tests now use 9.1.<br>
+                            <a href="https://github.com/apache/trafficcontrol/pull/7896">#7896</a> <em>ATC Build system</em>: Count commits since the last release, not commits.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br><h2>Signing Keys</h2>
+    <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
+
+    <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file
+        for the relevant distribution. Make sure you get these files from the main distribution directory, rather than
+        from a mirror. Then verify the signatures using:
+
+    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+% pgpk -a KEYS % pgpv apache-trafficcontrol-8.0.0.tar.gz.asc
+</code>
+or
+<code>
+% pgp -ka KEYS
+% pgp apache-trafficcontrol-8.0.0.tar.gz.asc
+</code>
+or
+<code>
+% gpg --import KEYS
+% gpg --verify apache-trafficcontrol-8.0.0.tar.gz.asc apache-trafficcontrol-8.0.0.tar.gz
+</code> </pre>
+
+
+    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
+$ gpg --verify apache-trafficcontrol-8.0.0.tar.gz.asc apache-trafficcontrol-8.0.0.tar.gz
+gpg: Signature made Wed Jan 24 09:16:15 2024 MST
+gpg:                using RSA key 383FAA8E2028BB4796DFE5A177B0253DC9954099
+gpg: Good signature from "Rima Shah &lt;rshah@apache.org&gt;" [ultimate]
+</code></pre>
+
+    </p>
+
+    <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is
+        included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature
+        (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your
+        generated signature string matches the signature string published in the files above.
+    </p>
+
+    <br/>
+    <h2>Past Releases</h2>
+
     <!-- Release 7.0.1 -->
     <div class="row">
         <div class="col-sm-12">
@@ -120,7 +355,6 @@
                             <li><a href="/downloads/profiles/7.0.x/">Default Profiles</a></li>
                         </ul>
                         </p>
-
                         <h4>Release Notes</h4>
                         <h5>Added</h5>
                         <p class="card-text">
@@ -154,281 +388,95 @@
                         <h5>Fixed</h5>
                         <p class="card-text">
                         <ul>
-                        <li>Correction where using the placeholder <code>__HOSTNAME__</code> in "unknown" files (others than the defaults ones), was being replaced by the full FQDN instead of the shot hostname.</li>
-                        <li>Fixed TO API <code>GET /deliveryservicesserver</code> causing error when an IMS request is made with the <code>cdn</code> and <code>maxRevalDurationDays</code> parameters set.</li>
-                        <li>Fixed TO API <code>PUT /servers/:id/status</code> to only queue updates on the same CDN as the updated server</li>
-                        <li>Fixed TO to default route ID to 0, if it is not present in the request context.</li>
-                        <li>Fixed Traffic Ops ignoring the configured database port value, which was prohibiting the use of anything other than port 5432 (the PostgreSQL default)</li>
-                        <li>Fixed Traffic Router to handle aggressive NSEC correctly.</li>
-                        <li>Fixed a cdn-in-a-box build issue when using <code>RHEL_VERSION=7</code></li>
-                        <li>Fixed an issue in Traffic Portal where the Profile > View Delivery Services table was not filtering correctly.</li>
-                        <li>Fixed searching of the ds parameter merge_parent_groups slice.</li>
-                        <li>Only <code>operations</code> and <code>admin</code> roles should have the <code>DELIVERY-SERVICE:UPDATE</code> permission.</li>
-                        <li>Traffic Router: fixed a null pointer exception that caused snapshots to be rejected if a topology cachegroup did not have any online/reported/admin_down caches</li>
-                        <li>Update traffic_portal dependencies to mitigate <code>npm audit</code> issues.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6271">#6271</a> <code>api/{{version}/deliveryservices/{id}/health</code> returns no info if the delivery service uses a topology.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6291">#6291</a> Prevent Traffic Ops from modifying and/or deleting reserved statuses.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6299">#6299</a> User representations don't match</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/pull/6368">#6368</a> Fixed validation response message from <code>/acme_accounts</code></li>
-                        <li><a href="https://github.com/apache/trafficcontrol/pull/6369">#6369</a> Fixed <code>/acme_accounts</code> endpoint to validate email and URL fields</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/pull/6370">#6370</a> Fixed docs for <code>POST</code> and response code for <code>PUT</code> to <code>/acme_accounts</code> endpoint</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/pull/6538">#6538</a> Fixed the incorrect use of secure.port on TrafficRouter and corrected to the httpsPort value from the TR server configuration.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6549">#6549</a> Fixed internal server error while deleting a delivery service created from a DSR (Traffic Ops).</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/pull/6562">#6562</a> Fixed incorrect template in Ansible dataset loader role when fallbackToClosest is defined.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6580">#6580</a> Fixed cache config generation remap.config targets for MID-type servers in a Topology with other caches as parents and HTTPS origins.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/pull/6590">#6590</a> Python client: Corrected parameter name in decorator for get_parameters_by_profile_id</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6603">#6603</a> Fixed users with "admin" "Priv Level" not having Permission to view or delete DNSSEC keys.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/pull/6626">#6626</a> Fixed t3c Capabilities request failure issue which could result in malformed config.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6712">#6712</a> - Fixed error when loading the Traffic Vault schema from <code>create_tables.sql</code> more than once.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6776">#6776</a> User properties only required sometimes</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6780">#6780</a> Fixed t3c to use secondary parents when there are no primary parents available.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6792">#6792</a> Remove extraneous field from Topologies and Server Capability POST/PUT.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6795">#6795</a> Removed an unnecessary response wrapper object from being returned in a POST to the federation resolvers endpoint.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6800">#6800</a> Fixed incorrect error message for <code>/server/details</code> associated with query parameters.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6806">#6806</a> t3c calculates max_origin_connections incorrectly for topology-based delivery services</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6834">#6834</a> - In API 4.0, fixed <code>GET</code> for <code>/servers</code> to display all profiles irrespective of the index position. Also, replaced query param <code>profileId</code> with <code>profileName</code>.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6883">#6883</a> Fix t3c cache to invalidate on version change</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6896">#6896</a> Fixed the <code>POST api/cachegroups/id/queue_updates</code> endpoint so that it doesn't give an internal server error anymore.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6907">#6907</a> Fixed Traffic Ops to return the correct server structure (based on the API version) upon a server deletion.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6933">#6933</a> Fixed tc-health-client to handle credentials files with special characters in variables</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6944">#6944</a> Fixed cache config generation for ATS 9 sni.yaml from disable_h2 to http2 directive. ATS 9 documents disable_h2, but it doesn't seem to work.</li>
-                        <li><code>dequeueing</code> server updates should not require checking for cdn locks.</li>
-                        <li>t3c-generate fix for combining remapconfig and cachekeyconfig parameters for MakeRemapDotConfig call.</li>
+                            <li>Correction where using the placeholder <code>__HOSTNAME__</code> in "unknown" files (others than the defaults ones), was being replaced by the full FQDN instead of the shot hostname.</li>
+                            <li>Fixed TO API <code>GET /deliveryservicesserver</code> causing error when an IMS request is made with the <code>cdn</code> and <code>maxRevalDurationDays</code> parameters set.</li>
+                            <li>Fixed TO API <code>PUT /servers/:id/status</code> to only queue updates on the same CDN as the updated server</li>
+                            <li>Fixed TO to default route ID to 0, if it is not present in the request context.</li>
+                            <li>Fixed Traffic Ops ignoring the configured database port value, which was prohibiting the use of anything other than port 5432 (the PostgreSQL default)</li>
+                            <li>Fixed Traffic Router to handle aggressive NSEC correctly.</li>
+                            <li>Fixed a cdn-in-a-box build issue when using <code>RHEL_VERSION=7</code></li>
+                            <li>Fixed an issue in Traffic Portal where the Profile > View Delivery Services table was not filtering correctly.</li>
+                            <li>Fixed searching of the ds parameter merge_parent_groups slice.</li>
+                            <li>Only <code>operations</code> and <code>admin</code> roles should have the <code>DELIVERY-SERVICE:UPDATE</code> permission.</li>
+                            <li>Traffic Router: fixed a null pointer exception that caused snapshots to be rejected if a topology cachegroup did not have any online/reported/admin_down caches</li>
+                            <li>Update traffic_portal dependencies to mitigate <code>npm audit</code> issues.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6271">#6271</a> <code>api/{{version}/deliveryservices/{id}/health</code> returns no info if the delivery service uses a topology.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6291">#6291</a> Prevent Traffic Ops from modifying and/or deleting reserved statuses.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6299">#6299</a> User representations don't match</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/6368">#6368</a> Fixed validation response message from <code>/acme_accounts</code></li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/6369">#6369</a> Fixed <code>/acme_accounts</code> endpoint to validate email and URL fields</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/6370">#6370</a> Fixed docs for <code>POST</code> and response code for <code>PUT</code> to <code>/acme_accounts</code> endpoint</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/6538">#6538</a> Fixed the incorrect use of secure.port on TrafficRouter and corrected to the httpsPort value from the TR server configuration.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6549">#6549</a> Fixed internal server error while deleting a delivery service created from a DSR (Traffic Ops).</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/6562">#6562</a> Fixed incorrect template in Ansible dataset loader role when fallbackToClosest is defined.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6580">#6580</a> Fixed cache config generation remap.config targets for MID-type servers in a Topology with other caches as parents and HTTPS origins.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/6590">#6590</a> Python client: Corrected parameter name in decorator for get_parameters_by_profile_id</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6603">#6603</a> Fixed users with "admin" "Priv Level" not having Permission to view or delete DNSSEC keys.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/pull/6626">#6626</a> Fixed t3c Capabilities request failure issue which could result in malformed config.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6712">#6712</a> - Fixed error when loading the Traffic Vault schema from <code>create_tables.sql</code> more than once.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6776">#6776</a> User properties only required sometimes</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6780">#6780</a> Fixed t3c to use secondary parents when there are no primary parents available.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6792">#6792</a> Remove extraneous field from Topologies and Server Capability POST/PUT.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6795">#6795</a> Removed an unnecessary response wrapper object from being returned in a POST to the federation resolvers endpoint.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6800">#6800</a> Fixed incorrect error message for <code>/server/details</code> associated with query parameters.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6806">#6806</a> t3c calculates max_origin_connections incorrectly for topology-based delivery services</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6834">#6834</a> - In API 4.0, fixed <code>GET</code> for <code>/servers</code> to display all profiles irrespective of the index position. Also, replaced query param <code>profileId</code> with <code>profileName</code>.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6883">#6883</a> Fix t3c cache to invalidate on version change</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6896">#6896</a> Fixed the <code>POST api/cachegroups/id/queue_updates</code> endpoint so that it doesn't give an internal server error anymore.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6907">#6907</a> Fixed Traffic Ops to return the correct server structure (based on the API version) upon a server deletion.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6933">#6933</a> Fixed tc-health-client to handle credentials files with special characters in variables</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6944">#6944</a> Fixed cache config generation for ATS 9 sni.yaml from disable_h2 to http2 directive. ATS 9 documents disable_h2, but it doesn't seem to work.</li>
+                            <li><code>dequeueing</code> server updates should not require checking for cdn locks.</li>
+                            <li>t3c-generate fix for combining remapconfig and cachekeyconfig parameters for MakeRemapDotConfig call.</li>
                         </ul>
                         </p>
 
                         <h5>Removed</h5>
                         <p class="card-text">
                         <ul>
-                        <li>Dropped CentOS 8 support</li>
-                        <li>Remove Traffic Ops API version 2</li>
-                        <li>Remove <code>client.steering.forced.diversity</code> feature flag(profile parameter) from Traffic Router (TR). Client steering responses now have cache diversity by default.</li>
-                        <li>Remove traffic_portal dependencies to mitigate <code>npm audit</code> issues, specifically <code>grunt-concurrent</code>, <code>grunt-contrib-concat</code>, <code>grunt-contrib-cssmin</code>, <code>grunt-contrib-jsmin</code>, <code>grunt-contrib-uglify</code>, <code>grunt-contrib-htmlmin</code>, <code>grunt-newer</code>, and <code>grunt-wiredep</code></li>
-                        <li>Removed the Traffic Monitor <code>peer_polling_protocol</code> option. Traffic Monitor now just uses hostnames to request peer states, which can be handled via IPv4 or IPv6 depending on the underlying IP version in use.</li>
-                        <li>Replace <code>forever</code> with <code>pm2</code> for process management of the traffic portal node server to remediate security issues.</li>
-                        <li>The <code>/servers/details</code> endpoint of the Traffic Ops API has been dropped in version 4.0, and marked deprecated in earlier versions.</li>
+                            <li>Dropped CentOS 8 support</li>
+                            <li>Remove Traffic Ops API version 2</li>
+                            <li>Remove <code>client.steering.forced.diversity</code> feature flag(profile parameter) from Traffic Router (TR). Client steering responses now have cache diversity by default.</li>
+                            <li>Remove traffic_portal dependencies to mitigate <code>npm audit</code> issues, specifically <code>grunt-concurrent</code>, <code>grunt-contrib-concat</code>, <code>grunt-contrib-cssmin</code>, <code>grunt-contrib-jsmin</code>, <code>grunt-contrib-uglify</code>, <code>grunt-contrib-htmlmin</code>, <code>grunt-newer</code>, and <code>grunt-wiredep</code></li>
+                            <li>Removed the Traffic Monitor <code>peer_polling_protocol</code> option. Traffic Monitor now just uses hostnames to request peer states, which can be handled via IPv4 or IPv6 depending on the underlying IP version in use.</li>
+                            <li>Replace <code>forever</code> with <code>pm2</code> for process management of the traffic portal node server to remediate security issues.</li>
+                            <li>The <code>/servers/details</code> endpoint of the Traffic Ops API has been dropped in version 4.0, and marked deprecated in earlier versions.</li>
                         </ul>
                         </p>
 
                         <h5>Changed</h5>
                         <p class="card-text">
                         <ul>
-                        <li>Added Rocky Linux 8 support</li>
-                        <li>Added new fields to the monitoring.json snapshot and made Traffic Monitor prefer data in monitoring.json to the CRConfig snapshot</li>
-                        <li>Added permissions to the role form in traffic portal</li>
-                        <li>Adds updates to the trafficcontrol-health-client to, use new ATS Host status formats, detect and use proper traffic_ctl commands, and adds new markup-poll-threshold config.</li>
-                        <li>Changed the Traffic Ops user last_authenticated update query to only update once per minute to avoid row-locking when the same user logs in frequently.</li>
-                        <li>Changed the default Traffic Ops API version requsted by Traffic Router from 2.0 to 3.1</li>
-                        <li>Removed the unused <code>deliveryservice_tmuser</code> table from Traffic Ops database</li>
-                        <li>Traffic Monitor now defaults to 100 historical "CRConfig" Snapshots stored internally if not specified in configuration (previous default was 20,000)</li>
-                        <li>Traffic Monitors now peer with other Traffic Monitors of the same status (e.g. ONLINE with ONLINE, OFFLINE with OFFLINE), instead of all peering with ONLINE.</li>
-                        <li>Updated Ansible Roles to use Traffic Ops API v3</li>
-                        <li>Updated Go version to 1.18</li>
-                        <li>Updated Grove to use the TO API v3 client library</li>
-                        <li>Updated Traffic Router dependencies:
-                            <ul>
-                                <li>async-http-client: 2.12.1 -> 2.12.3</li>
-                                <li>commons-codec: 1.6 -> 1.15</li>
-                                <li>commons-io: 2.0.1 -> 2.11.0</li>
-                                <li>guava: 18.0 -> 31.1-jre</li>
-                                <li>spring: 5.2.20.RELEASE -> 5.3.20</li>
-                            </ul>
-                        </li>
-                        <li>Updated the CDNs Traffic Portal page to use a more performant AG-Grid-based table.</li>
-                        <li>Updated the Cache Stats Traffic Portal page to use a more performant AG-Grid-based table.</li>
-                        <li>Updated the Profiles Traffic Portal page to use a more performant AG-Grid-based table.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/4351">#4351</a> Updated message to an informative one when deleting a delivery service.</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6654">#6654</a> Traffic Monitor now uses the TO API 4.0 by default and falls back to 3.1</li>
-                        <li><a href="https://github.com/apache/trafficcontrol/issues/6694">#6694</a> Traffic Stats now uses the TO API 3.0</li>
-                        <li><code>TRAFFIC_ROUTER</code>-type Profiles no longer need to have names that match any kind of pattern (e.g. <code>CCR_.*</code>)</li>
+                            <li>Added Rocky Linux 8 support</li>
+                            <li>Added new fields to the monitoring.json snapshot and made Traffic Monitor prefer data in monitoring.json to the CRConfig snapshot</li>
+                            <li>Added permissions to the role form in traffic portal</li>
+                            <li>Adds updates to the trafficcontrol-health-client to, use new ATS Host status formats, detect and use proper traffic_ctl commands, and adds new markup-poll-threshold config.</li>
+                            <li>Changed the Traffic Ops user last_authenticated update query to only update once per minute to avoid row-locking when the same user logs in frequently.</li>
+                            <li>Changed the default Traffic Ops API version requsted by Traffic Router from 2.0 to 3.1</li>
+                            <li>Removed the unused <code>deliveryservice_tmuser</code> table from Traffic Ops database</li>
+                            <li>Traffic Monitor now defaults to 100 historical "CRConfig" Snapshots stored internally if not specified in configuration (previous default was 20,000)</li>
+                            <li>Traffic Monitors now peer with other Traffic Monitors of the same status (e.g. ONLINE with ONLINE, OFFLINE with OFFLINE), instead of all peering with ONLINE.</li>
+                            <li>Updated Ansible Roles to use Traffic Ops API v3</li>
+                            <li>Updated Go version to 1.18</li>
+                            <li>Updated Grove to use the TO API v3 client library</li>
+                            <li>Updated Traffic Router dependencies:
+                                <ul>
+                                    <li>async-http-client: 2.12.1 -> 2.12.3</li>
+                                    <li>commons-codec: 1.6 -> 1.15</li>
+                                    <li>commons-io: 2.0.1 -> 2.11.0</li>
+                                    <li>guava: 18.0 -> 31.1-jre</li>
+                                    <li>spring: 5.2.20.RELEASE -> 5.3.20</li>
+                                </ul>
+                            </li>
+                            <li>Updated the CDNs Traffic Portal page to use a more performant AG-Grid-based table.</li>
+                            <li>Updated the Cache Stats Traffic Portal page to use a more performant AG-Grid-based table.</li>
+                            <li>Updated the Profiles Traffic Portal page to use a more performant AG-Grid-based table.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/4351">#4351</a> Updated message to an informative one when deleting a delivery service.</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6654">#6654</a> Traffic Monitor now uses the TO API 4.0 by default and falls back to 3.1</li>
+                            <li><a href="https://github.com/apache/trafficcontrol/issues/6694">#6694</a> Traffic Stats now uses the TO API 3.0</li>
+                            <li><code>TRAFFIC_ROUTER</code>-type Profiles no longer need to have names that match any kind of pattern (e.g. <code>CCR_.*</code>)</li>
                         </ul>
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <h2>Signing Keys</h2>
-    <p>It is essential that you verify the integrity of the downloaded files using the PGP or MD5 signatures.</p>
-
-    <p>The PGP signatures can be verified using PGP or GPG. First download the KEYS as well as the `ASC` signature file
-        for the relevant distribution. Make sure you get these files from the main distribution directory, rather than
-        from a mirror. Then verify the signatures using:
-
-    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-% pgpk -a KEYS % pgpv apache-trafficcontrol-7.0.1.tar.gz.asc
-</code>
-or
-<code>
-% pgp -ka KEYS
-% pgp apache-trafficcontrol-7.0.1.tar.gz.asc
-</code>
-or
-<code>
-% gpg --import KEYS
-% gpg --verify apache-trafficcontrol-7.0.1.tar.gz.asc apache-trafficcontrol-7.0.1.tar.gz
-</code> </pre>
-
-
-    <pre style="background-color: #C0C0C0; padding: 0px 20px 20px 20px;"><code>
-$ gpg --verify apache-trafficcontrol-7.0.1.tar.gz.asc apache-trafficcontrol-7.0.1.tar.gz
-gpg: Signature made Wed 17 Aug 2022 10:45:29 AM MDT
-gpg:                using RSA key 8333C682D9DAFE30825B61D47278621C4AE46B6B
-gpg: Good signature from "Steve Hamrick &lt;shamrick@apache.org&gt;" [ultimate]
-</code></pre>
-
-    </p>
-
-    <p>Additionally, you should verify the SHA signature on the files. A unix program called `sha` or `shasum` is
-        included in many unix distributions. It is also available as part of GNU Textutils. An MD5 signature
-        (deprecated) consists of 32 hex characters, and a SHA512 signature consists of 128 hex characters. Ensure your
-        generated signature string matches the signature string published in the files above.
-    </p>
-
-    <br/>
-    <h2>Past Releases</h2>
-
-    <!-- Release 6.1.0 -->
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title"><b>Apache Traffic Control 6.1.0 - February 4<sup>th</sup>, 2022</b></h3>
-                        <p class="card-text">Apache Traffic Control 6.1.0 is available here:
-                        <ul>
-                            <li>
-                                <a href="https://dlcdn.apache.org/trafficcontrol/6.1.0/apache-trafficcontrol-6.1.0.tar.gz">Tarball</a>
-                            </li>
-                            <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/6.1.0/apache-trafficcontrol-6.1.0.tar.gz.sha512">SHA-512</a>
-                            </li>
-                            <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/6.1.0/apache-trafficcontrol-6.1.0.tar.gz.b2">BLAKE2</a>
-                            </li>
-                            <li>
-                                <a href="https://downloads.apache.org/trafficcontrol/6.1.0/apache-trafficcontrol-6.1.0.tar.gz.asc">ASC</a>
-                            </li>
-                            <li><a href="https://downloads.apache.org/trafficcontrol/KEYS">KEYS</a></li>
-                            <li><a href="/downloads/profiles/6.0.x/">Default Profiles</a></li>
-                        </ul>
-                        </p>
-                        <h4>Release Notes</h4>
-                        <h5>Traffic Ops</h5>
-                        <p class="card-text"><h6>Added</h6>
-                        <ul>
-                            <li>Added permission based roles for better access control.</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/5674">#5674</a> Added new query parameters <code>cdn</code> and <code>maxRevalDurationDays</code> to the <code>GET /api/x/jobs</code> Traffic Ops API to filter by CDN name and within the start_time window defined by the <code>maxRevalDurationDays</code> GLOBAL profile parameter, respectively.</li>
-                            <li>Added a new Traffic Ops cdn.conf option -- <code>disable_auto_cert_deletion</code> -- in order to optionally prevent the automatic deletion of certificates for delivery services that no longer exist whenever a CDN snapshot is taken.</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6034">#6034</a> Added new query parameter <code>cdn</code> to the <code>GET /api/x/deliveryserviceserver</code> Traffic Ops API to filter by CDN name</li>
-                            <li>SANs information to the SSL key endpoint and Traffic Portal page.</li>
-                            <li>Added Traffic Vault Postgres columns, a Traffic Ops API endpoint, and Traffic Portal page to show SSL certificate expiration information.</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Fixed</h6>
-                        <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/5893">#5893</a> - A self signed certificate is created when an HTTPS delivery service is created or an HTTP delivery service is updated to HTTPS.</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6378">#6378</a> - Cannot update or delete Cache Groups with null latitude and longitude.</li>
-                            <li>Fixed broken <code>GET /cdns/routing</code> Traffic Ops API</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6392">#6392</a> - Traffic Ops prevents assigning ORG servers to topology-based delivery services (as well as a number of other valid operations being prohibited by "last server assigned to DS" validations which don't apply to topology-based delivery services)</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6457">#6457</a> - Fix broken user registration and password reset, due to the last_authenticated value being null.</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6367">#6367</a> - Fix PUT <code>user/current</code> to work with v4 User Roles and Permissions</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6266">#6266</a> - Removed postgresql13-devel requirement for traffic_ops</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Changed</h6>
-                        <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6179">#6179</a> Updated the Traffic Ops rpm to include the <code>ToDnssecRefresh</code> binary and make the <code>trafops_dnssec_refresh</code> cron job use it<br>
-                                <strong>- Changed Invalidation Jobs throughout (TO, TP, T3C, etc.) to account for the ability to do both REFRESH and REFETCH requests for resources.</strong></li>
-                            <li>The <code>admin</code> Role is now always guaranteed to exist, and can't be deleted or modified.</li>
-                            <li>Updated Golang dependencies</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Deprecated</h6>
-                        <ul>
-                            <li>Deprecated the endpoints and docs associated with <code>/api_capability</code> and <code>/capabilities</code>.</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Removed</h6>
-                        <ul>
-                            <li>Removed the <code>user_role</code> table.</li>
-                            <li>The <code>traffic_ops.sh</code> shell profile no longer sets <code>GOPATH</code> or adds its <code>bin</code> folder to the <code>PATH</code></li>
-                            <li><code>/capabilities</code> removed from Traffic Ops API version 4.</li>
-                        </ul></p>
-                        <h5>Traffic Portal</h5>
-                        <p class="card-text"><h6>Added</h6>
-                        <ul>
-                            <li>A new Traffic Portal server command-line option <code>-c</code> to specify a configuration file, and the ability to set <code>log: null</code> to log to stdout (consult documentation for details).</li>
-                            <li>SANs information to the SSL key endpoint and Traffic Portal page.<br>
-                                <strong>- Added <code>Invalidation Type</code> (REFRESH or REFETCH) for invalidating content to Traffic Portal.</strong></li>
-                            <li>IMS warnings to Content Invalidation requests in Traffic Portal and documentation.</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Fixed</h6>
-                        <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/pull/6411">#6411</a> Removes invalid 'ALL cdn' options from TP</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6255">#6255</a> - Unreadable Prod Mode CDN Notifications in Traffic Portal</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6259">#6259</a> - Traffic Portal No Longer Allows Spaces in Server Object "Router Port Name"</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Changed</h6>
-                        <ul>
-                            <li>Traffic Portal no longer uses <code>ruby compass</code> to compile sass and now uses <code>dart-sass</code>.<br>
-                                <strong>- Changed Invalidation Jobs throughout (TO, TP, T3C, etc.) to account for the ability to do both REFRESH and REFETCH requests for resources.</strong></li>
-                        </ul></p>
-                        <h5>Traffic Monitor</h5>
-                        <p class="card-text"><h6>Added</h6>
-                        <ul>
-                            <li>Added a new Traffic Monitor configuration option -- <code>short_hostname_override</code> -- to traffic_monitor.cfg to allow overriding the system hostname that Traffic Monitor uses.</li>
-                            <li>Added a new Traffic Monitor configuration option -- <code>stat_polling</code> (default: true) -- to traffic_monitor.cfg to disable stat polling.</li>
-                            <li>Added definition for <code>heartbeat.polling.interval</code> for CDN Traffic Monitor config in API documentation.</li>
-                        </ul></p>
-                        <h5>Traffic Stats</h5>
-                        <p class="card-text"><h6>Changed</h6>
-                        <ul>
-                            <li>Updated Golang dependencies</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Deprecated</h6>
-                        <ul>
-                            <li>The use of a seelog configuration file to configure Traffic Stats logging is deprecated, and logging configuration should instead be present in the <code>logs</code> property of the Traffic Stats configuration file (refer to documentation for details).</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Fixed</h6>
-                        <ul>
-                            <li>Fixed Traffic Monitor parsing stats_over_http output so that multiple stats for the same underlying delivery service (when the delivery service has more than 1 regex) are properly summed together. This makes the resulting data more accurate in addition to fixing the "new stat is lower than last stat" warnings.</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Changed</h6>
-                        <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6376">#6376</a> Updated TO/TM so that TM doesn't overwrite monitoring snapshot data with CR config snapshot data.</li>
-                            <li>Updated Golang dependencies</li>
-                        </ul></p>
-                        <h5>Traffic Router</h5>
-                        <p class="card-text"><h6>Fixed</h6>
-                        <ul>
-                            <li>Fixed Traffic Router crs/stats to prevent overflow and to correctly record the time used in averages.</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6446">#6446</a> - Revert Traffic Router rollover file pattern to the one previously used in <code>log4j.properties</code> with Log4j 1.2</li>
-                            <li>Changed the <code>maxConnections</code> value on Traffic Router, to prevent the thundering herd problem (TR).</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Changed</h6>
-                        <ul>
-                            <li><a href="https://github.com/apache/trafficcontrol/pull/6209">#6209</a> Updated Traffic Router to use Java 11 to compile and run</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/pull/6506">#6506</a> - Updated <code>jackson-databind</code> and <code>jackson-annotations</code> Traffic Router dependencies to version 2.13.1</li>
-                        </ul></p>
-                        <h5>Cache Config</h5>
-                        <p class="card-text"><h6>Added</h6>
-                        <ul>
-                            <li>cache config t3c-apply retrying when another t3c-apply is running.</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6032">#6032</a> Add t3c setting mode 0600 for secure files</li>
-                            <li><a href="https://github.com/apache/trafficcontrol/issues/6405">#6405</a> Added cache config version to all t3c apps and config file headers</li>
-                        </ul></p>
-                        <p class="card-text"><h6>Changed</h6>
-                        <p><strong>- Updated <code>t3c</code> to request less unnecessary deliveryservice-server assignment and invalidation jobs data via new query params supported by Traffic Ops</strong><br>
-                            <strong>- Changed Invalidation Jobs throughout (TO, TP, T3C, etc.) to account for the ability to do both REFRESH and REFETCH requests for resources.</strong></p>
-                        <ul>
-                            <li>Updated <code>t3c-apply</code> to reduce mutable state in <code>TrafficOpsReq</code> struct.</li>
-                            <li>Updated Golang dependencies</li>
-                        </ul></p>
-                        <h5>Miscellaneous</h5>
-                        <p class="card-text"><h6>Added</h6>
-                        <ul>
-                            <li>New <code>pkg</code> script options, <code>-h</code>, <code>-s</code>, <code>-S</code>, and <code>-L</code>.</li>
-                            <li>Traffic Vault: Added additional flag to TV Riak (Deprecated) Util</li>
-                        </ul></p>
                     </div>
                 </div>
             </div>
